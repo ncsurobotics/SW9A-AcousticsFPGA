@@ -4,4 +4,3 @@
 
 `define MATRIX_SIZE 4
 `define THETA_COUNT 19
-

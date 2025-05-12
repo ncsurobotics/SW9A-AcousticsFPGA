@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="bartlett_time_domain_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="bartlett_time_domain_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="9,602.916 ns"></ZoomStartTime>
+      <ZoomEndTime time="10,079.417 ns"></ZoomEndTime>
+      <Cursor1Time time="10,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="283"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/bartlett_time_domain_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/bartlett_time_domain_tb/reset_n" type="logic">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="group64" type="group">
+      <obj_property name="label">Testbench</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_fft_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_fft_tdata[255:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tdata[255:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_fft_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/m_axis_all_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_fft_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group83" type="group">
+      <obj_property name="label">Bartlett</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_fft_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_fft_tdata[255:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tdata[255:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_fft_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_fft_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_all_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_all_tdata[2431:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tdata[2431:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_all_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_all_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_data" type="array">
+         <obj_property name="ElementShortName">rxx_data[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_data[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_valid" type="logic">
+         <obj_property name="ElementShortName">rxx_valid</obj_property>
+         <obj_property name="ObjectShortName">rxx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_ready" type="logic">
+         <obj_property name="ElementShortName">rxx_ready</obj_property>
+         <obj_property name="ObjectShortName">rxx_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_weight_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/m_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group93" type="group">
+      <obj_property name="label">Rxx</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[255:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[255:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/mid_tdata" type="array">
+         <obj_property name="ElementShortName">mid_tdata[2047:0]</obj_property>
+         <obj_property name="ObjectShortName">mid_tdata[2047:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/mid_tvalid" type="logic">
+         <obj_property name="ElementShortName">mid_tvalid</obj_property>
+         <obj_property name="ObjectShortName">mid_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/rxx_inst/mid_tready" type="logic">
+         <obj_property name="ElementShortName">mid_tready</obj_property>
+         <obj_property name="ObjectShortName">mid_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group107" type="group">
+      <obj_property name="label">P_theta</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_r_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_tdata" type="array">
+         <obj_property name="ElementShortName">matrix_tdata[2047:0]</obj_property>
+         <obj_property name="ObjectShortName">matrix_tdata[2047:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_tvalid" type="logic">
+         <obj_property name="ElementShortName">matrix_tvalid</obj_property>
+         <obj_property name="ObjectShortName">matrix_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_tready" type="logic">
+         <obj_property name="ElementShortName">matrix_tready</obj_property>
+         <obj_property name="ObjectShortName">matrix_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group117" type="group">
+      <obj_property name="label">Store</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/m_axis_all_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_all_tdata[2432:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tdata[2432:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/m_axis_all_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/output_store_inst/m_axis_all_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group137" type="group">
+      <obj_property name="label">Max</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[5:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/max_inst/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1528" type="group">
+      <obj_property name="label">Had</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tready_buf" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tready_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tready_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tready_buf" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tready_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tready_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tvalid_buf" type="array">
+         <obj_property name="ElementShortName">m_axis_tvalid_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tvalid_buf" type="array">
+         <obj_property name="ElementShortName">m_axis_tvalid_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid_buf[15:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1534" type="group">
+      <obj_property name="label">Acc</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_accumulator_no_latency_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[2047:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[2047:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_accumulator_no_latency_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_accumulator_no_latency_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_accumulator_no_latency_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/matrix_accumulator_no_latency_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1537" type="group">
+      <obj_property name="label">S_theta</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_theta_inst/theta" type="array">
+         <obj_property name="ElementShortName">theta[4:0]</obj_property>
+         <obj_property name="ObjectShortName">theta[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_time_domain_tb/bartlett_time_domain_inst/p_theta_inst/s_theta_inst/s_sh_theta" type="array">
+         <obj_property name="ElementShortName">s_sh_theta[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">s_sh_theta[1023:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>
