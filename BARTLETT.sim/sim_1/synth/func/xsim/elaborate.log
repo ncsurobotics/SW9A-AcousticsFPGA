@@ -1,7 +1,7 @@
 Vivado Simulator v2022.2
 Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot BARTLETT_tb_func_synth xil_defaultlib.BARTLETT_tb xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
+Running: /home/bigpi/AMD/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L secureip --snapshot BARTLETT_tb_func_synth xil_defaultlib.BARTLETT_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
@@ -23,8 +23,8 @@ Compiling module unisims_ver.GND
 Compiling module unisims_ver.FDRE_default
 Compiling module unisims_ver.FDSE_default
 Compiling module unisims_ver.SRL16E_default
-Compiling module unisims_ver.CARRY4
 Compiling module unisims_ver.SRLC32E_default
+Compiling module unisims_ver.CARRY4
 Compiling module unisims_ver.MUXF7
 Compiling module unisims_ver.MUXF8
 Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
@@ -32,7 +32,9 @@ Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,INI...
 Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
 Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,RAM...
 Compiling module unisims_ver.DSP48E1(ACASCREG=2,ALUMODEREG=0,...
-Compiling module unisims_ver.DSP48E1(ALUMODEREG=0,BCASCREG=2,...
+Compiling module unisims_ver.DSP48E1(ALUMODEREG=0,A_INPUT="CA...
+Compiling module unisims_ver.DSP48E1(ACASCREG=2,ALUMODEREG=0,...
+Compiling module unisims_ver.DSP48E1(ALUMODEREG=0,A_INPUT="CA...
 Compiling module xil_defaultlib.xfft_256pt_32bit
 Compiling module xil_defaultlib.HILBERT_DATAPATH
 Compiling module unisims_ver.BUFG

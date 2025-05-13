@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Tue May 13 16:00:47 2025
+-- Date        : Sun May 11 22:06:11 2025
 -- Host        : fedora.attlocal.net running 64-bit unknown
 -- Command     : write_vhdl -force -mode synth_stub -rename_top xfft_256pt_32bit -prefix
 --               xfft_256pt_32bit_ xfft_256pt_32bit_stub.vhdl

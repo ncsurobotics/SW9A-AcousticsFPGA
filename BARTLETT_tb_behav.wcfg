@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="BARTLETT_tb_behav.wdb" id="1">
+      <db_ref path="BARTLETT_tb_func_synth.wdb" id="1">
          <top_modules>
             <top_module name="BARTLETT_tb" />
             <top_module name="glbl" />
@@ -11,57 +11,61 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="31,033.046 ns"></ZoomStartTime>
-      <ZoomEndTime time="31,045.375 ns"></ZoomEndTime>
-      <Cursor1Time time="31,035.100 ns"></Cursor1Time>
+      <ZoomStartTime time="14,794,345 ps"></ZoomStartTime>
+      <ZoomEndTime time="14,807,251 ps"></ZoomEndTime>
+      <Cursor1Time time="14,805,100 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="91"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="119"></NameColumnWidth>
+      <ValueColumnWidth column_width="114"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tdata" type="array">
-      <obj_property name="ElementShortName">x_s_axis_data_tdata[127:0]</obj_property>
-      <obj_property name="ObjectShortName">x_s_axis_data_tdata[127:0]</obj_property>
+   <WVObjectSize size="12" />
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tdata">
+      <obj_property name="ElementShortName">x_s_axis_data_tdata[255:0]</obj_property>
+      <obj_property name="ObjectShortName">x_s_axis_data_tdata[255:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tvalid" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tvalid">
       <obj_property name="ElementShortName">x_s_axis_data_tvalid</obj_property>
       <obj_property name="ObjectShortName">x_s_axis_data_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tlast" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tlast">
       <obj_property name="ElementShortName">x_s_axis_data_tlast</obj_property>
       <obj_property name="ObjectShortName">x_s_axis_data_tlast</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tdata" type="array">
-      <obj_property name="ElementShortName">m_axis_data_tdata[127:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_data_tdata[127:0]</obj_property>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tdata">
+      <obj_property name="ElementShortName">m_axis_data_tdata[255:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_data_tdata[255:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tvalid" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tvalid">
       <obj_property name="ElementShortName">m_axis_data_tvalid</obj_property>
       <obj_property name="ObjectShortName">m_axis_data_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tlast" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/xfft_inst/m_axis_data_tlast">
       <obj_property name="ElementShortName">m_axis_data_tlast</obj_property>
       <obj_property name="ObjectShortName">m_axis_data_tlast</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/data_corrector_inst/data_out" type="array">
-      <obj_property name="ElementShortName">data_out[127:0]</obj_property>
-      <obj_property name="ObjectShortName">data_out[127:0]</obj_property>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/data_corrector_inst/data_out">
+      <obj_property name="ElementShortName">data_out[255:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[255:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/data_corrector_inst/valid" type="logic">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tdata">
+      <obj_property name="ElementShortName">ifft_m_axis_data_tdata[255:0]</obj_property>
+      <obj_property name="ObjectShortName">ifft_m_axis_data_tdata[255:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tdata" type="array">
-      <obj_property name="ElementShortName">ifft_m_axis_data_tdata[127:0]</obj_property>
-      <obj_property name="ObjectShortName">ifft_m_axis_data_tdata[127:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tvalid" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tvalid">
       <obj_property name="ElementShortName">ifft_m_axis_data_tvalid</obj_property>
       <obj_property name="ObjectShortName">ifft_m_axis_data_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tlast" type="logic">
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/ifft_m_axis_data_tlast">
       <obj_property name="ElementShortName">ifft_m_axis_data_tlast</obj_property>
       <obj_property name="ObjectShortName">ifft_m_axis_data_tlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_xfft_inst_event_fft_overflow_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
+      <obj_property name="ObjectShortName">NLW_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
+      <obj_property name="ObjectShortName">NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
    </wvobject>
 </wave_config>

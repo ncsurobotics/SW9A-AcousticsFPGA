@@ -98,7 +98,8 @@ module HILBERT_DATAPATH (
 
     wire [255:0] ifft_s_axis_data_tdata, x_m_axis_data_tdata;
 
-
+    //status wires (only used for testing)
+    wire ovflo_fwd, ovflo_rev;
 
 
     //first FFT
@@ -117,8 +118,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           x_m_axis_data_tdata),                      // output wire [31 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          x_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          x_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           x_m_axis_data_tlast)                      // output wire m_axis_data_tlast
-    //.m_axis_status_tready(        1'b1)                                     // Unused status channel
+    .m_axis_data_tlast(           x_m_axis_data_tlast),                      // output wire m_axis_data_tlast
+    .event_fft_overflow(ovflo_fwd)                                     // Unused status channel
     );
 
 
@@ -157,8 +158,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           ifft_m_axis_data_tdata),                      // output wire [127 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          ifft_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          ifft_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           ifft_m_axis_data_tlast)                      // output wire m_axis_data_tlast
-    //.m_axis_status_tready(                          1'b1)                     // Unused status channel
+    .m_axis_data_tlast(           ifft_m_axis_data_tlast),                      // output wire m_axis_data_tlast
+    .event_fft_overflow(ovflo_rev)                     // Unused status channel
     );
 
 endmodule
