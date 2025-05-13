@@ -1,0 +1,7 @@
+0.7
+2020.2
+Oct 14 2022
+05:07:14
+/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.sim/sim_1/behav/xsim/glbl.v,1665704903,verilog,,,,glbl,,,,,,,,
+/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sim_1/new/BARTLETT_tb.v,1747013149,verilog,,,,BARTLETT_tb,,,,,,,,
+/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v,1747166616,verilog,,/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sim_1/new/BARTLETT_tb.v,,BARTLETT;DATA_CORRECTOR;HILBERT_DATAPATH,,,,,,,,
