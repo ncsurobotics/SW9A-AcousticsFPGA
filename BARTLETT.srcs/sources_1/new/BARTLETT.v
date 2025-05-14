@@ -75,7 +75,9 @@ module HILBERT_DATAPATH (
 );
     //config parameters
     localparam [11:0] ZERO_PAD = 12'b0;
-    localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010110_0101010101010110_0101010101010110_0101010101010110;
+    //localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010110_0101010101010110_0101010101010110_0101010101010110; //conservative (original)
+    //localparam [63:0] SCALE_SCHEDULE = 64'b0000000000000000_0000000000000000_0000000000000000_0000000000000000;
+    localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010100_0101010101010100_0101010101010100_0101010101010100;
     localparam [3:0] FWD = 4'b1111;
     localparam [3:0] REV = 4'b0000;
 
@@ -98,8 +100,6 @@ module HILBERT_DATAPATH (
 
     wire [255:0] ifft_s_axis_data_tdata, x_m_axis_data_tdata;
 
-    //status wires (only used for testing)
-    wire ovflo_fwd, ovflo_rev;
 
 
     //first FFT
@@ -118,8 +118,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           x_m_axis_data_tdata),                      // output wire [31 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          x_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          x_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           x_m_axis_data_tlast),                      // output wire m_axis_data_tlast
-    .event_fft_overflow(ovflo_fwd)                                     // Unused status channel
+    .m_axis_data_tlast(           x_m_axis_data_tlast)                      // output wire m_axis_data_tlast
+    //.event_fft_overflow(ovflo_fwd)                                     // Unused status channel
     );
 
 
@@ -158,8 +158,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           ifft_m_axis_data_tdata),                      // output wire [127 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          ifft_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          ifft_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           ifft_m_axis_data_tlast),                      // output wire m_axis_data_tlast
-    .event_fft_overflow(ovflo_rev)                     // Unused status channel
+    .m_axis_data_tlast(           ifft_m_axis_data_tlast)                      // output wire m_axis_data_tlast
+    //.event_fft_overflow(ovflo_rev)                     // Unused status channel
     );
 
 endmodule

@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="14,794,345 ps"></ZoomStartTime>
-      <ZoomEndTime time="14,807,251 ps"></ZoomEndTime>
-      <Cursor1Time time="14,805,100 ps"></Cursor1Time>
+      <ZoomStartTime time="30,622,849 ps"></ZoomStartTime>
+      <ZoomEndTime time="30,636,359 ps"></ZoomEndTime>
+      <Cursor1Time time="30,630,657 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="119"></NameColumnWidth>
       <ValueColumnWidth column_width="114"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="14" />
    <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/x_s_axis_data_tdata">
       <obj_property name="ElementShortName">x_s_axis_data_tdata[255:0]</obj_property>
       <obj_property name="ObjectShortName">x_s_axis_data_tdata[255:0]</obj_property>
@@ -60,12 +60,20 @@
       <obj_property name="ElementShortName">ifft_m_axis_data_tlast</obj_property>
       <obj_property name="ObjectShortName">ifft_m_axis_data_tlast</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_xfft_inst_event_fft_overflow_UNCONNECTED">
-      <obj_property name="ElementShortName">NLW_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
-      <obj_property name="ObjectShortName">NLW_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_xfft_inst_m_axis_data_tuser_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_xfft_inst_m_axis_data_tuser_UNCONNECTED[15:0]</obj_property>
+      <obj_property name="ObjectShortName">NLW_xfft_inst_m_axis_data_tuser_UNCONNECTED[15:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED">
-      <obj_property name="ElementShortName">NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
-      <obj_property name="ObjectShortName">NLW_inverse_xfft_inst_event_fft_overflow_UNCONNECTED</obj_property>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_xfft_inst_m_axis_status_tdata_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_xfft_inst_m_axis_status_tdata_UNCONNECTED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">NLW_xfft_inst_m_axis_status_tdata_UNCONNECTED[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_inverse_xfft_inst_m_axis_data_tuser_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_inverse_xfft_inst_m_axis_data_tuser_UNCONNECTED[15:0]</obj_property>
+      <obj_property name="ObjectShortName">NLW_inverse_xfft_inst_m_axis_data_tuser_UNCONNECTED[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/BARTLETT_tb/inst1/HILBERT_DATAPATH_inst/NLW_inverse_xfft_inst_m_axis_status_tdata_UNCONNECTED">
+      <obj_property name="ElementShortName">NLW_inverse_xfft_inst_m_axis_status_tdata_UNCONNECTED[7:0]</obj_property>
+      <obj_property name="ObjectShortName">NLW_inverse_xfft_inst_m_axis_status_tdata_UNCONNECTED[7:0]</obj_property>
    </wvobject>
 </wave_config>
