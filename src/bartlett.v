@@ -45,7 +45,7 @@ module bartlett_datapath #(
 	input m_axis_max_tready,
 	
 	// all thetas output channel
-	output[`THETA_COUNT * NUM_SIZE * 2 - 1:0]  m_axis_all_tdata, 
+	output[`THETA_COUNT * NUM_SIZE - 1:0]  m_axis_all_tdata, 
 	output m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
 	input m_axis_all_tready	
 	
@@ -55,7 +55,7 @@ module bartlett_datapath #(
 
     );
 
-	wire[NUM_SIZE * 4 - 1:0] ifft_m_axis_data_tdata;
+	wire[NUM_SIZE * 4 - 1:0] ifft_m_axis_data_tdata, m_axis_hilbert_tdata;
 	
     //Instantiate the HILBERT_DATAPATH module
     HILBERT_DATAPATH HILBERT_DATAPATH_inst (
@@ -76,17 +76,38 @@ module bartlett_datapath #(
 	
 	wire[4:0] s_axis_theta_tdata;
 	
-	theta_driver (
+	theta_driver theta_driver_inst(
 		.clk(clk),
 		.reset_n(reset_b),
 		
-		.enable(theta_enable),
+		.enable(s_axis_theta_tready),
 		
 		.m_axis_theta_tdata(s_axis_theta_tdata),
 		.m_axis_theta_tlast(s_axis_theta_tlast),
 		.m_axis_theta_tuser(s_axis_theta_tuser),
 		.m_axis_theta_tvalid(s_axis_theta_tvalid)
 		);
+
+	type_converter #(
+		.INT_SIZE(NUM_SIZE/2)
+		) type_converter_inst (
+		
+		.clk(clk),
+		.reset_n(reset_b),
+		
+
+        .s_axis_tdata(ifft_m_axis_data_tdata),
+        .s_axis_tvalid(ifft_m_axis_data_tvalid),
+        .s_axis_tready(ifft_m_axis_data_tready),
+        .s_axis_tlast(ifft_m_axis_data_tlast),
+		.s_axis_tuser(0),
+		
+		.m_axis_tdata (m_axis_hilbert_tdata),
+		.m_axis_tlast (m_axis_hilbert_tlast),
+		.m_axis_tuser (m_axis_hilbert_tuser),
+		.m_axis_tvalid(m_axis_hilbert_tvalid),
+		.m_axis_tready(m_axis_hilbert_tready)
+		);		
 		
 	
 	bartlett_time_domain #(
@@ -96,10 +117,11 @@ module bartlett_datapath #(
 		.clk(clk),
 		.reset_n(reset_b),
 		
-		.s_axis_fft_tdata(ifft_m_axis_data_tdata),
-		.s_axis_fft_tvalid(ifft_m_axis_data_tvalid),
-		.s_axis_fft_tlast(ifft_m_axis_data_tlast),
-		.s_axis_fft_tready(ifft_m_axis_data_tready),
+		.s_axis_fft_tdata (m_axis_hilbert_tdata),
+		.s_axis_fft_tvalid(m_axis_hilbert_tvalid),
+		.s_axis_fft_tlast (m_axis_hilbert_tlast),
+		.s_axis_fft_tready(m_axis_hilbert_tready),
+		.s_axis_fft_tuser(m_axis_hilbert_tuser),
 		
 		.s_axis_theta_tdata(s_axis_theta_tdata),
 		.s_axis_theta_tlast(s_axis_theta_tlast),
