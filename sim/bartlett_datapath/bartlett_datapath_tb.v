@@ -14,6 +14,8 @@
 `define ALL_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/all_result_dec.txt"
 `define MAX_DEC_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/max_result_dec.txt"
 
+`define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_hex.txt"
+`define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_dec.txt"
 
 
 module bartlett_datapath_tb();
@@ -28,8 +30,11 @@ reg x_s_axis_data_tvalid, x_s_axis_data_tlast;
 reg[31:0] index;
 wire[`NUM_SIZE * 19 - 1:0] m_axis_all_tdata;
 wire [$clog2(`THETA_COUNT) - 1: 0] m_axis_max_tdata;
-
 reg m_axis_all_tready, m_axis_max_tready;
+
+wire [`MATRIX_SIZE * `MATRIX_SIZE * `NUM_SIZE - 1:0] debug_rxx;
+wire debug_rxx_valid;
+
 	
 bartlett_datapath #(
 	.NUM_SIZE(`NUM_SIZE)
@@ -53,7 +58,11 @@ bartlett_datapath #(
     .m_axis_all_tvalid(m_axis_all_tvalid),
     .m_axis_all_tuser(m_axis_all_tuser),
     .m_axis_all_tlast(m_axis_all_tlast),
-    .m_axis_all_tready(m_axis_all_tready)
+    .m_axis_all_tready(m_axis_all_tready),
+	
+			
+		.debug_rxx(debug_rxx),
+		.debug_rxx_valid(debug_rxx_valid)
 	);
 
 
@@ -70,6 +79,22 @@ task sendMemory;
 	for(i = 0; i < `COLUMNS + 1; i = i + 1)begin
 		#10 index = index + 1;
 	end
+endtask
+
+task saveRxx;
+begin
+	resultFile = $fopen(`RXX_DEC_PATH,"w");
+	for(i = 0; i < `MATRIX_SIZE * `MATRIX_SIZE; i = i + 1)begin
+			$fwrite(resultFile,"%d + j %d\n", $signed(debug_rxx[i * `NUM_SIZE +: `NUM_SIZE/2]),$signed(debug_rxx[i * `NUM_SIZE + `NUM_SIZE/2 +: `NUM_SIZE/2]));
+	end
+	$fclose(resultFile);
+
+	resultFile = $fopen(`RXX_HEX_PATH,"w");
+	for(i = 0; i < `MATRIX_SIZE * `MATRIX_SIZE; i = i + 1)begin
+			$fwrite(resultFile,"%h\n", $signed(debug_rxx[i * `NUM_SIZE +: `NUM_SIZE]));
+	end
+	$fclose(resultFile);
+end
 endtask
 
 
@@ -101,12 +126,18 @@ endtask
 
 
 reg inc, save;
+reg rxx_saved;
 
 always #5 clk = ~clk;
 
 
 always@(*)begin
 
+	if(debug_rxx_valid && !rxx_saved)begin
+		rxx_saved = 1;
+		saveRxx();
+	end
+	
 	x_s_axis_data_tdata <= hydro_data[index];
 	
 	if(m_axis_all_tvalid & !save) begin
@@ -127,12 +158,13 @@ end
 
 
 initial begin
+rxx_saved = 0;
 clk = 0; reset_n = 0; index = 0; x_s_axis_data_tlast = 0; x_s_axis_data_tvalid = 0; 
 m_axis_all_tready = 1; m_axis_max_tready = 1;
 save = 0;
 inc = 0; 
 #150 reset_n = 1;
-#100 initMemory(); x_s_axis_data_tvalid = 1; 
+#110 initMemory(); x_s_axis_data_tvalid = 1; 
 #10 sendMemory();
 
 end

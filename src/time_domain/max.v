@@ -44,8 +44,8 @@ module max #(
 			if(m_axis_max_tready) begin				
 				m_axis_max_tvalid <= s_axis_theta_tlast && s_axis_weight_tlast;
 				if(s_axis_theta_tvalid && s_axis_weight_tvalid) begin //enable
-					m_axis_max_tdata <= s_axis_weight_tdata > max_weight ? s_axis_theta_tdata : m_axis_max_tdata;
-					max_weight <= s_axis_weight_tdata > max_weight ? s_axis_weight_tdata : max_weight;
+					m_axis_max_tdata <= $signed(s_axis_weight_tdata) > $signed(max_weight) ? s_axis_theta_tdata : m_axis_max_tdata;
+					max_weight <= $signed(s_axis_weight_tdata) > $signed(max_weight) ? s_axis_weight_tdata : max_weight;
 				end else begin
 					m_axis_max_tdata <= m_axis_max_tdata;
 					max_weight <= max_weight;

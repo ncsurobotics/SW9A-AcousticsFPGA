@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `define THETA_COUNT 19
+`define MATRIX_SIZE 4
 
 module bartlett_datapath #(
 	parameter NUM_SIZE = 64  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
@@ -47,11 +48,12 @@ module bartlett_datapath #(
 	// all thetas output channel
 	output[`THETA_COUNT * NUM_SIZE - 1:0]  m_axis_all_tdata, 
 	output m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
-	input m_axis_all_tready	
+	input m_axis_all_tready,
 	
     //test
 
-    
+    output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
+	output debug_rxx_valid
 
     );
 
@@ -139,7 +141,10 @@ module bartlett_datapath #(
         .m_axis_all_tvalid(m_axis_all_tvalid),
         .m_axis_all_tuser(m_axis_all_tuser),
         .m_axis_all_tlast(m_axis_all_tlast),
-        .m_axis_all_tready(m_axis_all_tready)
+        .m_axis_all_tready(m_axis_all_tready),
+		
+		.debug_rxx(debug_rxx),
+		.debug_rxx_valid(debug_rxx_valid)
 	);
 		
 
