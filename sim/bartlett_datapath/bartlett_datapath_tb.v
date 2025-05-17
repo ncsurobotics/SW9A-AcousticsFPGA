@@ -17,6 +17,12 @@
 `define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_hex.txt"
 `define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_dec.txt"
 
+`define RAW_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/raw_fft_hex.txt"
+`define RAW_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/raw_fft_dec.txt"
+
+`define FILTERED_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/post_fft_hex.txt"
+`define FILTERED_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/post_fft_dec.txt"
+
 
 module bartlett_datapath_tb();
 
@@ -35,6 +41,9 @@ reg m_axis_all_tready, m_axis_max_tready;
 wire [`MATRIX_SIZE * `MATRIX_SIZE * `NUM_SIZE - 1:0] debug_rxx;
 wire debug_rxx_valid;
 
+wire[`NUM_SIZE-1:0] debug_fft, debug_filtered_fft;
+reg[`NUM_SIZE - 1:0] fft_buffer[255:0];
+reg[`NUM_SIZE - 1:0] filtered_fft_buffer[255:0];
 	
 bartlett_datapath #(
 	.NUM_SIZE(`NUM_SIZE)
@@ -62,7 +71,13 @@ bartlett_datapath #(
 	
 			
 		.debug_rxx(debug_rxx),
-		.debug_rxx_valid(debug_rxx_valid)
+		.debug_rxx_valid(debug_rxx_valid),
+		
+		.debug_fft(debug_fft),
+		.debug_filtered_fft(debug_filtered_fft),
+		.debug_fft_valid(debug_fft_valid),
+		.debug_filtered_fft_valid(debug_filtered_fft_valid)
+
 	);
 
 
@@ -123,13 +138,60 @@ begin
 end
 endtask
 
+task saveRawFFT;
+begin
+	resultFile = $fopen(`RAW_FFT_DEC_PATH,"w");
+	for(i = 0; i < 256; i = i + 1)begin
+			$fwrite(resultFile,"%d + j %d\n", $signed(fft_buffer[i][0 +: `NUM_SIZE/2]),$signed(fft_buffer[i][`NUM_SIZE/2 +: `NUM_SIZE/2]));
+	end
+	$fclose(resultFile);
+
+	resultFile = $fopen(`RAW_FFT_HEX_PATH,"w");
+	for(i = 0; i < 256; i = i + 1)begin
+			$fwrite(resultFile,"%h\n", $signed(fft_buffer[i]));
+	end
+	$fclose(resultFile);
+end
+endtask
+
+
+task saveFilteredFFT;
+begin
+	resultFile = $fopen(`FILTERED_FFT_DEC_PATH,"w");
+	for(i = 0; i < 256; i = i + 1)begin
+			$fwrite(resultFile,"%d + j %d\n", $signed(filtered_fft_buffer[i][0 +: `NUM_SIZE/2]),$signed(filtered_fft_buffer[i][`NUM_SIZE/2 +: `NUM_SIZE/2]));
+	end
+	$fclose(resultFile);
+
+	resultFile = $fopen(`FILTERED_FFT_HEX_PATH,"w");
+	for(i = 0; i < 256; i = i + 1)begin
+			$fwrite(resultFile,"%h\n", $signed(filtered_fft_buffer[i]));
+	end
+	$fclose(resultFile);
+end
+endtask
+
+
+
+
 
 
 reg inc, save;
 reg rxx_saved;
+integer fft_index, filtered_fft_index;
 
 always #5 clk = ~clk;
 
+always #10 begin
+	if(debug_fft_valid)begin
+		fft_buffer[fft_index] = debug_fft;
+		fft_index = fft_index + 1;
+	end
+	if(debug_filtered_fft_valid)begin
+		filtered_fft_buffer[filtered_fft_index] = debug_filtered_fft;
+		filtered_fft_index = filtered_fft_index + 1;
+	end
+end
 
 always@(*)begin
 
@@ -137,6 +199,9 @@ always@(*)begin
 		rxx_saved = 1;
 		saveRxx();
 	end
+	
+	if(fft_index == 256) saveRawFFT();
+	if(filtered_fft_index ==256) saveFilteredFFT();
 	
 	x_s_axis_data_tdata <= hydro_data[index];
 	
@@ -159,6 +224,8 @@ end
 
 initial begin
 rxx_saved = 0;
+fft_index = 0;
+filtered_fft_index = 0;
 clk = 0; reset_n = 0; index = 0; x_s_axis_data_tlast = 0; x_s_axis_data_tvalid = 0; 
 m_axis_all_tready = 1; m_axis_max_tready = 1;
 save = 0;

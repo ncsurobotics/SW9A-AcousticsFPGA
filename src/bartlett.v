@@ -53,7 +53,10 @@ module bartlett_datapath #(
     //test
 
     output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
-	output debug_rxx_valid
+	output debug_rxx_valid,
+	
+	output [255:0] debug_fft, debug_filtered_fft,
+	output debug_fft_valid, debug_filtered_fft_valid
 
     );
 
@@ -72,7 +75,12 @@ module bartlett_datapath #(
         .ifft_m_axis_data_tdata(ifft_m_axis_data_tdata),
         .ifft_m_axis_data_tvalid(ifft_m_axis_data_tvalid),
         .ifft_m_axis_data_tready(ifft_m_axis_data_tready),
-        .ifft_m_axis_data_tlast(ifft_m_axis_data_tlast)
+        .ifft_m_axis_data_tlast(ifft_m_axis_data_tlast),
+		
+		.debug_fft(debug_fft),
+		.debug_filtered_fft(debug_filtered_fft),
+		.debug_fft_valid(debug_fft_valid),
+		.debug_filtered_fft_valid(debug_filtered_fft_valid)
 
     );
 	

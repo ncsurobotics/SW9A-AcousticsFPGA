@@ -17,7 +17,10 @@ module HILBERT_DATAPATH (
     output [255:0] ifft_m_axis_data_tdata,
     output ifft_m_axis_data_tvalid,
     input ifft_m_axis_data_tready,
-    output ifft_m_axis_data_tlast
+    output ifft_m_axis_data_tlast,
+	
+	output [255:0] debug_fft, debug_filtered_fft,
+	output debug_fft_valid, debug_filtered_fft_valid
 
 );
     //config parameters
@@ -25,6 +28,11 @@ module HILBERT_DATAPATH (
     localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010110_0101010101010110_0101010101010110_0101010101010110;
     localparam [3:0] FWD = 4'b1111;
     localparam [3:0] REV = 4'b0000;
+	
+	assign debug_fft = x_m_axis_data_tdata;
+	assign debug_filtered_fft = ifft_s_axis_data_tdata;
+	assign debug_fft_valid = x_m_axis_data_tvalid;
+	assign debug_filtered_fft_valid = ifft_s_axis_data_tvalid;
 
     //config of FFT cores
     wire [79:0] ifft_s_axis_config_tdata, fft_s_axis_config_tdata;
