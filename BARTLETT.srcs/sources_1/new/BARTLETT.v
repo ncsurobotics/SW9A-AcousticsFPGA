@@ -100,8 +100,6 @@ module HILBERT_DATAPATH (
 
     wire [255:0] ifft_s_axis_data_tdata, x_m_axis_data_tdata;
 
-
-
     //first FFT
     xfft_256pt_32bit xfft_inst(
     .aclk(clk),                                                 // input wire aclk
@@ -190,38 +188,84 @@ module DATA_CORRECTOR(
 
     reg [255:0] corrected_data;
 
+    wire [255:0] data_2c;
+
 // wtf is this gay shit
     always @(posedge clk or negedge reset_b) begin
-        if (~reset_b) begin
+        if(!reset_b) begin
             frequency_bin <= 8'h00;
             corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
             valid <= 1'b0;
             ready <= 1'b0;
             last <= 1'b0;
-        end else begin
-            if (x_m_axis_data_tvalid && ifft_s_axis_data_tready) begin
-                frequency_bin <= frequency_bin + 1'b1;
+        end
+        else if(x_m_axis_data_tvalid && ifft_s_axis_data_tready) begin
+            frequency_bin <= frequency_bin + 1'b1;
 
-                if (frequency_bin < 8'h80) corrected_data <= data_in;
-                
-                else corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
-                
+            if (frequency_bin < 8'h80) begin
+                corrected_data <= data_2c;
             end
-
-            else begin
-                frequency_bin <= 8'h00;
-                corrected_data <= 256'h00000000000000000000000000000000;
-            end
+            else corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
             
             valid <= x_m_axis_data_tvalid;
             ready <= ifft_s_axis_data_tready;
-            last <= x_m_axis_data_tlast;
+            last <= x_m_axis_data_tlast;            
+        end
+        else begin
+            frequency_bin <= 8'h00;
+            corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
+            valid <= 1'b0;
+            ready <= 1'b0;
+            last <= 1'b0;            
         end
     end
+
+    fixed_to_2c channel3(
+        .data_in(data_in[255:192]),
+        .data_out(data_2c[255:192])
+    );
+    fixed_to_2c channel2(
+        .data_in(data_in[191:128]),
+        .data_out(data_2c[191:128])
+    );
+    fixed_to_2c channel1(
+        .data_in(data_in[127:64]),
+        .data_out(data_2c[127:64])
+    );
+    fixed_to_2c channel0(
+        .data_in(data_in[63:0]),
+        .data_out(data_2c[63:0])
+    );
 
     assign ifft_s_axis_data_tvalid = valid;
     assign x_m_axis_data_tready = ready;
     assign data_out = corrected_data;
     assign ifft_s_axis_data_tlast = last;
+
+endmodule
+
+module fixed_to_2c(
+    input [63:0] data_in,
+    output reg [63:0] data_out
+);
+always @(*) begin
+    // Convert fixed-point to 2's complement
+    // Check the sign bit (MSB)
+    // If the sign bit is 0, keep the data as is
+    // If the sign bit is 1, perform 2's complement
+    
+    case(data_in[63]) 
+        1'b0: data_out[63:32] = data_in[63:32];
+        1'b1: data_out[63:32] = {data_in[63], (~data_in[62:32] + 1'b1)};
+        default: data_out[63:32] = 32'h00000000;
+    endcase
+
+    case(data_in[31]) 
+        1'b0: data_out[31:0] = data_in[31:0];
+        1'b1: data_out[31:0] = {data_in[31], (~data_in[30:0] + 1'b1)};
+        default: data_out[31:0] = 32'h00000000;
+    endcase
+end
+
 
 endmodule

@@ -1,4 +1,7 @@
-Running: xsim.dir/BARTLETT_tb_behav/xsimk -simmode gui -wdb BARTLETT_tb_behav.wdb -simrunnum 0 -socket 50495
+Running: xsim.dir/BARTLETT_tb_behav/xsimk -simmode gui -wdb BARTLETT_tb_behav.wdb -simrunnum 0 -socket 54735
 Design successfully loaded
-Design Loading Memory Usage: 172256 KB (Peak: 172256 KB)
-Design Loading CPU Usage: 530 ms
+Design Loading Memory Usage: 142000 KB (Peak: 142000 KB)
+Design Loading CPU Usage: 410 ms
+Simulation completed
+Simulation Memory Usage: 225264 KB (Peak: 281268 KB)
+Simulation CPU Usage: 36100 ms

@@ -2,16 +2,16 @@
 # Vivado v2022.2 (64-bit)
 # SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Wed May 14 15:54:08 2025
-# Process ID: 21206
+# Start of session at: Sun May 18 08:35:48 2025
+# Process ID: 21163
 # Current directory: /home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1
 # Command line: vivado -log BARTLETT.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BARTLETT.tcl
 # Log file: /home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/BARTLETT.vds
 # Journal file: /home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/vivado.jou
-# Running On: fedora-2.attlocal.net, OS: Linux, CPU Frequency: 1076.619 MHz, CPU Physical cores: 14, Host memory: 16358 MB
+# Running On: fedora, OS: Linux, CPU Frequency: 855.048 MHz, CPU Physical cores: 14, Host memory: 16358 MB
 #-----------------------------------------------------------
 source BARTLETT.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1484.109 ; gain = 0.020 ; free physical = 883 ; free virtual = 16103
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1484.535 ; gain = 0.020 ; free physical = 1916 ; free virtual = 17544
 Command: read_checkpoint -auto_incremental -incremental /home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/utils_1/imports/synth_1/BARTLETT.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/utils_1/imports/synth_1/BARTLETT.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -24,64 +24,68 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21228
+INFO: [Synth 8-7075] Helper process launched with PID 21230
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2162.074 ; gain = 374.738 ; free physical = 320 ; free virtual = 15383
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3788.359; parent = 2165.047; children = 1623.312
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2162.500 ; gain = 372.770 ; free physical = 1143 ; free virtual = 16769
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1372.479; parent = 1167.188; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3788.785; parent = 2165.473; children = 1623.312
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'BARTLETT' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:22]
 INFO: [Synth 8-6157] synthesizing module 'HILBERT_DATAPATH' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:55]
-INFO: [Synth 8-6157] synthesizing module 'xfft_256pt_32bit' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/.Xil/Vivado-21206-fedora-2.attlocal.net/realtime/xfft_256pt_32bit_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'xfft_256pt_32bit' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/.Xil/Vivado-21206-fedora-2.attlocal.net/realtime/xfft_256pt_32bit_stub.v:5]
-WARNING: [Synth 8-7071] port 'm_axis_data_tuser' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'm_axis_status_tdata' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'm_axis_status_tvalid' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'm_axis_status_tready' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_frame_started' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_tlast_unexpected' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_tlast_missing' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_fft_overflow' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_status_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_data_in_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7071] port 'event_data_out_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-WARNING: [Synth 8-7023] instance 'xfft_inst' of module 'xfft_256pt_32bit' has 24 connections declared, but only 13 given [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:106]
-INFO: [Synth 8-6157] synthesizing module 'DATA_CORRECTOR' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:168]
-INFO: [Synth 8-6155] done synthesizing module 'DATA_CORRECTOR' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:168]
-WARNING: [Synth 8-7071] port 'm_axis_data_tuser' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'm_axis_status_tdata' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'm_axis_status_tvalid' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'm_axis_status_tready' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_frame_started' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_tlast_unexpected' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_tlast_missing' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_fft_overflow' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_status_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_data_in_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7071] port 'event_data_out_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
-WARNING: [Synth 8-7023] instance 'inverse_xfft_inst' of module 'xfft_256pt_32bit' has 24 connections declared, but only 13 given [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:146]
+INFO: [Synth 8-6157] synthesizing module 'xfft_256pt_32bit' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/.Xil/Vivado-21163-fedora/realtime/xfft_256pt_32bit_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'xfft_256pt_32bit' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/.Xil/Vivado-21163-fedora/realtime/xfft_256pt_32bit_stub.v:5]
+WARNING: [Synth 8-7071] port 'm_axis_data_tuser' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'm_axis_status_tdata' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'm_axis_status_tvalid' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'm_axis_status_tready' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_frame_started' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_tlast_unexpected' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_tlast_missing' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_fft_overflow' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_status_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_data_in_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7071] port 'event_data_out_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+WARNING: [Synth 8-7023] instance 'xfft_inst' of module 'xfft_256pt_32bit' has 24 connections declared, but only 13 given [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:104]
+INFO: [Synth 8-6157] synthesizing module 'DATA_CORRECTOR' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:166]
+INFO: [Synth 8-6157] synthesizing module 'fixed_to_2c' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:247]
+INFO: [Synth 8-226] default block is never used [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:257]
+INFO: [Synth 8-226] default block is never used [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:263]
+INFO: [Synth 8-6155] done synthesizing module 'fixed_to_2c' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:247]
+INFO: [Synth 8-6155] done synthesizing module 'DATA_CORRECTOR' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:166]
+WARNING: [Synth 8-7071] port 'm_axis_data_tuser' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'm_axis_status_tdata' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'm_axis_status_tvalid' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'm_axis_status_tready' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_frame_started' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_tlast_unexpected' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_tlast_missing' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_fft_overflow' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_status_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_data_in_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7071] port 'event_data_out_channel_halt' of module 'xfft_256pt_32bit' is unconnected for instance 'inverse_xfft_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
+WARNING: [Synth 8-7023] instance 'inverse_xfft_inst' of module 'xfft_256pt_32bit' has 24 connections declared, but only 13 given [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:144]
 INFO: [Synth 8-6155] done synthesizing module 'HILBERT_DATAPATH' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:55]
 INFO: [Synth 8-6155] done synthesizing module 'BARTLETT' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.srcs/sources_1/new/BARTLETT.v:22]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2231.012 ; gain = 443.676 ; free physical = 349 ; free virtual = 15415
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3854.328; parent = 2231.016; children = 1623.312
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2231.438 ; gain = 441.707 ; free physical = 1235 ; free virtual = 16862
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1372.479; parent = 1167.188; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3854.754; parent = 2231.441; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2248.824 ; gain = 461.488 ; free physical = 357 ; free virtual = 15422
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3872.141; parent = 2248.828; children = 1623.312
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2249.250 ; gain = 459.520 ; free physical = 1236 ; free virtual = 16862
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1372.479; parent = 1167.188; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3872.566; parent = 2249.254; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2248.824 ; gain = 461.488 ; free physical = 357 ; free virtual = 15422
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3872.141; parent = 2248.828; children = 1623.312
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2249.250 ; gain = 459.520 ; free physical = 1236 ; free virtual = 16862
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1372.479; parent = 1167.188; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3872.566; parent = 2249.254; children = 1623.312
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2248.824 ; gain = 0.000 ; free physical = 349 ; free virtual = 15415
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2249.250 ; gain = 0.000 ; free physical = 1232 ; free virtual = 16858
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -94,27 +98,27 @@ Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/
 Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2377.574 ; gain = 0.000 ; free physical = 335 ; free virtual = 15407
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2391.000 ; gain = 0.000 ; free physical = 1154 ; free virtual = 16791
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2377.574 ; gain = 0.000 ; free physical = 335 ; free virtual = 15407
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2391.000 ; gain = 0.000 ; free physical = 1154 ; free virtual = 16791
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 327 ; free virtual = 15394
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1181 ; free virtual = 16839
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1376.806; parent = 1171.546; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 327 ; free virtual = 15394
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1181 ; free virtual = 16839
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1376.806; parent = 1171.546; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -122,27 +126,29 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property KEEP_HIERARCHY = SOFT for HILBERT_DATAPATH_inst/inverse_xfft_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for HILBERT_DATAPATH_inst/xfft_inst. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 327 ; free virtual = 15394
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1181 ; free virtual = 16839
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1376.806; parent = 1171.546; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 326 ; free virtual = 15395
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1182 ; free virtual = 16842
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1376.806; parent = 1171.546; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   31 Bit       Adders := 4     
 	   2 Input    8 Bit       Adders := 1     
 +---Registers : 
 	              256 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input  256 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 8     
 	   2 Input    8 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -161,33 +167,33 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 300 ; free virtual = 15374
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1369.859; parent = 1164.706; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1159 ; free virtual = 16822
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1376.806; parent = 1171.546; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 293 ; free virtual = 15305
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1463.562; parent = 1258.451; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 997 ; free virtual = 16696
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.177; parent = 1267.948; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 293 ; free virtual = 15305
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1463.758; parent = 1258.646; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 997 ; free virtual = 16693
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.411; parent = 1268.183; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 268 ; free virtual = 15283
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.094; parent = 1259.982; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1001 ; free virtual = 16697
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.411; parent = 1268.183; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -207,49 +213,49 @@ Finished Final Netlist Cleanup
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \HILBERT_DATAPATH_inst/xfft_inst  has unconnected pin m_axis_status_tready
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \HILBERT_DATAPATH_inst/inverse_xfft_inst  has unconnected pin m_axis_status_tready
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 275 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.684; parent = 1260.572; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1011 ; free virtual = 16700
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.438; parent = 1268.210; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 275 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.699; parent = 1260.588; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1011 ; free virtual = 16700
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.438; parent = 1268.210; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 275 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.781; parent = 1260.670; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1011 ; free virtual = 16700
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.556; parent = 1268.327; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 274 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.844; parent = 1260.732; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1012 ; free virtual = 16701
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.618; parent = 1268.390; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 274 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.859; parent = 1260.748; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1012 ; free virtual = 16689
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.618; parent = 1268.390; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 274 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.875; parent = 1260.764; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1012 ; free virtual = 16689
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.618; parent = 1268.390; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -268,38 +274,41 @@ Report Cell Usage:
 +------+-----------------+------+
 |1     |xfft_256pt_32bit |     2|
 |3     |BUFG             |     1|
-|4     |LUT1             |     1|
-|5     |LUT2             |     3|
-|6     |LUT3             |   259|
-|7     |LUT4             |     2|
-|8     |LUT5             |     2|
-|9     |LUT6             |     2|
-|10    |FDCE             |   267|
-|11    |IBUF             |   261|
-|12    |OBUF             |   259|
+|4     |CARRY4           |    64|
+|5     |LUT1             |   245|
+|6     |LUT2             |     4|
+|7     |LUT3             |    15|
+|8     |LUT4             |     2|
+|9     |LUT5             |   246|
+|10    |LUT6             |     2|
+|11    |FDCE             |   266|
+|12    |IBUF             |   261|
+|13    |OBUF             |   259|
 +------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 274 ; free virtual = 15287
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1465.895; parent = 1260.783; children = 205.153
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3968.875; parent = 2345.562; children = 1623.312
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1012 ; free virtual = 16689
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1473.618; parent = 1268.390; children = 205.291
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3982.301; parent = 2358.988; children = 1623.312
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 2 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2377.574 ; gain = 461.488 ; free physical = 317 ; free virtual = 15329
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2377.574 ; gain = 590.238 ; free physical = 317 ; free virtual = 15329
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 2391.000 ; gain = 459.520 ; free physical = 1055 ; free virtual = 16731
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2391.000 ; gain = 601.270 ; free physical = 1055 ; free virtual = 16731
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2377.574 ; gain = 0.000 ; free physical = 414 ; free virtual = 15427
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2391.000 ; gain = 0.000 ; free physical = 1115 ; free virtual = 16792
+INFO: [Netlist 29-17] Analyzing 64 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2377.574 ; gain = 0.000 ; free physical = 399 ; free virtual = 15411
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2391.000 ; gain = 0.000 ; free physical = 1051 ; free virtual = 16738
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: 37d0cc12
+Synth Design complete, checksum: f6b16e2f
 INFO: [Common 17-83] Releasing license: Synthesis
-28 Infos, 25 Warnings, 2 Critical Warnings and 0 Errors encountered.
+34 Infos, 25 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:27 . Memory (MB): peak = 2377.574 ; gain = 893.465 ; free physical = 586 ; free virtual = 15599
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:32 . Memory (MB): peak = 2391.000 ; gain = 906.465 ; free physical = 1238 ; free virtual = 16926
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/BARTLETT/BARTLETT.runs/synth_1/BARTLETT.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file BARTLETT_utilization_synth.rpt -pb BARTLETT_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed May 14 15:54:44 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun May 18 08:36:30 2025...
