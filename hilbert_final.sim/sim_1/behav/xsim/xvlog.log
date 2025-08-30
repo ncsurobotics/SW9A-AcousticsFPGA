@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/hilbert_final/hilbert_final.srcs/sources_1/new/hilbert.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hilbert
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'x_m_axis_data_tvalid' is not allowed [/home/bigpi/AMD/Vivado/2022.2/Projects/hilbert_final/hilbert_final.srcs/sources_1/new/hilbert.v:67]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'x_m_axis_data_tdata' is not allowed [/home/bigpi/AMD/Vivado/2022.2/Projects/hilbert_final/hilbert_final.srcs/sources_1/new/hilbert.v:71]
+INFO: [VRFC 10-311] analyzing module DATA_CORRECTOR
+INFO: [VRFC 10-311] analyzing module fixed_to_2c

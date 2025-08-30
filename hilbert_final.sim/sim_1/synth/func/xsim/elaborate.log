@@ -1,0 +1,43 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /home/bigpi/AMD/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L secureip --snapshot hilbert_tb_func_synth xil_defaultlib.hilbert_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.x_lut3_mux8
+Compiling module unisims_ver.LUT3
+Compiling module unisims_ver.FDCE_default
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module xil_defaultlib.DATA_CORRECTOR
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.GND
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.FDSE_default
+Compiling module unisims_ver.SRL16E_default
+Compiling module unisims_ver.CARRY4
+Compiling module unisims_ver.SRLC32E_default
+Compiling module unisims_ver.MUXF7
+Compiling module unisims_ver.MUXF8
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
+Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,INI...
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(DOA_REG=1,DOB...
+Compiling module unisims_ver.RAMB18E1(DOA_REG=1,DOB_REG=1,RAM...
+Compiling module unisims_ver.DSP48E1(ACASCREG=2,ALUMODEREG=0,...
+Compiling module unisims_ver.DSP48E1(ALUMODEREG=0,BCASCREG=2,...
+Compiling module xil_defaultlib.xfft_256pt_32bit
+Compiling module xil_defaultlib.hilbert
+Compiling module xil_defaultlib.hilbert_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot hilbert_tb_func_synth

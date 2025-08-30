@@ -1,0 +1,2 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/bigpi/AMD/Vivado/2022.2/Projects/hilbert_final/hilbert_final.gen/sources_1/ip/xfft_256pt_32bit/sim/xfft_256pt_32bit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'xfft_256pt_32bit'

@@ -1,0 +1,4 @@
+Running: xsim.dir/hilbert_tb_behav/xsimk -simmode gui -wdb hilbert_tb_behav.wdb -simrunnum 0 -socket 43341
+Design successfully loaded
+Design Loading Memory Usage: 91188 KB (Peak: 91188 KB)
+Design Loading CPU Usage: 130 ms

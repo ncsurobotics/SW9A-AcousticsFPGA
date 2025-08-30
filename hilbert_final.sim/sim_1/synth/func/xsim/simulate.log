@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+WARNING: file input_data.txt could not be opened
+ERROR: File descriptor (0) passed to $feof is not valid. Please compile the design with -debug for source location information.
+ERROR: File descriptor (0) passed to $fscanf is not valid. Please compile the design with -debug for source location information.

@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../hilbert_final.gen/sources_1/ip/xfft_256pt_32bit/sim/xfft_256pt_32bit.vhd" \
+
+nosort
