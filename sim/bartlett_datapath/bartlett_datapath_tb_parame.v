@@ -8,18 +8,18 @@
 
 `define NUM_SIZE 32
 
-`define HYDRO_PATH		"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_data/data.hex"
-`define ALL_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/all_result_hex.txt"
-`define MAX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/max_result_hex.txt"
-`define ALL_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/all_result_dec.txt"
-`define MAX_DEC_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/max_result_dec.txt"
-`define ALL_DEC_CSV_PATH "C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/all_result_dec.csv"
-`define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/rxx_hex.txt"
-`define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/rxx_dec.txt"
-`define RAW_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/raw_fft_hex.txt"
-`define RAW_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/raw_fft_dec.txt"
-`define FILTERED_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/post_fft_hex.txt"
-`define FILTERED_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/param_results/post_fft_dec.txt"
+`define HYDRO_PATH		"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/data.hex"
+`define ALL_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/all_result_hex.txt"
+`define MAX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/max_result_hex.txt"
+`define ALL_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/all_result_dec.txt"
+`define MAX_DEC_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/max_result_dec.txt"
+`define ALL_DEC_CSV_PATH "C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/all_result_dec.csv"
+`define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/rxx_hex.txt"
+`define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/rxx_dec.txt"
+`define RAW_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/raw_fft_hex.txt"
+`define RAW_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/raw_fft_dec.txt"
+`define FILTERED_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/post_fft_hex.txt"
+`define FILTERED_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/$TEST_DIR_NAME$/post_fft_dec.txt"
 
 
 module bartlett_datapath_tb();

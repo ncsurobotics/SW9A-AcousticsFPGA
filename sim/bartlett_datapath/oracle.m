@@ -74,7 +74,7 @@ for i = 1:4
     export_r_data(2*i - 1, :) = real(R(i, :));
     export_r_data(2*i, :)     = imag(R(i, :));
 end
-save('export_r_data.mat', 'export_r_data');
+save(strcat(directory,'export_r_data.mat'), 'export_r_data');
 
 
 % Calculate P(theta) for every theta

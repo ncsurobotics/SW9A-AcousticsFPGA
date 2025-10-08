@@ -17,6 +17,16 @@ module signed_mag_to_twos_complement #(
 
 endmodule
 
+module pass_through #(
+	parameter INT_SIZE = 32
+	) (
+    input  [INT_SIZE - 1:0] signed_mag,        // [31] = sign, [30:0] = magnitude
+    output [INT_SIZE - 1:0] twos_complement
+);
+    assign twos_complement = signed_mag;
+
+endmodule
+
 
 module type_converter #(
 	parameter INT_SIZE = 32,
@@ -61,7 +71,7 @@ module type_converter #(
 	genvar i;
 	generate
 	for( i = 0; i < INT_COUNT; i = i + 1)
-		signed_mag_to_twos_complement #(.INT_SIZE(INT_SIZE))
+		pass_through #(.INT_SIZE(INT_SIZE))
 		converter(
 			.signed_mag(s_axis_tdata[INT_SIZE * i +: INT_SIZE]),
 			.twos_complement(next_data[INT_SIZE * i +: INT_SIZE])

@@ -6,6 +6,7 @@
 *.runs/
 *.srcs/sources_1/bd/
 *.srcs/constrs_1/tmp/
+.Xil
 
 # Exclude common Vivado temporary files
 *.jou

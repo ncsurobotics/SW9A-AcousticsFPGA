@@ -64,24 +64,20 @@ module bartlett_datapath #(
 	wire[NUM_SIZE * 4 - 1:0]  m_axis_hilbert_tdata;
 	wire x_m_axis_data_tvalid;
 	
+	assign x_s_axis_data_tready = 1;
 	
-	
-	hilbert hilbert_inst(
+	hilbert_fir_filter_axis_wrapper hilbert_inst(
 		.clk(clk),
-		.reset_b(reset_b),
+		.reset_n(reset_b),
+		.clk_enable(1),
 		
-		.x_s_axis_data_tdata(x_s_axis_data_tdata),
-        .x_s_axis_data_tvalid(x_s_axis_data_tvalid),
-        .x_s_axis_data_tlast(x_s_axis_data_tlast),
-        .x_s_axis_data_tready(x_s_axis_data_tready),
+		.s_axis_tdata(x_s_axis_data_tdata),
+        .s_axis_tvalid(x_s_axis_data_tvalid),
+		.s_axis_tlast(x_s_axis_data_tlast),
 
-        .ifft_m_axis_data_tdata(ifft_m_axis_data_tdata),
-        .ifft_m_axis_data_tvalid(ifft_m_axis_data_tvalid),
-        .ifft_m_axis_data_tready(ifft_m_axis_data_tready),
-        .ifft_m_axis_data_tlast(ifft_m_axis_data_tlast),
-		
-		.x_m_axis_data_tdata(x_m_axis_data_tdata),
-		.x_m_axis_data_tvalid(x_m_axis_data_tvalid)
+        .m_axis_tdata(ifft_m_axis_data_tdata),
+        .m_axis_tvalid(ifft_m_axis_data_tvalid),
+		.m_axis_tlast(ifft_m_axis_data_tlast)
 		);
 	
 	
