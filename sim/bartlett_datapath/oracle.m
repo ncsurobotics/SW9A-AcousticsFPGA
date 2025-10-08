@@ -1,4 +1,30 @@
-hydro_dec = readmatrix('data.csv')
+function oracle(path)
+
+f = 30e3; % frequency of emitted sinusoid (pinger)
+c = 1480;
+lambda = c/f;
+d = lambda/2; %lambda/2
+H = 4;
+
+fs = 500e3; % sampling freq
+t256 = 256/fs; % time to get 256 samples
+
+n = 0:1/fs:t256-1/fs; % discrete time
+N = length(n);
+
+directory = path
+
+dd = (0:1:H-1) * d;
+
+arrival_ang_estimate = 45; % degrees arrival angle (changeable)
+arrival_ang_rad = deg2rad(arrival_ang_estimate); % arrival angle in rad
+
+hydro_path = strcat(directory,"\\data.csv")
+hydro_dec = readmatrix(hydro_path );
+[rows, columns] = size(hydro_dec);
+if rows == 5
+    hydro_dec(5,:)=[]
+end
 
 theta = (0:10:180) * pi / 180; % define angle range
 k = 2*pi/lambda; % constant
@@ -21,7 +47,8 @@ for i = 1:4
     export_fourier(2*i - 1, :) = real(fourier(i, :));
     export_fourier(2*i, :) = imag(fourier(i, :));
 end
-save('fft_data.mat','export_fourier')
+fft_path = strcat(directory,"\\fft_data.mat")
+save(directory,'export_fourier')
 
 % Save post hilbert transform hydrophone data (split real and imaginary components)
 export_post_hilbert_data = zeros(8, 256);
@@ -29,7 +56,8 @@ for i = 1:4
     export_post_hilbert_data(2*i - 1, :) = real(hydro_dec(i, :));
     export_post_hilbert_data(2*i, :) = imag(hydro_dec(i, :));
 end
-save('post_hilbert_hydro_data.mat','export_post_hilbert_data')
+phh_path = strcat(directory,"\\post_hilbert_hydro_data.mat");
+save(phh_path,'export_post_hilbert_data')
 
 % Create R
 R = zeros(H,H); % allocate space for x(t)*x(t)^H
@@ -59,4 +87,9 @@ for i=1:length(theta)
     magP(i) = norm(P(i)); 
 end
 
-save('magP.mat', 'magP');
+matpath = strcat(directory,"\\magP.mat")
+save(matpath, 'magP');
+fig = figure;
+plot(magP);
+grid on;
+exportgraphics(fig ,strcat(directory,'\\matlab_magP.png'))

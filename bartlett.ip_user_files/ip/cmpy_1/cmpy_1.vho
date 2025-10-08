@@ -59,17 +59,17 @@ COMPONENT cmpy_1
     s_axis_a_tready : OUT STD_LOGIC;
     s_axis_a_tuser : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     s_axis_a_tlast : IN STD_LOGIC;
-    s_axis_a_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+    s_axis_a_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     s_axis_b_tvalid : IN STD_LOGIC;
     s_axis_b_tready : OUT STD_LOGIC;
     s_axis_b_tuser : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
     s_axis_b_tlast : IN STD_LOGIC;
-    s_axis_b_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+    s_axis_b_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_dout_tvalid : OUT STD_LOGIC;
     m_axis_dout_tready : IN STD_LOGIC;
     m_axis_dout_tuser : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
     m_axis_dout_tlast : OUT STD_LOGIC;
-    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0) 
+    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(79 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

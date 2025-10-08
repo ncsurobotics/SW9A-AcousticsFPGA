@@ -1,17 +1,23 @@
-@echo off
+:: @echo off
 setlocal enabledelayedexpansion
 
-:: Get user input
-set /p testName=Enter test name: 
+:: Check if argument was passed
+if "%~1"=="" (
+    set /p testName=Enter test name: 
+) else (
+    set "testName=%~1"
+)
+
 set "folderName=%testName%"
 mkdir "%folderName%"
 
-copy "raw_hydro_data.csv" "%folderName%\data.csv"
-.\csv_to_hex.exe "%folderName%\data.csv" "%folderName%\data.hex" 64 2147483647
+if "%~2"=="" (
+	copy "raw_hydro_data*.csv" "%folderName%\data.csv"
+	.\csv_to_hex.exe "%folderName%\data.csv" "%folderName%\data.hex" 32 2147483647
+) else (
+	copy "%~2" "%folderName%\data.csv"
+	.\csv_to_hex.exe "%folderName%\data.csv" "%folderName%\data.hex" 32 2147483647
+)
 
-copy "oracle.m" "%folderName%\oracle.m"
-cd /d "%folderName%"
-matlab -nodisplay -nosplash -nodesktop -r "run('oracle.m');exit;"
+matlab -batch "oracle('%folderName%')"
 
-
-set /p wait=Press any key to quit:

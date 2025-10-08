@@ -1,10 +1,31 @@
 `timescale 1ns / 1ps
-module HILBERT_DATAPATH (
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 08/13/2025 01:17:03 PM
+// Design Name: 
+// Module Name: hilbert
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module hilbert (
     input clk,
     input reset_b,
 
     //data from RAM
-    input [255:0] x_s_axis_data_tdata,
+    input [127:0] x_s_axis_data_tdata,
 
     //flags from controller
     input x_s_axis_data_tvalid,
@@ -14,32 +35,28 @@ module HILBERT_DATAPATH (
     output x_s_axis_data_tready,
 
     //outputs of IFFT
-    output [255:0] ifft_m_axis_data_tdata,
+    output [127:0] ifft_m_axis_data_tdata,
     output ifft_m_axis_data_tvalid,
     input ifft_m_axis_data_tready,
     output ifft_m_axis_data_tlast,
-	
-	output [255:0] debug_fft, debug_filtered_fft,
-	output debug_fft_valid, debug_filtered_fft_valid
+
+    //delete later outputs of fft
+    output [127:0] x_m_axis_data_tdata,
+    output x_m_axis_data_tvalid
 
 );
     //config parameters
     localparam [11:0] ZERO_PAD = 12'b0;
-    localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010110_0101010101010110_0101010101010110_0101010101010110;
+    localparam [31:0] SCALE_SCHEDULE = 32'b01010101_01010101_01010101_01010101; //R4
+    //localparam [63:0] SCALE_SCHEDULE = 64'b0101010101010100_0101010101010100_0101010101010100_0101010101010100; //R2
     localparam [3:0] FWD = 4'b1111;
     localparam [3:0] REV = 4'b0000;
-	
-	assign debug_fft = x_m_axis_data_tdata;
-	assign debug_filtered_fft = ifft_s_axis_data_tdata;
-	assign debug_fft_valid = x_m_axis_data_tvalid;
-	assign debug_filtered_fft_valid = ifft_s_axis_data_tvalid;
 
     //config of FFT cores
-    wire [79:0] ifft_s_axis_config_tdata, fft_s_axis_config_tdata;
-    assign fft_s_axis_config_tdata = {ZERO_PAD, SCALE_SCHEDULE, FWD};       //tie to do regular FFT, SCALED
-    assign ifft_s_axis_config_tdata = {ZERO_PAD, SCALE_SCHEDULE, REV};      //tie to do inverse FFT, SCALED
-    //assign fft_s_axis_config_tdata = {ZERO_PAD, FWD};       //tie to do regular FFT, NONSCALED
-    //assign ifft_s_axis_config_tdata = {ZERO_PAD, REV};      //tie to do inverse FFT, NONSCALED
+    wire [47:0] ifft_s_axis_config_tdata, fft_s_axis_config_tdata; // R4
+    // wire [79:0] ifft_s_axis_config_tdata, fft_s_axis_config_tdata; // R2
+    assign fft_s_axis_config_tdata = {ZERO_PAD, SCALE_SCHEDULE, FWD};       // tie to do regular FFT, SCALED, R2
+    assign ifft_s_axis_config_tdata = {ZERO_PAD, SCALE_SCHEDULE, REV};      // tie to do inverse FFT, SCALED, R2
 
     wire x_s_axis_config_tvalid, x_s_axis_config_tready;
     wire ifft_s_axis_config_tvalid, ifft_s_axis_config_tready;
@@ -51,11 +68,7 @@ module HILBERT_DATAPATH (
     wire x_m_axis_data_tready, ifft_s_axis_data_tready;
     wire ifft_s_axis_data_tlast, x_m_axis_data_tlast;
 
-    wire [255:0] ifft_s_axis_data_tdata, x_m_axis_data_tdata;
-
-    //status wires (only used for testing)
-    wire ovflo_fwd, ovflo_rev;
-
+    wire [127:0] ifft_s_axis_data_tdata, x_m_axis_data_tdata;
 
     //first FFT
     xfft_256pt_32bit xfft_inst(
@@ -73,8 +86,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           x_m_axis_data_tdata),                      // output wire [31 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          x_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          x_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           x_m_axis_data_tlast),                      // output wire m_axis_data_tlast
-    .event_fft_overflow(ovflo_fwd)                                     // Unused status channel
+    .m_axis_data_tlast(           x_m_axis_data_tlast)                      // output wire m_axis_data_tlast
+    //.event_fft_overflow(ovflo_fwd)                                     // Unused status channel
     );
 
 
@@ -113,8 +126,8 @@ module HILBERT_DATAPATH (
     .m_axis_data_tdata(           ifft_m_axis_data_tdata),                      // output wire [127 : 0] m_axis_data_tdata
     .m_axis_data_tvalid(          ifft_m_axis_data_tvalid),                    // output wire m_axis_data_tvalid
     .m_axis_data_tready(          ifft_m_axis_data_tready),                    // input wire m_axis_data_tready
-    .m_axis_data_tlast(           ifft_m_axis_data_tlast),                      // output wire m_axis_data_tlast
-    .event_fft_overflow(ovflo_rev)                     // Unused status channel
+    .m_axis_data_tlast(           ifft_m_axis_data_tlast)                      // output wire m_axis_data_tlast
+    //.event_fft_overflow(ovflo_rev)                     // Unused status channel
     );
 
 endmodule
@@ -136,47 +149,93 @@ module DATA_CORRECTOR(
     output ifft_s_axis_data_tlast,
 
 
-    input [255:0] data_in,
-    output [255:0] data_out
+    input [127:0] data_in,
+    output [127:0] data_out
 );
     reg valid, ready, last;
 
     reg [7:0] frequency_bin;
 
-    reg [255:0] corrected_data;
+    reg [127:0] corrected_data;
+
+    wire [127:0] data_2c;
 
 // wtf is this gay shit
     always @(posedge clk or negedge reset_b) begin
-        if (~reset_b) begin
+        if(!reset_b) begin
             frequency_bin <= 8'h00;
-            corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
+            corrected_data <= 128'h00000000000000000000000000000000;
             valid <= 1'b0;
             ready <= 1'b0;
             last <= 1'b0;
-        end else begin
-            if (x_m_axis_data_tvalid && ifft_s_axis_data_tready) begin
-                frequency_bin <= frequency_bin + 1'b1;
+        end
+        else if(x_m_axis_data_tvalid && ifft_s_axis_data_tready) begin
+            frequency_bin <= frequency_bin + 1'b1;
 
-                if (frequency_bin < 8'h80) corrected_data <= data_in;
-                
-                else corrected_data <= 256'h0000000000000000000000000000000000000000000000000000000000000000;
-                
+            if (frequency_bin >= 8'h80) begin
+                corrected_data <= data_in; // Keep the first 128 frequency bins as is
             end
+            else corrected_data <= 128'h00000000000000000000000000000000;
 
-            else begin
-                frequency_bin <= 8'h00;
-                corrected_data <= 256'h00000000000000000000000000000000;
-            end
-            
             valid <= x_m_axis_data_tvalid;
             ready <= ifft_s_axis_data_tready;
-            last <= x_m_axis_data_tlast;
+            last <= x_m_axis_data_tlast;            
+        end
+        else begin
+            frequency_bin <= 8'h00;
+            corrected_data <= 128'h00000000000000000000000000000000;
+            valid <= 1'b0;
+            ready <= 1'b0;
+            last <= 1'b0;            
         end
     end
-
+/*
+    fixed_to_2c channel3(
+        .data_in(data_in[255:192]),
+        .data_out(data_2c[255:192])
+    );
+    fixed_to_2c channel2(
+        .data_in(data_in[191:128]),
+        .data_out(data_2c[191:128])
+    );
+    fixed_to_2c channel1(
+        .data_in(data_in[127:64]),
+        .data_out(data_2c[127:64])
+    );
+    fixed_to_2c channel0(
+        .data_in(data_in[63:0]),
+        .data_out(data_2c[63:0])
+    );
+*/
     assign ifft_s_axis_data_tvalid = valid;
     assign x_m_axis_data_tready = ready;
     assign data_out = corrected_data;
     assign ifft_s_axis_data_tlast = last;
+
+endmodule
+
+module fixed_to_2c(
+    input [31:0] data_in,
+    output reg [31:0] data_out
+);
+always @(*) begin
+    // Convert fixed-point to 2's complement
+    // Check the sign bit (MSB)
+    // If the sign bit is 0, keep the data as is
+    // If the sign bit is 1, perform 2's complement
+    
+    case(data_in[31]) 
+        1'b0: data_out[31:16] = data_in[31:16];
+        1'b1: data_out[31:16] = {data_in[31], (~data_in[30:16] + 1'b1)};
+        default: data_out[31:16] = 32'h00000000;
+    endcase
+
+    case(data_in[15]) 
+        1'b0: data_out[15:0] = data_in[15:0];
+        1'b1: data_out[15:0] = {data_in[15], (~data_in[14:0] + 1'b1)};
+        default: data_out[15:0] = 32'h00000000;
+    endcase
+end
+
 
 endmodule

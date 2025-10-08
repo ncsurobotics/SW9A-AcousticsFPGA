@@ -50,7 +50,7 @@ module p_theta #(
 	
 	wire[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1 : 0] s_sh_theta;
 	
-	s_theta_32 s_theta_inst(
+	s_theta_16 s_theta_inst(
 		.theta(theta_buffer),
 		.s_sh_theta(s_sh_theta)
 		);

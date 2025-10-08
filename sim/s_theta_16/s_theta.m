@@ -3,8 +3,8 @@ data = readmatrix('a(theta).csv');
 [rows, cols] = size(data);
 
 doFile = false;
-doPrintHex = false;
-doPlot = false;
+doPrintHex = true;
+doPlot = true;
 doCompare = true;
 
 buffer = zeros(19*16,1);
@@ -18,7 +18,8 @@ for theta = 1:cols
     aj = data(:,theta);
     denom = data(:,theta)' * data(:,theta);
     num = data(:,theta) * data(:,theta)';
-    result;
+    result = 4096 * num/denom
+    (result - (result)');
     theta;
     result = 4096 * num/denom;
     aj_result = aj' * r_matrix * aj / (aj' * aj);
@@ -98,21 +99,8 @@ if doPlot
 end
 
 
-
-
-
-% Helper inline ternary function (define it at the end of your script)
-function out = ternary(cond, valTrue, valFalse)
-    if cond
-        out = valTrue;
-    else
-        out = valFalse;
-    end
-end
-
-if doCompare
 % Create x-axis (1 to 19)
-x = 1:19;
+x = 1:1:19;
 
 % Plot both on the same graph
 figure;
@@ -128,4 +116,19 @@ legend('aj_buffer', 'my_buffer');
 title('Comparison of aj_buffer and my_buffer');
 grid on;
 
+%end
+
+function out = ternary(cond, valTrue, valFalse)
+%TERNARY Implements a ternary operator like C's cond ? a : b
+%
+% Usage:
+%   result = ternary(cond, a, b);
+%
+% If cond is true (nonzero), returns valTrue; otherwise returns valFalse.
+
+    if cond
+        out = valTrue;
+    else
+        out = valFalse;
+    end
 end

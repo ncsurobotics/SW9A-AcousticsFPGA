@@ -17,7 +17,6 @@ def insert_multiple_patterns(input_file, output_file, pattern_insert_pairs):
 
     print(f"Modified content written to {output_file}")
 
-# Example usage
 if __name__ == "__main__":
     ready_insert = "\t\t<obj_property name=\"CustomSignalColor\">#0000FF</obj_property>\n\t\t<obj_property name=\"UseCustomSignalColor\">true</obj_property>"
     data_insert = "\t\t<obj_property name=\"CustomSignalColor\">#FFFF00</obj_property>\n\t\t<obj_property name=\"UseCustomSignalColor\">true</obj_property>"

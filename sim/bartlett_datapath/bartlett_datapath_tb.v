@@ -6,22 +6,24 @@
 
 `define COLUMNS 256
 
-`define NUM_SIZE 64
+`define NUM_SIZE 32
 
-`define HYDRO_PATH		"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/data.hex"
-`define ALL_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/all_result_hex.txt"
-`define MAX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/max_result_hex.txt"
-`define ALL_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/all_result_dec.txt"
-`define MAX_DEC_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/max_result_dec.txt"
+`define HYDRO_PATH		"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/data.hex"
+`define ALL_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/all_result_hex.txt"
+`define MAX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/max_result_hex.txt"
+`define ALL_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/all_result_dec.txt"
+`define MAX_DEC_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/max_result_dec.txt"
 
-`define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_hex.txt"
-`define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/rxx_dec.txt"
+`define ALL_DEC_CSV_PATH "C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/all_result_dec.csv"
 
-`define RAW_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/raw_fft_hex.txt"
-`define RAW_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/raw_fft_dec.txt"
+`define RXX_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/rxx_hex.txt"
+`define RXX_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/rxx_dec.txt"
 
-`define FILTERED_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/post_fft_hex.txt"
-`define FILTERED_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_1/post_fft_dec.txt"
+`define RAW_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/raw_fft_hex.txt"
+`define RAW_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/raw_fft_dec.txt"
+
+`define FILTERED_FFT_HEX_PATH	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/post_fft_hex.txt"
+`define FILTERED_FFT_DEC_PATH  	"C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/test_10_32_30_1/post_fft_dec.txt"
 
 
 module bartlett_datapath_tb();
@@ -41,9 +43,9 @@ reg m_axis_all_tready, m_axis_max_tready;
 wire [`MATRIX_SIZE * `MATRIX_SIZE * `NUM_SIZE - 1:0] debug_rxx;
 wire debug_rxx_valid;
 
-wire[`NUM_SIZE-1:0] debug_fft, debug_filtered_fft;
-reg[`NUM_SIZE - 1:0] fft_buffer[255:0];
-reg[`NUM_SIZE - 1:0] filtered_fft_buffer[255:0];
+wire[`NUM_SIZE * 4 - 1:0] debug_fft, debug_filtered_fft;
+reg[`NUM_SIZE * 4 - 1:0] fft_buffer[`COLUMNS - 1:0];
+reg[`NUM_SIZE * 4 - 1:0] filtered_fft_buffer[`COLUMNS - 1:0];
 	
 bartlett_datapath #(
 	.NUM_SIZE(`NUM_SIZE)
@@ -114,7 +116,7 @@ endtask
 
 
 
-integer resultFile;
+integer resultFile, csvFile;
 task saveResults;
 begin
 	resultFile = $fopen(`ALL_HEX_PATH,"w");
@@ -127,10 +129,13 @@ begin
 	$fclose(resultFile);
 	
 	resultFile = $fopen(`ALL_DEC_PATH,"w");
+	csvFile = $fopen(`ALL_DEC_CSV_PATH,"w");
 	for(i = 0; i < `THETA_COUNT; i = i + 1)begin
-			$fwrite(resultFile,"%d: %d\n",i, $signed(m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]));
+		$fwrite(csvFile,"%d%s",$signed(m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]), i == `THETA_COUNT - 1 ? "" : ",");
+		$fwrite(resultFile,"%d: %d\n",i, $signed(m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]));
 	end
 	$fclose(resultFile);
+	$fclose(csvFile);
 	resultFile = $fopen(`MAX_DEC_PATH,"w");
 	$fwrite(resultFile,"Theta: %h\nValue: %d",m_axis_max_tdata,$signed(m_axis_all_tdata[m_axis_max_tdata * `NUM_SIZE +: `NUM_SIZE]));
 	$fclose(resultFile);
@@ -138,17 +143,24 @@ begin
 end
 endtask
 
+integer j;
 task saveRawFFT;
 begin
 	resultFile = $fopen(`RAW_FFT_DEC_PATH,"w");
-	for(i = 0; i < 256; i = i + 1)begin
-			$fwrite(resultFile,"%d + j %d\n", $signed(fft_buffer[i][0 +: `NUM_SIZE/2]),$signed(fft_buffer[i][`NUM_SIZE/2 +: `NUM_SIZE/2]));
+	for(i = 0; i < `COLUMNS; i = i + 1)begin
+		for(j = 0; j <`MATRIX_SIZE; j = j + 1)begin
+			$fwrite(resultFile,"%d + j %d\t", $signed(fft_buffer[i][j * `NUM_SIZE +: `NUM_SIZE/2]),$signed(fft_buffer[i][j * `NUM_SIZE + `NUM_SIZE/2 +: `NUM_SIZE/2]));			
+		end
+		$fwrite(resultFile,"\n");
 	end
 	$fclose(resultFile);
 
 	resultFile = $fopen(`RAW_FFT_HEX_PATH,"w");
-	for(i = 0; i < 256; i = i + 1)begin
-			$fwrite(resultFile,"%h\n", $signed(fft_buffer[i]));
+	for(i = 0; i < `COLUMNS; i = i + 1)begin
+		for(j = 0; j < `MATRIX_SIZE; j = j + 1)begin
+			$fwrite(resultFile,"%h ", fft_buffer[i][j * `NUM_SIZE +: `NUM_SIZE]);
+		end
+		$fwrite(resultFile,"\n");
 	end
 	$fclose(resultFile);
 end
@@ -158,14 +170,20 @@ endtask
 task saveFilteredFFT;
 begin
 	resultFile = $fopen(`FILTERED_FFT_DEC_PATH,"w");
-	for(i = 0; i < 256; i = i + 1)begin
-			$fwrite(resultFile,"%d + j %d\n", $signed(filtered_fft_buffer[i][0 +: `NUM_SIZE/2]),$signed(filtered_fft_buffer[i][`NUM_SIZE/2 +: `NUM_SIZE/2]));
+	for(i = 0; i < `COLUMNS; i = i + 1)begin
+		for(j = 0; j < `MATRIX_SIZE; j = j + 1)begin
+			$fwrite(resultFile,"%d + j %d\t", $signed(filtered_fft_buffer[i][j * `NUM_SIZE +: `NUM_SIZE/2]),$signed(filtered_fft_buffer[i][j * `NUM_SIZE + `NUM_SIZE/2 +: `NUM_SIZE/2]));			
+		end
+		$fwrite(resultFile,"\n");
 	end
 	$fclose(resultFile);
 
 	resultFile = $fopen(`FILTERED_FFT_HEX_PATH,"w");
-	for(i = 0; i < 256; i = i + 1)begin
-			$fwrite(resultFile,"%h\n", $signed(filtered_fft_buffer[i]));
+	for(i = 0; i < `COLUMNS; i = i + 1)begin
+		for(j = 0; j < `MATRIX_SIZE; j = j + 1)begin
+			$fwrite(resultFile,"%h ", filtered_fft_buffer[i][j * `NUM_SIZE +: `NUM_SIZE]);
+		end
+		$fwrite(resultFile,"\n");
 	end
 	$fclose(resultFile);
 end
@@ -200,8 +218,8 @@ always@(*)begin
 		saveRxx();
 	end
 	
-	if(fft_index == 256) saveRawFFT();
-	if(filtered_fft_index ==256) saveFilteredFFT();
+	if(fft_index == `COLUMNS) saveRawFFT();
+	if(filtered_fft_index ==`COLUMNS) saveFilteredFFT();
 	
 	x_s_axis_data_tdata <= hydro_data[index];
 	

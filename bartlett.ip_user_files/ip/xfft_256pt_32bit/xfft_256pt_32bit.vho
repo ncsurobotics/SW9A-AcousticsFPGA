@@ -55,15 +55,15 @@ COMPONENT xfft_256pt_32bit
   PORT (
     aclk : IN STD_LOGIC;
     aresetn : IN STD_LOGIC;
-    s_axis_config_tdata : IN STD_LOGIC_VECTOR(79 DOWNTO 0);
+    s_axis_config_tdata : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
     s_axis_config_tvalid : IN STD_LOGIC;
     s_axis_config_tready : OUT STD_LOGIC;
-    s_axis_data_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+    s_axis_data_tdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
     s_axis_data_tvalid : IN STD_LOGIC;
     s_axis_data_tready : OUT STD_LOGIC;
     s_axis_data_tlast : IN STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
-    m_axis_data_tuser : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
+    m_axis_data_tuser : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
     m_axis_data_tready : IN STD_LOGIC;
     m_axis_data_tlast : OUT STD_LOGIC;

@@ -23,7 +23,7 @@
 `define MATRIX_SIZE 4
 
 module bartlett_datapath #(
-	parameter NUM_SIZE = 64  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
+	parameter NUM_SIZE = 32  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
 	) (
     input clk,
     input reset_b,
@@ -55,19 +55,22 @@ module bartlett_datapath #(
     output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
 	output debug_rxx_valid,
 	
-	output [255:0] debug_fft, debug_filtered_fft,
+	output [NUM_SIZE * 4:0] debug_fft, debug_filtered_fft,
 	output debug_fft_valid, debug_filtered_fft_valid
 
     );
 
-	wire[NUM_SIZE * 4 - 1:0] ifft_m_axis_data_tdata, m_axis_hilbert_tdata;
+	wire[NUM_SIZE * 4 - 1:0] ifft_m_axis_data_tdata;
+	wire[NUM_SIZE * 4 - 1:0]  m_axis_hilbert_tdata;
+	wire x_m_axis_data_tvalid;
 	
-    //Instantiate the HILBERT_DATAPATH module
-    HILBERT_DATAPATH HILBERT_DATAPATH_inst (
-        .clk(clk),
-        .reset_b(reset_b),
-
-        .x_s_axis_data_tdata(x_s_axis_data_tdata),
+	
+	
+	hilbert hilbert_inst(
+		.clk(clk),
+		.reset_b(reset_b),
+		
+		.x_s_axis_data_tdata(x_s_axis_data_tdata),
         .x_s_axis_data_tvalid(x_s_axis_data_tvalid),
         .x_s_axis_data_tlast(x_s_axis_data_tlast),
         .x_s_axis_data_tready(x_s_axis_data_tready),
@@ -77,12 +80,12 @@ module bartlett_datapath #(
         .ifft_m_axis_data_tready(ifft_m_axis_data_tready),
         .ifft_m_axis_data_tlast(ifft_m_axis_data_tlast),
 		
-		.debug_fft(debug_fft),
-		.debug_filtered_fft(debug_filtered_fft),
-		.debug_fft_valid(debug_fft_valid),
-		.debug_filtered_fft_valid(debug_filtered_fft_valid)
-
-    );
+		.x_m_axis_data_tdata(x_m_axis_data_tdata),
+		.x_m_axis_data_tvalid(x_m_axis_data_tvalid)
+		);
+	
+	
+	
 	
 	wire[4:0] s_axis_theta_tdata;
 	

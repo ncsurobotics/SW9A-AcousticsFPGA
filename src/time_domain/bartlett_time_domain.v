@@ -43,6 +43,7 @@ module bartlett_time_domain #(
 	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tuser;
 	
 	assign s_axis_theta_tready = rxx_valid;
+	
 
     // Instantiate Rxx computation
     rxx #(
