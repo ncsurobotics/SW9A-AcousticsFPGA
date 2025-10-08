@@ -1,2 +1,0 @@
-Theta: 05
-Value: 007a615a

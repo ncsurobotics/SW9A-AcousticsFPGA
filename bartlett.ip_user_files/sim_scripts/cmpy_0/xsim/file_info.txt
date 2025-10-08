@@ -1,1 +1,0 @@
-cmpy_0.vhd,vhdl,xil_defaultlib,../../../../bartlett.gen/sources_1/ip/cmpy_0/sim/cmpy_0.vhd,

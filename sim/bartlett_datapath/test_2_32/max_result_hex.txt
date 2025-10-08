@@ -1,2 +1,0 @@
-Theta: 09
-Value: 000ee480

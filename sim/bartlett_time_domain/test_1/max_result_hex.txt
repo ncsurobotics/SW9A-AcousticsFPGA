@@ -1,2 +1,0 @@
-Theta: 0a
-Value: 00000000037dfb62
