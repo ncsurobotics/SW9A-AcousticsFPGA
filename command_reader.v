@@ -25,9 +25,9 @@ module command_reader (
   integer i;
   always @(posedge clk or negedge rst_n) begin  
     if (!rst_n) begin
-      for (i = 21; i <= 25; i = i + 1)
+      for (i = 20; i <= 25; i = i + 1)
         flipflops[i] <= 0;
-    end else if (uart_wr_en && uart_addr >= 21 && uart_addr <= 25) begin
+    end else if (uart_wr_en && uart_addr >= 20 && uart_addr <= 25) begin
       flipflops[uart_addr] <= uart_data_in;
     end
   end
