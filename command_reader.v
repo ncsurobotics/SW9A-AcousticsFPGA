@@ -45,7 +45,7 @@ module command_reader (
   // to read the data from the flipflops (mux)
   // uart
   always @(*) begin
-    if (uart_addr >= 21 && uart_addr <= 25)
+    if (uart_addr >= 20 && uart_addr <= 25)
       uart_data_out = flipflops[uart_addr];  
     else
       uart_data_out = 32'hzzzzzzzz;  // invalid read
