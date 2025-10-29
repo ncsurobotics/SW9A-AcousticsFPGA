@@ -1,0 +1,80 @@
+[
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027_cosim_data.c /Fobuild\\win64\\hilbert_fir_filter_1027_cosim_data.obj",
+    "file": "hilbert_fir_filter_1027_cosim_data.c",
+    "output": "build/win64/hilbert_fir_filter_1027_cosim_data.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   rt_nonfinite.c /Fobuild\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.c",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027_cosim_initialize.c /Fobuild\\win64\\hilbert_fir_filter_1027_cosim_initialize.obj",
+    "file": "hilbert_fir_filter_1027_cosim_initialize.c",
+    "output": "build/win64/hilbert_fir_filter_1027_cosim_initialize.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027_cosim_terminate.c /Fobuild\\win64\\hilbert_fir_filter_1027_cosim_terminate.obj",
+    "file": "hilbert_fir_filter_1027_cosim_terminate.c",
+    "output": "build/win64/hilbert_fir_filter_1027_cosim_terminate.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027_cosim.c /Fobuild\\win64\\hilbert_fir_filter_1027_cosim.obj",
+    "file": "hilbert_fir_filter_1027_cosim.c",
+    "output": "build/win64/hilbert_fir_filter_1027_cosim.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   SystemCore.c /Fobuild\\win64\\SystemCore.obj",
+    "file": "SystemCore.c",
+    "output": "build/win64/SystemCore.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   AbstractFilterBank.c /Fobuild\\win64\\AbstractFilterBank.obj",
+    "file": "AbstractFilterBank.c",
+    "output": "build/win64/AbstractFilterBank.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027.c /Fobuild\\win64\\hilbert_fir_filter_1027.obj",
+    "file": "hilbert_fir_filter_1027.c",
+    "output": "build/win64/hilbert_fir_filter_1027.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   interface\\_coder_hilbert_fir_filter_1027_cosim_api.c /Fobuild\\win64\\_coder_hilbert_fir_filter_1027_cosim_api.obj",
+    "file": "interface/_coder_hilbert_fir_filter_1027_cosim_api.c",
+    "output": "build/win64/_coder_hilbert_fir_filter_1027_cosim_api.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   interface\\_coder_hilbert_fir_filter_1027_cosim_mex.c /Fobuild\\win64\\_coder_hilbert_fir_filter_1027_cosim_mex.obj",
+    "file": "interface/_coder_hilbert_fir_filter_1027_cosim_mex.c",
+    "output": "build/win64/_coder_hilbert_fir_filter_1027_cosim_mex.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   hilbert_fir_filter_1027_cosim_mexutil.c /Fobuild\\win64\\hilbert_fir_filter_1027_cosim_mexutil.obj",
+    "file": "hilbert_fir_filter_1027_cosim_mexutil.c",
+    "output": "build/win64/hilbert_fir_filter_1027_cosim_mexutil.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   interface\\_coder_hilbert_fir_filter_1027_cosim_info.c /Fobuild\\win64\\_coder_hilbert_fir_filter_1027_cosim_info.obj",
+    "file": "interface/_coder_hilbert_fir_filter_1027_cosim_info.c",
+    "output": "build/win64/_coder_hilbert_fir_filter_1027_cosim_info.obj"
+  },
+  {
+    "directory": "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\mex\\hilbert_fir_filter_1027_cosim",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /utf-8 /I \".\" /I \"C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath\\codegen\\hilbert_fir_filter_1027\\cosim\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2025b\\extern\\include\" /I \".\" -DMODEL=hilbert_fir_filter_1027_cosim_mex   \"C:\\Program Files\\MATLAB\\R2025b\\extern\\version\\c_mexapi_version.c\" /Fobuild\\win64\\c_mexapi_version.obj",
+    "file": "C:/Program Files/MATLAB/R2025b/extern/version/c_mexapi_version.c",
+    "output": "build/win64/c_mexapi_version.obj"
+  }
+]

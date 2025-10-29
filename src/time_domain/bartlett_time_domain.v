@@ -33,8 +33,7 @@ module bartlett_time_domain #(
 	
 	);
 	
-	assign debug_rxx = rxx_data;
-	assign debug_rxx_valid = rxx_valid;
+
 	
 	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
     wire rxx_valid, rxx_last, rxx_ready;
@@ -43,7 +42,8 @@ module bartlett_time_domain #(
 	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tuser;
 	
 	assign s_axis_theta_tready = rxx_valid;
-	
+	assign debug_rxx = rxx_data;
+	assign debug_rxx_valid = rxx_valid;
 
     // Instantiate Rxx computation
     rxx #(

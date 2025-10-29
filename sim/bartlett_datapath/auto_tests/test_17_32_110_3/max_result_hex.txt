@@ -1,0 +1,2 @@
+Theta: 06
+Value: 000e89c0

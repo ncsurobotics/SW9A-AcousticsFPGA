@@ -90,6 +90,10 @@ end
 matpath = strcat(directory,"\\magP.mat")
 save(matpath, 'magP');
 fig = figure;
-plot(magP);
+angle_axis = 0:10:190
+plot(angle_axis,magP);
+title(directory);
+xlabel("Frequency (Hz)")
+ylabel("Relative weight")
 grid on;
 exportgraphics(fig ,strcat(directory,'\\matlab_magP.png'))

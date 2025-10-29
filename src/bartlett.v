@@ -66,7 +66,9 @@ module bartlett_datapath #(
 	
 	assign x_s_axis_data_tready = 1;
 	
-	hilbert_fir_filter_axis_wrapper hilbert_inst(
+	hilbert_fir_filter_axis_wrapper #(
+		.FIR_LATENCY(13)
+		) hilbert_inst(
 		.clk(clk),
 		.reset_n(reset_b),
 		.clk_enable(1),
@@ -104,8 +106,7 @@ module bartlett_datapath #(
 		.clk(clk),
 		.reset_n(reset_b),
 		
-
-        .s_axis_tdata(ifft_m_axis_data_tdata),
+		.s_axis_tdata(ifft_m_axis_data_tdata),
         .s_axis_tvalid(ifft_m_axis_data_tvalid),
         .s_axis_tready(ifft_m_axis_data_tready),
         .s_axis_tlast(ifft_m_axis_data_tlast),
