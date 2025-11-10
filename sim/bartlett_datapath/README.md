@@ -54,6 +54,12 @@ The IP allows for configurable output size, therefore having it output 32 bit nu
 4. The complex multiplier IPs are all configured to only use LUTs, by implementing some of the above changes, more DSP slices would free up to allow for DSP to be used.
 
 
+TESTING/VERIFICATION
+1. The current method for testing a range of input samples is editing the filepath in the .v file, then recompiling and simulating for each input. This method is slow and inefficient.
+Modifying the testbench to allow for a vector of input files to be played in series would greatly improve performance in simulation (currently to run 95 test datasets takes 1.5 hours, around 80% of that is compilation).
+2. The angles tested thus far have been multiples of 10 degrees, which is the level of precision that design has. Analyzing the performance for more granular angles would be valueable.
+
+
 CODE CLEANLINESS
 
 1. Matrix - During the final stages of testing, it was found that the CMM's output was the transpose of the correct value. To fix this, the wire indexing was rearranged.
