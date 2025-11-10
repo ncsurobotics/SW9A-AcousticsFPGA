@@ -19,10 +19,4 @@
 *.html
 *.log
 
-# Include necessary source and project files
-!*.srcs/**
-!*.ip_user_files/**
-!*.sim/**
 
-# Always include the .xpr file
-!*.xpr
