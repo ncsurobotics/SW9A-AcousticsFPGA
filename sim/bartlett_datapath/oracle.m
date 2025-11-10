@@ -64,7 +64,7 @@ R = zeros(H,H); % allocate space for x(t)*x(t)^H
 
 for i = 1 : length(hydro_dec)
     R = R + hydro_dec(:,i) * hydro_dec(:,i)';
-end
+end 
 
 R = R / N; % normalize by number of samples
 
@@ -74,7 +74,7 @@ for i = 1:4
     export_r_data(2*i - 1, :) = real(R(i, :));
     export_r_data(2*i, :)     = imag(R(i, :));
 end
-save('export_r_data.mat', 'export_r_data');
+save(strcat(directory,'export_r_data.mat'), 'export_r_data');
 
 
 % Calculate P(theta) for every theta
@@ -90,6 +90,10 @@ end
 matpath = strcat(directory,"\\magP.mat")
 save(matpath, 'magP');
 fig = figure;
-plot(magP);
+angle_axis = 0:10:180
+plot(angle_axis,magP);
+title(directory);
+xlabel("Frequency (Hz)")
+ylabel("Relative weight")
 grid on;
 exportgraphics(fig ,strcat(directory,'\\matlab_magP.png'))

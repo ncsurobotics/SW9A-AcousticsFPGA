@@ -69,7 +69,7 @@ COMPONENT cmpy_1
     m_axis_dout_tready : IN STD_LOGIC;
     m_axis_dout_tuser : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
     m_axis_dout_tlast : OUT STD_LOGIC;
-    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(79 DOWNTO 0) 
+    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

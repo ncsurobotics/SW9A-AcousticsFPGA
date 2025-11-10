@@ -1,20 +1,37 @@
 import os
+import sys
+import time
 
-# directory path
-directory = "test_data"
-bit_width = 32
-i = 0
-# loop through all files in the directory
-for filename in os.listdir(directory):
-	filepath = os.path.join(directory, filename)
+def psys(command):
+	print(command)
+	os.system(command)
 
-	# check if it's a file (not a folder)
-	if os.path.isfile(filepath):
-		degrees = filename.split('_')[3].replace('deg','')
-		iter = filename.split('_')[4].replace('.csv','')
-		test_name = f"py_test_{i}_{bit_width}_{degrees}_{iter}"
-		os.system(f"sim.bat {test_name} {filepath}")
-		
-		
-	i = i + 1
-		
+
+def main():
+	folder = "auto_tests"
+	index = 0
+	here = "C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\sim\\bartlett_datapath"
+	tb_file = here + "\\bartlett_datapath_tb_auto.v"
+	namepy = here + "\\naming.py"
+	for filename in os.listdir(folder):
+		file_path = os.path.join(folder, filename)
+		test_name = file_path.split('\\')[1]
+		file_path = here + "\\" + file_path
+		os.chdir("C:\\Users\\Aweso\\Verilog\\Aquapack\\bartlett\\bartlett.sim\\sim_1\\behav\\xsim")		
+		if os.path.isdir(file_path):
+			psys(f"python {namepy} {tb_file} {tb_file} $TEST_NAME$ {test_name}")
+			psys("compile.bat")
+			psys("elaborate.bat")
+			psys("simulate.bat")
+			psys(f"python {namepy} {tb_file} {tb_file} {test_name} $TEST_NAME$")
+			#if "all_result_dec.csv" in os.listdir(file_path):
+				#print("This one is done")
+
+
+
+
+
+
+
+if __name__ == "__main__":
+	main()

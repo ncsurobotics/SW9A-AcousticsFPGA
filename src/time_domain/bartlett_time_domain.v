@@ -29,12 +29,14 @@ module bartlett_time_domain #(
 	input m_axis_all_tready,	
 	
 	output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
-	output debug_rxx_valid
+	output debug_rxx_valid,
+	
+	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1:0] debug_mid,
+	output debug_mid_valid
 	
 	);
 	
-	assign debug_rxx = rxx_data;
-	assign debug_rxx_valid = rxx_valid;
+
 	
 	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
     wire rxx_valid, rxx_last, rxx_ready;
@@ -43,7 +45,8 @@ module bartlett_time_domain #(
 	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tuser;
 	
 	assign s_axis_theta_tready = rxx_valid;
-	
+	assign debug_rxx = rxx_data;
+	assign debug_rxx_valid = rxx_valid;
 
     // Instantiate Rxx computation
     rxx #(
@@ -63,7 +66,10 @@ module bartlett_time_domain #(
         .m_axis_tvalid(rxx_valid),
         .m_axis_tuser(rxx_user),
         .m_axis_tlast(rxx_last),
-        .m_axis_tready(rxx_ready)
+        .m_axis_tready(rxx_ready),
+		
+		.debug_mid(debug_mid),
+		.debug_mid_valid(debug_mid_valid)
     );
 
     // Instantiate P_theta computation

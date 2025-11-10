@@ -37,6 +37,26 @@ module scalar_complex_divider_const_reduce #(
 	
 endmodule
 
+
+module scalar_complex_divider_const_reduce_2 #(
+	NUM_SIZE = 32, 
+	BASE = 8
+	)(
+	input signed[NUM_SIZE-1:0] a,
+	output reg signed[NUM_SIZE/2 -1:0] quotient
+	);
+	
+	reg signed[NUM_SIZE/4 - 1 : 0] real_value, imag_value;
+	always@(*)begin
+		real_value <= $signed(a[NUM_SIZE/2 - 1 : 0]) >>> BASE;
+		imag_value <= $signed(a[NUM_SIZE - 1 : NUM_SIZE/2]) >>> BASE;
+		quotient <= {imag_value, real_value};
+	end
+	
+endmodule
+
+
+
 module scalar_complex_divider #(NUM_SIZE = 32)(
 	input[NUM_SIZE-1:0] a,
 	input[NUM_SIZE/2 - 1:0] b,
@@ -98,9 +118,9 @@ module scalar_divide_const #(
 	genvar i, j;
 	generate
 		for(i = 0; i < MAT_HEIGHT * MAT_WIDTH; i = i + 1)begin
-			scalar_complex_divider_const_reduce #(
+			scalar_complex_divider_const_reduce_2 #(
 				.NUM_SIZE(NUM_SIZE),
-				.SCALAR(SCALAR)
+				.BASE(16)
 				) divider (
 				.a(s_axis_tdata[i * NUM_SIZE +: NUM_SIZE]),
 				.quotient(result[i * NUM_SIZE/2 +: NUM_SIZE/2])

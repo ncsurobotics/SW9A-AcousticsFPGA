@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../bartlett.gen/sources_1/ip/xfft_0_1/sim/xfft_0.vhd" \
+
+nosort

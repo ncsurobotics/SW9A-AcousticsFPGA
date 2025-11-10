@@ -17,6 +17,29 @@ module signed_mag_to_twos_complement #(
 
 endmodule
 
+module pass_through #(
+	parameter INT_SIZE = 32
+	) (
+    input  [INT_SIZE - 1:0] signed_mag,        // [31] = sign, [30:0] = magnitude
+    output [INT_SIZE - 1:0] twos_complement
+);
+    assign twos_complement = signed_mag;
+
+endmodule
+
+
+module copy_real_to_imag #(
+	parameter INT_SIZE = 32
+	) (
+    input  [INT_SIZE - 1:0] signed_mag,        // [31] = sign, [30:0] = magnitude
+    output [INT_SIZE - 1:0] twos_complement
+);
+    assign twos_complement[INT_SIZE - 1:INT_SIZE/2] = signed_mag[INT_SIZE/2 - 1:0];
+	assign twos_complement[INT_SIZE/2 - 1:0] = signed_mag[INT_SIZE/2 - 1:0];
+
+endmodule
+
+
 
 module type_converter #(
 	parameter INT_SIZE = 32,
@@ -59,13 +82,41 @@ module type_converter #(
 	end
 	
 	genvar i;
-	generate
-	for( i = 0; i < INT_COUNT; i = i + 1)
-		signed_mag_to_twos_complement #(.INT_SIZE(INT_SIZE))
+	generate begin
+	for( i = 0; i < INT_COUNT; i = i + 1) begin
+		pass_through #(.INT_SIZE(INT_SIZE))
 		converter(
 			.signed_mag(s_axis_tdata[INT_SIZE * i +: INT_SIZE]),
 			.twos_complement(next_data[INT_SIZE * i +: INT_SIZE])
 			);
+		end
+	end
 	endgenerate
 	
 endmodule
+/* 
+module fixed_to_2c(
+    input [31:0] data_in,
+    output reg [31:0] data_out
+);
+always @(*) begin
+    // Convert fixed-point to 2's complement
+    // Check the sign bit (MSB)
+    // If the sign bit is 0, keep the data as is
+    // If the sign bit is 1, perform 2's complement
+    
+    case(data_in[31]) 
+        1'b0: data_out[31:16] = data_in[31:16];
+        1'b1: data_out[31:16] = {data_in[31], (~data_in[30:16] + 1'b1)};
+        default: data_out[31:16] = 32'h00000000;
+    endcase
+
+    case(data_in[15]) 
+        1'b0: data_out[15:0] = data_in[15:0];
+        1'b1: data_out[15:0] = {data_in[15], (~data_in[14:0] + 1'b1)};
+        default: data_out[15:0] = 32'h00000000;
+    endcase
+end
+
+
+endmodule*/

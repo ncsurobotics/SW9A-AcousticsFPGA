@@ -1,0 +1,2 @@
+Theta: 09
+Value: 004c69c0

@@ -28,18 +28,11 @@ module bartlett_datapath #(
     input clk,
     input reset_b,
 	
-    input [NUM_SIZE * 4 - 1:0] x_s_axis_data_tdata,
-    input x_s_axis_data_tvalid,
-    output x_s_axis_data_tready,
-    input x_s_axis_data_tlast,
-/*
-	// theta input channel
-	input[$clog2(`THETA_COUNT) - 1: 0] s_axis_theta_tdata, // theta_store[s_axis_theta_tdata] 
-	input s_axis_theta_tvalid, s_axis_theta_tlast, s_axis_theta_tuser, //tlast is overwritten
-	output s_axis_theta_tready,
-	*/
-	input theta_enable,
-	
+    input [NUM_SIZE * 4 - 1:0] s_axis_tdata,
+    input s_axis_tvalid,
+    output s_axis_tready,
+    input s_axis_tlast,
+
 	// max theta output channel
 	output[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
 	output m_axis_max_tvalid, m_axis_max_tuser, m_axis_max_tlast,
@@ -50,41 +43,71 @@ module bartlett_datapath #(
 	output m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
 	input m_axis_all_tready,
 	
+
     //test
 
     output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
 	output debug_rxx_valid,
 	
-	output [NUM_SIZE * 4:0] debug_fft, debug_filtered_fft,
-	output debug_fft_valid, debug_filtered_fft_valid
+	output [NUM_SIZE * 4 -1 : 0] debug_fft,
+	output debug_fft_valid, 
+	
+	output[8:0] debug_fft_max_index,
+	output debug_fft_max_index_valid,
+	
+	output[31:0] debug_fft_mag,
+	output debug_fft_mag_valid,
+	
+	output[33:0] debug_current_magnitude,
+	output debug_current_magnitude_valid,
+	
+	output [NUM_SIZE * 4 - 1:0] debug_max_freq_vec,
+	output debug_max_freq_vec_valid,
+	
+	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1:0] debug_mid,
+	output debug_mid_valid
 
     );
+	
 
-	wire[NUM_SIZE * 4 - 1:0] ifft_m_axis_data_tdata;
-	wire[NUM_SIZE * 4 - 1:0]  m_axis_hilbert_tdata;
-	wire x_m_axis_data_tvalid;
+
+	assign debug_max_freq_vec = m_axis_fft_max_tdata;
+	assign debug_max_freq_vec_valid = m_axis_fft_max_tvalid;
 	
 	
+	wire[NUM_SIZE * 4 - 1:0]  m_axis_fft_max_tdata;
+	wire m_axis_fft_max_tready ,m_axis_fft_max_tlast ,m_axis_fft_max_tvalid;
 	
-	hilbert hilbert_inst(
+	wire[NUM_SIZE * 4 - 1:0]  m_axis_converted_fft_max_tdata;
+	wire m_axis_converted_fft_max_tready ,m_axis_converted_fft_max_tlast ,m_axis_converted_fft_max_tvalid;
+	
+	assign s_axis_tready = 1;
+	
+	
+	assign debug_fft_max_index_valid = m_axis_fft_max_tvalid;
+
+	fft_max fft_max_inst(
 		.clk(clk),
-		.reset_b(reset_b),
+		.reset_n(reset_b),
 		
-		.x_s_axis_data_tdata(x_s_axis_data_tdata),
-        .x_s_axis_data_tvalid(x_s_axis_data_tvalid),
-        .x_s_axis_data_tlast(x_s_axis_data_tlast),
-        .x_s_axis_data_tready(x_s_axis_data_tready),
-
-        .ifft_m_axis_data_tdata(ifft_m_axis_data_tdata),
-        .ifft_m_axis_data_tvalid(ifft_m_axis_data_tvalid),
-        .ifft_m_axis_data_tready(ifft_m_axis_data_tready),
-        .ifft_m_axis_data_tlast(ifft_m_axis_data_tlast),
+		.s_axis_tdata(s_axis_tdata),
+        .s_axis_tvalid(s_axis_tvalid),
+        .s_axis_tready(s_axis_tready),
+        .s_axis_tlast(s_axis_tlast),
 		
-		.x_m_axis_data_tdata(x_m_axis_data_tdata),
-		.x_m_axis_data_tvalid(x_m_axis_data_tvalid)
+		.m_axis_tdata (m_axis_fft_max_tdata),
+		.m_axis_tlast (m_axis_fft_max_tlast),
+		.m_axis_tvalid(m_axis_fft_max_tvalid),
+		.m_axis_tready(m_axis_fft_max_tready),
+		.m_axis_tuser(debug_fft_max_index),
+		
+		.debug_fft(debug_fft),
+		.debug_fft_valid(debug_fft_valid),
+		.debug_current_magnitude(debug_current_magnitude),
+		.debug_current_magnitude_valid(debug_current_magnitude_valid)
 		);
-	
-	
+		
+		
 	
 	
 	wire[4:0] s_axis_theta_tdata;
@@ -100,28 +123,6 @@ module bartlett_datapath #(
 		.m_axis_theta_tuser(s_axis_theta_tuser),
 		.m_axis_theta_tvalid(s_axis_theta_tvalid)
 		);
-
-	type_converter #(
-		.INT_SIZE(NUM_SIZE/2)
-		) type_converter_inst (
-		
-		.clk(clk),
-		.reset_n(reset_b),
-		
-
-        .s_axis_tdata(ifft_m_axis_data_tdata),
-        .s_axis_tvalid(ifft_m_axis_data_tvalid),
-        .s_axis_tready(ifft_m_axis_data_tready),
-        .s_axis_tlast(ifft_m_axis_data_tlast),
-		.s_axis_tuser(0),
-		
-		.m_axis_tdata (m_axis_hilbert_tdata),
-		.m_axis_tlast (m_axis_hilbert_tlast),
-		.m_axis_tuser (m_axis_hilbert_tuser),
-		.m_axis_tvalid(m_axis_hilbert_tvalid),
-		.m_axis_tready(m_axis_hilbert_tready)
-		);		
-		
 	
 	bartlett_time_domain #(
 		.NUM_SIZE(NUM_SIZE)
@@ -130,11 +131,11 @@ module bartlett_datapath #(
 		.clk(clk),
 		.reset_n(reset_b),
 		
-		.s_axis_fft_tdata (m_axis_hilbert_tdata),
-		.s_axis_fft_tvalid(m_axis_hilbert_tvalid),
-		.s_axis_fft_tlast (m_axis_hilbert_tlast),
-		.s_axis_fft_tready(m_axis_hilbert_tready),
-		.s_axis_fft_tuser(m_axis_hilbert_tuser),
+		.s_axis_fft_tdata (m_axis_fft_max_tdata),
+		.s_axis_fft_tvalid(m_axis_fft_max_tvalid),
+		.s_axis_fft_tlast (m_axis_fft_max_tlast),
+		.s_axis_fft_tready(m_axis_fft_max_tready),
+		.s_axis_fft_tuser(m_axis_fft_max_tuser),
 		
 		.s_axis_theta_tdata(s_axis_theta_tdata),
 		.s_axis_theta_tlast(s_axis_theta_tlast),
@@ -155,7 +156,10 @@ module bartlett_datapath #(
         .m_axis_all_tready(m_axis_all_tready),
 		
 		.debug_rxx(debug_rxx),
-		.debug_rxx_valid(debug_rxx_valid)
+		.debug_rxx_valid(debug_rxx_valid),
+		
+		.debug_mid(debug_mid),
+		.debug_mid_valid(debug_mid_valid)
 	);
 		
 
