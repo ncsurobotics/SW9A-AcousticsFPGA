@@ -1,2 +1,2 @@
-Theta: 04
-Value:     4463416
+Theta: 0e
+Value:     1211688

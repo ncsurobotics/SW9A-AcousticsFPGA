@@ -1,2 +1,2 @@
-Theta: 07
-Value: 0064fce8
+Theta: 03
+Value: 0015f24f

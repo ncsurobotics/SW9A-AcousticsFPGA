@@ -29,7 +29,10 @@ module bartlett_time_domain #(
 	input m_axis_all_tready,	
 	
 	output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
-	output debug_rxx_valid
+	output debug_rxx_valid,
+	
+	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1:0] debug_mid,
+	output debug_mid_valid
 	
 	);
 	
@@ -63,7 +66,10 @@ module bartlett_time_domain #(
         .m_axis_tvalid(rxx_valid),
         .m_axis_tuser(rxx_user),
         .m_axis_tlast(rxx_last),
-        .m_axis_tready(rxx_ready)
+        .m_axis_tready(rxx_ready),
+		
+		.debug_mid(debug_mid),
+		.debug_mid_valid(debug_mid_valid)
     );
 
     // Instantiate P_theta computation

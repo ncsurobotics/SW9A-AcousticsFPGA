@@ -64,7 +64,7 @@ R = zeros(H,H); % allocate space for x(t)*x(t)^H
 
 for i = 1 : length(hydro_dec)
     R = R + hydro_dec(:,i) * hydro_dec(:,i)';
-end
+end 
 
 R = R / N; % normalize by number of samples
 
@@ -90,7 +90,7 @@ end
 matpath = strcat(directory,"\\magP.mat")
 save(matpath, 'magP');
 fig = figure;
-angle_axis = 0:10:190
+angle_axis = 0:10:180
 plot(angle_axis,magP);
 title(directory);
 xlabel("Frequency (Hz)")

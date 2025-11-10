@@ -1,2 +1,2 @@
-Theta: 07
-Value:    10277247
+Theta: 0a
+Value:     1370658

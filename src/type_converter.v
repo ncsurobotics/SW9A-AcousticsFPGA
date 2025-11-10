@@ -84,7 +84,7 @@ module type_converter #(
 	genvar i;
 	generate begin
 	for( i = 0; i < INT_COUNT; i = i + 1) begin
-		signed_mag_to_twos_complement #(.INT_SIZE(INT_SIZE))
+		pass_through #(.INT_SIZE(INT_SIZE))
 		converter(
 			.signed_mag(s_axis_tdata[INT_SIZE * i +: INT_SIZE]),
 			.twos_complement(next_data[INT_SIZE * i +: INT_SIZE])

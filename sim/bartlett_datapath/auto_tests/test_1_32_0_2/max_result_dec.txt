@@ -1,2 +1,2 @@
-Theta: 0f
-Value:     7589755
+Theta: 00
+Value:     1236896

@@ -1,7 +1,7 @@
 function compare(path)
 	directory = path;
 	% === User settings ===
-	mat_file = directory+"\\magP.mat";    % .mat file to load
+	mat_file = directory+"\\new_algo_magP.mat";    % .mat file to load
 	csv_file = directory+"\\all_result_dec.csv";    % .csv file to load
 	img_file = directory+"\\comparison.png";  % output image file
 	
@@ -39,7 +39,7 @@ function compare(path)
     ylabel('Relative Weight');
 
 
-	legend({'Oracle','Verilog'});
+	legend({'Modified Oracle','Verilog'});
 	xlabel('Angle');
 
 	title(path,'Interpreter','none');

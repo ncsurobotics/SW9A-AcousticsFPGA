@@ -1,2 +1,2 @@
-Theta: 06
-Value: 00af5200
+Theta: 08
+Value: 001210a7

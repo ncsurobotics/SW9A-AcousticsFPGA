@@ -1,2 +1,2 @@
 Theta: 06
-Value: 00d23f40
+Value: 00165220

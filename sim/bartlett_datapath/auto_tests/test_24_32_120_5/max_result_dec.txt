@@ -1,2 +1,2 @@
-Theta: 05
-Value:    16829691
+Theta: 0c
+Value:     1527520

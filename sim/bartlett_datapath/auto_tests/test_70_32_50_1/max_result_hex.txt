@@ -1,2 +1,2 @@
-Theta: 09
-Value: 0060ddc0
+Theta: 05
+Value: 00107045

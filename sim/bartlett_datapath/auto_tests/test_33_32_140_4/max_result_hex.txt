@@ -1,2 +1,2 @@
-Theta: 04
-Value: 00441b38
+Theta: 0e
+Value: 00127d28

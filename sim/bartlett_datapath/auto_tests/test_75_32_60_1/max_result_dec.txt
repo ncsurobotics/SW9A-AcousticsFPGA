@@ -1,2 +1,2 @@
-Theta: 10
-Value:     8247269
+Theta: 06
+Value:     1494432

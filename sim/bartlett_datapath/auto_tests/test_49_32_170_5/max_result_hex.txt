@@ -1,2 +1,2 @@
-Theta: 0b
-Value: 00ad8214
+Theta: 11
+Value: 00166943

@@ -271,22 +271,22 @@ module complex_matrix_multiplier #(
 	input[NUM_SIZE-1:0] channel_2_base,
 	input[NUM_SIZE-1:0] channel_3_base,
 	
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_0_0,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_0_1,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_0_2,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_0_3,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_1_0,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_1_1,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_1_2,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_1_3,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_2_0,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_2_1,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_2_2,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_2_3,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_3_0,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_3_1,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_3_2,
-	output reg[NUM_SIZE * 2 - 1:0] result_matrix_3_3
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_0_0,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_0_1,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_0_2,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_0_3,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_1_0,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_1_1,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_1_2,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_1_3,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_2_0,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_2_1,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_2_2,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_2_3,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_3_0,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_3_1,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_3_2,
+	output reg signed[NUM_SIZE * 2 - 1:0] result_matrix_3_3
 	);
 	
 	wire[NUM_SIZE * 2 - 1:0] next_result_matrix_0_0;
@@ -347,12 +347,24 @@ module complex_matrix_multiplier #(
 	
 	always@(*) s_axis_tready = s_axis_a_tready_0_0 & s_axis_b_tready_0_0; //Assume all have the same ready.
 	
+	wire signed [NUM_SIZE/2 - 1 : 0] real_channel[3:0], imag_channel[3:0];
+	
+	assign real_channel[0] = channel_0_base[NUM_SIZE/2 - 1:0];
+	assign real_channel[1] = channel_1_base[NUM_SIZE/2 - 1:0];
+	assign real_channel[2] = channel_2_base[NUM_SIZE/2 - 1:0];
+	assign real_channel[3] = channel_3_base[NUM_SIZE/2 - 1:0];
+	
+	assign imag_channel[0] = channel_0_base[NUM_SIZE-1: NUM_SIZE/2 ];
+	assign imag_channel[1] = channel_1_base[NUM_SIZE-1: NUM_SIZE/2 ];
+	assign imag_channel[2] = channel_2_base[NUM_SIZE-1: NUM_SIZE/2 ];
+	assign imag_channel[3] = channel_3_base[NUM_SIZE-1: NUM_SIZE/2 ];
+	
 	
 	wire[NUM_SIZE-1:0] channel_0_conj, channel_1_conj, channel_2_conj, channel_3_conj;
-	assign channel_0_conj = {~channel_0_base[NUM_SIZE-1: NUM_SIZE/2 ] + 1, channel_0_base[NUM_SIZE/2 - 1:0]};
-	assign channel_1_conj = {~channel_1_base[NUM_SIZE-1: NUM_SIZE/2 ] + 1, channel_1_base[NUM_SIZE/2 - 1:0]};
-	assign channel_2_conj = {~channel_2_base[NUM_SIZE-1: NUM_SIZE/2 ] + 1, channel_2_base[NUM_SIZE/2 - 1:0]};
-	assign channel_3_conj = {~channel_3_base[NUM_SIZE-1: NUM_SIZE/2 ] + 1, channel_3_base[NUM_SIZE/2 - 1:0]};
+	assign channel_0_conj = {-imag_channel[0],real_channel[0]};
+	assign channel_1_conj = {-imag_channel[1],real_channel[1]};
+	assign channel_2_conj = {-imag_channel[2],real_channel[2]};
+	assign channel_3_conj = {-imag_channel[3],real_channel[3]};
 
 	
 	always@(posedge clk or negedge reset_n)begin
