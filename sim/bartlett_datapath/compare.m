@@ -49,3 +49,4 @@ function compare(path)
 	saveas(gcf, img_file);
 	disp(['Saved figure as ', img_file]);
 end
+

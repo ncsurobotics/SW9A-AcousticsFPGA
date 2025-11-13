@@ -36,7 +36,7 @@ module fft_max (
 
     //outputs of IFFT
     output [127:0] m_axis_tdata,
-	output[15:0] m_axis_tuser,
+	output[39:0] m_axis_tuser,
     output m_axis_tvalid,
     input m_axis_tready,
     output m_axis_tlast,
@@ -62,7 +62,7 @@ module fft_max (
 	assign k_index = m_axis_tuser[8:0];
 	
 	wire [127:0] m_axis_spectrum_tdata;
-	wire[15:0] m_axis_spectrum_tuser;
+	wire[39:0] m_axis_spectrum_tuser;
     wire m_axis_spectrum_tvalid;
     wire m_axis_spectrum_tready;
     wire m_axis_spectrum_tlast;
@@ -75,7 +75,7 @@ xfft_0 your_instance_name (
   .aclk(clk),                                                // input wire aclk
   .aresetn(reset_n),                                          // input wire aresetn
   .s_axis_config_tdata(fft_s_axis_config_tdata),                  // input wire [79 : 0] s_axis_config_tdata
-  .s_axis_config_tvalid(1),                // input wire s_axis_config_tvalid
+  .s_axis_config_tvalid(1'b1),                // input wire s_axis_config_tvalid
   .s_axis_config_tready(s_axis_config_tready),                // output wire s_axis_config_tready
   
   .s_axis_data_tdata(s_axis_tdata),                      // input wire [127 : 0] s_axis_data_tdata
@@ -89,9 +89,9 @@ xfft_0 your_instance_name (
   .m_axis_data_tready(m_axis_spectrum_tready),                    // input wire m_axis_data_tready
   .m_axis_data_tlast(m_axis_spectrum_tlast),                      // output wire m_axis_data_tlast
   
-  .m_axis_status_tdata(m_axis_status_tdata),                  // output wire [7 : 0] m_axis_status_tdata
-  .m_axis_status_tvalid(m_axis_status_tvalid),                // output wire m_axis_status_tvalid
-  .m_axis_status_tready(1),                // input wire m_axis_status_tready
+  //.m_axis_status_tdata(m_axis_status_tdata),                  // output wire [7 : 0] m_axis_status_tdata
+  //.m_axis_status_tvalid(m_axis_status_tvalid),                // output wire m_axis_status_tvalid
+  .m_axis_status_tready(1'b1),                // input wire m_axis_status_tready
   
   .event_frame_started(event_frame_started),                  // output wire event_frame_started
   .event_tlast_unexpected(event_tlast_unexpected),            // output wire event_tlast_unexpected

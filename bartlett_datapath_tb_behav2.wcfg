@@ -12,18 +12,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="19,803.166 ns"></ZoomStartTime>
-      <ZoomEndTime time="20,039.367 ns"></ZoomEndTime>
-      <Cursor1Time time="20,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="13.066666 us"></ZoomStartTime>
+      <ZoomEndTime time="27.046565 us"></ZoomEndTime>
+      <Cursor1Time time="40.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="269"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject fp_name="group5879" type="group">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -537,50 +538,10 @@
       <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_real_part" type="array">
          <obj_property name="ElementShortName">max_real_part[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">max_real_part[3:0][15:0]</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_real_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_real_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_real_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_real_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_imag_part" type="array">
          <obj_property name="ElementShortName">max_imag_part[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">max_imag_part[3:0][15:0]</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_imag_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_imag_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_imag_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/max_imag_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/fft_max_inst/max_fft_bin_inst/current_last" type="logic">
          <obj_property name="ElementShortName">current_last</obj_property>
@@ -659,171 +620,11 @@
          <obj_property name="ElementShortName">real_values[15:0][31:0]</obj_property>
          <obj_property name="ObjectShortName">real_values[15:0][31:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[15]" type="array">
-            <obj_property name="ElementShortName">[15][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[15][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[14]" type="array">
-            <obj_property name="ElementShortName">[14][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[14][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[13]" type="array">
-            <obj_property name="ElementShortName">[13][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[13][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[12]" type="array">
-            <obj_property name="ElementShortName">[12][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[12][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[11]" type="array">
-            <obj_property name="ElementShortName">[11][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[11][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[10]" type="array">
-            <obj_property name="ElementShortName">[10][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[10][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[9]" type="array">
-            <obj_property name="ElementShortName">[9][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[9][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[8]" type="array">
-            <obj_property name="ElementShortName">[8][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[7]" type="array">
-            <obj_property name="ElementShortName">[7][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[6]" type="array">
-            <obj_property name="ElementShortName">[6][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[5]" type="array">
-            <obj_property name="ElementShortName">[5][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[4]" type="array">
-            <obj_property name="ElementShortName">[4][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[3]" type="array">
-            <obj_property name="ElementShortName">[3][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[2]" type="array">
-            <obj_property name="ElementShortName">[2][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[1]" type="array">
-            <obj_property name="ElementShortName">[1][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/real_values[0]" type="array">
-            <obj_property name="ElementShortName">[0][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values" type="array">
          <obj_property name="ElementShortName">imag_values[15:0][31:0]</obj_property>
          <obj_property name="ObjectShortName">imag_values[15:0][31:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[15]" type="array">
-            <obj_property name="ElementShortName">[15][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[15][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[14]" type="array">
-            <obj_property name="ElementShortName">[14][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[14][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[13]" type="array">
-            <obj_property name="ElementShortName">[13][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[13][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[12]" type="array">
-            <obj_property name="ElementShortName">[12][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[12][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[11]" type="array">
-            <obj_property name="ElementShortName">[11][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[11][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[10]" type="array">
-            <obj_property name="ElementShortName">[10][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[10][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[9]" type="array">
-            <obj_property name="ElementShortName">[9][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[9][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[8]" type="array">
-            <obj_property name="ElementShortName">[8][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[7]" type="array">
-            <obj_property name="ElementShortName">[7][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[6]" type="array">
-            <obj_property name="ElementShortName">[6][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[5]" type="array">
-            <obj_property name="ElementShortName">[5][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[4]" type="array">
-            <obj_property name="ElementShortName">[4][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[3]" type="array">
-            <obj_property name="ElementShortName">[3][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[2]" type="array">
-            <obj_property name="ElementShortName">[2][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[1]" type="array">
-            <obj_property name="ElementShortName">[1][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/imag_values[0]" type="array">
-            <obj_property name="ElementShortName">[0][31:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
@@ -929,50 +730,10 @@
       <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/real_channel" type="array">
          <obj_property name="ElementShortName">real_channel[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">real_channel[3:0][15:0]</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/real_channel[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/real_channel[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/real_channel[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/real_channel[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/imag_channel" type="array">
          <obj_property name="ElementShortName">imag_channel[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">imag_channel[3:0][15:0]</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/imag_channel[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/imag_channel[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/imag_channel[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/imag_channel[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb/dut/bartlett_time_domain_inst/rxx_inst/complex_matrix_multiplier_inst/channel_0_base" type="array">
          <obj_property name="ElementShortName">channel_0_base[31:0]</obj_property>

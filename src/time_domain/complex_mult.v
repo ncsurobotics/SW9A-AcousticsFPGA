@@ -51,12 +51,12 @@ module complex_matrix_hadamard #(
 	genvar i;
 	
 	wire[WIDTH * HEIGHT - 1: 0] s_axis_a_tready_buf, s_axis_b_tready_buf, m_axis_tvalid_buf, m_axis_tlast_buf;
-	wire[2 * $clog2(`THETA_COUNT) - 1: 0] m_axis_tuser_buf[WIDTH * HEIGHT - 1: 0];
+	wire[9: 0] m_axis_tuser_buf[WIDTH * HEIGHT - 1: 0];
 	assign s_axis_a_tready = s_axis_a_tready_buf[0];
 	assign s_axis_b_tready = s_axis_b_tready_buf[0];
 	assign m_axis_tvalid = m_axis_tvalid_buf[0];
 	assign m_axis_tlast = m_axis_tlast_buf[0]; 
-	assign m_axis_tuser = m_axis_tuser_buf[0];
+	assign m_axis_tuser = m_axis_tuser_buf[0][4:0];
 	
 	wire[NUM_SIZE * 2 - 1:0] matrix[HEIGHT * WIDTH:0];
 	assign m_axis_tdata[NUM_SIZE * 2 * 0 +: NUM_SIZE * 2] =  {matrix[0][NUM_SIZE * 2 - 1:NUM_SIZE] ,matrix[0][NUM_SIZE - 1:0] };
@@ -323,22 +323,22 @@ module complex_matrix_multiplier #(
 	wire m_axis_dout_tvalid_3_2;
 	wire m_axis_dout_tvalid_3_3;
 	
-	wire[1:0] m_axis_dout_tuser_0_0;
-	wire[1:0] m_axis_dout_tuser_0_1;
-	wire[1:0] m_axis_dout_tuser_0_2;
-	wire[1:0] m_axis_dout_tuser_0_3;
-	wire[1:0] m_axis_dout_tuser_1_0;
-	wire[1:0] m_axis_dout_tuser_1_1;
-	wire[1:0] m_axis_dout_tuser_1_2;
-	wire[1:0] m_axis_dout_tuser_1_3;
-	wire[1:0] m_axis_dout_tuser_2_0;
-	wire[1:0] m_axis_dout_tuser_2_1;
-	wire[1:0] m_axis_dout_tuser_2_2;
-	wire[1:0] m_axis_dout_tuser_2_3;
-	wire[1:0] m_axis_dout_tuser_3_0;
-	wire[1:0] m_axis_dout_tuser_3_1;
-	wire[1:0] m_axis_dout_tuser_3_2;
-	wire[1:0] m_axis_dout_tuser_3_3;
+	wire[9:0] m_axis_dout_tuser_0_0;
+	wire[9:0] m_axis_dout_tuser_0_1;
+	wire[9:0] m_axis_dout_tuser_0_2;
+	wire[9:0] m_axis_dout_tuser_0_3;
+	wire[9:0] m_axis_dout_tuser_1_0;
+	wire[9:0] m_axis_dout_tuser_1_1;
+	wire[9:0] m_axis_dout_tuser_1_2;
+	wire[9:0] m_axis_dout_tuser_1_3;
+	wire[9:0] m_axis_dout_tuser_2_0;
+	wire[9:0] m_axis_dout_tuser_2_1;
+	wire[9:0] m_axis_dout_tuser_2_2;
+	wire[9:0] m_axis_dout_tuser_2_3;
+	wire[9:0] m_axis_dout_tuser_3_0;
+	wire[9:0] m_axis_dout_tuser_3_1;
+	wire[9:0] m_axis_dout_tuser_3_2;
+	wire[9:0] m_axis_dout_tuser_3_3;
 	
 	
 	assign s_axis_a_tvalid = s_axis_tvalid; //The entire system pauses if one cmpy is not ready
@@ -410,7 +410,7 @@ module complex_matrix_multiplier #(
 			
 			
 			m_axis_dout_tvalid <= m_axis_dout_tvalid_0_0;
-			m_axis_dout_tuser  <= m_axis_dout_tuser_0_0;
+			m_axis_dout_tuser  <= m_axis_dout_tuser_0_0[4:0];
 			m_axis_dout_tlast  <= m_axis_dout_tlast_0_0;
 		end
 	end

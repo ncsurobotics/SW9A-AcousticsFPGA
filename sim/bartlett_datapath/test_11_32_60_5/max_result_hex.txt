@@ -1,2 +1,2 @@
-Theta: 06
-Value: 00250560
+Theta: 00
+Value: 00000000
