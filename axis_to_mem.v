@@ -31,7 +31,6 @@ module axis_to_mem(
     output reg [31:0] data_out,
     output reg wr_en
 );
-
     reg [4:0] data_select; // selector for the mux
     reg [31:0] bins [0:18];
     
@@ -43,25 +42,27 @@ module axis_to_mem(
         end
     end
     
-    // do the mux for the valid to wr_en
     // send current bin data until 19 (max_angle)
     always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin // reset everything
+        if (!rst_n) begin
             data_select <= 0;
             address <= 0;
             data_out <= 0;
             wr_en <= 0;
         end else begin
-            address <= data_select; // assign the outputs based on what data_select is currently
-            if (data_select < 19) begin
+            wr_en <= 0; // by default do no writing
+            if (bin_valid && data_select < 19) begin
+                address <= data_select;
                 data_out <= bins[data_select];
-                wr_en <= bin_valid;
-            end else begin
-                data_out <= {24'b0, max_angle};
-                wr_en <= max_valid;
-            end
-            if (wr_en) // after the write go to the next data_select
+                wr_en <= 1;
                 data_select <= data_select + 1;
+            end
+            else if (max_valid && data_select == 19) begin // for the max angle
+                address <= data_select;
+                data_out <= {24'b0, max_angle};
+                wr_en <= 1;
+                data_select <= data_select + 1;
+            end
         end
     end  
 endmodule
