@@ -1,2 +1,0 @@
-Theta: 03
-Value: 0014bdaa

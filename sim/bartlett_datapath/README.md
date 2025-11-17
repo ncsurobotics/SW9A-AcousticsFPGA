@@ -52,7 +52,8 @@ The current implementation has those numbers then being arithmetically bit shift
 The IP allows for configurable output size, therefore having it output 32 bit numbers would, most likely, internalize the logic we are putting into the scalar divide, and save some registers.
 4. Ptheta - The ptheta module could be redesigned to be more pipelined and use less cmpy_1 IPs, as it currently uses 16 in parallel. This change would proportionally increase latency.
 4. The complex multiplier IPs are all configured to only use LUTs, by implementing some of the above changes, more DSP slices would free up to allow for DSP to be used.
-
+7. The FFT_max only looks at the positive frequencies. For a real signal (we have a real signal), its fft is symmetric about the y-axis, looking at the negative frequencies would be equally valid here.
+Additionally, we know the correct frequency will always be in some range, therefore fft_max could ignore anything that isn't between -40k : -20k.
 
 TESTING/VERIFICATION
 1. The current method for testing a range of input samples is editing the filepath in the .v file, then recompiling and simulating for each input. This method is slow and inefficient.

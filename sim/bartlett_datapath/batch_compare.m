@@ -1,3 +1,5 @@
+clear all;
+close all;
 baseDir = "auto_tests";
 
 % Get list of subdirectories

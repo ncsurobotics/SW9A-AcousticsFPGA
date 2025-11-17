@@ -84,9 +84,7 @@ module scalar_divide_const #(
 	input [MAT_WIDTH * MAT_HEIGHT * NUM_SIZE - 1:0] s_axis_tdata,
 	output reg[MAT_WIDTH * MAT_HEIGHT * NUM_SIZE/2 - 1:0] m_axis_tdata,
 	input s_axis_tvalid, s_axis_tlast, m_axis_tready,
-	input[$clog2(`THETA_COUNT)-1:0] s_axis_tuser,
-	output reg s_axis_tready, m_axis_tvalid, m_axis_tlast, 
-	output reg[$clog2(`THETA_COUNT)-1:0] m_axis_tuser
+	output reg s_axis_tready, m_axis_tvalid, m_axis_tlast
 	);
 	
 	
@@ -98,12 +96,10 @@ module scalar_divide_const #(
 			m_axis_tdata <= 0;
 			m_axis_tlast <= 0;
 			s_axis_tready <= 1;
-			m_axis_tuser <= 0;
 			m_axis_tvalid <= 0;
 		end else begin
 			m_axis_tlast <= s_axis_tlast;
 			s_axis_tready <= m_axis_tready;
-			m_axis_tuser <= s_axis_tuser;
 			m_axis_tvalid <= load_data;
 			if(load_data) begin
 				m_axis_tdata <= result;

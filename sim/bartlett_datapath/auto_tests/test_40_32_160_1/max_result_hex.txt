@@ -1,2 +1,0 @@
-Theta: 10
-Value: 00164d3b

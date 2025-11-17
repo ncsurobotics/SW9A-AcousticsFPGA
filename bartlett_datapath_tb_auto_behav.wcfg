@@ -12,17 +12,249 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="11.960001 us"></ZoomEndTime>
-      <Cursor1Time time="1.810000 us"></Cursor1Time>
+      <ZoomStartTime time="8,712.267 ns"></ZoomStartTime>
+      <ZoomEndTime time="9,316.268 ns"></ZoomEndTime>
+      <Cursor1Time time="9,015.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
-   <wvobject fp_name="group5027" type="group">
-      <obj_property name="label">DUT</obj_property>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="group747" type="group">
+      <obj_property name="label">Tb</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/hydro_data" type="array">
+         <obj_property name="ElementShortName">hydro_data[255:0][127:0]</obj_property>
+         <obj_property name="ObjectShortName">hydro_data[255:0][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/index" type="array">
+         <obj_property name="ElementShortName">index[31:0]</obj_property>
+         <obj_property name="ObjectShortName">index[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_all_tdata[607:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tdata[607:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_rxx" type="array">
+         <obj_property name="ElementShortName">debug_rxx[511:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_rxx_valid" type="logic">
+         <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft" type="array">
+         <obj_property name="ElementShortName">debug_fft[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft_max_index" type="array">
+         <obj_property name="ElementShortName">debug_fft_max_index[15:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/fft_buffer" type="array">
+         <obj_property name="ElementShortName">fft_buffer[255:0][127:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_buffer[255:0][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft_max_index_buffer" type="array">
+         <obj_property name="ElementShortName">debug_fft_max_index_buffer[255:0][39:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index_buffer[255:0][39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_current_magnitude_buffer" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude_buffer[255:0][33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_buffer[255:0][33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/max_freq_vec" type="array">
+         <obj_property name="ElementShortName">max_freq_vec[127:0]</obj_property>
+         <obj_property name="ObjectShortName">max_freq_vec[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/max_freq_vec_valid" type="logic">
+         <obj_property name="ElementShortName">max_freq_vec_valid</obj_property>
+         <obj_property name="ObjectShortName">max_freq_vec_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/mid_data" type="array">
+         <obj_property name="ElementShortName">mid_data[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">mid_data[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/mid_valid" type="logic">
+         <obj_property name="ElementShortName">mid_valid</obj_property>
+         <obj_property name="ObjectShortName">mid_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/j" type="array">
+         <obj_property name="ElementShortName">j[31:0]</obj_property>
+         <obj_property name="ObjectShortName">j[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/k" type="array">
+         <obj_property name="ElementShortName">k[31:0]</obj_property>
+         <obj_property name="ObjectShortName">k[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/z" type="array">
+         <obj_property name="ElementShortName">z[31:0]</obj_property>
+         <obj_property name="ObjectShortName">z[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/inc" type="logic">
+         <obj_property name="ElementShortName">inc</obj_property>
+         <obj_property name="ObjectShortName">inc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/save" type="logic">
+         <obj_property name="ElementShortName">save</obj_property>
+         <obj_property name="ObjectShortName">save</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/rxx_saved" type="logic">
+         <obj_property name="ElementShortName">rxx_saved</obj_property>
+         <obj_property name="ObjectShortName">rxx_saved</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/max_freq_saved" type="logic">
+         <obj_property name="ElementShortName">max_freq_saved</obj_property>
+         <obj_property name="ObjectShortName">max_freq_saved</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/mid_saved" type="logic">
+         <obj_property name="ElementShortName">mid_saved</obj_property>
+         <obj_property name="ObjectShortName">mid_saved</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/fft_index" type="array">
+         <obj_property name="ElementShortName">fft_index[31:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_index[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/filtered_fft_index" type="array">
+         <obj_property name="ElementShortName">filtered_fft_index[31:0]</obj_property>
+         <obj_property name="ObjectShortName">filtered_fft_index[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/current_mag_index" type="array">
+         <obj_property name="ElementShortName">current_mag_index[31:0]</obj_property>
+         <obj_property name="ObjectShortName">current_mag_index[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/real_values" type="array">
+         <obj_property name="ElementShortName">real_values[15:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">real_values[15:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/imag_values" type="array">
+         <obj_property name="ElementShortName">imag_values[15:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_values[15:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/resultFile" type="array">
+         <obj_property name="ElementShortName">resultFile[31:0]</obj_property>
+         <obj_property name="ObjectShortName">resultFile[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/csvFile" type="array">
+         <obj_property name="ElementShortName">csvFile[31:0]</obj_property>
+         <obj_property name="ObjectShortName">csvFile[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/filtered_fft_saved" type="logic">
+         <obj_property name="ElementShortName">filtered_fft_saved</obj_property>
+         <obj_property name="ObjectShortName">filtered_fft_saved</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/raw_fft_saved" type="logic">
+         <obj_property name="ElementShortName">raw_fft_saved</obj_property>
+         <obj_property name="ObjectShortName">raw_fft_saved</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/real_part" type="array">
+         <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/imag_part" type="array">
+         <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/send_index" type="array">
+         <obj_property name="ElementShortName">send_index[31:0]</obj_property>
+         <obj_property name="ObjectShortName">send_index[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/test_number" type="array">
+         <obj_property name="ElementShortName">test_number[31:0]</obj_property>
+         <obj_property name="ObjectShortName">test_number[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/test_count" type="array">
+         <obj_property name="ElementShortName">test_count[31:0]</obj_property>
+         <obj_property name="ObjectShortName">test_count[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/angles" type="array">
+         <obj_property name="ElementShortName">angles[18:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">angles[18:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tuser" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tuser</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tuser" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tuser</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft_max_index_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_max_index_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index_valid</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group748" type="group">
+      <obj_property name="label">Dut</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
@@ -32,25 +264,21 @@
          <obj_property name="ElementShortName">reset_b</obj_property>
          <obj_property name="ObjectShortName">reset_b</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/x_s_axis_data_tdata" type="array">
-         <obj_property name="ElementShortName">x_s_axis_data_tdata[127:0]</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tdata[127:0]</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/x_s_axis_data_tvalid" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tvalid</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tvalid</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/x_s_axis_data_tready" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tready</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tready</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/x_s_axis_data_tlast" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tlast</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_enable" type="logic">
-         <obj_property name="ElementShortName">theta_enable</obj_property>
-         <obj_property name="ObjectShortName">theta_enable</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_max_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
@@ -100,9 +328,53 @@
          <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
          <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/ifft_m_axis_data_tdata" type="array">
-         <obj_property name="ElementShortName">ifft_m_axis_data_tdata[127:0]</obj_property>
-         <obj_property name="ObjectShortName">ifft_m_axis_data_tdata[127:0]</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft" type="array">
+         <obj_property name="ElementShortName">debug_fft[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_max_index" type="array">
+         <obj_property name="ElementShortName">debug_fft_max_index[39:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index[39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_max_index_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_max_index_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_mag" type="array">
+         <obj_property name="ElementShortName">debug_fft_mag[31:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_mag[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_mag_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_mag_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_mag_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_max_freq_vec" type="array">
+         <obj_property name="ElementShortName">debug_max_freq_vec[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_max_freq_vec[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_max_freq_vec_valid" type="logic">
+         <obj_property name="ElementShortName">debug_max_freq_vec_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_max_freq_vec_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_mid" type="array">
+         <obj_property name="ElementShortName">debug_mid[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_mid[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_mid_valid" type="logic">
+         <obj_property name="ElementShortName">debug_mid_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_mid_valid</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_fft_max_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_fft_max_tdata[127:0]</obj_property>
@@ -120,9 +392,21 @@
          <obj_property name="ElementShortName">m_axis_fft_max_tvalid</obj_property>
          <obj_property name="ObjectShortName">m_axis_fft_max_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/x_m_axis_data_tvalid" type="logic">
-         <obj_property name="ElementShortName">x_m_axis_data_tvalid</obj_property>
-         <obj_property name="ObjectShortName">x_m_axis_data_tvalid</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_converted_fft_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_converted_fft_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_converted_fft_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/m_axis_converted_fft_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tvalid</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_theta_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
@@ -135,10 +419,6 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_theta_tlast" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_theta_tuser" type="logic">
-         <obj_property name="ElementShortName">s_axis_theta_tuser</obj_property>
-         <obj_property name="ObjectShortName">s_axis_theta_tuser</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/s_axis_theta_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
@@ -153,154 +433,9 @@
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group5028" type="group">
-      <obj_property name="label">TB</obj_property>
+   <wvobject fp_name="group867" type="group">
+      <obj_property name="label">Time</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/reset_n" type="logic">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/x_s_axis_data_tdata" type="array">
-         <obj_property name="ElementShortName">x_s_axis_data_tdata[127:0]</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tdata[127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/hydro_data" type="array">
-         <obj_property name="ElementShortName">hydro_data[255:0][127:0]</obj_property>
-         <obj_property name="ObjectShortName">hydro_data[255:0][127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/x_s_axis_data_tready" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tready</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/x_s_axis_data_tvalid" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tvalid</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/x_s_axis_data_tlast" type="logic">
-         <obj_property name="ElementShortName">x_s_axis_data_tlast</obj_property>
-         <obj_property name="ObjectShortName">x_s_axis_data_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/index" type="array">
-         <obj_property name="ElementShortName">index[31:0]</obj_property>
-         <obj_property name="ObjectShortName">index[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tdata" type="array">
-         <obj_property name="ElementShortName">m_axis_all_tdata[607:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_all_tdata[607:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tdata" type="array">
-         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tready" type="logic">
-         <obj_property name="ElementShortName">m_axis_all_tready</obj_property>
-         <obj_property name="ObjectShortName">m_axis_all_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tready" type="logic">
-         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
-         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_rxx" type="array">
-         <obj_property name="ElementShortName">debug_rxx[511:0]</obj_property>
-         <obj_property name="ObjectShortName">debug_rxx[511:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_rxx_valid" type="logic">
-         <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
-         <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft" type="array">
-         <obj_property name="ElementShortName">debug_fft[127:0]</obj_property>
-         <obj_property name="ObjectShortName">debug_fft[127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_filtered_fft" type="array">
-         <obj_property name="ElementShortName">debug_filtered_fft[127:0]</obj_property>
-         <obj_property name="ObjectShortName">debug_filtered_fft[127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/fft_buffer" type="array">
-         <obj_property name="ElementShortName">fft_buffer[255:0][127:0]</obj_property>
-         <obj_property name="ObjectShortName">fft_buffer[255:0][127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/filtered_fft_buffer" type="array">
-         <obj_property name="ElementShortName">filtered_fft_buffer[255:0][127:0]</obj_property>
-         <obj_property name="ObjectShortName">filtered_fft_buffer[255:0][127:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/i" type="array">
-         <obj_property name="ElementShortName">i[31:0]</obj_property>
-         <obj_property name="ObjectShortName">i[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/resultFile" type="array">
-         <obj_property name="ElementShortName">resultFile[31:0]</obj_property>
-         <obj_property name="ObjectShortName">resultFile[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/csvFile" type="array">
-         <obj_property name="ElementShortName">csvFile[31:0]</obj_property>
-         <obj_property name="ObjectShortName">csvFile[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/j" type="array">
-         <obj_property name="ElementShortName">j[31:0]</obj_property>
-         <obj_property name="ObjectShortName">j[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/inc" type="logic">
-         <obj_property name="ElementShortName">inc</obj_property>
-         <obj_property name="ObjectShortName">inc</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/save" type="logic">
-         <obj_property name="ElementShortName">save</obj_property>
-         <obj_property name="ObjectShortName">save</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/rxx_saved" type="logic">
-         <obj_property name="ElementShortName">rxx_saved</obj_property>
-         <obj_property name="ObjectShortName">rxx_saved</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/fft_index" type="array">
-         <obj_property name="ElementShortName">fft_index[31:0]</obj_property>
-         <obj_property name="ObjectShortName">fft_index[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/filtered_fft_index" type="array">
-         <obj_property name="ElementShortName">filtered_fft_index[31:0]</obj_property>
-         <obj_property name="ObjectShortName">filtered_fft_index[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tvalid" type="logic">
-         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
-         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tuser" type="logic">
-         <obj_property name="ElementShortName">m_axis_max_tuser</obj_property>
-         <obj_property name="ObjectShortName">m_axis_max_tuser</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_max_tlast" type="logic">
-         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
-         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tvalid" type="logic">
-         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
-         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tuser" type="logic">
-         <obj_property name="ElementShortName">m_axis_all_tuser</obj_property>
-         <obj_property name="ObjectShortName">m_axis_all_tuser</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/m_axis_all_tlast" type="logic">
-         <obj_property name="ElementShortName">m_axis_all_tlast</obj_property>
-         <obj_property name="ObjectShortName">m_axis_all_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_fft_valid" type="logic">
-         <obj_property name="ElementShortName">debug_fft_valid</obj_property>
-         <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/debug_filtered_fft_valid" type="logic">
-         <obj_property name="ElementShortName">debug_filtered_fft_valid</obj_property>
-         <obj_property name="ObjectShortName">debug_filtered_fft_valid</obj_property>
-      </wvobject>
-   </wvobject>
-   <wvobject fp_name="group5473" type="group">
-      <obj_property name="label">Time_domain</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -340,10 +475,6 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/s_axis_theta_tlast" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/s_axis_theta_tuser" type="logic">
-         <obj_property name="ElementShortName">s_axis_theta_tuser</obj_property>
-         <obj_property name="ObjectShortName">s_axis_theta_tuser</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/s_axis_theta_tready" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
@@ -397,6 +528,14 @@
          <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
          <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
       </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/debug_mid" type="array">
+         <obj_property name="ElementShortName">debug_mid[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_mid[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/debug_mid_valid" type="logic">
+         <obj_property name="ElementShortName">debug_mid_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_mid_valid</obj_property>
+      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_data" type="array">
          <obj_property name="ElementShortName">rxx_data[511:0]</obj_property>
          <obj_property name="ObjectShortName">rxx_data[511:0]</obj_property>
@@ -417,10 +556,6 @@
          <obj_property name="ElementShortName">m_axis_weight_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_weight_tdata[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_user" type="array">
-         <obj_property name="ElementShortName">rxx_user[4:0]</obj_property>
-         <obj_property name="ObjectShortName">rxx_user[4:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/m_axis_weight_tuser" type="array">
          <obj_property name="ElementShortName">m_axis_weight_tuser[4:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_weight_tuser[4:0]</obj_property>
@@ -440,6 +575,901 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group905" type="group">
+      <obj_property name="label">Theta</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/enable" type="logic">
+         <obj_property name="ElementShortName">enable</obj_property>
+         <obj_property name="ObjectShortName">enable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/m_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/m_axis_theta_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_theta_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_theta_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/m_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/enable_latch" type="logic">
+         <obj_property name="ElementShortName">enable_latch</obj_property>
+         <obj_property name="ObjectShortName">enable_latch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/theta_driver_inst/limit_met" type="logic">
+         <obj_property name="ElementShortName">limit_met</obj_property>
+         <obj_property name="ObjectShortName">limit_met</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group950" type="group">
+      <obj_property name="label">RXX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/clken" type="logic">
+         <obj_property name="ElementShortName">clken</obj_property>
+         <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[511:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/debug_mid" type="array">
+         <obj_property name="ElementShortName">debug_mid[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_mid[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/debug_mid_valid" type="logic">
+         <obj_property name="ElementShortName">debug_mid_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_mid_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/mid_tlast" type="logic">
+         <obj_property name="ElementShortName">mid_tlast</obj_property>
+         <obj_property name="ObjectShortName">mid_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/mid_tvalid" type="logic">
+         <obj_property name="ElementShortName">mid_tvalid</obj_property>
+         <obj_property name="ObjectShortName">mid_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/mid_tdata" type="array">
+         <obj_property name="ElementShortName">mid_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">mid_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/real_values" type="array">
+         <obj_property name="ElementShortName">real_values[15:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">real_values[15:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/imag_values" type="array">
+         <obj_property name="ElementShortName">imag_values[15:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_values[15:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/mid_tready" type="logic">
+         <obj_property name="ElementShortName">mid_tready</obj_property>
+         <obj_property name="ObjectShortName">mid_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid_buf" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid_buf</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid_buf</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group975" type="group">
+      <obj_property name="label">PTHETA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/clken" type="logic">
+         <obj_property name="ElementShortName">clken</obj_property>
+         <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_r_tdata[511:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tdata[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/theta_valid_buffer" type="logic">
+         <obj_property name="ElementShortName">theta_valid_buffer</obj_property>
+         <obj_property name="ObjectShortName">theta_valid_buffer</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/theta_buffer" type="array">
+         <obj_property name="ElementShortName">theta_buffer[4:0]</obj_property>
+         <obj_property name="ObjectShortName">theta_buffer[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/theta_last_buffer" type="logic">
+         <obj_property name="ElementShortName">theta_last_buffer</obj_property>
+         <obj_property name="ObjectShortName">theta_last_buffer</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/r_buffer" type="array">
+         <obj_property name="ElementShortName">r_buffer[511:0]</obj_property>
+         <obj_property name="ObjectShortName">r_buffer[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_sh_theta" type="array">
+         <obj_property name="ElementShortName">s_sh_theta[511:0]</obj_property>
+         <obj_property name="ObjectShortName">s_sh_theta[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/matrix_tdata" type="array">
+         <obj_property name="ElementShortName">matrix_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">matrix_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/matrix_tuser" type="array">
+         <obj_property name="ElementShortName">matrix_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">matrix_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/matrix_tvalid" type="logic">
+         <obj_property name="ElementShortName">matrix_tvalid</obj_property>
+         <obj_property name="ObjectShortName">matrix_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/matrix_tlast" type="logic">
+         <obj_property name="ElementShortName">matrix_tlast</obj_property>
+         <obj_property name="ObjectShortName">matrix_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/matrix_tready" type="logic">
+         <obj_property name="ElementShortName">matrix_tready</obj_property>
+         <obj_property name="ObjectShortName">matrix_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1004" type="group">
+      <obj_property name="label">Had</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/clken" type="logic">
+         <obj_property name="ElementShortName">clken</obj_property>
+         <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tdata[511:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tdata[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tdata[511:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tdata[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[1023:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[1023:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_a_tready_buf" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tready_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tready_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/s_axis_b_tready_buf" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tready_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tready_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tvalid_buf" type="array">
+         <obj_property name="ElementShortName">m_axis_tvalid_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tlast_buf" type="array">
+         <obj_property name="ElementShortName">m_axis_tlast_buf[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast_buf[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/m_axis_tuser_buf" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser_buf[15:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser_buf[15:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/matrix" type="array">
+         <obj_property name="ElementShortName">matrix[15:0][63:0]</obj_property>
+         <obj_property name="ObjectShortName">matrix[15:0][63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/WIDTH" type="array">
+         <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/complex_matrix_hadamard_inst/HEIGHT" type="array">
+         <obj_property name="ElementShortName">HEIGHT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">HEIGHT[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1575" type="group">
+      <obj_property name="label">Store</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tuser" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tuser</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tuser" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tuser</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/m_axis_all_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_all_tdata[607:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tdata[607:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/m_axis_all_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/m_axis_all_tuser" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tuser</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/m_axis_all_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/m_axis_all_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_all_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_all_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1576" type="group">
+      <obj_property name="label">Max</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_theta_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_theta_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_theta_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_theta_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_theta_tuser" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tuser</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_weight_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_weight_tuser" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tuser</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/m_axis_max_tuser" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tuser</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/max_weight" type="array">
+         <obj_property name="ElementShortName">max_weight[31:0]</obj_property>
+         <obj_property name="ObjectShortName">max_weight[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/max_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1364" type="group">
+      <obj_property name="label">FFT_max</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[39:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/debug_fft" type="array">
+         <obj_property name="ElementShortName">debug_fft[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/debug_fft_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/fft_s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">fft_s_axis_config_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_s_axis_config_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/k_index_pre" type="array">
+         <obj_property name="ElementShortName">k_index_pre[7:0]</obj_property>
+         <obj_property name="ObjectShortName">k_index_pre[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/k_index_post" type="array">
+         <obj_property name="ElementShortName">k_index_post[7:0]</obj_property>
+         <obj_property name="ObjectShortName">k_index_post[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_spectrum_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_spectrum_tuser[39:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tuser[39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/real_part" type="array">
+         <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/imag_part" type="array">
+         <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_frame_started" type="logic">
+         <obj_property name="ElementShortName">event_frame_started</obj_property>
+         <obj_property name="ObjectShortName">event_frame_started</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_tlast_unexpected" type="logic">
+         <obj_property name="ElementShortName">event_tlast_unexpected</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_unexpected</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_tlast_missing" type="logic">
+         <obj_property name="ElementShortName">event_tlast_missing</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_missing</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_status_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_status_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_status_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_data_in_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_in_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_in_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/event_data_out_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_out_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_out_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/ZERO_PAD" type="array">
+         <obj_property name="ElementShortName">ZERO_PAD[11:0]</obj_property>
+         <obj_property name="ObjectShortName">ZERO_PAD[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/FWD" type="array">
+         <obj_property name="ElementShortName">FWD[3:0]</obj_property>
+         <obj_property name="ObjectShortName">FWD[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/REV" type="array">
+         <obj_property name="ElementShortName">REV[3:0]</obj_property>
+         <obj_property name="ObjectShortName">REV[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1400" type="group">
+      <obj_property name="label">max_fft_bin</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/s_axis_weight_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/s_axis_weight_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tuser[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tuser[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/m_axis_max_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tuser[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tuser[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part" type="array">
+         <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part" type="array">
+         <obj_property name="ElementShortName">conj_real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">conj_real_part[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part" type="array">
+         <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part" type="array">
+         <obj_property name="ElementShortName">conj_imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">conj_imag_part[3:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/max_real_part" type="array">
+         <obj_property name="ElementShortName">max_real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">max_real_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/max_imag_part" type="array">
+         <obj_property name="ElementShortName">max_imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">max_imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_magnitude" type="array">
+         <obj_property name="ElementShortName">current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/maximum_magnitude" type="array">
+         <obj_property name="ElementShortName">maximum_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">maximum_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/partial_prod" type="array">
+         <obj_property name="ElementShortName">partial_prod[1:0][32:0]</obj_property>
+         <obj_property name="ObjectShortName">partial_prod[1:0][32:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_index" type="array">
+         <obj_property name="ElementShortName">current_index[7:0]</obj_property>
+         <obj_property name="ObjectShortName">current_index[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_last" type="logic">
+         <obj_property name="ElementShortName">current_last</obj_property>
+         <obj_property name="ObjectShortName">current_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_vector" type="array">
+         <obj_property name="ElementShortName">current_vector[127:0]</obj_property>
+         <obj_property name="ObjectShortName">current_vector[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/internal_reset_max" type="logic">
+         <obj_property name="ElementShortName">internal_reset_max</obj_property>
+         <obj_property name="ObjectShortName">internal_reset_max</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conjugate" type="array">
+         <obj_property name="ElementShortName">conjugate[127:0]</obj_property>
+         <obj_property name="ObjectShortName">conjugate[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/INDEX_COUNT" type="array">
+         <obj_property name="ElementShortName">INDEX_COUNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">INDEX_COUNT[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

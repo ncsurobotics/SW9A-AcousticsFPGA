@@ -32,11 +32,11 @@ module fft_max (
     input s_axis_tlast,
 
     //flag to controller
-    output s_axis_tready,
+    output reg s_axis_tready,
 
     //outputs of IFFT
     output [127:0] m_axis_tdata,
-	output[39:0] m_axis_tuser,
+	output[39:0] m_axis_tuser, // the frequency index of the maximum value
     output m_axis_tvalid,
     input m_axis_tready,
     output m_axis_tlast,
@@ -58,8 +58,9 @@ module fft_max (
     wire [15:0] fft_s_axis_config_tdata; 
 	assign fft_s_axis_config_tdata = {ZERO_PAD, FWD};       //block float
 	
-	wire [8:0] k_index;
-	assign k_index = m_axis_tuser[8:0];
+	wire [7:0] k_index_pre, k_index_post;
+	assign k_index_pre = m_axis_spectrum_tuser[7:0];
+	assign k_index_post = m_axis_tuser[7:0];
 	
 	wire [127:0] m_axis_spectrum_tdata;
 	wire[39:0] m_axis_spectrum_tuser;
@@ -69,6 +70,24 @@ module fft_max (
 	
 	assign debug_fft = m_axis_spectrum_tdata;
 	assign debug_fft_valid = m_axis_spectrum_tvalid;
+	
+	reg toggle_ready;
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n) begin
+			s_axis_tready <= 1;
+			toggle_ready <= 0;
+		end else begin
+			s_axis_tready <= s_axis_tready ^ toggle_ready;
+			if(s_axis_tready)begin
+				toggle_ready <= s_axis_tvalid && s_axis_tlast;
+			end else begin
+				toggle_ready <= m_axis_spectrum_tlast;
+			end
+		end
+	end
+	
+	
 	
     //first FFT
 xfft_0 your_instance_name (
@@ -80,7 +99,7 @@ xfft_0 your_instance_name (
   
   .s_axis_data_tdata(s_axis_tdata),                      // input wire [127 : 0] s_axis_data_tdata
   .s_axis_data_tvalid(s_axis_tvalid),                    // input wire s_axis_data_tvalid
-  .s_axis_data_tready(s_axis_tready),                    // output wire s_axis_data_tready
+  //.s_axis_data_tready(),                    // output wire s_axis_data_tready
   .s_axis_data_tlast(s_axis_tlast),                      // input wire s_axis_data_tlast
   
   .m_axis_data_tdata(m_axis_spectrum_tdata),                      // output wire [127 : 0] m_axis_data_tdata
@@ -115,15 +134,26 @@ assign imag_part[2] = m_axis_spectrum_tdata[32 * 2 + 16 +: 16 ];
 assign real_part[3] = m_axis_spectrum_tdata[32 * 3 +: 16];
 assign imag_part[3] = m_axis_spectrum_tdata[32 * 3 + 16+: 16];
 
+	
+	shift_register  #(
+		.SIZE(1),
+		.STAGES(5)
+		) input_delay(
+		.clk(clk),
+		.reset_n(reset_n),
+		.enable(1),
+		.din(toggle_ready),
+		.dout(max_bin_reset)
+		);
 
 max_fft_bin #(.NUM_SIZE(32), .INDEX_COUNT(256))
 	 max_fft_bin_inst (
 	 .clk(clk),
-	 .reset_n(reset_n),
+	 .reset_n(reset_n && ~max_bin_reset),
      .s_axis_weight_tdata(m_axis_spectrum_tdata),
      .s_axis_weight_tvalid(m_axis_spectrum_tvalid),
      .s_axis_weight_tlast(m_axis_spectrum_tlast),
-     .s_axis_weight_tuser(m_axis_spectrum_tuser),
+     .s_axis_weight_tuser(k_index_pre),
      .s_axis_weight_tready(m_axis_spectrum_tready),
 	 
      .m_axis_max_tdata(m_axis_tdata),
@@ -257,4 +287,3 @@ module max_fft_bin #(
 
 	
 endmodule
-

@@ -1,2 +1,0 @@
-Theta: 08
-Value: 0014d0f8

@@ -12,12 +12,11 @@ module p_theta #(
 	// 4x4 matrix input channel
 	input[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1 : 0] s_axis_r_tdata, //MSB->LSB{channel_3, channel_2, channel_1, channel_0}
 	input s_axis_r_tvalid, s_axis_r_tlast, //tlast is overwritten
-	input[$clog2(`THETA_COUNT)-1:0] s_axis_r_tuser, // ignored
 	output s_axis_r_tready,
 	
 	// theta input channel
 	input[$clog2(`THETA_COUNT) - 1: 0] s_axis_theta_tdata, // theta_store[s_axis_theta_tdata] 
-	input s_axis_theta_tvalid, s_axis_theta_tlast, s_axis_theta_tuser, //tlast is overwritten
+	input s_axis_theta_tvalid, s_axis_theta_tlast, //tlast is overwritten
 	output s_axis_theta_tready,
 		
 	// 1x1 weight
@@ -27,7 +26,7 @@ module p_theta #(
 	input m_axis_tready	
 	);
 	
-	reg theta_valid_buffer;
+	reg theta_valid_buffer, theta_last_buffer;
 	reg[$clog2(`THETA_COUNT) - 1: 0] theta_buffer;
 	reg[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1 : 0] r_buffer;
 
@@ -36,8 +35,11 @@ module p_theta #(
 			theta_buffer <= 0;
 			r_buffer <= 0;
 			theta_valid_buffer <= 0;
+			theta_last_buffer <= 0;
 		end
 		else begin
+			theta_last_buffer <= s_axis_theta_tlast;
+			
 			if(s_axis_theta_tvalid) theta_buffer <= s_axis_theta_tdata;
 			else theta_buffer <= theta_buffer;
 			
@@ -57,7 +59,7 @@ module p_theta #(
 		
 
 	wire[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1 : 0] matrix_tdata;
-	wire[2 * $clog2(`THETA_COUNT) - 1: 0] matrix_tuser;
+	wire[$clog2(`THETA_COUNT) - 1: 0] matrix_tuser;
 
 complex_matrix_hadamard #(
 	.NUM_SIZE(NUM_SIZE),
@@ -71,13 +73,13 @@ complex_matrix_hadamard_inst (
 	
 	.s_axis_a_tdata(r_buffer),
 	.s_axis_a_tvalid(theta_valid_buffer),
-	.s_axis_a_tlast(s_axis_theta_tlast), 
-	.s_axis_a_tuser(s_axis_r_tuser),
+	.s_axis_a_tlast(theta_last_buffer), 
+	.s_axis_a_tuser(theta_buffer),
 	.s_axis_a_tready(s_axis_r_tready),
 	
 	.s_axis_b_tdata(s_sh_theta),
 	.s_axis_b_tvalid(theta_valid_buffer),
-	.s_axis_b_tlast(s_axis_theta_tlast),
+	.s_axis_b_tlast(theta_last_buffer),
 	.s_axis_b_tuser(theta_buffer),  
 	.s_axis_b_tready(s_axis_theta_tready),
 
@@ -99,7 +101,7 @@ matrix_accumulator_no_latency_inst (
 	.s_axis_tdata(matrix_tdata),
 	.s_axis_tvalid(matrix_tvalid),
 	.s_axis_tlast(matrix_tlast),
-	.s_axis_tuser(matrix_tuser[$clog2(`THETA_COUNT) * 2 - 1:$clog2(`THETA_COUNT)]),
+	.s_axis_tuser(matrix_tuser),
 	.s_axis_tready(matrix_tready),
 	
 	

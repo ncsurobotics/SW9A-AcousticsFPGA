@@ -1,2 +1,0 @@
-Theta: 10
-Value: 001a8de0

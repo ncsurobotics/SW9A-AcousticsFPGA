@@ -7,15 +7,11 @@ module theta_driver (
 	input enable, //when high, theta values will be sent starting from 0
 	
 	output reg[4:0] m_axis_theta_tdata,
-	output reg m_axis_theta_tlast, m_axis_theta_tuser, m_axis_theta_tvalid
+	output reg m_axis_theta_tlast, m_axis_theta_tvalid
 	);
 	
 	reg enable_latch;
 	wire limit_met = m_axis_theta_tdata == `THETA_COUNT - 2 ;
-	
-	always@(*)begin
-		m_axis_theta_tuser <= 0;	
-	end
 	
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin

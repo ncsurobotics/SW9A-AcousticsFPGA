@@ -43,7 +43,7 @@ module complex_matrix_hadamard #(
 	
 	//Output matrix 
 	output m_axis_tvalid, m_axis_tlast,
-	output[2 * $clog2(`THETA_COUNT) - 1: 0]	m_axis_tuser,
+	output[$clog2(`THETA_COUNT) - 1: 0]	m_axis_tuser,
 	output [NUM_SIZE * 2 * WIDTH * HEIGHT - 1 : 0] m_axis_tdata,
 	input m_axis_tready
 	);
@@ -58,7 +58,7 @@ module complex_matrix_hadamard #(
 	assign m_axis_tlast = m_axis_tlast_buf[0]; 
 	assign m_axis_tuser = m_axis_tuser_buf[0][4:0];
 	
-	wire[NUM_SIZE * 2 - 1:0] matrix[HEIGHT * WIDTH:0];
+	wire[NUM_SIZE * 2 - 1:0] matrix[HEIGHT * WIDTH - 1:0];
 	assign m_axis_tdata[NUM_SIZE * 2 * 0 +: NUM_SIZE * 2] =  {matrix[0][NUM_SIZE * 2 - 1:NUM_SIZE] ,matrix[0][NUM_SIZE - 1:0] };
 	assign m_axis_tdata[NUM_SIZE * 2 * 1 +: NUM_SIZE * 2] =  {matrix[1][NUM_SIZE * 2 - 1:NUM_SIZE] ,matrix[1][NUM_SIZE - 1:0] };
 	assign m_axis_tdata[NUM_SIZE * 2 * 2 +: NUM_SIZE * 2] =  {matrix[2][NUM_SIZE * 2 - 1:NUM_SIZE] ,matrix[2][NUM_SIZE - 1:0] };

@@ -1,2 +1,0 @@
-Theta: 0f
-Value: 0015ba45

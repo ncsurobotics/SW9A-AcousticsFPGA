@@ -1,2 +1,0 @@
-Theta: 03
-Value: 00178f9f

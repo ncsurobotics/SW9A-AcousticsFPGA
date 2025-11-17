@@ -1,2 +1,0 @@
-Theta: 04
-Value: 00173a2a

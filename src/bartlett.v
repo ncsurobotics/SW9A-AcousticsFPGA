@@ -120,7 +120,6 @@ module bartlett_datapath #(
 		
 		.m_axis_theta_tdata(s_axis_theta_tdata),
 		.m_axis_theta_tlast(s_axis_theta_tlast),
-		.m_axis_theta_tuser(s_axis_theta_tuser),
 		.m_axis_theta_tvalid(s_axis_theta_tvalid)
 		);
 	
@@ -140,7 +139,6 @@ module bartlett_datapath #(
 		.s_axis_theta_tdata(s_axis_theta_tdata),
 		.s_axis_theta_tlast(s_axis_theta_tlast),
 		.s_axis_theta_tready(s_axis_theta_tready),
-		.s_axis_theta_tuser(s_axis_theta_tuser),
 		.s_axis_theta_tvalid(s_axis_theta_tvalid),
 		
 		.m_axis_max_tdata(m_axis_max_tdata),
