@@ -2,11 +2,12 @@ function generate_data_batch(angle_min,angle_inc,angle_max,iters_per_angle)
 	%usage matlab -batch "generate_data_batch(ANGLE_MIN,ANGLE_INC,ANGLE_MAX,ITERATIONS_PER_ANGLE)"
     %constants 
 f = 30e3; % frequency of emitted sinusoid (pinger)
-c = 1480;
-lambda = c/f;
-d = lambda/2; %lambda/2
+c = 1480; % speed of sound in water
+lambda = c/f; % wavelength
+d = lambda/2; %lambda/2 spacing between hydrophones
 H = 4;
-dd = (0:1:H-1) * d;
+dd = (0:1:H-1) * d; % hydrophone positions in meters. ULA
+% 0	0.024666666666667	0.049333333333333	0.074000000000000
 fs = 500e3; % sampling freq
 t256 = 256/fs; % time to get 256 samples
 dec_factor = 1; % downsampling factor

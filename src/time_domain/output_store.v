@@ -11,12 +11,12 @@ module output_store #(
 
 	// current theta input channel
 	input[$clog2(`THETA_COUNT) - 1: 0] s_axis_theta_tdata, 
-	input s_axis_theta_tvalid, s_axis_theta_tlast, s_axis_theta_tuser, 
+	input s_axis_theta_tvalid, s_axis_theta_tlast, 
 	output reg s_axis_theta_tready,
 	
 	// current weight input channel
 	input[NUM_SIZE - 1 : 0] s_axis_weight_tdata,
-	input s_axis_weight_tvalid, s_axis_weight_tlast, s_axis_weight_tuser,
+	input s_axis_weight_tvalid, s_axis_weight_tlast, 
 	output reg s_axis_weight_tready,
 	
 	// all weights output channel
@@ -35,8 +35,18 @@ module output_store #(
 		m_axis_all_tlast <= s_axis_theta_tlast;
 	end
 	
+	shift_register #(
+		.SIZE(1),.STAGES(10)
+		) self_reset_sr(
+		.clk(clk),
+		.reset_n(reset_n),
+		.din(m_axis_all_tvalid),
+		.dout(self_reset),
+		.enable(1)
+		);
+	
 	always@(posedge clk or negedge reset_n)begin
-		if(!reset_n)begin
+		if(!reset_n || self_reset)begin
 			m_axis_all_tdata = 0;
 			s_axis_weight_tready = 0;
 			s_axis_theta_tready = 0;

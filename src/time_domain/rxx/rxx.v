@@ -44,12 +44,22 @@ end
 endgenerate 
 */	
 	
+	shift_register #(
+		.SIZE(1),.STAGES(1)
+		) self_reset_sr(
+		.clk(clk),
+		.reset_n(reset_n),
+		.din(mid_tvalid),
+		.dout(self_reset),
+		.enable(1)
+		);
+		
 complex_matrix_multiplier #(
 	.NUM_SIZE(NUM_SIZE)
 	)
 complex_matrix_multiplier_inst(
 	.clk(clk),
-	.reset_n(reset_n),
+	.reset_n(reset_n && !self_reset),
 	.clken(clken),
 	
 	.channel_0_base(s_axis_tdata[0 * NUM_SIZE +: NUM_SIZE]),
@@ -59,7 +69,7 @@ complex_matrix_multiplier_inst(
 	
 	.s_axis_tvalid(s_axis_tvalid),
 	.s_axis_tlast(s_axis_tlast),
-	//.s_axis_tuser(s_axis_tuser),
+	.s_axis_tuser(0),
 	.s_axis_tready(s_axis_tready),
 	
 	.m_axis_dout_tready(mid_tready),
@@ -122,26 +132,6 @@ assign imag_values[13] = mid_tdata[NUM_SIZE + 13 * (2 * NUM_SIZE) +:  NUM_SIZE];
 assign imag_values[14] = mid_tdata[NUM_SIZE + 14 * (2 * NUM_SIZE) +:  NUM_SIZE];
 assign imag_values[15] = mid_tdata[NUM_SIZE + 15 * (2 * NUM_SIZE) +:  NUM_SIZE];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
 	
 scalar_divide_const #(
 	.MAT_HEIGHT(`MATRIX_SIZE),

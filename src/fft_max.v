@@ -36,7 +36,7 @@ module fft_max (
 
     //outputs of IFFT
     output [127:0] m_axis_tdata,
-	output[39:0] m_axis_tuser, // the frequency index of the maximum value
+	output[15:0] m_axis_tuser,
     output m_axis_tvalid,
     input m_axis_tready,
     output m_axis_tlast,
@@ -58,12 +58,11 @@ module fft_max (
     wire [15:0] fft_s_axis_config_tdata; 
 	assign fft_s_axis_config_tdata = {ZERO_PAD, FWD};       //block float
 	
-	wire [7:0] k_index_pre, k_index_post;
-	assign k_index_pre = m_axis_spectrum_tuser[7:0];
-	assign k_index_post = m_axis_tuser[7:0];
+	wire [8:0] k_index;
+	assign k_index = m_axis_tuser[7:0];
 	
 	wire [127:0] m_axis_spectrum_tdata;
-	wire[39:0] m_axis_spectrum_tuser;
+	wire[15:0] m_axis_spectrum_tuser;
     wire m_axis_spectrum_tvalid;
     wire m_axis_spectrum_tready;
     wire m_axis_spectrum_tlast;
@@ -87,19 +86,28 @@ module fft_max (
 		end
 	end
 	
-	
+	shift_register  #(
+		.SIZE(1),
+		.STAGES(5)
+		) input_delay(
+		.clk(clk),
+		.reset_n(reset_n),
+		.enable(1),
+		.din(toggle_ready),
+		.dout(max_bin_reset)
+	);
 	
     //first FFT
 xfft_0 your_instance_name (
   .aclk(clk),                                                // input wire aclk
   .aresetn(reset_n),                                          // input wire aresetn
   .s_axis_config_tdata(fft_s_axis_config_tdata),                  // input wire [79 : 0] s_axis_config_tdata
-  .s_axis_config_tvalid(1'b1),                // input wire s_axis_config_tvalid
+  .s_axis_config_tvalid(1),                // input wire s_axis_config_tvalid
   .s_axis_config_tready(s_axis_config_tready),                // output wire s_axis_config_tready
   
   .s_axis_data_tdata(s_axis_tdata),                      // input wire [127 : 0] s_axis_data_tdata
   .s_axis_data_tvalid(s_axis_tvalid),                    // input wire s_axis_data_tvalid
-  //.s_axis_data_tready(),                    // output wire s_axis_data_tready
+  //.s_axis_data_tready(s_axis_tready),                    // output wire s_axis_data_tready
   .s_axis_data_tlast(s_axis_tlast),                      // input wire s_axis_data_tlast
   
   .m_axis_data_tdata(m_axis_spectrum_tdata),                      // output wire [127 : 0] m_axis_data_tdata
@@ -108,9 +116,9 @@ xfft_0 your_instance_name (
   .m_axis_data_tready(m_axis_spectrum_tready),                    // input wire m_axis_data_tready
   .m_axis_data_tlast(m_axis_spectrum_tlast),                      // output wire m_axis_data_tlast
   
-  //.m_axis_status_tdata(m_axis_status_tdata),                  // output wire [7 : 0] m_axis_status_tdata
-  //.m_axis_status_tvalid(m_axis_status_tvalid),                // output wire m_axis_status_tvalid
-  .m_axis_status_tready(1'b1),                // input wire m_axis_status_tready
+  .m_axis_status_tdata(m_axis_status_tdata),                  // output wire [7 : 0] m_axis_status_tdata
+  .m_axis_status_tvalid(m_axis_status_tvalid),                // output wire m_axis_status_tvalid
+  .m_axis_status_tready(1),                // input wire m_axis_status_tready
   
   .event_frame_started(event_frame_started),                  // output wire event_frame_started
   .event_tlast_unexpected(event_tlast_unexpected),            // output wire event_tlast_unexpected
@@ -134,26 +142,15 @@ assign imag_part[2] = m_axis_spectrum_tdata[32 * 2 + 16 +: 16 ];
 assign real_part[3] = m_axis_spectrum_tdata[32 * 3 +: 16];
 assign imag_part[3] = m_axis_spectrum_tdata[32 * 3 + 16+: 16];
 
-	
-	shift_register  #(
-		.SIZE(1),
-		.STAGES(5)
-		) input_delay(
-		.clk(clk),
-		.reset_n(reset_n),
-		.enable(1),
-		.din(toggle_ready),
-		.dout(max_bin_reset)
-		);
 
 max_fft_bin #(.NUM_SIZE(32), .INDEX_COUNT(256))
 	 max_fft_bin_inst (
 	 .clk(clk),
-	 .reset_n(reset_n && ~max_bin_reset),
+	 .reset_n(reset_n && !max_bin_reset),
      .s_axis_weight_tdata(m_axis_spectrum_tdata),
      .s_axis_weight_tvalid(m_axis_spectrum_tvalid),
      .s_axis_weight_tlast(m_axis_spectrum_tlast),
-     .s_axis_weight_tuser(k_index_pre),
+     .s_axis_weight_tuser(m_axis_spectrum_tuser[7:0]),
      .s_axis_weight_tready(m_axis_spectrum_tready),
 	 
      .m_axis_max_tdata(m_axis_tdata),
@@ -239,20 +236,33 @@ module max_fft_bin #(
 	reg signed [NUM_SIZE+1:0]  current_magnitude, maximum_magnitude;
 	reg signed [NUM_SIZE:0]  partial_prod[1:0];
 		
-	wire[$clog2(INDEX_COUNT)  - 1: 0] current_index;
-	wire current_last;
-	wire [4 * NUM_SIZE - 1 :0] current_vector;
-	
-	shift_register  #(
-		.SIZE(4 * NUM_SIZE + $clog2(INDEX_COUNT) + 1),
-		.STAGES(2)
-		) input_delay(
-		.clk(clk),
-		.reset_n(reset_n),
-		.enable(s_axis_weight_tready),
-		.din({s_axis_weight_tdata,s_axis_weight_tuser,s_axis_weight_tlast}),
-		.dout({current_vector,current_index,current_last})
-		);
+	localparam SR_SIZE = 2;
+	integer i;
+	reg valid_sr[SR_SIZE-1:0], last_sr[SR_SIZE-1:0];
+	reg[7:0] user_sr[SR_SIZE-1:0];
+	reg[4 * NUM_SIZE - 1:0] data_sr[SR_SIZE-1:0];
+		
+always@(posedge clk or negedge reset_n)begin
+	if(!reset_n)begin	
+		for( i = 0; i < SR_SIZE; i= i + 1)begin
+			valid_sr[i] <= 0;
+			user_sr[i] <= 0;
+			last_sr[i] <= 0;
+			data_sr[i] <= 0;
+		end
+	end else begin
+		valid_sr[0] <= s_axis_weight_tvalid;
+		user_sr[0] <= s_axis_weight_tuser;
+		last_sr[0] <= s_axis_weight_tlast;
+		data_sr[0] <= s_axis_weight_tdata;
+		for( i = 1; i < SR_SIZE; i= i + 1)begin
+			valid_sr[i] <= valid_sr[i-1];
+			user_sr[i] <= user_sr[i-1];
+			last_sr[i] <= last_sr[i-1];
+			data_sr[i] <= data_sr[i-1];
+		end
+	end
+end
 	
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
@@ -264,26 +274,38 @@ module max_fft_bin #(
 			m_axis_max_tuser <= 0;
 			s_axis_weight_tready <= 0;
 		end else begin
-			s_axis_weight_tready <= m_axis_max_tready;
-			m_axis_max_tlast <= current_last;
-			m_axis_max_tvalid <= current_last;
-			if(s_axis_weight_tvalid && s_axis_weight_tuser[7])begin // tuser only selects positive frequencies and zero.
-				partial_prod[0] <= real_part[0] * real_part[0];
+			if(s_axis_weight_tvalid && s_axis_weight_tuser[7])begin //only selects frequencies >= 128
 				partial_prod[1] <= imag_part[0] * imag_part[0];
-				current_magnitude <= partial_prod[0] + partial_prod[1];
-				if(current_magnitude > maximum_magnitude)begin
-					m_axis_max_tdata <= current_vector;
-					m_axis_max_tuser <= current_index;
-					maximum_magnitude <= current_magnitude;
-				end
-				else begin
-					m_axis_max_tdata <= m_axis_max_tdata;
-					m_axis_max_tuser <= m_axis_max_tuser;
-					maximum_magnitude <= maximum_magnitude;
-				end
+				partial_prod[0] <= real_part[0] * real_part[0];
+			end else begin
+				partial_prod[0] <= 0;
+				partial_prod[1] <= 0;
 			end
+			
+			if(valid_sr[0] && user_sr[0][7])begin
+				current_magnitude <= partial_prod[0] + partial_prod[1];
+			end else begin
+				current_magnitude <= 0;
+			end
+
+			if(current_magnitude > maximum_magnitude)begin
+				m_axis_max_tdata <= data_sr[1];
+				m_axis_max_tuser <= user_sr[1];
+				maximum_magnitude <= current_magnitude;
+			end
+			else begin
+				m_axis_max_tdata <= m_axis_max_tdata;
+				m_axis_max_tuser <= m_axis_max_tuser;
+				maximum_magnitude <= maximum_magnitude;
+			end				
+
+			s_axis_weight_tready <= m_axis_max_tready;
+			m_axis_max_tlast <= last_sr[1];
+			m_axis_max_tvalid <= last_sr[1];
+
 		end
 	end
 
 	
 endmodule
+

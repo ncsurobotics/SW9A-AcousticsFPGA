@@ -12,18 +12,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8,712.267 ns"></ZoomStartTime>
-      <ZoomEndTime time="9,316.268 ns"></ZoomEndTime>
-      <Cursor1Time time="9,015.000 ns"></Cursor1Time>
+      <ZoomStartTime time="8,537.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="9,142.501 ns"></ZoomEndTime>
+      <Cursor1Time time="8,725.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <NameColumnWidth column_width="253"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="11" />
    <wvobject fp_name="group747" type="group">
       <obj_property name="label">Tb</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -337,8 +338,8 @@
          <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_max_index" type="array">
-         <obj_property name="ElementShortName">debug_fft_max_index[39:0]</obj_property>
-         <obj_property name="ObjectShortName">debug_fft_max_index[39:0]</obj_property>
+         <obj_property name="ElementShortName">debug_fft_max_index[8:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index[8:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/debug_fft_max_index_valid" type="logic">
          <obj_property name="ElementShortName">debug_fft_max_index_valid</obj_property>
@@ -616,6 +617,7 @@
    <wvobject fp_name="group950" type="group">
       <obj_property name="label">RXX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -928,6 +930,7 @@
    <wvobject fp_name="group1575" type="group">
       <obj_property name="label">Store</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -948,10 +951,6 @@
          <obj_property name="ElementShortName">s_axis_theta_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tlast</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tuser" type="logic">
-         <obj_property name="ElementShortName">s_axis_theta_tuser</obj_property>
-         <obj_property name="ObjectShortName">s_axis_theta_tuser</obj_property>
-      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_theta_tready" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
@@ -959,6 +958,15 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_weight_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_weight_tdata[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">1000.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">10000000.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_OVERLAP</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
@@ -967,10 +975,6 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tlast" type="logic">
          <obj_property name="ElementShortName">s_axis_weight_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_weight_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tuser" type="logic">
-         <obj_property name="ElementShortName">s_axis_weight_tuser</obj_property>
-         <obj_property name="ObjectShortName">s_axis_weight_tuser</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/s_axis_weight_tready" type="logic">
          <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
@@ -1117,8 +1121,8 @@
          <obj_property name="ObjectShortName">m_axis_tdata[127:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tuser" type="array">
-         <obj_property name="ElementShortName">m_axis_tuser[39:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tuser[39:0]</obj_property>
+         <obj_property name="ElementShortName">m_axis_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
@@ -1152,21 +1156,13 @@
          <obj_property name="ElementShortName">fft_s_axis_config_tdata[15:0]</obj_property>
          <obj_property name="ObjectShortName">fft_s_axis_config_tdata[15:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/k_index_pre" type="array">
-         <obj_property name="ElementShortName">k_index_pre[7:0]</obj_property>
-         <obj_property name="ObjectShortName">k_index_pre[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/k_index_post" type="array">
-         <obj_property name="ElementShortName">k_index_post[7:0]</obj_property>
-         <obj_property name="ObjectShortName">k_index_post[7:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_spectrum_tdata[127:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_spectrum_tdata[127:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tuser" type="array">
-         <obj_property name="ElementShortName">m_axis_spectrum_tuser[39:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_spectrum_tuser[39:0]</obj_property>
+         <obj_property name="ElementShortName">m_axis_spectrum_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tuser[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/m_axis_spectrum_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_spectrum_tvalid</obj_property>
@@ -1292,136 +1288,10 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part" type="array">
          <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/real_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part" type="array">
-         <obj_property name="ElementShortName">conj_real_part[3:0][15:0]</obj_property>
-         <obj_property name="ObjectShortName">conj_real_part[3:0][15:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_real_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part" type="array">
          <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/imag_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part" type="array">
-         <obj_property name="ElementShortName">conj_imag_part[3:0][15:0]</obj_property>
-         <obj_property name="ObjectShortName">conj_imag_part[3:0][15:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conj_imag_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/max_real_part" type="array">
          <obj_property name="ElementShortName">max_real_part[3:0][15:0]</obj_property>
@@ -1443,25 +1313,25 @@
          <obj_property name="ElementShortName">partial_prod[1:0][32:0]</obj_property>
          <obj_property name="ObjectShortName">partial_prod[1:0][32:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_index" type="array">
-         <obj_property name="ElementShortName">current_index[7:0]</obj_property>
-         <obj_property name="ObjectShortName">current_index[7:0]</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_last" type="logic">
-         <obj_property name="ElementShortName">current_last</obj_property>
-         <obj_property name="ObjectShortName">current_last</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/valid_sr" type="array">
+         <obj_property name="ElementShortName">valid_sr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_sr[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/current_vector" type="array">
-         <obj_property name="ElementShortName">current_vector[127:0]</obj_property>
-         <obj_property name="ObjectShortName">current_vector[127:0]</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/last_sr" type="array">
+         <obj_property name="ElementShortName">last_sr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">last_sr[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/internal_reset_max" type="logic">
-         <obj_property name="ElementShortName">internal_reset_max</obj_property>
-         <obj_property name="ObjectShortName">internal_reset_max</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/user_sr" type="array">
+         <obj_property name="ElementShortName">user_sr[1:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">user_sr[1:0][7:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/conjugate" type="array">
-         <obj_property name="ElementShortName">conjugate[127:0]</obj_property>
-         <obj_property name="ObjectShortName">conjugate[127:0]</obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/data_sr" type="array">
+         <obj_property name="ElementShortName">data_sr[1:0][127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_sr[1:0][127:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
@@ -1470,6 +1340,10 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/INDEX_COUNT" type="array">
          <obj_property name="ElementShortName">INDEX_COUNT[31:0]</obj_property>
          <obj_property name="ObjectShortName">INDEX_COUNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/SR_SIZE" type="array">
+         <obj_property name="ElementShortName">SR_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">SR_SIZE[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

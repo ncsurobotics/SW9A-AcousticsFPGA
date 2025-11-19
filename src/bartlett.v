@@ -52,7 +52,7 @@ module bartlett_datapath #(
 	output [NUM_SIZE * 4 -1 : 0] debug_fft,
 	output debug_fft_valid, 
 	
-	output[39:0] debug_fft_max_index,
+	output[8:0] debug_fft_max_index,
 	output debug_fft_max_index_valid,
 	
 	output[31:0] debug_fft_mag,
@@ -80,9 +80,7 @@ module bartlett_datapath #(
 	
 	wire[NUM_SIZE * 4 - 1:0]  m_axis_converted_fft_max_tdata;
 	wire m_axis_converted_fft_max_tready ,m_axis_converted_fft_max_tlast ,m_axis_converted_fft_max_tvalid;
-	
-	//assign s_axis_tready = 1;
-	
+		
 	
 	assign debug_fft_max_index_valid = m_axis_fft_max_tvalid;
 
@@ -120,6 +118,7 @@ module bartlett_datapath #(
 		
 		.m_axis_theta_tdata(s_axis_theta_tdata),
 		.m_axis_theta_tlast(s_axis_theta_tlast),
+		//.m_axis_theta_tuser(s_axis_theta_tuser),
 		.m_axis_theta_tvalid(s_axis_theta_tvalid)
 		);
 	
@@ -139,6 +138,7 @@ module bartlett_datapath #(
 		.s_axis_theta_tdata(s_axis_theta_tdata),
 		.s_axis_theta_tlast(s_axis_theta_tlast),
 		.s_axis_theta_tready(s_axis_theta_tready),
+		.s_axis_theta_tuser(s_axis_theta_tuser),
 		.s_axis_theta_tvalid(s_axis_theta_tvalid),
 		
 		.m_axis_max_tdata(m_axis_max_tdata),

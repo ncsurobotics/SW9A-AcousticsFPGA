@@ -31,8 +31,11 @@ def main():
 			for file in filenames:
 				file_path = os.path.join(dir_path, file)
 				if os.path.exists(file_path):
-					#os.remove(file_path)
-					print(file_path)
+					if sys.argv[1] == 'remove':
+						os.remove(file_path)
+						print(f"removed {file_path}")
+					else:
+						print(file_path)
 
 
 
