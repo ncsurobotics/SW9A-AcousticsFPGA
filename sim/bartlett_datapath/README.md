@@ -46,7 +46,7 @@ This design required very a high throughput of 16 multiplies per cycle, therefor
 The current design multiplies a 4x1 matrix by its conjugate transpose, for a total of 16 multiplies. Therefore, the use of 16
 complex multiply IPs is very wasteful for both power and resources (DSP/LUT), and a better design could be implemented. 
 NOTE: The diagonal of the resulting matrix is still going to be 0 for the imaginary.
-5. FFT - The FFT uses a Radix2 implementation, however, a Radix4 implementation would be ~50% faster for a minimal resource usage increase.
+5. **DONE** FFT - The FFT uses a Radix2 implementation, however, a Radix4 implementation would be ~50% faster for a minimal resource usage increase.
 3. RXX - The complex matrix multiplier uses IPs which are configured to take in 32 bit (16imag,16real) numbers, and output 64 bit (32imag,32real) numbers.
 The current implementation has those numbers then being arithmetically bit shifted 16 bits to the right to become 32 bit numbers again. 
 The IP allows for configurable output size, therefore having it output 32 bit numbers would, most likely, internalize the logic we are putting into the scalar divide, and save some registers.
@@ -56,7 +56,7 @@ The IP allows for configurable output size, therefore having it output 32 bit nu
 Additionally, we know the correct frequency will always be in some range, therefore fft_max could ignore anything that isn't between -40k : -20k.
 
 TESTING/VERIFICATION
-1. The current method for testing a range of input samples is editing the filepath in the .v file, then recompiling and simulating for each input. This method is slow and inefficient.
+1. **DONE**The current method for testing a range of input samples is editing the filepath in the .v file, then recompiling and simulating for each input. This method is slow and inefficient.
 Modifying the testbench to allow for a vector of input files to be played in series would greatly improve performance in simulation (currently to run 95 test datasets takes 1.5 hours, around 80% of that is compilation).
 2. The angles tested thus far have been multiples of 10 degrees, which is the level of precision that design has. Analyzing the performance for more granular angles would be valueable.
 

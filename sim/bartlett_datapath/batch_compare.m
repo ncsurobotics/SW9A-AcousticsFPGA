@@ -17,7 +17,7 @@ for k = 1:length(subdirs)
     % Call your function with the subdirectory path
     %compare_oracles(subdirPath);
     compare(subdirPath);
-    compare_fourier(subdirPath);
-    compare_rxx(subdirPath);
-    compare_max_freq_vec(subdirPath);
+    %compare_fourier(subdirPath);
+    %compare_rxx(subdirPath);
+    %compare_max_freq_vec(subdirPath);
 end

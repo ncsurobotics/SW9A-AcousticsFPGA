@@ -108,7 +108,7 @@ module complex_matrix_hadamard #(
 	endgenerate
 endmodule
 
-
+/*
 module no_ip_complex_matrix_hadamard #(
 	parameter NUM_SIZE = 32,
 	parameter WIDTH = 4,
@@ -194,7 +194,7 @@ module no_ip_complex_matrix_hadamard #(
 	endgenerate
 endmodule
 
-
+*/
 /*
 module complex_matrix_multiplier_axi #(
 	parameter NUM_SIZE = 32,
@@ -254,6 +254,79 @@ module complex_matrix_multiplier_axi #(
 		end	
 	endgenerate
 endmodule*/
+
+
+module covariance_matrix #(
+	parameter NUM_SIZE = 32
+	) (
+	input clk, reset_n,
+	input [NUM_SIZE * 4 - 1 : 0] s_axis_tdata, 
+	input s_axis_tvalid, 
+	output s_axis_tready,
+	
+	output[NUM_SIZE * 16 - 1 : 0] m_axis_tdata,
+	output m_axis_tvalid, 
+	input m_axis_tready
+	);
+	
+	wire[NUM_SIZE/2 - 1 :0] real_channel[3:0], imag_channel[3:0];
+	assign real_channel[0] = s_axis_tdata[0+:NUM_SIZE/2];
+	assign real_channel[1] = s_axis_tdata[1 * NUM_SIZE +:NUM_SIZE/2];
+	assign real_channel[2] = s_axis_tdata[2 * NUM_SIZE +:NUM_SIZE/2];
+	assign real_channel[3] = s_axis_tdata[3 * NUM_SIZE +:NUM_SIZE/2];
+	
+	assign imag_channel[0] = s_axis_tdata[NUM_SIZE/2 + 0+:NUM_SIZE/2];
+	assign imag_channel[1] = s_axis_tdata[NUM_SIZE/2 + 1 * NUM_SIZE +:NUM_SIZE/2];
+	assign imag_channel[2] = s_axis_tdata[NUM_SIZE/2 + 2 * NUM_SIZE +:NUM_SIZE/2];
+	assign imag_channel[3] = s_axis_tdata[NUM_SIZE/2 + 3 * NUM_SIZE +:NUM_SIZE/2];
+	
+	reg[NUM_SIZE - 1 : 0] base[3:0],conj[3:0];
+	reg valid;
+	integer i;
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			for(i = 0; i < 4; i = i + 1)begin
+				base[i] <= 0;
+				conj[i] <= 0;
+			end
+			valid <= 0;
+		end else begin
+			valid <= s_axis_tvalid;
+			for(i = 0; i < 4; i = i + 1)begin
+				base[i] <= {imag_channel[i],real_channel[i]};
+				conj[i] <= {-imag_channel[i],real_channel[i]};
+			end
+		end
+	end
+	
+	wire[15:0] ready_wires, valid_wires;
+	assign s_axis_tready = ready_wires[0];
+	assign m_axis_tvalid = valid_wires[0];
+	
+	genvar j;
+	genvar k;
+	generate
+	for(j = 0; j < 4; j = j + 1)begin
+		for(k = 0; k < 4; k = k + 1)begin
+cmpy_rxx your_instance_name (
+  .aclk(clk),                              // input wire aclk
+  .aresetn(reset_n),                        // input wire aresetn
+  .s_axis_a_tvalid(valid),        // input wire s_axis_a_tvalid
+  .s_axis_a_tready(ready_wires[(j*4+k)]),        // output wire s_axis_a_tready
+  .s_axis_a_tdata(base[j]),          // input wire [31 : 0] s_axis_a_tdata
+  .s_axis_b_tvalid(valid),        // input wire s_axis_b_tvalid
+  //.s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
+  .s_axis_b_tdata(conj[k]),          // input wire [31 : 0] s_axis_b_tdata
+  .m_axis_dout_tvalid(valid_wires[(j * 4 + k)]),  // output wire m_axis_dout_tvalid
+  .m_axis_dout_tready(m_axis_tready),  // input wire m_axis_dout_tready
+  .m_axis_dout_tdata(m_axis_tdata[(j * 4 + k)*NUM_SIZE +: NUM_SIZE])    // output wire [31 : 0] m_axis_dout_tdata
+);
+		end
+	end
+	endgenerate
+	
+	
+endmodule
 
 
 module complex_matrix_multiplier #(

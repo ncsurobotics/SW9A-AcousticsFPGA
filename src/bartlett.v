@@ -62,10 +62,7 @@ module bartlett_datapath #(
 	output debug_current_magnitude_valid,
 	
 	output [NUM_SIZE * 4 - 1:0] debug_max_freq_vec,
-	output debug_max_freq_vec_valid,
-	
-	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1:0] debug_mid,
-	output debug_mid_valid
+	output debug_max_freq_vec_valid
 
     );
 	
@@ -154,10 +151,7 @@ module bartlett_datapath #(
         .m_axis_all_tready(m_axis_all_tready),
 		
 		.debug_rxx(debug_rxx),
-		.debug_rxx_valid(debug_rxx_valid),
-		
-		.debug_mid(debug_mid),
-		.debug_mid_valid(debug_mid_valid)
+		.debug_rxx_valid(debug_rxx_valid)
 	);
 		
 

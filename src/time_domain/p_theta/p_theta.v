@@ -11,7 +11,7 @@ module p_theta #(
 	
 	// 4x4 matrix input channel
 	input[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1 : 0] s_axis_r_tdata, //MSB->LSB{channel_3, channel_2, channel_1, channel_0}
-	input s_axis_r_tvalid, s_axis_r_tlast, //tlast is overwritten
+	input s_axis_r_tvalid, 
 	output s_axis_r_tready,
 	
 	// theta input channel

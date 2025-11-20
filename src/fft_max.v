@@ -171,7 +171,10 @@ endmodule
 // finds the maximum frequency based on channel 0's magnitude squared
 module max_fft_bin #(
 	parameter NUM_SIZE = 32,
-	parameter INDEX_COUNT = 256
+	parameter INDEX_COUNT = 256,
+	parameter LOWER_BOUND = 7, // ~40khz //238,  <25khz
+	parameter UPPER_BOUND = 19, // ~-25khz //248,  >40khz
+	parameter THRESHOLD = 33'h00800000 // arbitrary number
 	) (
 	input clk, reset_n,
 
@@ -192,25 +195,7 @@ module max_fft_bin #(
 	
 	assign debug_current_magnitude_valid = s_axis_weight_tvalid;
 	assign debug_current_magnitude = current_magnitude;
-/*
-	real factor[3:0];
-	real average_difference, min_ad;
-	initial min_ad = 99999999;
-	always@(*)begin
-		factor[0] = real_part[0] / 0.0827;
-		factor[1] = real_part[1] / -0.1353;
-		factor[2] = real_part[2] / -0.0896;
-		factor[3] = real_part[3] / 0.1363;
-		average_difference = 	factor[0] != 0 ? ((factor[0] - factor[1]) + 
-								(factor[0] - factor[2]) +
-								(factor[0] - factor[3]) +
-								(factor[1] - factor[2]) +
-								(factor[1] - factor[3]) +
-								(factor[2] - factor[3]) )/6 : 99999999;
-		if(average_difference < 0) average_difference = average_difference * -1;
-		min_ad = average_difference < min_ad ? average_difference : min_ad;
-	end
-	*/
+
 	wire signed [15:0] real_part[3:0], imag_part[3:0];
 	
 	assign real_part[0] = s_axis_weight_tdata[NUM_SIZE * 0 +: NUM_SIZE/2];
@@ -241,6 +226,14 @@ module max_fft_bin #(
 	reg valid_sr[SR_SIZE-1:0], last_sr[SR_SIZE-1:0];
 	reg[7:0] user_sr[SR_SIZE-1:0];
 	reg[4 * NUM_SIZE - 1:0] data_sr[SR_SIZE-1:0];
+	reg in_range;
+	reg valid_threshold;
+	
+	reg [1:0] state;
+	localparam IDLE = 2'b00;
+	localparam IN_RANGE = 2'b01;
+	localparam DONE = 2'b10;
+	localparam WAIT = 2'b11;
 		
 always@(posedge clk or negedge reset_n)begin
 	if(!reset_n)begin	
@@ -273,8 +266,29 @@ end
 			m_axis_max_tdata <= 0;
 			m_axis_max_tuser <= 0;
 			s_axis_weight_tready <= 0;
+			in_range <= 0;
+			valid_threshold <= 0;
+			state <= 0;
 		end else begin
-			if(s_axis_weight_tvalid && s_axis_weight_tuser[7])begin //only selects frequencies >= 128
+			case(state)
+				IDLE: begin
+					if((s_axis_weight_tuser < UPPER_BOUND) && (s_axis_weight_tuser > LOWER_BOUND))
+						state <= IN_RANGE;
+				end
+				IN_RANGE: begin
+					if(user_sr[0] > UPPER_BOUND)
+						state <= DONE;
+				end
+				DONE: begin
+					state <= WAIT;
+				end
+				WAIT:begin
+					if(last_sr[1])
+						state <= IDLE;
+				end
+			endcase
+			valid_threshold <= maximum_magnitude > THRESHOLD; 
+			if(s_axis_weight_tvalid)begin 
 				partial_prod[1] <= imag_part[0] * imag_part[0];
 				partial_prod[0] <= real_part[0] * real_part[0];
 			end else begin
@@ -282,7 +296,7 @@ end
 				partial_prod[1] <= 0;
 			end
 			
-			if(valid_sr[0] && user_sr[0][7])begin
+			if(valid_sr[0] && (state==IN_RANGE))begin
 				current_magnitude <= partial_prod[0] + partial_prod[1];
 			end else begin
 				current_magnitude <= 0;
@@ -298,10 +312,9 @@ end
 				m_axis_max_tuser <= m_axis_max_tuser;
 				maximum_magnitude <= maximum_magnitude;
 			end				
-
 			s_axis_weight_tready <= m_axis_max_tready;
-			m_axis_max_tlast <= last_sr[1];
-			m_axis_max_tvalid <= last_sr[1];
+			m_axis_max_tlast <= state==DONE;
+			m_axis_max_tvalid <= state==DONE && valid_threshold;
 
 		end
 	end

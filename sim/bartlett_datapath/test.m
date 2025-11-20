@@ -1,5 +1,16 @@
 n = 0:1:15
 x = ones(1,16)
+
+
+
+
+
+
+
+
+
+
+
 pointsizes = [16 32 64 128]
 index = 1;
 figure;

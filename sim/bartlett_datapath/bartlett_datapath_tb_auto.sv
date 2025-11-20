@@ -27,7 +27,6 @@
 `define RAW_FFT_DEC_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , RAW_FFT_DEC_FILE_NAME)
 `define FFT_MAX_INDEX_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , FFT_MAX_INDEX_FILE_NAME)
 `define MAX_FREQ_VEC_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , MAX_FREQ_VEC_FILE_NAME)
-`define MID_MATRIX_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , MID_MATRIX_FILE_NAME)
 
 
 module bartlett_datapath_tb_auto();
@@ -46,7 +45,6 @@ localparam MAG_FFT_DEC_FILE_NAME  	= "mag_fft_dec.csv";
 localparam RAW_FFT_DEC_FILE_NAME  	= "raw_fft_dec.csv";
 localparam FFT_MAX_INDEX_FILE_NAME	= "fft_max_index.txt";
 localparam MAX_FREQ_VEC_FILE_NAME = "max_freq_vec.csv";
-localparam MID_MATRIX_FILE_NAME = "mid_matrix.csv";
 
 
 
@@ -80,12 +78,10 @@ reg[33 :0] debug_current_magnitude_buffer[`COLUMNS -1  : 0];
 wire[`NUM_SIZE * 4 - 1 :0] max_freq_vec;
 wire max_freq_vec_valid;
 
-wire [`MATRIX_SIZE * `MATRIX_SIZE * `NUM_SIZE * 2 - 1:0] mid_data;
-wire mid_valid;
 integer i, j, k, z;
 
 reg inc, save;
-reg rxx_saved, max_freq_saved, mid_saved;
+reg rxx_saved, max_freq_saved;
 integer fft_index, filtered_fft_index, current_mag_index;
 string global_test_name;
 reg [`NUM_SIZE -1 :0] real_values[15:0], imag_values[15:0];
@@ -136,10 +132,7 @@ bartlett_datapath #(
 		.debug_current_magnitude(debug_current_magnitude),
 	 .debug_current_magnitude_valid(debug_current_magnitude_valid),
 	 .debug_max_freq_vec(max_freq_vec),
-	 .debug_max_freq_vec_valid(max_freq_vec_valid),
-	 
-	 .debug_mid(mid_data),
-	 .debug_mid_valid(mid_valid)
+	 .debug_max_freq_vec_valid(max_freq_vec_valid)
 
 	);
 
@@ -204,6 +197,9 @@ begin
 	resultFile = $fopen(`MAX_HEX_PATH,"w");
 	$fwrite(resultFile,"Theta: %h\nValue: %h",m_axis_max_tdata,m_axis_all_tdata[m_axis_max_tdata * `NUM_SIZE +: `NUM_SIZE]);
 	$fclose(resultFile);
+	
+	$display("Calculated Angle:%d\n",m_axis_max_tdata);		
+	
 	
 	resultFile = $fopen(`ALL_DEC_PATH,"w");
 	csvFile = $fopen(`ALL_DEC_CSV_PATH,"w");
@@ -278,16 +274,7 @@ begin
 end
 endtask
 
-task saveMid;
-begin
-	mid_saved = 1;
-	resultFile = $fopen(`MID_MATRIX_PATH,"w");
-	for(i = 0; i < `MATRIX_SIZE * `MATRIX_SIZE; i = i + 1)begin
-		$fwrite(resultFile,"%d,%d\n",  $signed(mid_data[i * `NUM_SIZE * 2 +: `NUM_SIZE]),$signed(mid_data[i * `NUM_SIZE * 2 + `NUM_SIZE +: `NUM_SIZE]));
-	end
-	$fclose(resultFile);
-end
-endtask
+
 
 task initTB;
 begin
@@ -347,9 +334,6 @@ always@(*)begin
 		saveRxx();
 	end
 		
-	if(mid_valid)begin
-		saveMid();
-	end
 	if(max_freq_vec_valid)begin
 		saveMaxFreq();
 	end

@@ -12,19 +12,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="8,537.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="9,142.501 ns"></ZoomEndTime>
-      <Cursor1Time time="8,725.000 ns"></Cursor1Time>
+      <ZoomStartTime time="149.125000 us"></ZoomStartTime>
+      <ZoomEndTime time="210.175001 us"></ZoomEndTime>
+      <Cursor1Time time="200.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="253"></NameColumnWidth>
+      <NameColumnWidth column_width="243"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="13" />
    <wvobject fp_name="group747" type="group">
       <obj_property name="label">Tb</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -545,10 +544,6 @@
          <obj_property name="ElementShortName">rxx_valid</obj_property>
          <obj_property name="ObjectShortName">rxx_valid</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_last" type="logic">
-         <obj_property name="ElementShortName">rxx_last</obj_property>
-         <obj_property name="ObjectShortName">rxx_last</obj_property>
-      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_ready" type="logic">
          <obj_property name="ElementShortName">rxx_ready</obj_property>
          <obj_property name="ObjectShortName">rxx_ready</obj_property>
@@ -618,6 +613,14 @@
       <obj_property name="label">RXX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/test" type="logic">
+         <obj_property name="ElementShortName">test</obj_property>
+         <obj_property name="ObjectShortName">test</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance" type="array">
+         <obj_property name="ElementShortName">covariance[511:0]</obj_property>
+         <obj_property name="ObjectShortName">covariance[511:0]</obj_property>
+      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -629,6 +632,10 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/clken" type="logic">
          <obj_property name="ElementShortName">clken</obj_property>
          <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/self_reset" type="logic">
+         <obj_property name="ElementShortName">self_reset</obj_property>
+         <obj_property name="ObjectShortName">self_reset</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/s_axis_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
@@ -690,14 +697,6 @@
          <obj_property name="ElementShortName">imag_values[15:0][31:0]</obj_property>
          <obj_property name="ObjectShortName">imag_values[15:0][31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/mid_tready" type="logic">
-         <obj_property name="ElementShortName">mid_tready</obj_property>
-         <obj_property name="ObjectShortName">mid_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid_buf" type="logic">
-         <obj_property name="ElementShortName">m_axis_tvalid_buf</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tvalid_buf</obj_property>
-      </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
@@ -725,10 +724,6 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_r_tvalid</obj_property>
          <obj_property name="ObjectShortName">s_axis_r_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tlast" type="logic">
-         <obj_property name="ElementShortName">s_axis_r_tlast</obj_property>
-         <obj_property name="ObjectShortName">s_axis_r_tlast</obj_property>
       </wvobject>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tready" type="logic">
          <obj_property name="ElementShortName">s_axis_r_tready</obj_property>
@@ -930,7 +925,6 @@
    <wvobject fp_name="group1575" type="group">
       <obj_property name="label">Store</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/output_store_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1228,7 +1222,6 @@
    <wvobject fp_name="group1400" type="group">
       <obj_property name="label">max_fft_bin</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1344,6 +1337,84 @@
       <wvobject fp_name="/bartlett_datapath_tb_auto/dut/fft_max_inst/max_fft_bin_inst/SR_SIZE" type="array">
          <obj_property name="ElementShortName">SR_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">SR_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1782" type="group">
+      <obj_property name="label">CMM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="group2727" type="group">
+      <obj_property name="label">COV</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[511:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/real_channel" type="array">
+         <obj_property name="ElementShortName">real_channel[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_channel[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/imag_channel" type="array">
+         <obj_property name="ElementShortName">imag_channel[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_channel[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/base" type="array">
+         <obj_property name="ElementShortName">base[3:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">base[3:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/conj" type="array">
+         <obj_property name="ElementShortName">conj[3:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">conj[3:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/valid" type="logic">
+         <obj_property name="ElementShortName">valid</obj_property>
+         <obj_property name="ObjectShortName">valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/ready_wires" type="array">
+         <obj_property name="ElementShortName">ready_wires[15:0]</obj_property>
+         <obj_property name="ObjectShortName">ready_wires[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/valid_wires" type="array">
+         <obj_property name="ElementShortName">valid_wires[15:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_wires[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/bartlett_datapath_tb_auto/dut/bartlett_time_domain_inst/rxx_inst/covariance_matrix_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

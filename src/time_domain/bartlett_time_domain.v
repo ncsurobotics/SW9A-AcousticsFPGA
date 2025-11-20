@@ -29,17 +29,14 @@ module bartlett_time_domain #(
 	input m_axis_all_tready,	
 	
 	output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
-	output debug_rxx_valid,
-	
-	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1:0] debug_mid,
-	output debug_mid_valid
+	output debug_rxx_valid
 	
 	);
 	
 
 	
 	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
-    wire rxx_valid, rxx_last, rxx_ready;
+    wire rxx_valid,rxx_ready;
 	wire [NUM_SIZE- 1 : 0] m_axis_weight_tdata;
 	
 	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tuser;
@@ -59,17 +56,11 @@ module bartlett_time_domain #(
         .s_axis_tdata(s_axis_fft_tdata),
         .s_axis_tvalid(s_axis_fft_tvalid),
         .s_axis_tlast(s_axis_fft_tlast),
-        //.s_axis_tuser(s_axis_fft_tuser),
         .s_axis_tready(s_axis_fft_tready),
 
         .m_axis_tdata(rxx_data),
         .m_axis_tvalid(rxx_valid),
-       // .m_axis_tuser(rxx_user),
-        .m_axis_tlast(rxx_last),
-        .m_axis_tready(rxx_ready),
-		
-		.debug_mid(debug_mid),
-		.debug_mid_valid(debug_mid_valid)
+        .m_axis_tready(rxx_ready)
     );
 
     // Instantiate P_theta computation
@@ -82,7 +73,6 @@ module bartlett_time_domain #(
 
         .s_axis_r_tdata(rxx_data),
         .s_axis_r_tvalid(rxx_valid),
-        .s_axis_r_tlast(rxx_last),
         //.s_axis_r_tuser(rxx_user),
         .s_axis_r_tready(rxx_ready),
 
@@ -107,15 +97,10 @@ module bartlett_time_domain #(
 		.clk(clk),
 		.reset_n(reset_n),
 
-        .s_axis_weight_tdata(m_axis_weight_tdata),
-        .s_axis_weight_tvalid(m_axis_weight_tvalid),
-        .s_axis_weight_tlast(m_axis_weight_tlast),
-        //.s_axis_weight_tready(m_axis_weight_tready), 
-
-        .s_axis_theta_tdata(m_axis_weight_tuser),
-        .s_axis_theta_tvalid(m_axis_weight_tvalid),
-        .s_axis_theta_tlast(m_axis_weight_tlast),
-        //.s_axis_theta_tready(s_axis_theta_tready),
+        .s_axis_tdata(m_axis_weight_tdata),
+        .s_axis_tvalid(m_axis_weight_tvalid),
+        .s_axis_tlast(m_axis_weight_tlast),
+		.s_axis_tuser(m_axis_weight_tuser),
 
         .m_axis_all_tdata(m_axis_all_tdata),
         .m_axis_all_tvalid(m_axis_all_tvalid),
@@ -133,18 +118,12 @@ module bartlett_time_domain #(
 		.clk(clk),
 		.reset_n(reset_n),
 		
-        .s_axis_weight_tdata(m_axis_weight_tdata),
-        .s_axis_weight_tvalid(m_axis_weight_tvalid),
-        .s_axis_weight_tlast(m_axis_weight_tlast),
-        .s_axis_weight_tuser(m_axis_weight_tuser),
-        .s_axis_weight_tready(m_axis_weight_tready),
+        .s_axis_tdata(m_axis_weight_tdata),
+        .s_axis_tvalid(m_axis_weight_tvalid),
+        .s_axis_tlast(m_axis_weight_tlast),
+        .s_axis_tuser(m_axis_weight_tuser),
+        .s_axis_tready(m_axis_weight_tready),
 		
-        .s_axis_theta_tdata(m_axis_weight_tuser),
-        .s_axis_theta_tvalid(m_axis_weight_tvalid),
-        .s_axis_theta_tlast(m_axis_weight_tlast),
-        //.s_axis_theta_tuser(s_axis_theta_tuser),
-        //.s_axis_theta_tready(s_axis_theta_tready),
-
         .m_axis_max_tdata(m_axis_max_tdata),
         .m_axis_max_tvalid(m_axis_max_tvalid),
         .m_axis_max_tuser(m_axis_max_tuser),
