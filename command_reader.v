@@ -20,6 +20,10 @@ module command_reader (
   output reg [31:0] bartlett_flipflops [0:19]
 );
 
+
+  // Random Message
+
+
   reg [31:0] uart_flipflops [20:25];
 
   // to write the data to the flipflops
