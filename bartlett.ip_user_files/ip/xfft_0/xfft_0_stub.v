@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Nov 17 15:04:13 2025
+// Date        : Wed Nov 19 22:19:44 2025
 // Host        : AustinsPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top xfft_0 -prefix
-//               xfft_0_ xfft_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.v
 // Design      : xfft_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

@@ -32,6 +32,11 @@ module bartlett_datapath #(
     input s_axis_tvalid,
     output s_axis_tready,
     input s_axis_tlast,
+		
+	input[8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
+	input[5:0] s_axis_config_tstrb,
+	input s_axis_config_tvalid,
+	output s_axis_config_tready,
 
 	// max theta output channel
 	output[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
@@ -89,6 +94,11 @@ module bartlett_datapath #(
         .s_axis_tvalid(s_axis_tvalid),
         .s_axis_tready(s_axis_tready),
         .s_axis_tlast(s_axis_tlast),
+		
+		.s_axis_config_tdata(s_axis_config_tdata), // {upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
+		.s_axis_config_tready(s_axis_config_tready),
+		.s_axis_config_tstrb(s_axis_config_tstrb),
+		.s_axis_config_tvalid(s_axis_config_tvalid),
 		
 		.m_axis_tdata (m_axis_fft_max_tdata),
 		.m_axis_tlast (m_axis_fft_max_tlast),

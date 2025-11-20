@@ -31,7 +31,7 @@
         "memory_options_reorder": [ { "value": "block_ram", "resolve_type": "user", "usage": "all" } ],
         "number_of_stages_using_block_ram_for_data_and_phase_factors": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "memory_options_hybrid": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "complex_mult_type": [ { "value": "use_mults_performance", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "complex_mult_type": [ { "value": "use_mults_resources", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "butterfly_type": [ { "value": "use_luts", "value_src": "user", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
@@ -67,7 +67,7 @@
         "C_REORDER_MEM_TYPE": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_USE_HYBRID_RAM": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_OPTIMIZE_GOAL": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_CMPY_TYPE": [ { "value": "2", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_CMPY_TYPE": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_BFLY_TYPE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {

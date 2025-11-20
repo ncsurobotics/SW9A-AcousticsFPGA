@@ -24,17 +24,16 @@ module fft_max (
     input clk,
     input reset_n,
 
-    //data from RAM
     input [127:0] s_axis_tdata,
-
-    //flags from controller
     input s_axis_tvalid,
     input s_axis_tlast,
-
-    //flag to controller
     output reg s_axis_tready,
+	
+	input[8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[5:0] s_axis_config_tstrb,
+	input s_axis_config_tvalid,
+	output s_axis_config_tready,
 
-    //outputs of IFFT
     output [127:0] m_axis_tdata,
 	output[15:0] m_axis_tuser,
     output m_axis_tvalid,
@@ -86,16 +85,6 @@ module fft_max (
 		end
 	end
 	
-	shift_register  #(
-		.SIZE(1),
-		.STAGES(5)
-		) input_delay(
-		.clk(clk),
-		.reset_n(reset_n),
-		.enable(1),
-		.din(toggle_ready),
-		.dout(max_bin_reset)
-	);
 	
     //first FFT
 xfft_0 your_instance_name (
@@ -146,12 +135,17 @@ assign imag_part[3] = m_axis_spectrum_tdata[32 * 3 + 16+: 16];
 max_fft_bin #(.NUM_SIZE(32), .INDEX_COUNT(256))
 	 max_fft_bin_inst (
 	 .clk(clk),
-	 .reset_n(reset_n && !max_bin_reset),
+	 .reset_n(reset_n),
      .s_axis_weight_tdata(m_axis_spectrum_tdata),
      .s_axis_weight_tvalid(m_axis_spectrum_tvalid),
      .s_axis_weight_tlast(m_axis_spectrum_tlast),
      .s_axis_weight_tuser(m_axis_spectrum_tuser[7:0]),
      .s_axis_weight_tready(m_axis_spectrum_tready),
+	 
+	 .s_axis_config_tdata(s_axis_config_tdata),
+	 .s_axis_config_tready(s_axis_config_tready),
+	 .s_axis_config_tstrb(s_axis_config_tstrb),
+	 .s_axis_config_tvalid(s_axis_config_tvalid),
 	 
      .m_axis_max_tdata(m_axis_tdata),
      .m_axis_max_tvalid(m_axis_tvalid),
@@ -171,10 +165,7 @@ endmodule
 // finds the maximum frequency based on channel 0's magnitude squared
 module max_fft_bin #(
 	parameter NUM_SIZE = 32,
-	parameter INDEX_COUNT = 256,
-	parameter LOWER_BOUND = 7, // ~40khz //238,  <25khz
-	parameter UPPER_BOUND = 19, // ~-25khz //248,  >40khz
-	parameter THRESHOLD = 33'h00800000 // arbitrary number
+	parameter INDEX_COUNT = 256
 	) (
 	input clk, reset_n,
 
@@ -183,6 +174,11 @@ module max_fft_bin #(
 	input s_axis_weight_tvalid, s_axis_weight_tlast, 
 	input[$clog2(INDEX_COUNT)  - 1: 0] s_axis_weight_tuser,
 	output reg s_axis_weight_tready,
+	
+	input[8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[5:0] s_axis_config_tstrb,
+	input s_axis_config_tvalid,
+	output reg s_axis_config_tready,
 	
 	output reg[4 * NUM_SIZE - 1 :0] m_axis_max_tdata,
 	output reg m_axis_max_tvalid, m_axis_max_tlast,
@@ -226,8 +222,14 @@ module max_fft_bin #(
 	reg valid_sr[SR_SIZE-1:0], last_sr[SR_SIZE-1:0];
 	reg[7:0] user_sr[SR_SIZE-1:0];
 	reg[4 * NUM_SIZE - 1:0] data_sr[SR_SIZE-1:0];
-	reg in_range;
 	reg valid_threshold;
+	reg[8 + 8 + 32 - 1 : 0] config_register;
+	
+	wire[7:0] upper_bound, lower_bound;
+	wire[31:0] threshold;
+	assign upper_bound = config_register[47:40];
+	assign lower_bound = config_register[39:32];
+	assign threshold = config_register[31:0];
 	
 	reg [1:0] state;
 	localparam IDLE = 2'b00;
@@ -256,6 +258,23 @@ always@(posedge clk or negedge reset_n)begin
 		end
 	end
 end
+
+always@(*)begin
+	case(state)
+		IDLE: begin
+			s_axis_config_tready <= 1;
+		end
+		IN_RANGE: begin
+			s_axis_config_tready <= 0;
+		end
+		DONE: begin
+			s_axis_config_tready <= 0;
+		end
+		WAIT:begin
+			s_axis_config_tready <= 1;
+		end
+	endcase
+end
 	
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
@@ -266,17 +285,22 @@ end
 			m_axis_max_tdata <= 0;
 			m_axis_max_tuser <= 0;
 			s_axis_weight_tready <= 0;
-			in_range <= 0;
 			valid_threshold <= 0;
 			state <= 0;
+			config_register <= 48'h130708000000;
+		/*
+	UPPER_BOUND = 8'h19, // ~-25khz //248,  >40khz
+	LOWER_BOUND = 8'h07, // ~40khz //238,  <25khz
+	THRESHOLD = 32'h0800000 // arbitrary number
+	*/
 		end else begin
 			case(state)
 				IDLE: begin
-					if((s_axis_weight_tuser < UPPER_BOUND) && (s_axis_weight_tuser > LOWER_BOUND))
+					if((s_axis_weight_tuser < upper_bound) && (s_axis_weight_tuser > lower_bound))
 						state <= IN_RANGE;
 				end
 				IN_RANGE: begin
-					if(user_sr[0] > UPPER_BOUND)
+					if(user_sr[0] > upper_bound)
 						state <= DONE;
 				end
 				DONE: begin
@@ -287,7 +311,11 @@ end
 						state <= IDLE;
 				end
 			endcase
-			valid_threshold <= maximum_magnitude > THRESHOLD; 
+			for(i = 0; i < 6; i=i+1)begin
+				if(s_axis_config_tstrb[i] && s_axis_config_tvalid) config_register[i*8+:8] <= s_axis_config_tdata[i*8+:8];
+				else config_register[i*8+:8] <= config_register[i*8+:8];
+			end
+			valid_threshold <= maximum_magnitude > threshold; 
 			if(s_axis_weight_tvalid)begin 
 				partial_prod[1] <= imag_part[0] * imag_part[0];
 				partial_prod[0] <= real_part[0] * real_part[0];
@@ -308,9 +336,9 @@ end
 				maximum_magnitude <= current_magnitude;
 			end
 			else begin
-				m_axis_max_tdata <= m_axis_max_tdata;
-				m_axis_max_tuser <= m_axis_max_tuser;
-				maximum_magnitude <= maximum_magnitude;
+				m_axis_max_tdata <= state==IDLE ? 0 : m_axis_max_tdata;
+				m_axis_max_tuser <= state==IDLE ? 0 : m_axis_max_tuser;
+				maximum_magnitude <= state==IDLE ? 0 : maximum_magnitude;
 			end				
 			s_axis_weight_tready <= m_axis_max_tready;
 			m_axis_max_tlast <= state==DONE;

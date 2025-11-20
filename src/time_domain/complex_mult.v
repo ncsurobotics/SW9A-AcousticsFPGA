@@ -328,6 +328,49 @@ cmpy_rxx your_instance_name (
 	
 endmodule
 
+module complex_vector_multiply_rxx_4 #(
+	parameter NUM_SIZE = 32
+	) (
+	input clk, reset_n,
+	input [NUM_SIZE * 4 - 1 : 0] s_axis_a_tdata, 
+	input s_axis_a_tvalid, 
+	output s_axis_a_tready,
+	
+	input [NUM_SIZE * 4 - 1 : 0] s_axis_b_tdata, 
+	input s_axis_b_tvalid, 
+	output s_axis_b_tready,
+	
+	output[NUM_SIZE * 4 - 1 : 0] m_axis_tdata,
+	output m_axis_tvalid, 
+	input m_axis_tready
+	);
+	wire[3:0] ready_wires, valid_wires;
+	assign s_axis_a_tready = ready_wires[0];
+	assign s_axis_b_tready = ready_wires[0];
+	assign m_axis_tvalid = valid_wires[0];
+	
+	genvar j;
+	generate
+	for(j = 0; j < 4; j = j + 1)begin
+cmpy_rxx your_instance_name (
+  .aclk(clk),                              // input wire aclk
+  .aresetn(reset_n),                        // input wire aresetn
+  .s_axis_a_tvalid(s_axis_a_tvalid),        // input wire s_axis_a_tvalid
+  .s_axis_a_tready(ready_wires[j]),        // output wire s_axis_a_tready
+  .s_axis_a_tdata(s_axis_a_tdata[j * NUM_SIZE +: NUM_SIZE]),          // input wire [31 : 0] s_axis_a_tdata
+  .s_axis_b_tvalid(s_axis_b_tvalid),        // input wire s_axis_b_tvalid
+  //.s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
+  .s_axis_b_tdata(s_axis_b_tdata[j * NUM_SIZE +: NUM_SIZE]),          // input wire [31 : 0] s_axis_b_tdata
+  .m_axis_dout_tvalid(valid_wires[j]),  // output wire m_axis_dout_tvalid
+  .m_axis_dout_tready(m_axis_tready),  // input wire m_axis_dout_tready
+  .m_axis_dout_tdata(m_axis_tdata[j*NUM_SIZE +: NUM_SIZE])    // output wire [31 : 0] m_axis_dout_tdata
+);
+	end
+
+
+
+endmodule
+
 
 module complex_matrix_multiplier #(
 	parameter NUM_SIZE = 32

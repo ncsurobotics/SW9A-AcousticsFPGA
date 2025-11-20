@@ -1,2 +1,2 @@
-Theta: 06
-Value: 00000000
+Theta: 0c
+Value: 0010ef80
