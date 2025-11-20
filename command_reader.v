@@ -3,7 +3,7 @@
 module command_reader (
   input clk,
   input rst_n,                
-  input [7:0] uart_addr,
+  input [6:0] uart_addr,
   input uart_wr_en,
   input [31:0] uart_data_in,
   output reg [31:0] uart_data_out,
@@ -27,7 +27,7 @@ module command_reader (
   integer i;
   always @(posedge clk or negedge rst_n) begin  
     if (!rst_n) begin
-      for (i = 20; i <= 25; i = i + 1)
+      for (i = 19; i <= 24; i = i + 1)
         uart_flipflops[i] <= 0;
     end else if (uart_wr_en && uart_addr >= 20 && uart_addr <= 25) begin
       uart_flipflops[uart_addr] <= uart_data_in;
@@ -48,17 +48,17 @@ module command_reader (
   // to read the data from the flipflops (mux)
   // uart
   always @(*) begin
-    if (uart_addr >= 20 && uart_addr <= 25)
+    if (uart_addr >= 19 && uart_addr <= 24)
       uart_data_out = uart_flipflops[uart_addr];  
     else
       uart_data_out = 32'hzzzzzzzz;  // invalid read
   end
 
+  assign maxangle      = uart_flipflops[19][7:0]
   assign threshold     = uart_flipflops[20][7:0];
   assign frequency     = uart_flipflops[21][7:0];
   assign vga           = uart_flipflops[22][7:0];
   assign dumpram       = uart_flipflops[23][0];  // hardwired output for dump ram
-  assign sendmaxangle  = uart_flipflops[24][0];  // hardwired output for max angle
   assign softreset     = uart_flipflops[25][0];  // hardwired output for soft reset
 
 endmodule
