@@ -262,7 +262,7 @@ end
 always@(*)begin
 	case(state)
 		IDLE: begin
-			s_axis_config_tready <= 1;
+			s_axis_config_tready <= !s_axis_weight_tvalid;
 		end
 		IN_RANGE: begin
 			s_axis_config_tready <= 0;
@@ -271,7 +271,7 @@ always@(*)begin
 			s_axis_config_tready <= 0;
 		end
 		WAIT:begin
-			s_axis_config_tready <= 1;
+			s_axis_config_tready <= !s_axis_weight_tvalid;
 		end
 	endcase
 end
