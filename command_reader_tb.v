@@ -24,7 +24,6 @@ module command_reader_tb;
   wire [31:0] max_frequency;
   wire [31:0] vga;
   wire dumpram;
-  wire sendmaxangle;
   wire softreset;
   wire [31:0] maxangle;
 // instantiate dut
@@ -44,7 +43,6 @@ module command_reader_tb;
     .max_frequency(max_frequency),
     .vga(vga),
     .dumpram(dumpram),
-    .sendmaxangle(sendmaxangle),
     .softreset(softreset),
     .maxangle(maxangle)
   );
