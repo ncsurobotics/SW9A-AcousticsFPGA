@@ -16,7 +16,6 @@ module command_reader (
   output [31:0] max_frequency,
   output [31:0] vga,
   output dumpram,
-  output sendmaxangle,
   output softreset,
   output [31:0] maxangle
 );
@@ -79,5 +78,4 @@ module command_reader (
   assign vga           = uart_flipflops[23];
   assign dumpram       = uart_flipflops[24][0];
   assign softreset     = uart_flipflops[25][0];
-  assign sendmaxangle  = 1'b0;  ASK ABOUT THIS WHAT DO I DO WITH THIS
 endmodule
