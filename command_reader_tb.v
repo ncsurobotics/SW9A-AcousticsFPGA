@@ -120,7 +120,7 @@ module command_reader_tb;
     #10 bartlett_wr_en = 0;
     // uart read bartlett bin 5
     #10 uart_addr = 7'd5;
-    #10 $display("UART Read flipflops[5] = %h (should be 0, not 11111111)", uart_data_out);
+    #10 $display("UART Read flipflops[5] = %h (should be all Z)", uart_data_out);
     // uart read min frequency
     #10 uart_addr = 7'd21;
     #10 $display("UART Read flipflops[21] = %h (should be bb)", uart_data_out);
