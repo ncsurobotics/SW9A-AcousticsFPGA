@@ -23,8 +23,7 @@ module axis_to_mem_tb;
 
     reg clk;
     reg rst_n;
-    reg [607:0] big_bits;
-    reg [7:0] max_angle;
+    reg [31:0] big_bits;
     reg bin_valid;
     reg max_valid;
     wire [4:0] address;
@@ -35,7 +34,6 @@ module axis_to_mem_tb;
         .clk(clk),
         .rst_n(rst_n),
         .big_bits(big_bits),
-        .max_angle(max_angle),
         .bin_valid(bin_valid),
         .max_valid(max_valid),
         .address(address),
@@ -55,23 +53,21 @@ module axis_to_mem_tb;
         bin_valid = 0;
         max_valid = 0;
         big_bits = 0;
-        max_angle = 8'hAB;
-
+        
         // reset everything
         #12 rst_n = 1;
 
-        // put the data in the bins
-        for (i = 0; i < 19; i = i + 1) begin
-            big_bits[i * 32 +: 32] = 32'h1000 + i;
-        end
-
+        // go through one a time
         #10 bin_valid = 1;
-
-        // wait for everything to be transferred
-        #200 bin_valid = 0;
+        for (i = 0; i < 19; i = i + 1) begin
+            big_bits = 32'h1000 + i;
+            #10; // wait for a bit
+        end
+        bin_valid = 0;
 
         // try max angle
         #10 max_valid = 1;
+        big_bits = 32'h000000AB;
         #10 max_valid = 0;
 
         #50;
@@ -81,7 +77,8 @@ module axis_to_mem_tb;
     // for seeing the stuff
     always @(posedge clk) begin
         if (wr_en) begin
-            $display("Cycle %0t: address=%0d, data_out=0x%08X, wr_en=%b", $time, address, data_out, wr_en);
+            $display("Cycle %0t: address=%0d, data_out=0x%08X, wr_en=%b",
+                     $time, address, data_out, wr_en);
         end
     end
 endmodule
