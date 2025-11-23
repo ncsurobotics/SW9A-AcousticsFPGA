@@ -23,8 +23,7 @@
 module axis_to_mem(
     input clk,
     input rst_n,
-    input [607:0] big_bits, // 608 / 32 = 19
-    input [7:0] max_angle, // final 8 bit value that we are gonna write
+    input [31:0] big_bits, // 32 bits each
     input bin_valid,
     input max_valid,
     output reg [4:0] address, // output address for the register file
@@ -32,17 +31,8 @@ module axis_to_mem(
     output reg wr_en
 );
     reg [4:0] data_select; // selector for the mux
-    reg [31:0] bins [0:18];
-    
-    // put the data into the bins
-    integer i;
-    always @(*) begin
-        for (i = 0; i < 19; i = i + 1) begin
-            bins[i] = big_bits[i * 32 +: 32]; // bin[0] gets the first 32 bits and so on
-        end
-    end
-    
-    // send current bin data until 19 (max_angle)
+
+    // send current bin data until 19 (then max angle)
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             data_select <= 0;
@@ -50,16 +40,16 @@ module axis_to_mem(
             data_out <= 0;
             wr_en <= 0;
         end else begin
-            wr_en <= 0; // by default do no writing
+            wr_en <= 0; // default to no writing
             if (bin_valid && data_select < 19) begin
-                address <= data_select;
-                data_out <= bins[data_select];
-                wr_en <= 1;
+                address  <= data_select;
+                data_out  <= big_bits;
+                wr_en  <= 1;
                 data_select <= data_select + 1;
             end
-            else if (max_valid && data_select == 19) begin // for the max angle
+            else if (max_valid && data_select == 19) begin
                 address <= data_select;
-                data_out <= {24'b0, max_angle};
+                data_out <= big_bits; // max is in bin 19
                 wr_en <= 1;
                 data_select <= data_select + 1;
             end
