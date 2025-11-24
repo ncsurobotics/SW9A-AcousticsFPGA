@@ -18,9 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 module axis_to_mem_tb;
-
     reg clk;
     reg rst_n;
     reg [31:0] big_bits;
@@ -29,7 +27,6 @@ module axis_to_mem_tb;
     wire [4:0] address;
     wire [31:0] data_out;
     wire wr_en;
-
     axis_to_mem dut (
         .clk(clk),
         .rst_n(rst_n),
@@ -40,11 +37,9 @@ module axis_to_mem_tb;
         .data_out(data_out),
         .wr_en(wr_en)
     );
-
     // make the clock
     initial clk = 0;
     always #5 clk = ~clk; // 10ns
-
     // start the test
     integer i;
     initial begin
@@ -56,24 +51,41 @@ module axis_to_mem_tb;
         
         // reset everything
         #12 rst_n = 1;
-
-        // go through one a time
-        #10 bin_valid = 1;
+        
+        // first transaction
+        $display("\n=== First Transaction ===");
+        bin_valid = 1;
+        #10;
         for (i = 0; i < 19; i = i + 1) begin
-            big_bits = 32'h1000 + i;
-            #10; // wait for a bit
+            big_bits = 32'h1000 + i; 
+            #10;
         end
         bin_valid = 0;
-
         // try max angle
         #10 max_valid = 1;
         big_bits = 32'h000000AB;
         #10 max_valid = 0;
-
+        
+        // wait for auto-reset (should happen when data_select == 20)
+        #20;
+        
+        // second transaction
+        $display("\n=== Second Transaction ===");
+        bin_valid = 1;
+        #10;
+        for (i = 0; i < 19; i = i + 1) begin
+           big_bits = 32'h2000 + i;
+           #10;
+        end
+        bin_valid = 0;
+        // try max angle
+        #10 max_valid = 1;
+        big_bits = 32'h000000CD;
+        #10 max_valid = 0;
+        
         #50;
         $finish;
     end
-
     // for seeing the stuff
     always @(posedge clk) begin
         if (wr_en) begin
