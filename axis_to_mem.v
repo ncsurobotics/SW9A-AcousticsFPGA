@@ -40,7 +40,6 @@ module axis_to_mem(
             data_out <= 0;
             wr_en <= 0;
         end else begin
-            wr_en <= 0; // default to no writing
             if (bin_valid && data_select < 19) begin
                 address  <= data_select;
                 data_out  <= big_bits;
@@ -52,6 +51,15 @@ module axis_to_mem(
                 data_out <= big_bits; // max is in bin 19
                 wr_en <= 1;
                 data_select <= data_select + 1;
+            end
+            else if (data_select == 20) begin // reset if 20
+                data_select <= 0;
+                address <= 0;
+                data_out <= 0;
+                wr_en <= 0;
+            end
+            else begin
+                wr_en <= 0; // default to no writing
             end
         end
     end  
