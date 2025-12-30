@@ -115,19 +115,7 @@ module bartlett_datapath #(
 		
 	
 	
-	wire[4:0] s_axis_theta_tdata;
-	
-	theta_driver theta_driver_inst(
-		.clk(clk),
-		.reset_n(reset_b),
-		
-		.enable(s_axis_theta_tready),
-		
-		.m_axis_theta_tdata(s_axis_theta_tdata),
-		.m_axis_theta_tlast(s_axis_theta_tlast),
-		//.m_axis_theta_tuser(s_axis_theta_tuser),
-		.m_axis_theta_tvalid(s_axis_theta_tvalid)
-		);
+
 	
 	bartlett_time_domain #(
 		.NUM_SIZE(NUM_SIZE)
@@ -141,13 +129,7 @@ module bartlett_datapath #(
 		.s_axis_fft_tlast (m_axis_fft_max_tlast),
 		.s_axis_fft_tready(m_axis_fft_max_tready),
 		.s_axis_fft_tuser(m_axis_fft_max_tuser),
-		
-		.s_axis_theta_tdata(s_axis_theta_tdata),
-		.s_axis_theta_tlast(s_axis_theta_tlast),
-		.s_axis_theta_tready(s_axis_theta_tready),
-		.s_axis_theta_tuser(s_axis_theta_tuser),
-		.s_axis_theta_tvalid(s_axis_theta_tvalid),
-		
+	
 		.m_axis_max_tdata(m_axis_max_tdata),
         .m_axis_max_tvalid(m_axis_max_tvalid),
         .m_axis_max_tuser(m_axis_max_tuser),

@@ -15,6 +15,66 @@ module adder #( // dummy module to make switch to complex adder easier
 endmodule
 
 
+module complex_accumulator #(
+	parameter NUM_SIZE = 32
+	) (
+	input clk, reset_n,
+	input [NUM_SIZE -1 : 0] s_axis_tdata,
+	input s_axis_tvalid, s_axis_tlast,
+	input[3:0] s_axis_tid,
+	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tdest,
+	
+	output reg[NUM_SIZE -1 : 0] m_axis_tdata,
+	output reg m_axis_tvalid, m_axis_tlast,
+	output reg [$clog2(`THETA_COUNT) - 1: 0] m_axis_tdest
+	);
+	
+	reg valid_buf, last_buf;
+	reg[3:0] tid_buf;
+	reg[$clog2(`THETA_COUNT) - 1: 0] dest_buf;
+	
+	reg[NUM_SIZE - 1:0] sum_buf;
+	wire[NUM_SIZE - 1:0] sum_w;
+	wire first;
+	assign first = &s_axis_tid;
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(~reset_n)begin
+			valid_buf <= 0;
+			last_buf <= 0;
+			tid_buf <= 0;
+			dest_buf <= 0;
+			
+			sum_buf <= 0;
+			
+			m_axis_tdata <= 0;
+			m_axis_tvalid <= 0;
+			m_axis_tlast <= 0;
+			m_axis_tdest <= 0;
+		end else begin
+			valid_buf <= s_axis_tvalid;
+			last_buf <= s_axis_tlast;
+			tid_buf <= s_axis_tid;
+			dest_buf <= s_axis_tdest;
+			
+			sum_buf <= sum_w;
+			
+			m_axis_tdata <= valid_buf ? sum_buf : m_axis_tdata;
+			m_axis_tvalid <= last_buf;
+			m_axis_tlast <= last_buf;
+			m_axis_tdest <= dest_buf;
+		end
+	end
+	
+	complex_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE)) accum(
+		.a(s_axis_tdata),
+		.b((first ? 0 : sum_buf)),
+		.sum(sum_w)
+		);
+	
+endmodule
+
+
 module matrix_accumulator_no_latency_real #(
 	parameter NUM_SIZE = 32, //element size
 	parameter WIDTH = 4 //Matrix width

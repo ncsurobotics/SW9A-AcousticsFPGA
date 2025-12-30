@@ -13,11 +13,6 @@ module bartlett_time_domain #(
 	input s_axis_fft_tvalid, s_axis_fft_tlast, s_axis_fft_tuser,
 	output s_axis_fft_tready,
 	
-	// theta input channel
-	input[$clog2(`THETA_COUNT) - 1: 0] s_axis_theta_tdata, // theta_store[s_axis_theta_tdata] 
-	input s_axis_theta_tvalid, s_axis_theta_tlast, s_axis_theta_tuser, //tlast is overwritten
-	output s_axis_theta_tready,
-	
 	// max theta output channel
 	output[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
 	output m_axis_max_tvalid, m_axis_max_tuser, m_axis_max_tlast,
@@ -37,11 +32,12 @@ module bartlett_time_domain #(
 	
 	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
     wire rxx_valid,rxx_ready;
+	wire[3:0] rxx_tid;
 	wire [NUM_SIZE- 1 : 0] m_axis_weight_tdata;
 	
-	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tuser;
+	wire[$clog2(`THETA_COUNT)-1:0] rxx_user, m_axis_weight_tdest;
 	
-	assign s_axis_theta_tready = rxx_valid;
+	assign s_axis_theta_tready = rxx_last;
 	assign debug_rxx = rxx_data;
 	assign debug_rxx_valid = rxx_valid;
 
@@ -60,8 +56,11 @@ module bartlett_time_domain #(
 
         .m_axis_tdata(rxx_data),
         .m_axis_tvalid(rxx_valid),
-        .m_axis_tready(rxx_ready)
+        .m_axis_tready(rxx_ready),
+		.m_axis_tlast(rxx_last),
+		.m_axis_tid(rxx_tid)
     );
+
 
     // Instantiate P_theta computation
     p_theta #(
@@ -73,23 +72,18 @@ module bartlett_time_domain #(
 
         .s_axis_r_tdata(rxx_data),
         .s_axis_r_tvalid(rxx_valid),
-        //.s_axis_r_tuser(rxx_user),
+        .s_axis_r_tlast(rxx_last),
         .s_axis_r_tready(rxx_ready),
-
-        .s_axis_theta_tdata(s_axis_theta_tdata),
-        .s_axis_theta_tvalid(s_axis_theta_tvalid),
-        .s_axis_theta_tlast(s_axis_theta_tlast),
-       // .s_axis_theta_tuser(s_axis_theta_tuser),
-        //.s_axis_theta_tready(s_axis_theta_tready),
+		.s_axis_r_tid(rxx_tid),
 
         .m_axis_tdata(m_axis_weight_tdata),
         .m_axis_tvalid(m_axis_weight_tvalid),
-        .m_axis_tuser(m_axis_weight_tuser), //theta
+        .m_axis_tdest(m_axis_weight_tdest), //theta
         .m_axis_tlast(m_axis_weight_tlast),
         .m_axis_tready(m_axis_weight_tready)
     );
 	
-	
+		
 	output_store #(
 		.NUM_SIZE(NUM_SIZE)
 		) 
@@ -100,7 +94,7 @@ module bartlett_time_domain #(
         .s_axis_tdata(m_axis_weight_tdata),
         .s_axis_tvalid(m_axis_weight_tvalid),
         .s_axis_tlast(m_axis_weight_tlast),
-		.s_axis_tuser(m_axis_weight_tuser),
+		.s_axis_tuser(m_axis_weight_tdest),
 
         .m_axis_all_tdata(m_axis_all_tdata),
         .m_axis_all_tvalid(m_axis_all_tvalid),
@@ -121,7 +115,7 @@ module bartlett_time_domain #(
         .s_axis_tdata(m_axis_weight_tdata),
         .s_axis_tvalid(m_axis_weight_tvalid),
         .s_axis_tlast(m_axis_weight_tlast),
-        .s_axis_tuser(m_axis_weight_tuser),
+        .s_axis_tuser(m_axis_weight_tdest),
         .s_axis_tready(m_axis_weight_tready),
 		
         .m_axis_max_tdata(m_axis_max_tdata),

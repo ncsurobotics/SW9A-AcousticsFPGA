@@ -13,9 +13,10 @@ module rxx #(
 	output s_axis_tready,
 	
 	// 4 x 4 matrix output channel
-	output[`MATRIX_SIZE * NUM_SIZE - 1:0]  m_axis_tdata, //MSB->LSB{r44, r43, r42... r00}
+	output[NUM_SIZE - 1:0]  m_axis_tdata, //serially outputted values, id-ed with m_axis_tid.
 	output m_axis_tvalid, m_axis_tlast,
-	input m_axis_tready
+	input m_axis_tready,
+	output[3:0] m_axis_tid
 	);
 	
 	wire[NUM_SIZE/2 - 1 :0] real_channel[3:0], imag_channel[3:0];
@@ -50,8 +51,8 @@ module rxx #(
 			valid <= 0;
 			state <= 0;
 		end else begin
-			state = state ? !m_axis_tlast : s_axis_tvalid; // 0 - idle, 1 - sending data
-			index = state && m_axis_tready ? index = index + 1 : index;
+			state <= state ? !m_axis_tlast : s_axis_tvalid; // 0 - idle, 1 - sending data
+			index <= state && m_axis_tready ? index + 1 : index;
 			for(i = 0; i < 4; i = i + 1)begin
 				base[i] <= {imag_channel[i],real_channel[i]};
 				conj[i] <= {-imag_channel[i],real_channel[i]};
@@ -60,25 +61,25 @@ module rxx #(
 	end
 	
 	
+cmpy_rxx your_instance_name (
+  .aclk(clk),                              // input wire aclk
+  .aresetn(reset_n),                        // input wire aresetn
+  .s_axis_a_tvalid(state),        // input wire s_axis_a_tvalid
+  .s_axis_a_tready(s_axis_tready),        // output wire s_axis_a_tready
+  .s_axis_a_tdata(base[base_index]),          // input wire [31 : 0] s_axis_a_tdata
+    .s_axis_a_tuser(base_index),          // input wire [1 : 0] s_axis_a_tuser
+
+  .s_axis_b_tvalid(state),        // input wire s_axis_b_tvalid
+  //.s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
+  .s_axis_b_tdata(conj[conj_index]),          // input wire [31 : 0] s_axis_b_tdata
+  .s_axis_b_tuser(conj_index),          // input wire [1 : 0] s_axis_a_tuser
+  
+  .m_axis_dout_tvalid(m_axis_tvalid),  // output wire m_axis_dout_tvalid
+  .m_axis_dout_tready(m_axis_tready),  // input wire m_axis_dout_tready
+  .m_axis_dout_tdata(m_axis_tdata),    // output wire [31 : 0] m_axis_dout_tdata
+  .m_axis_dout_tuser(m_axis_tid)
+);
 	
-complex_vector_multiply_rxx_4 #(
-	.NUM_SIZE(NUM_SIZE)
-	) complex_vector_multiply_rxx_4_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	
-	.s_axis_a_tdata(base[base_index]),
-	.s_axis_a_tvalid(state),
-	.s_axis_a_tready(s_axis_tready),
-	
-	//.s_axis_b_tready(s_axis_tready),
-	.s_axis_b_tvalid(state),
-	.s_axis_b_tdata(conj[conj_index]),
-	
-	.m_axis_tdata(m_axis_tdata),
-	.m_axis_tvalid(m_axis_tvalid),
-	.m_axis_tready(m_axis_tready)
-	);
 
 
 

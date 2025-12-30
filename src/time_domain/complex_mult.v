@@ -366,9 +366,7 @@ cmpy_rxx your_instance_name (
   .m_axis_dout_tdata(m_axis_tdata[j*NUM_SIZE +: NUM_SIZE])    // output wire [31 : 0] m_axis_dout_tdata
 );
 	end
-
-
-
+endgenerate
 endmodule
 
 
