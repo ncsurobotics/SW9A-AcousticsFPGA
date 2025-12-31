@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Dec 29 01:09:05 2025
+// Date        : Tue Dec 30 17:54:36 2025
 // Host        : AustinsPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top cmpy_rxx -prefix
 //               cmpy_rxx_ cmpy_rxx_stub.v
@@ -15,15 +15,16 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* x_core_info = "cmpy_v6_0_21,Vivado 2022.2" *)
 module cmpy_rxx(aclk, aresetn, s_axis_a_tvalid, 
-  s_axis_a_tready, s_axis_a_tuser, s_axis_a_tdata, s_axis_b_tvalid, s_axis_b_tready, 
-  s_axis_b_tuser, s_axis_b_tdata, m_axis_dout_tvalid, m_axis_dout_tready, 
-  m_axis_dout_tuser, m_axis_dout_tdata)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_a_tvalid,s_axis_a_tready,s_axis_a_tuser[1:0],s_axis_a_tdata[31:0],s_axis_b_tvalid,s_axis_b_tready,s_axis_b_tuser[1:0],s_axis_b_tdata[31:0],m_axis_dout_tvalid,m_axis_dout_tready,m_axis_dout_tuser[3:0],m_axis_dout_tdata[31:0]" */;
+  s_axis_a_tready, s_axis_a_tuser, s_axis_a_tlast, s_axis_a_tdata, s_axis_b_tvalid, 
+  s_axis_b_tready, s_axis_b_tuser, s_axis_b_tdata, m_axis_dout_tvalid, m_axis_dout_tready, 
+  m_axis_dout_tuser, m_axis_dout_tlast, m_axis_dout_tdata)
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_a_tvalid,s_axis_a_tready,s_axis_a_tuser[1:0],s_axis_a_tlast,s_axis_a_tdata[31:0],s_axis_b_tvalid,s_axis_b_tready,s_axis_b_tuser[1:0],s_axis_b_tdata[31:0],m_axis_dout_tvalid,m_axis_dout_tready,m_axis_dout_tuser[3:0],m_axis_dout_tlast,m_axis_dout_tdata[31:0]" */;
   input aclk;
   input aresetn;
   input s_axis_a_tvalid;
   output s_axis_a_tready;
   input [1:0]s_axis_a_tuser;
+  input s_axis_a_tlast;
   input [31:0]s_axis_a_tdata;
   input s_axis_b_tvalid;
   output s_axis_b_tready;
@@ -32,5 +33,6 @@ module cmpy_rxx(aclk, aresetn, s_axis_a_tvalid,
   output m_axis_dout_tvalid;
   input m_axis_dout_tready;
   output [3:0]m_axis_dout_tuser;
+  output m_axis_dout_tlast;
   output [31:0]m_axis_dout_tdata;
 endmodule

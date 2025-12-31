@@ -142,6 +142,7 @@ task initMemory;
 begin
 	$display({"Opening ",`HYDRO_PATH});
 	$readmemh(`HYDRO_PATH,hydro_data);
+	$display("Finished init");
 end
 endtask
 
@@ -149,8 +150,10 @@ endtask
 integer send_index;
 task sendMemory;
 begin
+	$display("Sending memory");
 	s_axis_tvalid = 1;  
 	for(send_index = 0; send_index < `COLUMNS + 1; send_index = send_index + 1)begin
+		//$display("Send index: %d",send_index);
 		#10 index = index + 1;
 	end
 	#10 send_index = 0;

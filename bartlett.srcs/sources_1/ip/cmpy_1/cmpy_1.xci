@@ -19,7 +19,7 @@
         "MultType": [ { "value": "Use_Mults", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "OptimizeGoal": [ { "value": "Resources", "resolve_type": "user", "usage": "all" } ],
         "FlowControl": [ { "value": "Blocking", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "RoundMode": [ { "value": "Truncate", "resolve_type": "user", "usage": "all" } ],
+        "RoundMode": [ { "value": "Truncate", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "OutputWidth": [ { "value": "32", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HasCTRLTLAST": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "HasCTRLTUSER": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],

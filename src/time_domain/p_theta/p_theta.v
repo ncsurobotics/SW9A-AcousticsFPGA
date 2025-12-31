@@ -36,7 +36,7 @@ module p_theta #(
 	reg state; // 0 - idle, 1 - processing
 	reg valid_buf;
 	reg last;
-	assign s_axis_r_tready = ~state;
+	assign s_axis_r_tready = 1;
 	
 	always@(posedge clk or negedge reset_n)begin
 		if(~reset_n) begin
@@ -76,7 +76,7 @@ module p_theta #(
 		);
 		
 		
-	wire [NUM_SIZE -1 : 0] mid_data;
+	wire [2*NUM_SIZE -1 : 0] mid_data;
 	wire mid_last, mid_valid;
 	wire [8:0] mid_tuser;
 
@@ -102,17 +102,17 @@ cmpy_1 your_instance_name (
   .m_axis_dout_tdata(mid_data)    // output wire [63 : 0] m_axis_dout_tdata
 );
 
-wire[NUM_SIZE * 2 - 1 :0] accumulation;
-assign m_axis_tdata = accumulation[NUM_SIZE +: NUM_SIZE];
+wire[NUM_SIZE - 1 :0] accumulation;
+assign m_axis_tdata = accumulation;
 	
-complex_accumulator #(
-	.NUM_SIZE(NUM_SIZE * 2)
+real_accumulator #(
+	.NUM_SIZE(NUM_SIZE)
 	) 
-complex_accumulator_inst (
+real_accumulator_inst (
 	.clk(clk),
 	.reset_n(reset_n),
 	
-	.s_axis_tdata(mid_data),
+	.s_axis_tdata(mid_data[NUM_SIZE-1:0]),
 	.s_axis_tvalid(mid_valid),
 	.s_axis_tlast(mid_last),
 	.s_axis_tdest(mid_tuser[8:4]),

@@ -37,8 +37,8 @@ module rxx #(
 	assign base_index = index[3:2];
 	reg valid;
 	reg state;
-	assign m_axis_tlast = index == 4'b1111;
-	
+	wire last;
+	assign last = index == 4'b1111;
 	
 	integer i;
 	always@(posedge clk or negedge reset_n)begin
@@ -51,8 +51,14 @@ module rxx #(
 			valid <= 0;
 			state <= 0;
 		end else begin
-			state <= state ? !m_axis_tlast : s_axis_tvalid; // 0 - idle, 1 - sending data
-			index <= state && m_axis_tready ? index + 1 : index;
+			if(state == 0)begin // idle
+				state <= s_axis_tvalid;
+				index <= 0;
+			end else begin
+				state <= !last;
+				if(m_axis_tready) index <= index + 1;
+				else index <= index;
+			end
 			for(i = 0; i < 4; i = i + 1)begin
 				base[i] <= {imag_channel[i],real_channel[i]};
 				conj[i] <= {-imag_channel[i],real_channel[i]};
@@ -65,18 +71,20 @@ cmpy_rxx your_instance_name (
   .aclk(clk),                              // input wire aclk
   .aresetn(reset_n),                        // input wire aresetn
   .s_axis_a_tvalid(state),        // input wire s_axis_a_tvalid
+  .s_axis_a_tlast(last),
   .s_axis_a_tready(s_axis_tready),        // output wire s_axis_a_tready
-  .s_axis_a_tdata(base[base_index]),          // input wire [31 : 0] s_axis_a_tdata
-    .s_axis_a_tuser(base_index),          // input wire [1 : 0] s_axis_a_tuser
+  .s_axis_a_tdata(conj[conj_index]),          // input wire [31 : 0] s_axis_a_tdata
+    .s_axis_a_tuser(conj_index),          // input wire [1 : 0] s_axis_a_tuser
 
   .s_axis_b_tvalid(state),        // input wire s_axis_b_tvalid
   //.s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
-  .s_axis_b_tdata(conj[conj_index]),          // input wire [31 : 0] s_axis_b_tdata
-  .s_axis_b_tuser(conj_index),          // input wire [1 : 0] s_axis_a_tuser
+  .s_axis_b_tdata(base[base_index]),          // input wire [31 : 0] s_axis_b_tdata
+  .s_axis_b_tuser(base_index),          // input wire [1 : 0] s_axis_a_tuser
   
   .m_axis_dout_tvalid(m_axis_tvalid),  // output wire m_axis_dout_tvalid
   .m_axis_dout_tready(m_axis_tready),  // input wire m_axis_dout_tready
   .m_axis_dout_tdata(m_axis_tdata),    // output wire [31 : 0] m_axis_dout_tdata
+  .m_axis_dout_tlast(m_axis_tlast),
   .m_axis_dout_tuser(m_axis_tid)
 );
 	

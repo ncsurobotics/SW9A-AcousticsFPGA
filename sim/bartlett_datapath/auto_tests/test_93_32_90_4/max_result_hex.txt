@@ -1,0 +1,2 @@
+Theta: 09
+Value: 00f70e00

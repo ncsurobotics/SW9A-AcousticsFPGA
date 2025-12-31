@@ -56,14 +56,16 @@ module fft_max (
     wire [15:0] fft_s_axis_config_tdata; 
 	assign fft_s_axis_config_tdata = {ZERO_PAD, FWD};       //block float
 	
-	wire [8:0] k_index;
+	wire [7:0] k_index;
 	assign k_index = m_axis_tuser[7:0];
 	
 	wire [127:0] m_axis_spectrum_tdata;
-	wire[15:0] m_axis_spectrum_tuser;
+	wire[39:0] m_axis_spectrum_tuser;
     wire m_axis_spectrum_tvalid;
     wire m_axis_spectrum_tready;
     wire m_axis_spectrum_tlast;
+	
+	wire [31:0] m_axis_status_tdata;
 	
 	assign debug_fft = m_axis_spectrum_tdata;
 	assign debug_fft_valid = m_axis_spectrum_tvalid;
@@ -91,7 +93,7 @@ xfft_0 your_instance_name (
   .aresetn(reset_n),                                          // input wire aresetn
   .s_axis_config_tdata(fft_s_axis_config_tdata),                  // input wire [79 : 0] s_axis_config_tdata
   .s_axis_config_tvalid(1),                // input wire s_axis_config_tvalid
-  .s_axis_config_tready(s_axis_config_tready),                // output wire s_axis_config_tready
+  //.s_axis_config_tready(s_axis_config_tready),                // output wire s_axis_config_tready
   
   .s_axis_data_tdata(s_axis_tdata),                      // input wire [127 : 0] s_axis_data_tdata
   .s_axis_data_tvalid(s_axis_tvalid),                    // input wire s_axis_data_tvalid
@@ -286,11 +288,13 @@ end
 			s_axis_weight_tready <= 0;
 			valid_threshold <= 0;
 			state <= 0;
-			config_register <= 48'h130708000000;
+			config_register <= 48'h130700080000;
+			m_axis_max_tvalid <= 0;
+			m_axis_max_tlast <= 0;
 		/*
 	UPPER_BOUND = 8'h19, // ~-25khz //248,  >40khz
 	LOWER_BOUND = 8'h07, // ~40khz //238,  <25khz
-	THRESHOLD = 32'h0800000 // arbitrary number
+	THRESHOLD = 32'h00080000 // arbitrary number
 	*/
 		end else begin
 			case(state)

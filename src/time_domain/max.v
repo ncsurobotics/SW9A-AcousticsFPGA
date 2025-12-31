@@ -44,7 +44,9 @@ module max #(
 					m_axis_max_tdata <= $signed(s_axis_tdata) > $signed(max_weight) ? s_axis_tuser : m_axis_max_tdata;
 					if(s_axis_tlast) max_weight <= 0;
 					else max_weight <= $signed(s_axis_tdata) > $signed(max_weight) ? s_axis_tdata : max_weight;
-				end 
+				end else if(m_axis_max_tvalid)begin
+					max_weight <= 0;
+				end
 			end
 			
 		end

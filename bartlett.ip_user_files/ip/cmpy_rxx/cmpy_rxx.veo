@@ -60,6 +60,7 @@ cmpy_rxx your_instance_name (
   .s_axis_a_tvalid(s_axis_a_tvalid),        // input wire s_axis_a_tvalid
   .s_axis_a_tready(s_axis_a_tready),        // output wire s_axis_a_tready
   .s_axis_a_tuser(s_axis_a_tuser),          // input wire [1 : 0] s_axis_a_tuser
+  .s_axis_a_tlast(s_axis_a_tlast),          // input wire s_axis_a_tlast
   .s_axis_a_tdata(s_axis_a_tdata),          // input wire [31 : 0] s_axis_a_tdata
   .s_axis_b_tvalid(s_axis_b_tvalid),        // input wire s_axis_b_tvalid
   .s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
@@ -68,6 +69,7 @@ cmpy_rxx your_instance_name (
   .m_axis_dout_tvalid(m_axis_dout_tvalid),  // output wire m_axis_dout_tvalid
   .m_axis_dout_tready(m_axis_dout_tready),  // input wire m_axis_dout_tready
   .m_axis_dout_tuser(m_axis_dout_tuser),    // output wire [3 : 0] m_axis_dout_tuser
+  .m_axis_dout_tlast(m_axis_dout_tlast),    // output wire m_axis_dout_tlast
   .m_axis_dout_tdata(m_axis_dout_tdata)    // output wire [31 : 0] m_axis_dout_tdata
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
