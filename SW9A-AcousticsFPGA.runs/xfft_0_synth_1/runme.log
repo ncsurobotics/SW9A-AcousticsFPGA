@@ -1,0 +1,570 @@
+
+*** Running vivado
+    with args -log xfft_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source xfft_0.tcl
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xfft_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1544.832 ; gain = 0.020 ; free physical = 186 ; free virtual = 15495
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: xfft_0
+Command: synth_design -top xfft_0 -part xc7a35tcpg236-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 36653
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2168.922 ; gain = 372.770 ; free physical = 203 ; free virtual = 14581
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1379.718; parent = 1174.655; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3795.234; parent = 2171.895; children = 1623.340
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:87]
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_PART bound to: xc7a35tcpg236-1 - type: string 
+	Parameter C_S_AXIS_CONFIG_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXIS_DATA_TDATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_M_AXIS_DATA_TDATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_M_AXIS_DATA_TUSER_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXIS_STATUS_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_CHANNELS bound to: 4 - type: integer 
+	Parameter C_NFFT_MAX bound to: 8 - type: integer 
+	Parameter C_ARCH bound to: 2 - type: integer 
+	Parameter C_HAS_NFFT bound to: 0 - type: integer 
+	Parameter C_USE_FLT_PT bound to: 0 - type: integer 
+	Parameter C_INPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_TWIDDLE_WIDTH bound to: 16 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_HAS_SCALING bound to: 1 - type: integer 
+	Parameter C_HAS_BFP bound to: 1 - type: integer 
+	Parameter C_HAS_ROUNDING bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
+	Parameter C_HAS_OVFLO bound to: 0 - type: integer 
+	Parameter C_HAS_NATURAL_INPUT bound to: 1 - type: integer 
+	Parameter C_HAS_NATURAL_OUTPUT bound to: 1 - type: integer 
+	Parameter C_HAS_CYCLIC_PREFIX bound to: 0 - type: integer 
+	Parameter C_HAS_XK_INDEX bound to: 0 - type: integer 
+	Parameter C_DATA_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_TWIDDLE_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_BRAM_STAGES bound to: 0 - type: integer 
+	Parameter C_REORDER_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_USE_HYBRID_RAM bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 0 - type: integer 
+	Parameter C_CMPY_TYPE bound to: 1 - type: integer 
+	Parameter C_BFLY_TYPE bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'xfft_v9_1_8' declared at '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/hdl/xfft_v9_1_vh_rfs.vhd:103739' bound to instance 'U0' of component 'xfft_v9_1_8' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:200]
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-3919] null assignment ignored
+INFO: [Synth 8-256] done synthesizing module 'xfft_0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:87]
+WARNING: [Synth 8-7129] Port LUT_SCLR in module mux_bus4__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port AINIT in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ACLR in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ASET in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module c_reg_fd_v12_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port add in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port c_in in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bypass in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sclr in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sset in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sinit in module c_addsub_v12_0_14_lut6_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port c_in in module c_addsub_v12_0_14_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_in in module c_addsub_v12_0_14_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a_signed in module c_addsub_v12_0_14_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_signed in module c_addsub_v12_0_14_legacy__parameterized9 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C_IN in module c_addsub_v12_0_14_viv__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port add in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port c_in in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bypass in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sclr in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sset in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sinit in module c_addsub_v12_0_14_lut6_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port c_in in module c_addsub_v12_0_14_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_in in module c_addsub_v12_0_14_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a_signed in module c_addsub_v12_0_14_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port b_signed in module c_addsub_v12_0_14_legacy__parameterized7 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C_IN in module c_addsub_v12_0_14_viv__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SUBTRACT in module dsp__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SUBTRACT in module dsp__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[11] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[10] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[9] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[8] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[7] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[6] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[5] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[4] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[3] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[2] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[1] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port C[0] in module cmpy_3_dsp48_mult__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ROUND_CY in module cmpy_v6_0_21_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SO_START in module cmpy_v6_0_21_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port round_cy in module cmpy is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized19 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port LUT_SCLR in module mux_bus4__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Q1 in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port D1 in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized18 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NFFT_WE in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[15] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[14] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[13] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[12] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[11] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[10] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[9] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[8] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[7] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[6] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[5] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[4] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[3] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[2] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[1] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH[0] in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCALE_SCH_WE in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i_ce_and_i_dv_delayed in module r2_datapath__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port end_rank in module r2_datapath__parameterized2 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 2634.859 ; gain = 838.707 ; free physical = 692 ; free virtual = 14492
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4258.203; parent = 2634.863; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 2649.703 ; gain = 853.551 ; free physical = 690 ; free virtual = 14490
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4273.047; parent = 2649.707; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 2649.703 ; gain = 853.551 ; free physical = 689 ; free virtual = 14490
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4273.047; parent = 2649.707; children = 1623.340
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2655.641 ; gain = 0.000 ; free physical = 690 ; free virtual = 14496
+INFO: [Netlist 29-17] Analyzing 793 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2776.453 ; gain = 0.000 ; free physical = 625 ; free virtual = 14430
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11 instances were transformed.
+  FDE => FDRE: 11 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.5 ; elapsed = 00:00:00.17 . Memory (MB): peak = 2776.453 ; gain = 0.000 ; free physical = 621 ; free virtual = 14427
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 634 ; free virtual = 14545
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 634 ; free virtual = 14545
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 634 ; free virtual = 14545
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'gen_status_channel.gen_status_blk_exp.we_current_state_reg' in module 'axi_wrapper'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+ st_wait_for_frame_start |                              001 |                               00
+  st_wait_for_fifo_write |                              010 |                               01
+   st_wait_for_frame_end |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'gen_status_channel.gen_status_blk_exp.we_current_state_reg' using encoding 'one-hot' in module 'axi_wrapper'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 652 ; free virtual = 14517
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'U0/i_synth/xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line2_for_rfd' (shift_ram) to 'U0/i_synth/xfft_inst/non_floating_point.arch_c.xfft_inst/control/has_bfp.delay_rfd_for_scale_select'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/twiddle_address_generator/n256.mux8/eight_to_one.use_lut6.eight_to_one_mux[7].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_twiddle_rank/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[1].i_fdre1) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/cntrl/max_rank_flops[3].max_rank_ff) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/cntrl/max_rank_flops[0].max_rank_ff) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre1) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[1].i_fdre0) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[1].i_fdre1) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[2].i_fdre0) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[2].i_fdre1) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[3].i_fdre0) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/control/delay_line_for_xk_index/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[3].i_fdre1) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[0].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[1].datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_0i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[23].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[22].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[5].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[4].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[3].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[2].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_c.xfft_inst/multichannel.multichannel_datapath[2].datapath/pe/scale_gen.scaler_1r/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_8_viv.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 613 ; free virtual = 14484
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 508 ; free virtual = 14404
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:52 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 462 ; free virtual = 14350
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:54 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 434 ; free virtual = 14349
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:00:58 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 450 ; free virtual = 14336
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:00:58 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 452 ; free virtual = 14340
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 412 ; free virtual = 14340
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 412 ; free virtual = 14341
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 407 ; free virtual = 14344
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 386 ; free virtual = 14346
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name             | DSP Mapping                 | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dsp_192                 | (not(C'+((D'+A'')'*B'')'))' | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized0_191 | (C+((D'+A')'*B'')')'        | 25     | 18     | 11     | 25     | 43     | 1    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized1_189 | (C'+((D'-A'')'*B'')')'      | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp_129                 | (not(C'+((D'+A'')'*B'')'))' | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized0_128 | (C+((D'+A')'*B'')')'        | 25     | 18     | 11     | 25     | 43     | 1    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized1_126 | (C'+((D'-A'')'*B'')')'      | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp_66                  | (not(C'+((D'+A'')'*B'')'))' | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized0_65  | (C+((D'+A')'*B'')')'        | 25     | 18     | 11     | 25     | 43     | 1    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized1_63  | (C'+((D'-A'')'*B'')')'      | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp                     | (not(C'+((D'+A'')'*B'')'))' | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized0     | (C+((D'+A')'*B'')')'        | 25     | 18     | 11     | 25     | 43     | 1    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized1     | (C'+((D'-A'')'*B'')')'      | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
++------------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    20|
+|2     |DSP48E1  |    12|
+|4     |LUT1     |    41|
+|5     |LUT2     |   407|
+|6     |LUT3     |   569|
+|7     |LUT4     |   111|
+|8     |LUT5     |    64|
+|9     |LUT6     |   658|
+|10    |MUXCY    |   360|
+|11    |MUXF7    |    21|
+|12    |MUXF8    |     7|
+|13    |RAMB18E1 |     9|
+|15    |SRL16E   |   598|
+|16    |SRLC32E  |     1|
+|17    |XORCY    |   325|
+|18    |FDE      |     9|
+|19    |FDRE     |  3676|
+|20    |FDSE     |    50|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 383 ; free virtual = 14345
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1800.405; parent = 1595.343; children = 205.062
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4399.797; parent = 2776.457; children = 1623.340
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 318 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 2776.453 ; gain = 853.551 ; free physical = 440 ; free virtual = 14402
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 2776.453 ; gain = 980.301 ; free physical = 440 ; free virtual = 14402
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.13 . Memory (MB): peak = 2776.453 ; gain = 0.000 ; free physical = 528 ; free virtual = 14510
+INFO: [Netlist 29-17] Analyzing 763 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2776.453 ; gain = 0.000 ; free physical = 485 ; free virtual = 14464
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 119 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 110 instances
+  FDE => FDRE: 9 instances
+
+Synth Design complete, checksum: b326d416
+INFO: [Common 17-83] Releasing license: Synthesis
+164 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:05 . Memory (MB): peak = 2776.453 ; gain = 1231.621 ; free physical = 719 ; free virtual = 14692
+INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP xfft_0, cache-ID = 892fba19a2282d92
+INFO: [Coretcl 2-1174] Renamed 418 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file xfft_0_utilization_synth.rpt -pb xfft_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 22 20:09:33 2025...

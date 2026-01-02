@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd" \
+
+nosort

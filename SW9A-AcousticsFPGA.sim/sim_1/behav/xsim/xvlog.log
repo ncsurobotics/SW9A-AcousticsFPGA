@@ -1,0 +1,121 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/sim/RING_BUFFER_RAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RING_BUFFER_RAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BIT_COUNTER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CDC_DRIVER
+INFO: [VRFC 10-311] analyzing module CDC_DRIVER_CONTROLLER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module GENERAL_COUNTER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RING_BUFFER
+INFO: [VRFC 10-311] analyzing module RING_BUFFER_DATAPATH
+INFO: [VRFC 10-311] analyzing module RING_BUFFER_CONTROLLER
+INFO: [VRFC 10-311] analyzing module HEAD_CONTROLLER
+INFO: [VRFC 10-311] analyzing module WRITE_CONTROLLER
+INFO: [VRFC 10-311] analyzing module READ_CONTROLLER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RX_SHIFT_REGISTER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SIPO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SIPO
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPI
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_CONTROLLER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPI_CONTROLLER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_DATAPATH.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPI_DATAPATH
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI_TRANSACTION_HANDLER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPI_TRANSACTION_HANDLER
+INFO: [VRFC 10-311] analyzing module SPI_HANDLER_WRAPPER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_WRAPPER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPI_WRAPPER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_RX
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_RX_CONTROLLER
+WARNING: [VRFC 10-2500] empty parameter declaration is only allowed in SystemVerilog mode [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_RX_DATAPATH
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_TRANSACTION_HANDLER
+INFO: [VRFC 10-311] analyzing module UART_RX_DECODER
+INFO: [VRFC 10-311] analyzing module UART_TX_ENCODER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_TX
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_CONTROLLER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_TX_CONTROLLER
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_DATAPATH.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_TX_DATAPATH
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/accumulator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-311] analyzing module matrix_accumulator_no_latency_real
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/accumulator.v:111]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/accumulator.v:112]
+INFO: [VRFC 10-311] analyzing module matrix_accumulator_no_latency
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/accumulator.v:246]
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/accumulator.v:247]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/bartlett.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bartlett_datapath
+WARNING: [VRFC 10-3380] identifier 'm_axis_fft_max_tdata' is used before its declaration [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/bartlett.v:76]
+WARNING: [VRFC 10-3380] identifier 'm_axis_fft_max_tvalid' is used before its declaration [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/bartlett.v:77]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/bartlett_time_domain.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bartlett_time_domain
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/clk_div.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_div
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module command_reader
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/common.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_multiplier
+INFO: [VRFC 10-311] analyzing module complex_adder
+INFO: [VRFC 10-311] analyzing module complex_adder_saturate
+INFO: [VRFC 10-311] analyzing module shift_register
+INFO: [VRFC 10-311] analyzing module shift_register_n
+INFO: [VRFC 10-311] analyzing module conjugate_multiplier
+WARNING: [VRFC 10-8864] concatenation with an unsized literal will be treated as 32 bits [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/common.v:245]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/complex_mult.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_matrix_hadamard
+INFO: [VRFC 10-311] analyzing module no_ip_complex_matrix_hadamard
+INFO: [VRFC 10-311] analyzing module complex_matrix_multiplier
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/fft_max.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fft_max
+INFO: [VRFC 10-311] analyzing module max_fft_bin
+WARNING: [VRFC 10-3380] identifier 'current_magnitude' is used before its declaration [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/fft_max.v:193]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/max.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module max
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/output_store.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_store
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/p_theta.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module p_theta
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/rxx/rxx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rxx
+WARNING: [VRFC 10-3380] identifier 'mid_tdata' is used before its declaration [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/rxx/rxx.v:27]
+WARNING: [VRFC 10-3380] identifier 'mid_tvalid' is used before its declaration [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/rxx/rxx.v:28]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/p_theta/s_theta.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module s_theta_16
+INFO: [VRFC 10-311] analyzing module s_theta_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/rxx/scalar_divide.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scalar_complex_divider_const
+INFO: [VRFC 10-311] analyzing module scalar_complex_divider_const_reduce
+INFO: [VRFC 10-311] analyzing module scalar_complex_divider_const_reduce_2
+INFO: [VRFC 10-311] analyzing module scalar_complex_divider
+INFO: [VRFC 10-311] analyzing module scalar_divide_const
+INFO: [VRFC 10-311] analyzing module scalar_divide
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/Bartlett/time_domain/theta_driver.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module theta_driver
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+WARNING: [VRFC 10-2938] 'op' is already implicitly declared on line 119 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:130]
+WARNING: [VRFC 10-2938] 'reg_map_addr' is already implicitly declared on line 118 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:132]
+WARNING: [VRFC 10-2938] 'reg_map_datain' is already implicitly declared on line 120 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:133]
+WARNING: [VRFC 10-2938] 'bartlett_ready' is already implicitly declared on line 240 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:258]
+WARNING: [VRFC 10-2938] 'bartlett_addr' is already implicitly declared on line 142 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:259]
+WARNING: [VRFC 10-2938] 'bartlett_data_in' is already implicitly declared on line 144 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:260]
+WARNING: [VRFC 10-2938] 'bartlett_CH1' is already implicitly declared on line 191 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:261]
+WARNING: [VRFC 10-2938] 'min_frequency' is already implicitly declared on line 147 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:262]
+WARNING: [VRFC 10-2938] 'data_valid' is already implicitly declared on line 243 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:263]

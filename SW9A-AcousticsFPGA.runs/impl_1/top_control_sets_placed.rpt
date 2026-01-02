@@ -1,0 +1,105 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Thu Dec 18 02:56:40 2025
+| Host         : fedora running 64-bit unknown
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a35t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    27 |
+|    Minimum number of control sets                        |    27 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    68 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    27 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |    10 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    13 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              64 |           12 |
+| No           | No                    | Yes                    |              52 |           18 |
+| No           | Yes                   | No                     |              22 |            9 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |             298 |           89 |
+| Yes          | Yes                   | No                     |              40 |           13 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|          Clock Signal         |                                                    Enable Signal                                                    |                                                                Set/Reset Signal                                                               | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+|  clk_wiz_inst/inst/SPI_clk_2x |                                                                                                                     |                                                                                                                                               |                1 |              2 |         2.00 |
+|  clk_IBUF_BUFG                |                                                                                                                     | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/FSM_onehot_gen_rst_ic.curr_wrst_state[4]_i_1_n_0 |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                | UART_inst/UART_RX_inst/UART_RX_CONTROLLER_inst/E[0]                                                                 | command_reader_inst/reset_b                                                                                                                   |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO[3][7]_i_1_n_0                                               | command_reader_inst/reset_b                                                                                                                   |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO[2][7]_i_1_n_0                                               | command_reader_inst/reset_b                                                                                                                   |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO[1][7]_i_1_n_0                                               | command_reader_inst/reset_b                                                                                                                   |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO[0][7]_i_1_n_0                                               | command_reader_inst/reset_b                                                                                                                   |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO                                                             | command_reader_inst/reset_b                                                                                                                   |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                | UART_inst/UART_RX_inst/UART_RX_DATAPATH_inst/BIT_COUNTER/E[0]                                                       | command_reader_inst/reset_b                                                                                                                   |                3 |              8 |         2.67 |
+|  clk_wiz_inst/inst/UART_clk   |                                                                                                                     | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                3 |              9 |         3.00 |
+|  clk_wiz_inst/inst/UART_clk   | UART_inst/UART_TX_inst/UART_TX_DATAPATH_inst/Count_Reached                                                          | command_reader_inst/reset_b                                                                                                                   |                2 |              9 |         4.50 |
+|  clk_wiz_inst/inst/UART_clk   | UART_inst/UART_TX_inst/UART_TX_CONTROLLER_inst/Q[1]                                                                 | command_reader_inst/reset_b                                                                                                                   |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG                |                                                                                                                     | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |                4 |              9 |         2.25 |
+|  clk_wiz_inst/inst/UART_clk   |                                                                                                                     | command_reader_inst/reset_b                                                                                                                   |                4 |             10 |         2.50 |
+|  clk_wiz_inst/inst/UART_clk   | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/rdp_inst/E[0]                            | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/gen_rst_ic.fifo_rd_rst_ic_reg_0                  |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG                |                                                                                                                     | command_reader_inst/reset_b                                                                                                                   |                6 |             18 |         3.00 |
+|  ADC_clk4_OBUF_BUFG           |                                                                                                                     | command_reader_inst/reset_b                                                                                                                   |                8 |             24 |         3.00 |
+|  clk_IBUF_BUFG                | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wr_pntr_plus1_pf_carry | UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/xpm_fifo_rst_inst/wrst_busy                                        |                9 |             24 |         2.67 |
+|  clk_wiz_inst/inst/UART_clk   |                                                                                                                     |                                                                                                                                               |                4 |             29 |         7.25 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][7]_4[0]                                              | command_reader_inst/reset_b                                                                                                                   |               13 |             32 |         2.46 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][7]_3[0]                                              | command_reader_inst/reset_b                                                                                                                   |                7 |             32 |         4.57 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][7]_2[0]                                              | command_reader_inst/reset_b                                                                                                                   |                6 |             32 |         5.33 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][7]_0[0]                                              | command_reader_inst/reset_b                                                                                                                   |               13 |             32 |         2.46 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][1]_0[0]                                              | command_reader_inst/reset_b                                                                                                                   |                9 |             32 |         3.56 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/SIPO_reg[0][7]_1[0]                                              | command_reader_inst/reset_b                                                                                                                   |                5 |             32 |         6.40 |
+|  clk_IBUF_BUFG                |                                                                                                                     |                                                                                                                                               |                7 |             33 |         4.71 |
+|  clk_IBUF_BUFG                | UART_TRANSACTION_HANDLER_inst/UART_RX_DECODER_inst/E[0]                                                             | command_reader_inst/reset_b                                                                                                                   |               15 |             36 |         2.40 |
++-------------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+------------------+----------------+--------------+
+
+

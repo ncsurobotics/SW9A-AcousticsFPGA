@@ -1,0 +1,92 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /home/bigpi/AMD/Vivado/2022.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L secureip --snapshot SW9_tb_func_synth xil_defaultlib.SW9_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 1 for port 'ADC_serial_data1' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:64]
+WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 1 for port 'ADC_serial_data2' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:65]
+WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 1 for port 'ADC_serial_data3' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:66]
+WARNING: [VRFC 10-3091] actual bit length 14 differs from formal bit length 1 for port 'ADC_serial_data4' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:67]
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 1 for port 'UART_tx' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:70]
+WARNING: [VRFC 10-3091] actual bit length 10 differs from formal bit length 1 for port 'UART_rx' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv:71]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module xil_defaultlib.xpm_cdc_single__9
+Compiling module xil_defaultlib.xpm_cdc_single__8
+Compiling module xil_defaultlib.xpm_cdc_handshake__xdcDup__1
+Compiling module xil_defaultlib.CDC_DRIVER__xdcDup__1
+Compiling module xil_defaultlib.SIPO
+Compiling module xil_defaultlib.SPI_DATAPATH
+Compiling module xil_defaultlib.SPI__xdcDup__1
+Compiling module xil_defaultlib.xpm_cdc_single__11
+Compiling module xil_defaultlib.xpm_cdc_single__10
+Compiling module xil_defaultlib.xpm_cdc_handshake__xdcDup__2
+Compiling module xil_defaultlib.CDC_DRIVER__xdcDup__2
+Compiling module xil_defaultlib.SPI__xdcDup__2
+Compiling module xil_defaultlib.xpm_cdc_single__13
+Compiling module xil_defaultlib.xpm_cdc_single__12
+Compiling module xil_defaultlib.xpm_cdc_handshake__xdcDup__3
+Compiling module xil_defaultlib.CDC_DRIVER__xdcDup__3
+Compiling module xil_defaultlib.SPI__xdcDup__3
+Compiling module xil_defaultlib.xpm_cdc_single
+Compiling module xil_defaultlib.xpm_cdc_single__14
+Compiling module xil_defaultlib.xpm_cdc_handshake
+Compiling module xil_defaultlib.CDC_DRIVER
+Compiling module xil_defaultlib.SPI
+Compiling module xil_defaultlib.SPI_WRAPPER
+Compiling module unisims_ver.GND
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.x_lut3_mux8
+Compiling module unisims_ver.LUT3
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.LUT5
+Compiling module xil_defaultlib.xpm_cdc_gray__parameterized0
+Compiling module xil_defaultlib.xpm_cdc_gray
+Compiling module xil_defaultlib.xpm_fifo_reg_vec
+Compiling module xil_defaultlib.xpm_fifo_reg_vec__parameterized0
+Compiling module unisims_ver.CARRY4
+Compiling module xil_defaultlib.xpm_fifo_reg_vec_0
+Compiling module xil_defaultlib.xpm_fifo_reg_vec__parameterized0...
+Compiling module xil_defaultlib.xpm_cdc_gray__parameterized0__2
+Compiling module xil_defaultlib.xpm_cdc_gray__2
+Compiling module unisims_ver.FDSE_default
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(READ_WIDTH_A=...
+Compiling module unisims_ver.RAMB18E1(READ_WIDTH_A=18,READ_WI...
+Compiling module xil_defaultlib.xpm_memory_base
+Compiling module xil_defaultlib.xpm_counter_updn
+Compiling module xil_defaultlib.xpm_counter_updn__parameterized0
+Compiling module xil_defaultlib.xpm_fifo_reg_bit
+Compiling module xil_defaultlib.xpm_counter_updn_2
+Compiling module xil_defaultlib.xpm_counter_updn__parameterized0...
+Compiling module xil_defaultlib.xpm_counter_updn__parameterized1
+Compiling module xil_defaultlib.xpm_cdc_sync_rst
+Compiling module xil_defaultlib.xpm_cdc_sync_rst__2
+Compiling module xil_defaultlib.xpm_fifo_rst
+Compiling module xil_defaultlib.xpm_fifo_base
+Compiling module xil_defaultlib.xpm_fifo_async
+Compiling module unisims_ver.FDPE_default
+Compiling module unisims_ver.FDCE_default
+Compiling module xil_defaultlib.UART_TX_CONTROLLER
+Compiling module xil_defaultlib.UART_TX_DATAPATH
+Compiling module xil_defaultlib.UART_TX
+Compiling module xil_defaultlib.UART
+Compiling module unisims_ver.OBUFT
+Compiling module unisims_ver.IBUF
+Compiling module xil_defaultlib.clk_div
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=36.0,...
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.SW9_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot SW9_tb_func_synth

@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/sim/RING_BUFFER_RAM.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
