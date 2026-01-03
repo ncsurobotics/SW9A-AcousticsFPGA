@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/top.tcl"
+  variable script "C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,9 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param synth.incrementalSynthesisCache ./.Xil/Vivado-49063-fedora/incrSyn
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -82,45 +82,66 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/wt [current_project]
-set_property parent.project_path /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/wt [current_project]
+set_property parent.project_path C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_verilog C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/constants.vh
 read_verilog -library xil_defaultlib {
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SIPO.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_CONTROLLER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_DATAPATH.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_WRAPPER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_CONTROLLER.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_DATAPATH.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/clk_div.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v
-  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/BIT_COUNTER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/RX_SHIFT_REGISTER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SIPO.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_CONTROLLER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_DATAPATH.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI_TRANSACTION_HANDLER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_WRAPPER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_DATAPATH.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_CONTROLLER.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_DATAPATH.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/clk_div.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/max.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/s_theta.v
+  C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v
 }
-read_ip -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/cmpy_rxx/cmpy_rxx.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_rxx/cmpy_rxx_ooc.xdc]
 
-read_ip -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM.xci
-set_property used_in_implementation false [get_files -all /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM_ooc.xdc]
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM_ooc.xdc]
+
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_ooc.xdc]
+
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/cmpy_1/cmpy_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -131,9 +152,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/constrs_1/imports/Downloads/Cmod-A7-Master.xdc
+set_property used_in_implementation false [get_files C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/constrs_1/imports/Downloads/Cmod-A7-Master.xdc]
+
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

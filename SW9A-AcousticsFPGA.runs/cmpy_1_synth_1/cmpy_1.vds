@@ -1,41 +1,39 @@
 #-----------------------------------------------------------
 # Vivado v2022.2 (64-bit)
-# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Mon Dec 22 20:25:43 2025
-# Process ID: 41677
-# Current directory: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1
-# Command line: vivado -log cmpy_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cmpy_1.tcl
-# Log file: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.vds
-# Journal file: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/vivado.jou
-# Running On: fedora, OS: Linux, CPU Frequency: 1071.540 MHz, CPU Physical cores: 14, Host memory: 16356 MB
+# Start of session at: Sat Jan  3 00:34:43 2026
+# Process ID: 2272
+# Current directory: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1
+# Command line: vivado.exe -log cmpy_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cmpy_1.tcl
+# Log file: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.vds
+# Journal file: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1\vivado.jou
+# Running On: AustinsPC, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 16831 MB
 #-----------------------------------------------------------
 source cmpy_1.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1488.473 ; gain = 3.988 ; free physical = 1092 ; free virtual = 15040
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 394.055 ; gain = 62.531
 INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: cmpy_1
 Command: synth_design -top cmpy_1 -part xc7a35tcpg236-1 -incremental_mode off -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 41861
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 30072
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2165.438 ; gain = 369.770 ; free physical = 169 ; free virtual = 13745
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3791.746; parent = 2168.410; children = 1623.336
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:26 . Memory (MB): peak = 1212.176 ; gain = 406.070
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'cmpy_1' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:81]
+INFO: [Synth 8-638] synthesizing module 'cmpy_1' [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:80]
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICE bound to: xc7a35t - type: string 
 	Parameter C_A_WIDTH bound to: 16 - type: integer 
 	Parameter C_B_WIDTH bound to: 16 - type: integer 
 	Parameter C_OUT_WIDTH bound to: 32 - type: integer 
-	Parameter C_LATENCY bound to: 8 - type: integer 
-	Parameter C_MULT_TYPE bound to: 0 - type: integer 
+	Parameter C_LATENCY bound to: 9 - type: integer 
+	Parameter C_MULT_TYPE bound to: 1 - type: integer 
 	Parameter C_OPTIMIZE_GOAL bound to: 0 - type: integer 
 	Parameter HAS_NEGATE bound to: 0 - type: integer 
 	Parameter SINGLE_OUTPUT bound to: 0 - type: integer 
@@ -45,25 +43,45 @@ INFO: [Synth 8-638] synthesizing module 'cmpy_1' [/home/bigpi/AMD/Vivado/2022.2/
 	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
 	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
 	Parameter C_HAS_S_AXIS_A_TUSER bound to: 1 - type: integer 
-	Parameter C_HAS_S_AXIS_A_TLAST bound to: 1 - type: integer 
+	Parameter C_HAS_S_AXIS_A_TLAST bound to: 0 - type: integer 
 	Parameter C_HAS_S_AXIS_B_TUSER bound to: 1 - type: integer 
 	Parameter C_HAS_S_AXIS_B_TLAST bound to: 1 - type: integer 
 	Parameter C_HAS_S_AXIS_CTRL_TUSER bound to: 0 - type: integer 
 	Parameter C_HAS_S_AXIS_CTRL_TLAST bound to: 0 - type: integer 
-	Parameter C_TLAST_RESOLUTION bound to: 17 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 2 - type: integer 
 	Parameter C_S_AXIS_A_TDATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_S_AXIS_A_TUSER_WIDTH bound to: 5 - type: integer 
+	Parameter C_S_AXIS_A_TUSER_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXIS_B_TDATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_S_AXIS_B_TUSER_WIDTH bound to: 5 - type: integer 
 	Parameter C_S_AXIS_CTRL_TDATA_WIDTH bound to: 8 - type: integer 
 	Parameter C_S_AXIS_CTRL_TUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXIS_DOUT_TDATA_WIDTH bound to: 64 - type: integer 
-	Parameter C_M_AXIS_DOUT_TUSER_WIDTH bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'cmpy_v6_0_21' declared at '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/hdl/cmpy_v6_0_vh_rfs.vhd:13916' bound to instance 'U0' of component 'cmpy_v6_0_21' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:176]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_1' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:81]
+	Parameter C_M_AXIS_DOUT_TUSER_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-3491] module 'cmpy_v6_0_21' declared at 'c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/hdl/cmpy_v6_0_vh_rfs.vhd:13916' bound to instance 'U0' of component 'cmpy_v6_0_21' [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:174]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_1' (0#1) [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/synth/cmpy_1.vhd:80]
+WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SUBTRACT in module dsp__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized5 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized5 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module mult_gen_v12_0_18_delay_line__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SUBTRACT in module dsp__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CARRY_IN in module dsp is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CLK in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line__parameterized2 is either unconnected or has no load
@@ -74,6 +92,7 @@ WARNING: [Synth 8-7129] Port CE in module input_negation is either unconnected o
 WARNING: [Synth 8-7129] Port SCLR in module input_negation is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ROUND_CY in module cmpy_v6_0_21_synth is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SO_START in module cmpy_v6_0_21_synth is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_a_tlast in module axi_slave_2to1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port CE in module cmpy_v6_0_21_delay_line is either unconnected or has no load
 WARNING: [Synth 8-7129] Port SCLR in module cmpy_v6_0_21_delay_line is either unconnected or has no load
 WARNING: [Synth 8-7129] Port aclken in module cmpy_v6_0_21_viv is either unconnected or has no load
@@ -89,71 +108,56 @@ WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[2] in module cmpy_v6_0_21_viv is 
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[1] in module cmpy_v6_0_21_viv is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[0] in module cmpy_v6_0_21_viv is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2301.375 ; gain = 505.707 ; free physical = 417 ; free virtual = 13594
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3924.715; parent = 2301.379; children = 1623.336
+Finished RTL Elaboration : Time (s): cpu = 00:00:24 ; elapsed = 00:01:08 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2316.219 ; gain = 520.551 ; free physical = 390 ; free virtual = 13568
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3939.559; parent = 2316.223; children = 1623.336
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:01:09 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2316.219 ; gain = 520.551 ; free physical = 339 ; free virtual = 13556
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3939.559; parent = 2316.223; children = 1623.336
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:24 ; elapsed = 00:01:09 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2322.156 ; gain = 0.000 ; free physical = 251 ; free virtual = 13484
-INFO: [Netlist 29-17] Analyzing 1320 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 1416.402 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/cmpy_1_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/cmpy_1_ooc.xdc] for cell 'U0'
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc]
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2466.969 ; gain = 0.000 ; free physical = 230 ; free virtual = 13091
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1416.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 432 instances were transformed.
-  MULT_AND => LUT2: 432 instances
+No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2466.969 ; gain = 0.000 ; free physical = 219 ; free virtual = 13080
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.101 . Memory (MB): peak = 1416.402 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 291 ; free virtual = 13062
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:01:36 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 291 ; free virtual = 13062
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:01:36 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc, line 9).
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 291 ; free virtual = 13062
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:01:36 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 300 ; free virtual = 13076
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 203.872
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:37 ; elapsed = 00:01:37 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -175,6 +179,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-7129] Port aclken in module cmpy_v6_0_21_viv is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_a_tlast in module cmpy_v6_0_21_viv is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tvalid in module cmpy_v6_0_21_viv is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tuser[0] in module cmpy_v6_0_21_viv is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tlast in module cmpy_v6_0_21_viv is either unconnected or has no load
@@ -187,33 +192,25 @@ WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[2] in module cmpy_v6_0_21_viv is 
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[1] in module cmpy_v6_0_21_viv is either unconnected or has no load
 WARNING: [Synth 8-7129] Port s_axis_ctrl_tdata[0] in module cmpy_v6_0_21_viv is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1318 ; free virtual = 14165
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1375.642; parent = 1171.770; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1133 ; free virtual = 14045
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1482.916; parent = 1277.754; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:02:09 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1120 ; free virtual = 14032
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1484.912; parent = 1279.750; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Timing Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:02:10 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1088 ; free virtual = 13999
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1486.646; parent = 1281.484; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Technology Mapping : Time (s): cpu = 00:00:54 ; elapsed = 00:02:10 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -231,53 +228,51 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1142 ; free virtual = 14047
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1486.877; parent = 1281.715; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1142 ; free virtual = 14047
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1486.877; parent = 1281.715; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1142 ; free virtual = 14047
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1486.971; parent = 1281.809; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1142 ; free virtual = 14047
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1487.033; parent = 1281.871; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1146 ; free virtual = 14051
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1487.033; parent = 1281.871; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1145 ; free virtual = 14051
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1487.033; parent = 1281.871; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name         | DSP Mapping                 | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dsp                 | (not(C'+((D'+A'')'*B'')'))' | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized0 | (C+((D'+A')'*B'')')'        | 25     | 18     | 0      | 25     | 43     | 1    | 2    | 2    | 2    | 1     | 1    | 1    | 
+|dsp__parameterized1 | (C'+((D'-A'')'*B'')')'      | 25     | 18     | 48     | 25     | 43     | 2    | 2    | 2    | 2    | 1     | 1    | 1    | 
++--------------------+-----------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
 
 Report BlackBoxes: 
 +-+--------------+----------+
@@ -286,51 +281,43 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |CARRY4   |   150|
-|2     |LUT1     |    24|
-|3     |LUT2     |   580|
-|4     |LUT3     |   127|
-|5     |LUT4     |   384|
-|6     |LUT5     |     3|
-|7     |LUT6     |    12|
-|8     |MULT_AND |   432|
-|9     |MUXCY    |   432|
-|10    |SRL16E   |    87|
-|11    |XORCY    |   456|
-|12    |FDRE     |  1235|
-|13    |FDSE     |     4|
-+------+---------+------+
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |DSP48E1 |     3|
+|3     |LUT1    |     1|
+|4     |LUT2    |    14|
+|5     |LUT3    |    77|
+|6     |LUT5    |     3|
+|7     |LUT6    |    12|
+|8     |SRL16E  |    85|
+|9     |FDRE    |   371|
+|10    |FDSE    |     4|
++------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1145 ; free virtual = 14051
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1487.033; parent = 1281.871; children = 205.261
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4058.293; parent = 2434.957; children = 1623.336
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 2466.969 ; gain = 520.551 ; free physical = 1196 ; free virtual = 14101
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 2466.969 ; gain = 671.301 ; free physical = 1196 ; free virtual = 14101
+Synthesis finished with 0 errors, 0 critical warnings and 14 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:02:14 . Memory (MB): peak = 1416.402 ; gain = 610.297
+Synthesis Optimization Complete : Time (s): cpu = 00:01:01 ; elapsed = 00:02:23 . Memory (MB): peak = 1416.402 ; gain = 610.297
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2466.969 ; gain = 0.000 ; free physical = 1280 ; free virtual = 14196
-INFO: [Netlist 29-17] Analyzing 1470 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 1416.402 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2466.969 ; gain = 0.000 ; free physical = 1228 ; free virtual = 14145
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1416.402 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 552 instances were transformed.
-  (MUXCY,XORCY) => CARRY4: 120 instances
-  MULT_AND => LUT2: 432 instances
+No Unisim elements were transformed.
 
-Synth Design complete, checksum: a0d5663
+Synth Design complete, checksum: 8368bd75
 INFO: [Common 17-83] Releasing license: Synthesis
-23 Infos, 40 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 62 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 2466.969 ; gain = 978.496 ; free physical = 1378 ; free virtual = 14296
-INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP cmpy_1, cache-ID = a8ae5d43c8603712
-INFO: [Coretcl 2-1174] Renamed 16 cell refs.
-INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.dcp' has been generated.
+synth_design: Time (s): cpu = 00:01:06 ; elapsed = 00:02:37 . Memory (MB): peak = 1416.402 ; gain = 989.949
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP cmpy_1, cache-ID = b6b9b855d47c7f92
+INFO: [Coretcl 2-1174] Renamed 21 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/cmpy_1_synth_1/cmpy_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file cmpy_1_utilization_synth.rpt -pb cmpy_1_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 22 20:26:31 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan  3 00:37:42 2026...

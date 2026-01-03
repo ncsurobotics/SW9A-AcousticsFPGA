@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.tcl"
+  variable script "C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,6 +70,12 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "xfft_0_synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param synth.incrementalSynthesisCache C:/Users/Aweso/Verilog/Aquapack/bartlett_2_test/SW9A-AcousticsFPGA/.Xil/Vivado-47388-AustinsPC/incrSyn
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -79,17 +85,17 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/wt [current_project]
-set_property parent.project_path /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/wt [current_project]
+set_property parent.project_path C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/sources_1/ip/xfft_0/xfft_0.xci
-set_property used_in_implementation false [get_files -all /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc]
+read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -105,7 +111,7 @@ set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 OPTRACE "Configure IP Cache" START { }
 
-set cacheID [config_ip_cache -export -no_bom  -dir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1 -new_name xfft_0 -ip [get_ips xfft_0]]
+set cacheID [config_ip_cache -export -no_bom  -dir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1 -new_name xfft_0 -ip [get_ips xfft_0]]
 
 OPTRACE "Configure IP Cache" END { }
 if { $cacheID == "" } {
@@ -160,32 +166,32 @@ create_report "xfft_0_synth_1_synth_report_utilization_0" "report_utilization -f
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  file copy -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0.dcp
+  file copy -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.v
+  write_verilog -force -mode synth_stub c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.vhdl
+  write_vhdl -force -mode synth_stub c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_sim_netlist.v
+  write_verilog -force -mode funcsim c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -195,47 +201,47 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0.dcp
+  file copy -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0.dcp c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_stub.v /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.v
+  file rename -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_stub.v c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_stub.vhdl /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.vhdl
+  file rename -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_stub.vhdl c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_sim_netlist.v /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_sim_netlist.v
+  file rename -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_sim_netlist.v c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_sim_netlist.vhdl /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_sim_netlist.vhdl
+  file rename -force C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/xfft_0_synth_1/xfft_0_sim_netlist.vhdl c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cacheID 
 
-if {[file isdir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0]} {
+if {[file isdir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0]} {
   catch { 
-    file copy -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.v /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0
+    file copy -force c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.v C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0
   }
 }
 
-if {[file isdir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0]} {
+if {[file isdir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0]} {
   catch { 
-    file copy -force /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.vhdl /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0
+    file copy -force c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.vhdl C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.ip_user_files/ip/xfft_0
   }
 }
 file delete __synthesis_is_running__

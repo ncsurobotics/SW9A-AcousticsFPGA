@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Mon Dec 22 20:09:32 2025
-// Host        : fedora running 64-bit unknown
+// Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+// Date        : Sat Jan  3 00:40:30 2026
+// Host        : AustinsPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/xfft_0_stub.v
+//               c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0_stub.v
 // Design      : xfft_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
@@ -21,7 +21,7 @@ module xfft_0(aclk, aresetn, s_axis_config_tdata,
   m_axis_status_tvalid, m_axis_status_tready, event_frame_started, 
   event_tlast_unexpected, event_tlast_missing, event_status_channel_halt, 
   event_data_in_channel_halt, event_data_out_channel_halt)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_config_tdata[15:0],s_axis_config_tvalid,s_axis_config_tready,s_axis_data_tdata[127:0],s_axis_data_tvalid,s_axis_data_tready,s_axis_data_tlast,m_axis_data_tdata[127:0],m_axis_data_tuser[31:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tlast,m_axis_status_tdata[31:0],m_axis_status_tvalid,m_axis_status_tready,event_frame_started,event_tlast_unexpected,event_tlast_missing,event_status_channel_halt,event_data_in_channel_halt,event_data_out_channel_halt" */;
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_config_tdata[15:0],s_axis_config_tvalid,s_axis_config_tready,s_axis_data_tdata[127:0],s_axis_data_tvalid,s_axis_data_tready,s_axis_data_tlast,m_axis_data_tdata[127:0],m_axis_data_tuser[39:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tlast,m_axis_status_tdata[31:0],m_axis_status_tvalid,m_axis_status_tready,event_frame_started,event_tlast_unexpected,event_tlast_missing,event_status_channel_halt,event_data_in_channel_halt,event_data_out_channel_halt" */;
   input aclk;
   input aresetn;
   input [15:0]s_axis_config_tdata;
@@ -32,7 +32,7 @@ module xfft_0(aclk, aresetn, s_axis_config_tdata,
   output s_axis_data_tready;
   input s_axis_data_tlast;
   output [127:0]m_axis_data_tdata;
-  output [31:0]m_axis_data_tuser;
+  output [39:0]m_axis_data_tuser;
   output m_axis_data_tvalid;
   input m_axis_data_tready;
   output m_axis_data_tlast;

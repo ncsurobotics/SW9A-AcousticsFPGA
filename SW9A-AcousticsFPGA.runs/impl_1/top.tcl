@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/impl_1/top.tcl"
+  variable script "C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/impl_1/top.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 
@@ -124,26 +126,29 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 5
   set_param checkpoint.writeSynthRtdsInDcp 1
-  set_param synth.incrementalSynthesisCache ./.Xil/Vivado-49063-fedora/incrSyn
+  set_param chipscope.maxJobs 4
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/wt [current_project]
-  set_property parent.project_path /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.xpr [current_project]
-  set_property ip_output_repo /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.xpr [current_project]
+  set_property ip_output_repo C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/top.dcp
-  read_ip -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_ip -quiet /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM.xci
+  add_files -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/top.dcp
+  read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/cmpy_rxx/cmpy_rxx.xci
+  read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM.xci
+  read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/xfft_0/xfft_0.xci
+  read_ip -quiet C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/sources_1/ip/cmpy_1/cmpy_1.xci
 OPTRACE "read constraints: implementation" START { }
+  read_xdc C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/constrs_1/imports/Downloads/Cmod-A7-Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

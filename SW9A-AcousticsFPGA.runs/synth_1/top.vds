@@ -1,18 +1,19 @@
 #-----------------------------------------------------------
 # Vivado v2022.2 (64-bit)
-# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
 # IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
-# Start of session at: Thu Dec 18 02:55:42 2025
-# Process ID: 173484
-# Current directory: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1
-# Command line: vivado -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/top.vds
-# Journal file: /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/vivado.jou
-# Running On: fedora, OS: Linux, CPU Frequency: 1983.266 MHz, CPU Physical cores: 14, Host memory: 16356 MB
+# Start of session at: Sat Jan  3 00:47:14 2026
+# Process ID: 34184
+# Current directory: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/top.vds
+# Journal file: C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1\vivado.jou
+# Running On: AustinsPC, OS: Windows, CPU Frequency: 2688 MHz, CPU Physical cores: 10, Host memory: 16831 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:12 . Memory (MB): peak = 394.645 ; gain = 43.461
+Command: read_checkpoint -auto_incremental -incremental C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top top -part xc7a35tcpg236-1
 Starting synth_design
@@ -21,237 +22,379 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 173525
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'BIT_COUNTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v:39]
-WARNING: [Synth 8-11065] parameter 'INCREMENT' becomes localparam in 'BIT_COUNTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v:40]
-WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:34]
-WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:35]
-WARNING: [Synth 8-11065] parameter 'COUNT' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:36]
-WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'RX_SHIFT_REGISTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v:34]
-WARNING: [Synth 8-11065] parameter 'SHIFT' becomes localparam in 'RX_SHIFT_REGISTER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v:35]
-WARNING: [Synth 8-9397] empty parameter declaration is only allowed in SystemVerilog mode [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:3]
-WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:17]
-WARNING: [Synth 8-11065] parameter 'COUNT_TO_54' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:18]
-WARNING: [Synth 8-11065] parameter 'SAMPLE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:19]
-WARNING: [Synth 8-11065] parameter 'WAIT_FOR_STOP_BIT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:20]
-WARNING: [Synth 8-11065] parameter 'DATA_READY' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:21]
-WARNING: [Synth 8-11065] parameter 'HOLD_CTR' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:24]
-WARNING: [Synth 8-11065] parameter 'COUNT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:25]
-WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:26]
-WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:29]
-WARNING: [Synth 8-11065] parameter 'SHIFT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:30]
-WARNING: [Synth 8-11065] parameter 'FALSE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:33]
-WARNING: [Synth 8-11065] parameter 'TRUE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:34]
-WARNING: [Synth 8-11065] parameter 'CLK_PERIOD' becomes localparam in 'UART_RX_DATAPATH' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v:31]
-WARNING: [Synth 8-11065] parameter 'UART_SAMPLE_PERIOD' becomes localparam in 'UART_RX_DATAPATH' with formal parameter declaration list [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v:32]
-INFO: [Synth 8-11241] undeclared symbol 'read_en', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:56]
-INFO: [Synth 8-11241] undeclared symbol 'full', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:61]
-INFO: [Synth 8-11241] undeclared symbol 'reg_map_dataout', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:178]
-INFO: [Synth 8-11241] undeclared symbol 'reg_map_addr', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:180]
-INFO: [Synth 8-11241] undeclared symbol 'op', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:181]
-INFO: [Synth 8-11241] undeclared symbol 'reg_map_datain', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:182]
-WARNING: [Synth 8-8895] 'op' is already implicitly declared on line 181 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:189]
-WARNING: [Synth 8-8895] 'reg_map_addr' is already implicitly declared on line 180 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:191]
-WARNING: [Synth 8-8895] 'reg_map_datain' is already implicitly declared on line 182 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:192]
-WARNING: [Synth 8-8895] 'reg_map_dataout' is already implicitly declared on line 178 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:192]
-INFO: [Synth 8-11241] undeclared symbol 'bartlett_addr', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:201]
-INFO: [Synth 8-11241] undeclared symbol 'bartlett_wr_en', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:202]
-INFO: [Synth 8-11241] undeclared symbol 'bartlett_data_in', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:203]
-INFO: [Synth 8-11241] undeclared symbol 'bartlett_data_out', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:204]
-INFO: [Synth 8-11241] undeclared symbol 'threshold', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:205]
-INFO: [Synth 8-11241] undeclared symbol 'min_frequency', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:206]
-INFO: [Synth 8-11241] undeclared symbol 'max_frequency', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:207]
-INFO: [Synth 8-11241] undeclared symbol 'dumpram', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:209]
-INFO: [Synth 8-11241] undeclared symbol 'softreset', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:210]
-INFO: [Synth 8-11241] undeclared symbol 'maxangle', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:211]
-WARNING: [Synth 8-8895] 'bartlett_wr_en' is already implicitly declared on line 202 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:224]
-WARNING: [Synth 8-8895] 'dumpram' is already implicitly declared on line 209 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:224]
-WARNING: [Synth 8-8895] 'softreset' is already implicitly declared on line 210 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:224]
-WARNING: [Synth 8-8895] 'bartlett_addr' is already implicitly declared on line 201 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:225]
-WARNING: [Synth 8-8895] 'bartlett_data_in' is already implicitly declared on line 203 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:226]
-WARNING: [Synth 8-8895] 'bartlett_data_out' is already implicitly declared on line 204 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:226]
-WARNING: [Synth 8-8895] 'maxangle' is already implicitly declared on line 211 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:226]
-WARNING: [Synth 8-8895] 'min_frequency' is already implicitly declared on line 206 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:227]
-WARNING: [Synth 8-8895] 'max_frequency' is already implicitly declared on line 207 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:227]
-WARNING: [Synth 8-8895] 'threshold' is already implicitly declared on line 205 [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:227]
+INFO: [Synth 8-7075] Helper process launched with PID 33256
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'BIT_COUNTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/BIT_COUNTER.v:39]
+WARNING: [Synth 8-11065] parameter 'INCREMENT' becomes localparam in 'BIT_COUNTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/BIT_COUNTER.v:40]
+WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:34]
+WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:35]
+WARNING: [Synth 8-11065] parameter 'COUNT' becomes localparam in 'GENERAL_COUNTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:36]
+WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'RX_SHIFT_REGISTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/RX_SHIFT_REGISTER.v:34]
+WARNING: [Synth 8-11065] parameter 'SHIFT' becomes localparam in 'RX_SHIFT_REGISTER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/RX_SHIFT_REGISTER.v:35]
+WARNING: [Synth 8-9397] empty parameter declaration is only allowed in SystemVerilog mode [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:3]
+WARNING: [Synth 8-11065] parameter 'IDLE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:17]
+WARNING: [Synth 8-11065] parameter 'COUNT_TO_54' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:18]
+WARNING: [Synth 8-11065] parameter 'SAMPLE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:19]
+WARNING: [Synth 8-11065] parameter 'WAIT_FOR_STOP_BIT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:20]
+WARNING: [Synth 8-11065] parameter 'DATA_READY' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:21]
+WARNING: [Synth 8-11065] parameter 'HOLD_CTR' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:24]
+WARNING: [Synth 8-11065] parameter 'COUNT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:25]
+WARNING: [Synth 8-11065] parameter 'ZERO' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:26]
+WARNING: [Synth 8-11065] parameter 'HOLD' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:29]
+WARNING: [Synth 8-11065] parameter 'SHIFT' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:30]
+WARNING: [Synth 8-11065] parameter 'FALSE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:33]
+WARNING: [Synth 8-11065] parameter 'TRUE' becomes localparam in 'UART_RX_CONTROLLER' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:34]
+WARNING: [Synth 8-11065] parameter 'CLK_PERIOD' becomes localparam in 'UART_RX_DATAPATH' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_DATAPATH.v:31]
+WARNING: [Synth 8-11065] parameter 'UART_SAMPLE_PERIOD' becomes localparam in 'UART_RX_DATAPATH' with formal parameter declaration list [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_DATAPATH.v:32]
+INFO: [Synth 8-11241] undeclared symbol 'read_en', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:56]
+INFO: [Synth 8-11241] undeclared symbol 'full', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:61]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:234]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:235]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:369]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:370]
+INFO: [Synth 8-11241] undeclared symbol 'm_axis_fft_max_tuser', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:124]
+WARNING: [Synth 8-6901] identifier 'm_axis_fft_max_tdata' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:69]
+WARNING: [Synth 8-6901] identifier 'm_axis_fft_max_tvalid' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:70]
+WARNING: [Synth 8-6901] identifier 'max_frequency_reg' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v:37]
+WARNING: [Synth 8-6901] identifier 'min_frequency_reg' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v:37]
+WARNING: [Synth 8-6901] identifier 'threshold_reg' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v:37]
+INFO: [Synth 8-11241] undeclared symbol 's_axis_theta_tready', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:38]
+INFO: [Synth 8-11241] undeclared symbol 'rxx_last', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:58]
+INFO: [Synth 8-11241] undeclared symbol 'm_axis_weight_tvalid', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:78]
+INFO: [Synth 8-11241] undeclared symbol 'm_axis_weight_tlast', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:80]
+INFO: [Synth 8-11241] undeclared symbol 'm_axis_weight_tready', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:81]
+INFO: [Synth 8-11241] undeclared symbol 'enable', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:53]
+INFO: [Synth 8-11241] undeclared symbol 's_axis_a_tready', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:264]
+INFO: [Synth 8-11241] undeclared symbol 's_axis_a_tvalid', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:279]
+WARNING: [Synth 8-10604] concatenation with an unsized literal will be treated as 32 bits [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:274]
+INFO: [Synth 8-11241] undeclared symbol 'm_axis_status_tvalid', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:110]
+INFO: [Synth 8-11241] undeclared symbol 'event_frame_started', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:113]
+INFO: [Synth 8-11241] undeclared symbol 'event_tlast_unexpected', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:114]
+INFO: [Synth 8-11241] undeclared symbol 'event_tlast_missing', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:115]
+INFO: [Synth 8-11241] undeclared symbol 'event_status_channel_halt', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:117]
+INFO: [Synth 8-11241] undeclared symbol 'event_data_in_channel_halt', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:118]
+INFO: [Synth 8-11241] undeclared symbol 'event_data_out_channel_halt', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:119]
+WARNING: [Synth 8-6901] identifier 'current_magnitude' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:194]
+WARNING: [Synth 8-6901] identifier 's_sh_theta' is used before its declaration [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:62]
+INFO: [Synth 8-11241] undeclared symbol 'reg_map_dataout', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:116]
+INFO: [Synth 8-11241] undeclared symbol 'reg_map_addr', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:118]
+INFO: [Synth 8-11241] undeclared symbol 'op', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:119]
+INFO: [Synth 8-11241] undeclared symbol 'reg_map_datain', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:120]
+WARNING: [Synth 8-8895] 'op' is already implicitly declared on line 119 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:130]
+WARNING: [Synth 8-8895] 'reg_map_addr' is already implicitly declared on line 118 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:132]
+WARNING: [Synth 8-8895] 'reg_map_datain' is already implicitly declared on line 120 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:133]
+WARNING: [Synth 8-8895] 'reg_map_dataout' is already implicitly declared on line 116 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:133]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_addr', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:142]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_data_in', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:144]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_data_out', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:145]
+INFO: [Synth 8-11241] undeclared symbol 'threshold', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:146]
+INFO: [Synth 8-11241] undeclared symbol 'min_frequency', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:147]
+INFO: [Synth 8-11241] undeclared symbol 'max_frequency', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:148]
+INFO: [Synth 8-11241] undeclared symbol 'maxangle', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:152]
+INFO: [Synth 8-11241] undeclared symbol 'Send_Frame1', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_CH1', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:192]
+INFO: [Synth 8-11241] undeclared symbol 'Send_Frame2', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:203]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_CH2', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:205]
+INFO: [Synth 8-11241] undeclared symbol 'Send_Frame3', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:216]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_CH3', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:218]
+INFO: [Synth 8-11241] undeclared symbol 'Send_Frame4', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:229]
+INFO: [Synth 8-11241] undeclared symbol 'bartlett_CH4', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:231]
+INFO: [Synth 8-11241] undeclared symbol 'data_last', assumed default net type 'wire' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:246]
+WARNING: [Synth 8-8895] 'bartlett_addr' is already implicitly declared on line 142 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:261]
+WARNING: [Synth 8-8895] 'bartlett_data_in' is already implicitly declared on line 144 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:262]
+WARNING: [Synth 8-8895] 'bartlett_data_out' is already implicitly declared on line 145 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:262]
+WARNING: [Synth 8-8895] 'maxangle' is already implicitly declared on line 152 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:262]
+WARNING: [Synth 8-8895] 'bartlett_CH1' is already implicitly declared on line 192 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:263]
+WARNING: [Synth 8-8895] 'bartlett_CH2' is already implicitly declared on line 205 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:263]
+WARNING: [Synth 8-8895] 'bartlett_CH3' is already implicitly declared on line 218 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:263]
+WARNING: [Synth 8-8895] 'bartlett_CH4' is already implicitly declared on line 231 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:263]
+WARNING: [Synth 8-8895] 'min_frequency' is already implicitly declared on line 147 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:264]
+WARNING: [Synth 8-8895] 'max_frequency' is already implicitly declared on line 148 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:264]
+WARNING: [Synth 8-8895] 'threshold' is already implicitly declared on line 146 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:264]
+WARNING: [Synth 8-8895] 'data_last' is already implicitly declared on line 246 [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:265]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2170.270 ; gain = 371.770 ; free physical = 322 ; free virtual = 7606
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3786.738; parent = 2176.211; children = 1610.527
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1216.508 ; gain = 408.297
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:23]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-173484-fedora/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-173484-fedora/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'clk_div' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/clk_div.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/clk_div.v:3]
-INFO: [Synth 8-6157] synthesizing module 'SPI_WRAPPER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_WRAPPER.v:23]
-INFO: [Synth 8-6157] synthesizing module 'SPI' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI.v:23]
-	Parameter WIDTH bound to: 10 - type: integer 
-	Parameter TOTAL_BITS bound to: 14 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'SPI_DATAPATH' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_DATAPATH.v:22]
-	Parameter WIDTH bound to: 10 - type: integer 
-	Parameter TOTAL_BITS bound to: 14 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'SIPO' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SIPO.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'SIPO' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SIPO.v:1]
-INFO: [Synth 8-6157] synthesizing module 'BIT_COUNTER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v:24]
-	Parameter WORD_SIZE bound to: 13 - type: integer 
-	Parameter WORD_SIZE_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'BIT_COUNTER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/BIT_COUNTER.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'SPI_DATAPATH' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_DATAPATH.v:22]
-INFO: [Synth 8-6157] synthesizing module 'SPI_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_CONTROLLER.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'SPI_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_CONTROLLER.v:24]
-INFO: [Synth 8-6157] synthesizing module 'CDC_DRIVER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:1]
-	Parameter DATA_LENGTH bound to: 10 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_handshake' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:468]
-	Parameter DEST_EXT_HSK bound to: 0 - type: integer 
-	Parameter WIDTH bound to: 10 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_single' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:152]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_single' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:152]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_handshake' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:468]
-WARNING: [Synth 8-7071] port 'dest_ack' of module 'xpm_cdc_handshake' is unconnected for instance 'xpm_cdc_handshake_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:22]
-WARNING: [Synth 8-7023] instance 'xpm_cdc_handshake_inst' of module 'xpm_cdc_handshake' has 8 connections declared, but only 7 given [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:22]
-INFO: [Synth 8-6157] synthesizing module 'CDC_DRIVER_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:46]
-INFO: [Synth 8-6155] done synthesizing module 'CDC_DRIVER_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:46]
-INFO: [Synth 8-6155] done synthesizing module 'CDC_DRIVER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'SPI' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'SPI_WRAPPER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/SPI_WRAPPER.v:23]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:99]
-INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:23]
-INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_DATAPATH' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:72]
-INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_RAM' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-173484-fedora/realtime/RING_BUFFER_RAM_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_RAM' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-173484-fedora/realtime/RING_BUFFER_RAM_stub.v:5]
-WARNING: [Synth 8-7071] port 'douta' of module 'RING_BUFFER_RAM' is unconnected for instance 'RING_BUFFER_RAM_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:138]
-WARNING: [Synth 8-7071] port 'dinb' of module 'RING_BUFFER_RAM' is unconnected for instance 'RING_BUFFER_RAM_inst' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:138]
-WARNING: [Synth 8-7023] instance 'RING_BUFFER_RAM_inst' of module 'RING_BUFFER_RAM' has 12 connections declared, but only 10 given [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:138]
-INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_DATAPATH' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:72]
-INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:159]
-INFO: [Synth 8-6157] synthesizing module 'HEAD_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:203]
-INFO: [Synth 8-6155] done synthesizing module 'HEAD_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:203]
-INFO: [Synth 8-6157] synthesizing module 'WRITE_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:262]
-INFO: [Synth 8-6155] done synthesizing module 'WRITE_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:262]
-INFO: [Synth 8-6157] synthesizing module 'READ_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:317]
-INFO: [Synth 8-6155] done synthesizing module 'READ_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:317]
-INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:159]
-INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/RING_BUFFER.v:23]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:112]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:125]
-WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:138]
-INFO: [Synth 8-6157] synthesizing module 'UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART.v:22]
-INFO: [Synth 8-6157] synthesizing module 'UART_TX' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:5]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_div' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/clk_div.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/clk_div.v:3]
+INFO: [Synth 8-6157] synthesizing module 'UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART.v:22]
+INFO: [Synth 8-6157] synthesizing module 'UART_TX' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:5]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_async' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
 	Parameter FIFO_WRITE_DEPTH bound to: 256 - type: integer 
 	Parameter WRITE_DATA_WIDTH bound to: 8 - type: integer 
 	Parameter READ_DATA_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value.   [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:493]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized0' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec__parameterized0' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec__parameterized0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_sync_rst' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_sync_rst' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
-INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_bit' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_bit' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized0' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized1' [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized1' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async' (0#1) [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
-WARNING: [Synth 8-7071] port 'sleep' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'prog_full' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'wr_data_count' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'overflow' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'almost_full' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'wr_ack' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'prog_empty' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'rd_data_count' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'underflow' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'almost_empty' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'data_valid' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'injectsbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'injectdbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'sbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7071] port 'dbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-WARNING: [Synth 8-7023] instance 'MASTER_TO_UART' of module 'xpm_fifo_async' has 26 connections declared, but only 11 given [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:50]
-INFO: [Synth 8-6157] synthesizing module 'UART_TX_DATAPATH' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_DATAPATH.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'UART_TX_DATAPATH' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_DATAPATH.v:4]
-INFO: [Synth 8-6157] synthesizing module 'UART_TX_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_CONTROLLER.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'UART_TX_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX_CONTROLLER.v:4]
-INFO: [Synth 8-6155] done synthesizing module 'UART_TX' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_TX.v:5]
-INFO: [Synth 8-6157] synthesizing module 'UART_RX' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX.v:22]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_base' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6059] Synth Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value.   [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:493]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:56]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_gray__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_gray__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:283]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_vec__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_vec__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1885]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_rst' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_sync_rst' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_sync_rst' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1058]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_rst' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1619]
+INFO: [Synth 8-6157] synthesizing module 'xpm_fifo_reg_bit' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_reg_bit' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1907]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized0' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6157] synthesizing module 'xpm_counter_updn__parameterized1' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_counter_updn__parameterized1' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:1859]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_base' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_fifo_async' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv:2151]
+WARNING: [Synth 8-7071] port 'sleep' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'prog_full' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'wr_data_count' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'overflow' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'almost_full' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'wr_ack' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'prog_empty' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'rd_data_count' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'underflow' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'almost_empty' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'data_valid' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'injectsbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'injectdbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'sbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7071] port 'dbiterr' of module 'xpm_fifo_async' is unconnected for instance 'MASTER_TO_UART' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+WARNING: [Synth 8-7023] instance 'MASTER_TO_UART' of module 'xpm_fifo_async' has 26 connections declared, but only 11 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:50]
+INFO: [Synth 8-6157] synthesizing module 'UART_TX_DATAPATH' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_DATAPATH.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX_DATAPATH' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_DATAPATH.v:4]
+INFO: [Synth 8-6157] synthesizing module 'UART_TX_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_CONTROLLER.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX_CONTROLLER.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_TX.v:5]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX.v:22]
 	Parameter WORD_SIZE bound to: 8 - type: integer 
 	Parameter WORD_SIZE_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'UART_RX_DATAPATH' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX_DATAPATH' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_DATAPATH.v:1]
 	Parameter WORD_SIZE bound to: 8 - type: integer 
 	Parameter WORD_SIZE_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'RX_SHIFT_REGISTER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v:22]
+INFO: [Synth 8-6157] synthesizing module 'RX_SHIFT_REGISTER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/RX_SHIFT_REGISTER.v:22]
 	Parameter WORD_SIZE bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'RX_SHIFT_REGISTER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/RX_SHIFT_REGISTER.v:22]
-INFO: [Synth 8-6157] synthesizing module 'GENERAL_COUNTER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'RX_SHIFT_REGISTER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/RX_SHIFT_REGISTER.v:22]
+INFO: [Synth 8-6157] synthesizing module 'GENERAL_COUNTER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:23]
 	Parameter COUNT_VAL bound to: 868 - type: integer 
 	Parameter COUNT_BIT_WIDTH bound to: 10 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'GENERAL_COUNTER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:23]
-INFO: [Synth 8-6157] synthesizing module 'GENERAL_COUNTER__parameterized0' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'GENERAL_COUNTER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'GENERAL_COUNTER__parameterized0' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:23]
 	Parameter COUNT_VAL bound to: 8 - type: integer 
 	Parameter COUNT_BIT_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'GENERAL_COUNTER__parameterized0' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/GENERAL_COUNTER.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'UART_RX_DATAPATH' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_DATAPATH.v:1]
-INFO: [Synth 8-6157] synthesizing module 'UART_RX_CONTROLLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'UART_RX_CONTROLLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX_CONTROLLER.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'UART_RX' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART_RX.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'UART' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART/UART.v:22]
-INFO: [Synth 8-6157] synthesizing module 'UART_TRANSACTION_HANDLER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:23]
-INFO: [Synth 8-6157] synthesizing module 'UART_RX_DECODER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:70]
-INFO: [Synth 8-6155] done synthesizing module 'UART_RX_DECODER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:70]
-INFO: [Synth 8-6157] synthesizing module 'UART_TX_ENCODER' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:151]
-INFO: [Synth 8-6155] done synthesizing module 'UART_TX_ENCODER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:151]
-INFO: [Synth 8-6155] done synthesizing module 'UART_TRANSACTION_HANDLER' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/UART_TRANSACTION_HANDLER.v:23]
-INFO: [Synth 8-6157] synthesizing module 'command_reader' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'command_reader' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:3]
-WARNING: [Synth 8-689] width (3) of port connection 'vga' does not match port width (32) of module 'command_reader' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:208]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:23]
-WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
-WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[0] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[1] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[2] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[3] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[4] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[5] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[6] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[7] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[8] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[9] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[10] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[11] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[12] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[13] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[14] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[15] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[16] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[17] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[18] was removed.  [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/command_reader.v:49]
-WARNING: [Synth 8-3848] Net bartlett_addr in module/entity top does not have driver. [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:201]
-WARNING: [Synth 8-3848] Net bartlett_wr_en in module/entity top does not have driver. [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:202]
-WARNING: [Synth 8-3848] Net bartlett_data_in in module/entity top does not have driver. [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/top.v:203]
+INFO: [Synth 8-6155] done synthesizing module 'GENERAL_COUNTER__parameterized0' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/GENERAL_COUNTER.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX_DATAPATH' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_DATAPATH.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX_CONTROLLER.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART_RX.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'UART' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART/UART.v:22]
+INFO: [Synth 8-6157] synthesizing module 'UART_TRANSACTION_HANDLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX_DECODER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:70]
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX_DECODER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:70]
+INFO: [Synth 8-6157] synthesizing module 'UART_TX_ENCODER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:146]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX_ENCODER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:146]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TRANSACTION_HANDLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/UART_TRANSACTION_HANDLER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'command_reader' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'command_reader' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:3]
+WARNING: [Synth 8-689] width (3) of port connection 'vga' does not match port width (32) of module 'command_reader' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:149]
+INFO: [Synth 8-6157] synthesizing module 'SPI_WRAPPER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_WRAPPER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'SPI' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI.v:23]
+	Parameter WIDTH bound to: 10 - type: integer 
+	Parameter TOTAL_BITS bound to: 14 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'SPI_DATAPATH' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_DATAPATH.v:22]
+	Parameter WIDTH bound to: 10 - type: integer 
+	Parameter TOTAL_BITS bound to: 14 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'SIPO' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SIPO.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SIPO' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SIPO.v:1]
+INFO: [Synth 8-6157] synthesizing module 'BIT_COUNTER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/BIT_COUNTER.v:24]
+	Parameter WORD_SIZE bound to: 13 - type: integer 
+	Parameter WORD_SIZE_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'BIT_COUNTER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/BIT_COUNTER.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_DATAPATH' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_DATAPATH.v:22]
+INFO: [Synth 8-6157] synthesizing module 'SPI_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_CONTROLLER.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_CONTROLLER.v:24]
+INFO: [Synth 8-6157] synthesizing module 'CDC_DRIVER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:1]
+	Parameter DATA_LENGTH bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_handshake' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:468]
+	Parameter DEST_EXT_HSK bound to: 0 - type: integer 
+	Parameter WIDTH bound to: 10 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_single' [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:152]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_single' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:152]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_handshake' (0#1) [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:468]
+WARNING: [Synth 8-7071] port 'dest_ack' of module 'xpm_cdc_handshake' is unconnected for instance 'xpm_cdc_handshake_inst' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:22]
+WARNING: [Synth 8-7023] instance 'xpm_cdc_handshake_inst' of module 'xpm_cdc_handshake' has 8 connections declared, but only 7 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:22]
+INFO: [Synth 8-6157] synthesizing module 'CDC_DRIVER_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:46]
+INFO: [Synth 8-6155] done synthesizing module 'CDC_DRIVER_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:46]
+INFO: [Synth 8-6155] done synthesizing module 'CDC_DRIVER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SPI' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_WRAPPER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/SPI_WRAPPER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_DATAPATH' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:72]
+INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_RAM' [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/RING_BUFFER_RAM_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_RAM' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/RING_BUFFER_RAM_stub.v:5]
+WARNING: [Synth 8-7071] port 'douta' of module 'RING_BUFFER_RAM' is unconnected for instance 'RING_BUFFER_RAM_inst' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:138]
+WARNING: [Synth 8-7071] port 'dinb' of module 'RING_BUFFER_RAM' is unconnected for instance 'RING_BUFFER_RAM_inst' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:138]
+WARNING: [Synth 8-7023] instance 'RING_BUFFER_RAM_inst' of module 'RING_BUFFER_RAM' has 12 connections declared, but only 10 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:138]
+INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_DATAPATH' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:72]
+INFO: [Synth 8-6157] synthesizing module 'RING_BUFFER_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:159]
+INFO: [Synth 8-6157] synthesizing module 'HEAD_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:203]
+INFO: [Synth 8-6155] done synthesizing module 'HEAD_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:203]
+INFO: [Synth 8-6157] synthesizing module 'WRITE_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:262]
+INFO: [Synth 8-6155] done synthesizing module 'WRITE_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:262]
+INFO: [Synth 8-6157] synthesizing module 'READ_CONTROLLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:317]
+INFO: [Synth 8-6155] done synthesizing module 'READ_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:317]
+INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER_CONTROLLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:159]
+INFO: [Synth 8-6155] done synthesizing module 'RING_BUFFER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/RING_BUFFER.v:23]
+INFO: [Synth 8-6157] synthesizing module 'SPI_HANDLER_WRAPPER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI_TRANSACTION_HANDLER.v:163]
+INFO: [Synth 8-6157] synthesizing module 'SPI_TRANSACTION_HANDLER' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI_TRANSACTION_HANDLER.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_TRANSACTION_HANDLER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI_TRANSACTION_HANDLER.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'SPI_HANDLER_WRAPPER' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI_TRANSACTION_HANDLER.v:163]
+INFO: [Synth 8-6157] synthesizing module 'bartlett_datapath' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:25]
+INFO: [Synth 8-6157] synthesizing module 'fft_max' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:22]
+INFO: [Synth 8-6157] synthesizing module 'xfft_0' [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/xfft_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'xfft_0' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/xfft_0_stub.v:5]
+WARNING: [Synth 8-7071] port 's_axis_config_tready' of module 'xfft_0' is unconnected for instance 'your_instance_name' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:91]
+WARNING: [Synth 8-7071] port 's_axis_data_tready' of module 'xfft_0' is unconnected for instance 'your_instance_name' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:91]
+WARNING: [Synth 8-7023] instance 'your_instance_name' of module 'xfft_0' has 23 connections declared, but only 21 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:91]
+INFO: [Synth 8-6157] synthesizing module 'max_fft_bin' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:167]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+	Parameter INDEX_COUNT bound to: 256 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'max_fft_bin' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:167]
+WARNING: [Synth 8-689] width (16) of port connection 'm_axis_max_tuser' does not match port width (8) of module 'max_fft_bin' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:153]
+INFO: [Synth 8-6155] done synthesizing module 'fft_max' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:22]
+WARNING: [Synth 8-689] width (9) of port connection 'm_axis_tuser' does not match port width (16) of module 'fft_max' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:100]
+INFO: [Synth 8-6157] synthesizing module 'bartlett_time_domain' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:6]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'rxx' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v:5]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cmpy_rxx' [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/cmpy_rxx_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cmpy_rxx' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/cmpy_rxx_stub.v:5]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'cmpy_rxx' is unconnected for instance 'your_instance_name' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v:70]
+WARNING: [Synth 8-7023] instance 'your_instance_name' of module 'cmpy_rxx' has 16 connections declared, but only 15 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v:70]
+INFO: [Synth 8-6155] done synthesizing module 'rxx' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v:5]
+WARNING: [Synth 8-689] width (512) of port connection 'm_axis_tdata' does not match port width (32) of module 'rxx' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:55]
+INFO: [Synth 8-6157] synthesizing module 'p_theta' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:7]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 's_theta_16' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/s_theta.v:12]
+INFO: [Synth 8-6155] done synthesizing module 's_theta_16' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/s_theta.v:12]
+INFO: [Synth 8-6157] synthesizing module 'cmpy_1' [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/cmpy_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cmpy_1' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/.Xil/Vivado-34184-AustinsPC/realtime/cmpy_1_stub.v:5]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'cmpy_1' is unconnected for instance 'your_instance_name' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:83]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'cmpy_1' is unconnected for instance 'your_instance_name' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:83]
+WARNING: [Synth 8-7023] instance 'your_instance_name' of module 'cmpy_1' has 16 connections declared, but only 14 given [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:83]
+INFO: [Synth 8-6157] synthesizing module 'real_accumulator' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:78]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'real_adder_saturate' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:152]
+	Parameter ELEMENT_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'real_adder_saturate' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/common.v:152]
+INFO: [Synth 8-6155] done synthesizing module 'real_accumulator' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:78]
+INFO: [Synth 8-6155] done synthesizing module 'p_theta' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/p_theta.v:7]
+WARNING: [Synth 8-689] width (512) of port connection 's_axis_r_tdata' does not match port width (32) of module 'p_theta' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:71]
+INFO: [Synth 8-6157] synthesizing module 'max' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/max.v:5]
+	Parameter NUM_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'max' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/max.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'bartlett_time_domain' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/bartlett_time_domain.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'bartlett_datapath' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:25]
+WARNING: [Synth 8-689] width (5) of port connection 'm_axis_tdest' does not match port width (8) of module 'bartlett_datapath' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:290]
+INFO: [Synth 8-6157] synthesizing module 'bartlett_config_controller' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'bartlett_config_controller' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett_config_controller.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'max_frequency' does not match port width (8) of module 'bartlett_config_controller' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:318]
+WARNING: [Synth 8-689] width (32) of port connection 'min_frequency' does not match port width (8) of module 'bartlett_config_controller' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:319]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:23]
+WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
+WARNING: [Synth 8-6014] Unused sequential element dest_out_bin_ff_reg was removed.  [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:417]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[0] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[2] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[3] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[4] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[5] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[6] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[7] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[8] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[9] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[10] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[11] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[12] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[13] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[14] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[15] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[16] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[17] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element bartlett_flipflops_reg[18] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/command_reader.v:49]
+WARNING: [Synth 8-6014] Unused sequential element valid_sr_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/fft_max.v:244]
+WARNING: [Synth 8-6014] Unused sequential element valid_reg was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/rxx/rxx.v:51]
+WARNING: [Synth 8-6014] Unused sequential element valid_buf_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:105]
+WARNING: [Synth 8-6014] Unused sequential element last_buf_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:106]
+WARNING: [Synth 8-6014] Unused sequential element tid_buf_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:107]
+WARNING: [Synth 8-6014] Unused sequential element tid_buf_reg[0] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:107]
+WARNING: [Synth 8-6014] Unused sequential element dest_buf_reg[1] was removed.  [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/time_domain/p_theta/accumulator.v:108]
+WARNING: [Synth 8-3848] Net debug_fft_mag in module/entity bartlett_datapath does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:56]
+WARNING: [Synth 8-3848] Net debug_fft_mag_valid in module/entity bartlett_datapath does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:57]
+WARNING: [Synth 8-3848] Net m_axis_fft_max_tuser in module/entity bartlett_datapath does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/Bartlett/bartlett.v:124]
+WARNING: [Synth 8-3848] Net SPI_en1 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:166]
+WARNING: [Synth 8-3848] Net SPI_en2 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:166]
+WARNING: [Synth 8-3848] Net SPI_en3 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:166]
+WARNING: [Synth 8-3848] Net SPI_en4 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:166]
+WARNING: [Synth 8-3848] Net data_valid in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:265]
+WARNING: [Synth 8-3848] Net Send_Frame4 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:229]
+WARNING: [Synth 8-3848] Net Send_Frame3 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:216]
+WARNING: [Synth 8-3848] Net Send_Frame2 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:203]
+WARNING: [Synth 8-3848] Net Send_Frame1 in module/entity top does not have driver. [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/top.v:190]
 WARNING: [Synth 8-3917] design top has port debug1 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug2 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug3 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug4 driven by constant 0
+WARNING: [Synth 8-7129] Port clken in module p_theta is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axis_tready in module p_theta is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clken in module rxx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_tlast in module rxx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_fft_tuser in module bartlett_time_domain is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[31] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[30] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[29] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[28] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[27] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[26] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[25] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[24] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[23] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[22] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[21] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[20] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[19] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[18] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[17] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[16] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[15] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[14] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[13] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[12] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[11] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[10] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[9] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[8] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[7] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[6] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[5] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[4] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[3] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[2] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[1] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[0] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag_valid in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port src_clk in module xpm_cdc_single is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Data_Ready in module SPI_DATAPATH is either unconnected or has no load
 WARNING: [Synth 8-7129] Port sleep in module xpm_memory_base is either unconnected or has no load
 WARNING: [Synth 8-7129] Port rsta in module xpm_memory_base is either unconnected or has no load
 WARNING: [Synth 8-7129] Port regcea in module xpm_memory_base is either unconnected or has no load
@@ -268,89 +411,91 @@ WARNING: [Synth 8-7129] Port dinb[1] in module xpm_memory_base is either unconne
 WARNING: [Synth 8-7129] Port dinb[0] in module xpm_memory_base is either unconnected or has no load
 WARNING: [Synth 8-7129] Port injectsbiterrb in module xpm_memory_base is either unconnected or has no load
 WARNING: [Synth 8-7129] Port injectdbiterrb in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port src_clk in module xpm_cdc_single is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Data_Ready in module SPI_DATAPATH is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2249.176 ; gain = 450.676 ; free physical = 442 ; free virtual = 7664
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3859.707; parent = 2249.180; children = 1610.527
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1327.840 ; gain = 519.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2266.988 ; gain = 468.488 ; free physical = 446 ; free virtual = 7656
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3877.520; parent = 2266.992; children = 1610.527
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1327.840 ; gain = 519.629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2266.988 ; gain = 468.488 ; free physical = 450 ; free virtual = 7655
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3877.520; parent = 2266.992; children = 1610.527
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1327.840 ; gain = 519.629
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2266.988 ; gain = 0.000 ; free physical = 442 ; free virtual = 7636
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.151 . Memory (MB): peak = 1327.840 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_inst'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_inst'
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-Finished Parsing XDC File [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_rxx/cmpy_rxx/cmpy_rxx_in_context.xdc] for cell 'bartlett_inst/bartlett_time_domain_inst/rxx_inst/your_instance_name'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_rxx/cmpy_rxx/cmpy_rxx_in_context.xdc] for cell 'bartlett_inst/bartlett_time_domain_inst/rxx_inst/your_instance_name'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_inst'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_wiz_inst'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/RING_BUFFER_RAM/RING_BUFFER_RAM_in_context.xdc] for cell 'RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0/xfft_0_in_context.xdc] for cell 'bartlett_inst/fft_max_inst/your_instance_name'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/xfft_0_1/xfft_0/xfft_0_in_context.xdc] for cell 'bartlett_inst/fft_max_inst/your_instance_name'
+Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1/cmpy_1_in_context.xdc] for cell 'bartlett_inst/bartlett_time_domain_inst/p_theta_inst/your_instance_name'
+Finished Parsing XDC File [c:/Users/Aweso/Verilog/Aquapack/bartlett/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1/cmpy_1_in_context.xdc] for cell 'bartlett_inst/bartlett_time_domain_inst/p_theta_inst/your_instance_name'
+Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/constrs_1/imports/Downloads/Cmod-A7-Master.xdc]
+Finished Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.srcs/constrs_1/imports/Downloads/Cmod-A7-Master.xdc]
+Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/dont_touch.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_gray.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/tcl/xpm_fifo_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Project 1-1714] 19 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2421.770 ; gain = 0.000 ; free physical = 409 ; free virtual = 7528
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1420.738 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2421.770 ; gain = 0.000 ; free physical = 409 ; free virtual = 7528
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1420.738 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'bartlett_inst/bartlett_time_domain_inst/p_theta_inst/your_instance_name' at clock pin 'aclk' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'bartlett_inst/bartlett_time_domain_inst/rxx_inst/your_instance_name' at clock pin 'aclk' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/bigpi/AMD/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 393 ; free virtual = 7521
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:32 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 392 ; free virtual = 7520
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:32 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  /home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  c:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property KEEP_HIERARCHY = SOFT for bartlett_inst/bartlett_time_domain_inst/rxx_inst/your_instance_name. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_wiz_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for RING_BUFFER_channel_2_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for RING_BUFFER_channel_3_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for bartlett_inst/fft_max_inst/your_instance_name. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for bartlett_inst/bartlett_time_domain_inst/p_theta_inst/your_instance_name. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_UART/\gnuram_async_fifo.xpm_fifo_base_inst /\gen_cdc_pntr.rd_pntr_cdc_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_UART/\gnuram_async_fifo.xpm_fifo_base_inst /\gen_cdc_pntr.wr_pntr_cdc_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_UART/\gnuram_async_fifo.xpm_fifo_base_inst /\gen_cdc_pntr.rd_pntr_cdc_dc_inst . (constraint file  auto generated constraint).
@@ -371,56 +516,18 @@ Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_
 Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_UART/\gnuram_async_fifo.xpm_fifo_base_inst /xpm_fifo_rst_inst/\gen_rst_ic.wrst_rd_inst . (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for UART_inst/UART_TX_inst/MASTER_TO_UART. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 392 ; free virtual = 7520
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:33 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'SPI_CONTROLLER'
-INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'CDC_DRIVER_CONTROLLER'
-INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'HEAD_CONTROLLER'
-INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'WRITE_CONTROLLER'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_rst_ic.curr_wrst_state_reg' in module 'xpm_fifo_rst'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_rst_ic.curr_rrst_state_reg' in module 'xpm_fifo_rst'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'UART_TX_CONTROLLER'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'UART_RX_CONTROLLER'
 INFO: [Synth 8-802] inferred FSM for state register 'byte_counter_reg' in module 'UART_RX_DECODER'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    IDLE |                               00 |                               00
-           CONTROL_PULSE |                               01 |                               01
-            DATA_LOGGING |                               10 |                               10
-               SAVE_DATA |                               11 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'SPI_CONTROLLER'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:69]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:69]
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    IDLE |                              001 |                               00
-                SRC_SEND |                              010 |                               01
-                    WAIT |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'CDC_DRIVER_CONTROLLER'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/src/SPI/CDC_DRIVER.v:69]
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                START_UP |                               00 |                               00
-               INCREMENT |                               01 |                               01
-             HOLDANDWAIT |                               10 |                               10
-                    HOLD |                               11 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'HEAD_CONTROLLER'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    HOLD |                               00 |                               00
-       INCREMENTANDWRITE |                               01 |                               01
-             HOLDANDWAIT |                               10 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'WRITE_CONTROLLER'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'SPI_CONTROLLER'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'CDC_DRIVER_CONTROLLER'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'HEAD_CONTROLLER'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'WRITE_CONTROLLER'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'max_fft_bin'
 INFO: [Synth 8-5552] Implemented safe state 'default_state' for state register 'gen_rst_ic.curr_wrst_state_reg' in module 'xpm_fifo_rst'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -476,81 +583,135 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
                   iSTATE |                              000 |                             0000
-                 iSTATE6 |                              001 |                             1001
-                 iSTATE0 |                              010 |                             1010
-                 iSTATE1 |                              011 |                             1011
-                 iSTATE2 |                              100 |                             1100
-                 iSTATE5 |                              101 |                             0001
-                 iSTATE3 |                              110 |                             1110
-                 iSTATE4 |                              111 |                             1111
+                 iSTATE4 |                              001 |                             0001
+                 iSTATE0 |                              010 |                             0010
+                 iSTATE1 |                              011 |                             0011
+                 iSTATE2 |                              100 |                             0100
+                 iSTATE5 |                              101 |                             1110
+                 iSTATE3 |                              110 |                             1111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'byte_counter_reg' using encoding 'sequential' in module 'UART_RX_DECODER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+           CONTROL_PULSE |                               01 |                               01
+            DATA_LOGGING |                               10 |                               10
+               SAVE_DATA |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'SPI_CONTROLLER'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_next_state_reg' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:69]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:69]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 |                               00
+                SRC_SEND |                              010 |                               01
+                    WAIT |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'CDC_DRIVER_CONTROLLER'
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_next_state_reg' [C:/Users/Aweso/Verilog/Aquapack/bartlett/src/SPI/CDC_DRIVER.v:69]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                START_UP |                               00 |                               00
+               INCREMENT |                               01 |                               01
+             HOLDANDWAIT |                               10 |                               10
+                    HOLD |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'HEAD_CONTROLLER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    HOLD |                               00 |                               00
+       INCREMENTANDWRITE |                               01 |                               01
+             HOLDANDWAIT |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'WRITE_CONTROLLER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                IN_RANGE |                               01 |                               01
+                    DONE |                               10 |                               10
+                    WAIT |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'max_fft_bin'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 389 ; free virtual = 7519
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:36 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   34 Bit       Adders := 1     
+	   2 Input   33 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 1     
 	   4 Input    9 Bit       Adders := 2     
-	   2 Input    9 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 6     
 	   3 Input    9 Bit       Adders := 2     
-	   2 Input    8 Bit       Adders := 12    
 	   4 Input    8 Bit       Adders := 3     
 	   3 Input    8 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 12    
 	   2 Input    6 Bit       Adders := 1     
-	   2 Input    4 Bit       Adders := 5     
+	   2 Input    4 Bit       Adders := 6     
 	   2 Input    1 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      9 Bit         XORs := 2     
 	   2 Input      8 Bit         XORs := 2     
-	   2 Input      1 Bit         XORs := 30    
+	   2 Input      1 Bit         XORs := 31    
 +---Registers : 
-	               32 Bit    Registers := 7     
+	              128 Bit    Registers := 3     
+	               48 Bit    Registers := 1     
+	               34 Bit    Registers := 2     
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 37    
 	               10 Bit    Registers := 18    
-	                9 Bit    Registers := 17    
-	                8 Bit    Registers := 31    
-	                6 Bit    Registers := 1     
-	                4 Bit    Registers := 13    
+	                9 Bit    Registers := 23    
+	                8 Bit    Registers := 36    
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 14    
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 31    
+	                1 Bit    Registers := 49    
 +---RAMs : 
 	               2K Bit	(256 X 8 bit)          RAMs := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 1     
+	   2 Input  128 Bit        Muxes := 1     
+	   2 Input   34 Bit        Muxes := 2     
+	   2 Input   33 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 7     
+	   4 Input   32 Bit        Muxes := 2     
 	  13 Input   13 Bit        Muxes := 1     
 	   2 Input   13 Bit        Muxes := 11    
 	   4 Input   10 Bit        Muxes := 1     
-	   2 Input    9 Bit        Muxes := 4     
-	   2 Input    8 Bit        Muxes := 5     
-	   8 Input    8 Bit        Muxes := 5     
+	   2 Input    9 Bit        Muxes := 9     
+	   7 Input    8 Bit        Muxes := 5     
+	   2 Input    8 Bit        Muxes := 6     
 	   2 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 1     
 	   6 Input    5 Bit        Muxes := 1     
-	   2 Input    5 Bit        Muxes := 12    
+	   2 Input    5 Bit        Muxes := 13    
 	   5 Input    5 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 4     
 	  13 Input    4 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
-	   8 Input    4 Bit        Muxes := 1     
-	   3 Input    3 Bit        Muxes := 4     
+	   7 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 6     
+	   7 Input    3 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 13    
-	   8 Input    3 Bit        Muxes := 1     
-	   4 Input    2 Bit        Muxes := 8     
-	   2 Input    2 Bit        Muxes := 34    
-	   3 Input    2 Bit        Muxes := 4     
+	   3 Input    3 Bit        Muxes := 4     
 	   5 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 15    
-	   4 Input    1 Bit        Muxes := 18    
-	   3 Input    1 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 34    
+	   4 Input    2 Bit        Muxes := 9     
+	   3 Input    2 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 49    
 	   6 Input    1 Bit        Muxes := 2     
 	   5 Input    1 Bit        Muxes := 4     
 	  13 Input    1 Bit        Muxes := 1     
-	   8 Input    1 Bit        Muxes := 6     
+	   4 Input    1 Bit        Muxes := 20    
+	   7 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -567,38 +728,85 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
 WARNING: [Synth 8-3917] design top has port debug1 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug2 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug3 driven by constant 0
 WARNING: [Synth 8-3917] design top has port debug4 driven by constant 0
-WARNING: [Synth 8-7129] Port rsta in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port regcea in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port injectsbiterra in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port injectdbiterra in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port regceb in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[7] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[6] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[5] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[4] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[3] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[2] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[1] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port dinb[0] in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port injectsbiterrb in module xpm_memory_base is either unconnected or has no load
-WARNING: [Synth 8-7129] Port injectdbiterrb in module xpm_memory_base is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clken in module p_theta is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axis_tready in module p_theta is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clken in module rxx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_tlast in module rxx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port s_axis_fft_tuser in module bartlett_time_domain is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[31] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[30] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[29] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[28] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[27] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[26] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[25] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[24] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[23] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[22] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[21] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[20] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[19] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[18] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[17] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[16] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[15] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[14] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[13] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[12] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[11] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[10] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[9] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[8] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[7] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[6] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[5] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[4] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[3] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[2] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[1] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag[0] in module bartlett_datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port debug_fft_mag_valid in module bartlett_datapath is either unconnected or has no load
 WARNING: [Synth 8-7129] Port src_clk in module xpm_cdc_single is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake__xdcDup__3 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake__xdcDup__2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port dest_ack in module xpm_cdc_handshake__xdcDup__1 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_next_state_reg[0]) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 385 ; free virtual = 7523
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1453.123; parent = 1235.081; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:58 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+-------------------------+---------------+----------------+
+|Module Name | RTL Object              | Depth x Width | Implemented As | 
++------------+-------------------------+---------------+----------------+
+|s_theta_16  | s_sh_theta              | 32x98         | LUT            | 
+|p_theta     | s_theta_inst/s_sh_theta | 32x98         | LUT            | 
++------------+-------------------------+---------------+----------------+
+
 
 Block RAM: Preliminary Mapping Report (see note below)
 +-----------------------------------------------------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
@@ -608,6 +816,16 @@ Block RAM: Preliminary Mapping Report (see note below)
 +-----------------------------------------------------------------------------------------------------------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|max_fft_bin | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|max_fft_bin | A*B         | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -615,17 +833,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 245 ; free virtual = 7317
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1549.072; parent = 1331.107; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 244 ; free virtual = 7317
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1549.729; parent = 1331.764; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:01:25 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -644,11 +858,29 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[0].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[1].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[2].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/SPI_CONTROLLER_inst/FSM_sequential_current_state_reg[0]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[2]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[1]) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (SPI_WRAPPER_inst/genblk1[3].SPI_inst/DATA_DRIVER_inst/CDC_DRIVER_CONTROLLER_inst/FSM_onehot_current_state_reg[0]) is unused and will be removed from module top.
 INFO: [Synth 8-7052] The timing for the instance UART_inst/UART_TX_inst/MASTER_TO_UART/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 220 ; free virtual = 7293
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1551.619; parent = 1333.654; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:01:30 . Memory (MB): peak = 1420.754 ; gain = 612.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -665,6 +897,7 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3295] tying undriven pin UART_inst/UART_TX_inst/MASTER_TO_UART:sleep to constant 0
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst  has unconnected pin dinb[31]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst  has unconnected pin dinb[30]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_1_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst  has unconnected pin dinb[29]
@@ -766,55 +999,51 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_4_inst/RIN
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst  has unconnected pin dinb[29]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module \RING_BUFFER_channel_4_inst/RING_BUFFER_DATAPATH_inst/RING_BUFFER_RAM_inst  has unconnected pin dinb[28]
 INFO: [Common 17-14] Message 'Synth 8-4442' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3295] tying undriven pin UART_inst/UART_TX_inst/MASTER_TO_UART:sleep to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 259 ; free virtual = 7322
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1551.873; parent = 1333.908; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:01:40 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 259 ; free virtual = 7322
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1551.873; parent = 1333.908; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:01:40 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 258 ; free virtual = 7322
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1551.928; parent = 1333.963; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 258 ; free virtual = 7321
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1552.006; parent = 1334.041; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 258 ; free virtual = 7321
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1552.006; parent = 1334.041; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 258 ; free virtual = 7321
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1552.037; parent = 1334.072; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|max_fft_bin | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|max_fft_bin | A*B         | 30     | 18     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
 
 Report BlackBoxes: 
 +------+----------------+----------+
@@ -822,6 +1051,9 @@ Report BlackBoxes:
 +------+----------------+----------+
 |1     |clk_wiz_0       |         1|
 |2     |RING_BUFFER_RAM |         4|
+|3     |cmpy_1          |         1|
+|4     |cmpy_rxx        |         1|
+|5     |xfft_0          |         1|
 +------+----------------+----------+
 
 Report Cell Usage: 
@@ -830,49 +1062,48 @@ Report Cell Usage:
 +------+----------------+------+
 |1     |RING_BUFFER_RAM |     4|
 |5     |clk_wiz         |     1|
-|6     |BUFG            |     1|
-|7     |CARRY4          |    10|
-|8     |LUT1            |    22|
-|9     |LUT2            |   144|
-|10    |LUT3            |   130|
-|11    |LUT4            |    68|
-|12    |LUT5            |    84|
-|13    |LUT6            |   155|
-|14    |RAMB18E1        |     1|
-|15    |FDCE            |   474|
-|16    |FDPE            |    28|
-|17    |FDRE            |   388|
-|18    |FDSE            |     9|
-|19    |LD              |    12|
-|20    |IBUF            |     6|
-|21    |OBUF            |    17|
+|6     |cmpy            |     1|
+|7     |cmpy_rxx        |     1|
+|8     |xfft            |     1|
+|9     |CARRY4          |    66|
+|10    |DSP48E1         |     2|
+|11    |LUT1            |    77|
+|12    |LUT2            |   399|
+|13    |LUT3            |   148|
+|14    |LUT4            |   290|
+|15    |LUT5            |   151|
+|16    |LUT6            |   664|
+|17    |RAMB18E1        |     1|
+|18    |FDCE            |  1988|
+|19    |FDPE            |    51|
+|20    |FDRE            |   296|
+|21    |FDSE            |     5|
+|22    |IBUF            |     2|
+|23    |OBUF            |    17|
 +------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 258 ; free virtual = 7321
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1552.053; parent = 1334.088; children = 218.042
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4000.285; parent = 2389.758; children = 1610.527
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 128 critical warnings and 29 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 2421.770 ; gain = 468.488 ; free physical = 294 ; free virtual = 7357
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2421.770 ; gain = 623.270 ; free physical = 294 ; free virtual = 7357
+Synthesis finished with 0 errors, 128 critical warnings and 99 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:41 ; elapsed = 00:01:37 . Memory (MB): peak = 1426.297 ; gain = 525.172
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:01:41 . Memory (MB): peak = 1426.297 ; gain = 618.086
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2421.770 ; gain = 0.000 ; free physical = 405 ; free virtual = 7469
-INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 1438.328 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 69 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2421.770 ; gain = 0.000 ; free physical = 350 ; free virtual = 7414
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1441.996 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 12 instances were transformed.
-  LD => LDCE: 12 instances
+No Unisim elements were transformed.
 
-Synth Design complete, checksum: 2ea525b9
+Synth Design complete, checksum: 391d4060
 INFO: [Common 17-83] Releasing license: Synthesis
-161 Infos, 142 Warnings, 100 Critical Warnings and 0 Errors encountered.
+218 Infos, 278 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2421.770 ; gain = 883.559 ; free physical = 493 ; free virtual = 7558
+synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:56 . Memory (MB): peak = 1441.996 ; gain = 1014.973
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-INFO: [Common 17-1381] The checkpoint '/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.runs/synth_1/top.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Aweso/Verilog/Aquapack/bartlett/SW9A-AcousticsFPGA.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 18 02:56:09 2025...
+INFO: [Common 17-206] Exiting Vivado at Sat Jan  3 00:49:28 2026...

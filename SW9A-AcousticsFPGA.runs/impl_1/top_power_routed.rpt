@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Thu Dec 18 02:56:52 2025
-| Host             : fedora running 64-bit unknown
+| Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date             : Sat Jan  3 00:55:14 2026
+| Host             : AustinsPC running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7a35tcpg236-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.168        |
+| Total On-Chip Power (W)  | 0.365        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.098        |
-| Device Static (W)        | 0.070        |
+| Dynamic (W)              | 0.294        |
+| Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 84.2         |
-| Junction Temperature (C) | 25.8         |
+| Max Ambient (C)          | 83.2         |
+| Junction Temperature (C) | 26.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -49,22 +49,24 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.002 |        6 |       --- |             --- |
-| Slice Logic    |    <0.001 |      914 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      314 |     20800 |            1.51 |
-|   Register     |    <0.001 |      476 |     41600 |            1.14 |
-|   BUFG         |    <0.001 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |       36 |       --- |             --- |
-| Signals        |    <0.001 |      720 |       --- |             --- |
-| Block RAM      |    <0.001 |      0.5 |        50 |            1.00 |
-| MMCM           |     0.090 |        1 |         5 |           20.00 |
-| I/O            |     0.004 |       20 |       106 |           18.87 |
-| Static Power   |     0.070 |          |           |                 |
-| Total          |     0.168 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |     0.031 |        6 |       --- |             --- |
+| Slice Logic             |     0.037 |    20107 |       --- |             --- |
+|   LUT as Logic          |     0.029 |     5451 |     20800 |           26.21 |
+|   Register              |     0.004 |    10988 |     41600 |           26.41 |
+|   CARRY4                |     0.003 |      535 |      8150 |            6.56 |
+|   LUT as Shift Register |    <0.001 |      374 |      9600 |            3.90 |
+|   Others                |     0.000 |     1180 |       --- |             --- |
+| Signals                 |     0.056 |    14329 |       --- |             --- |
+| Block RAM               |     0.034 |       14 |        50 |           28.00 |
+| MMCM                    |     0.090 |        1 |         5 |           20.00 |
+| DSPs                    |     0.046 |       43 |        90 |           47.78 |
+| I/O                     |    <0.001 |       20 |       106 |           18.87 |
+| Static Power            |     0.072 |          |           |                 |
+| Total                   |     0.365 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -73,16 +75,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.004 |      0.010 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.213 |       0.202 |      0.011 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.063 |       0.050 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18    |       1.800 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -142,15 +144,34 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+----------------------+-----------+
-| Name                 | Power (W) |
-+----------------------+-----------+
-| top                  |     0.098 |
-|   UART_inst          |     0.002 |
-|     UART_TX_inst     |     0.002 |
-|       MASTER_TO_UART |     0.002 |
-|   clk_wiz_inst       |     0.090 |
-|     inst             |     0.090 |
-+----------------------+-----------+
++-------------------------------+-----------+
+| Name                          | Power (W) |
++-------------------------------+-----------+
+| top                           |     0.294 |
+|   RING_BUFFER_channel_1_inst  |     0.002 |
+|     RING_BUFFER_DATAPATH_inst |     0.002 |
+|       RING_BUFFER_RAM_inst    |     0.002 |
+|   RING_BUFFER_channel_2_inst  |     0.002 |
+|     RING_BUFFER_DATAPATH_inst |     0.002 |
+|       RING_BUFFER_RAM_inst    |     0.002 |
+|   RING_BUFFER_channel_3_inst  |     0.002 |
+|     RING_BUFFER_DATAPATH_inst |     0.002 |
+|       RING_BUFFER_RAM_inst    |     0.002 |
+|   RING_BUFFER_channel_4_inst  |     0.002 |
+|     RING_BUFFER_DATAPATH_inst |     0.002 |
+|       RING_BUFFER_RAM_inst    |     0.002 |
+|   UART_inst                   |     0.001 |
+|     UART_TX_inst              |     0.001 |
+|       MASTER_TO_UART          |     0.001 |
+|   bartlett_inst               |     0.193 |
+|     bartlett_time_domain_inst |     0.009 |
+|       p_theta_inst            |     0.007 |
+|       rxx_inst                |     0.002 |
+|     fft_max_inst              |     0.182 |
+|       max_fft_bin_inst        |     0.003 |
+|       your_instance_name      |     0.180 |
+|   clk_wiz_inst                |     0.090 |
+|     inst                      |     0.090 |
++-------------------------------+-----------+
 
 
