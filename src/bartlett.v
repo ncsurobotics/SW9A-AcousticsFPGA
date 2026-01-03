@@ -28,7 +28,7 @@ module bartlett_datapath #(
     input clk,
     input reset_b,
 	
-    input [NUM_SIZE * 4 - 1:0] s_axis_tdata,
+    input [NUM_SIZE * 4 - 1:0] s_axis_tdata,//4 hydrophone channels
     input s_axis_tvalid,
     output s_axis_tready,
     input s_axis_tlast,
