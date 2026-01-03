@@ -1,6 +1,0 @@
-0.7
-2020.2
-Oct 14 2022
-05:07:14
-/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.sim/sim_1/synth/func/xsim/SW9_tb_func_synth.v,1762389588,verilog,,,,CDC_DRIVER;CDC_DRIVER__xdcDup__1;CDC_DRIVER__xdcDup__2;CDC_DRIVER__xdcDup__3;SIPO;SPI;SPI_DATAPATH;SPI_WRAPPER;SPI__xdcDup__1;SPI__xdcDup__2;SPI__xdcDup__3;UART;UART_TX;UART_TX_CONTROLLER;UART_TX_DATAPATH;clk_div;clk_wiz_0;clk_wiz_0_clk_wiz;glbl;top;xpm_cdc_gray;xpm_cdc_gray__2;xpm_cdc_gray__parameterized0;xpm_cdc_gray__parameterized0__2;xpm_cdc_handshake;xpm_cdc_handshake__xdcDup__1;xpm_cdc_handshake__xdcDup__2;xpm_cdc_handshake__xdcDup__3;xpm_cdc_single;xpm_cdc_single__10;xpm_cdc_single__11;xpm_cdc_single__12;xpm_cdc_single__13;xpm_cdc_single__14;xpm_cdc_single__8;xpm_cdc_single__9;xpm_cdc_sync_rst;xpm_cdc_sync_rst__2;xpm_counter_updn;xpm_counter_updn_2;xpm_counter_updn__parameterized0;xpm_counter_updn__parameterized0_3;xpm_counter_updn__parameterized1;xpm_fifo_async;xpm_fifo_base;xpm_fifo_reg_bit;xpm_fifo_reg_vec;xpm_fifo_reg_vec_0;xpm_fifo_reg_vec__parameterized0;xpm_fifo_reg_vec__parameterized0_1;xpm_fifo_rst;xpm_memory_base,,uvm,../../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0,,,,,
-/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Top_tb.sv,1762387129,systemVerilog,,,,SW9_tb,,uvm,../../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0,,,,,
