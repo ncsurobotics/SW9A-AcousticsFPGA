@@ -28,6 +28,8 @@
 `define FFT_MAX_INDEX_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , FFT_MAX_INDEX_FILE_NAME)
 `define MAX_FREQ_VEC_PATH $sformatf("%s%s/%s",BASE_PATH , global_test_name , MAX_FREQ_VEC_FILE_NAME)
 
+`define MAX_THETA all_data_buffer[19 * `NUM_SIZE +: `NUM_SIZE]
+`define MAX_VALUE all_data_buffer[all_data_buffer[19 * `NUM_SIZE +: `NUM_SIZE] * `NUM_SIZE +: `NUM_SIZE]
 
 module bartlett_datapath_tb_auto();
 localparam BASE_PATH  = "C:/Users/Aweso/Verilog/Aquapack/bartlett/sim/bartlett_datapath/auto_tests/";
@@ -60,9 +62,7 @@ reg[`NUM_SIZE * `MATRIX_SIZE - 1: 0] hydro_data[`COLUMNS-1:0];
 wire s_axis_tready;
 reg s_axis_tvalid, s_axis_tlast;
 reg[31:0] index;
-wire[`NUM_SIZE * 19 - 1:0] m_axis_all_tdata;
-wire [$clog2(`THETA_COUNT) - 1: 0] m_axis_max_tdata;
-reg m_axis_all_tready, m_axis_max_tready;
+reg[`NUM_SIZE * 20 - 1:0] all_data_buffer;
 
 wire [`MATRIX_SIZE * `MATRIX_SIZE * `NUM_SIZE - 1:0] debug_rxx;
 wire debug_rxx_valid;
@@ -97,6 +97,9 @@ assign imag_part[2] = debug_fft[`NUM_SIZE * 2 + `NUM_SIZE/2 +: `NUM_SIZE/2 ];
 assign real_part[3] = debug_fft[`NUM_SIZE * 3 +: `NUM_SIZE/2];
 assign imag_part[3] = debug_fft[`NUM_SIZE * 3 + `NUM_SIZE/2+: `NUM_SIZE/2];
 
+wire[`NUM_SIZE - 1 : 0] m_axis_tdata;
+wire[7:0] m_axis_tdest;
+
 bartlett_datapath #(
 	.NUM_SIZE(`NUM_SIZE)
 	) dut (
@@ -108,18 +111,10 @@ bartlett_datapath #(
 	.s_axis_tready(s_axis_tready),
 	.s_axis_tlast(s_axis_tlast),
 	
-	
-	.m_axis_max_tdata(m_axis_max_tdata),
-    .m_axis_max_tvalid(m_axis_max_tvalid),
-    .m_axis_max_tuser(m_axis_max_tuser),
-    .m_axis_max_tlast(m_axis_max_tlast),
-    .m_axis_max_tready(m_axis_max_tready),
-
-	.m_axis_all_tdata(m_axis_all_tdata),
-    .m_axis_all_tvalid(m_axis_all_tvalid),
-    .m_axis_all_tuser(m_axis_all_tuser),
-    .m_axis_all_tlast(m_axis_all_tlast),
-    .m_axis_all_tready(m_axis_all_tready),
+	.m_axis_tdata(m_axis_tdata),
+    .m_axis_tvalid(m_axis_tvalid),
+    .m_axis_tlast(m_axis_tlast),
+	.m_axis_tdest(m_axis_tdest),
 	
 			
 		.debug_rxx(debug_rxx),
@@ -135,6 +130,7 @@ bartlett_datapath #(
 	 .debug_max_freq_vec_valid(max_freq_vec_valid)
 
 	);
+	
 
 
 
@@ -194,26 +190,26 @@ task saveResults;
 begin
 	resultFile = $fopen(`ALL_HEX_PATH,"w");
 	for(i = 0; i < `THETA_COUNT; i = i + 1)begin
-		$fwrite(resultFile,"%d: %h\n",i, m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]);
+		$fwrite(resultFile,"%d: %h\n",i, all_data_buffer[i * `NUM_SIZE +: `NUM_SIZE]);
 	end
 	$fclose(resultFile);
 	resultFile = $fopen(`MAX_HEX_PATH,"w");
-	$fwrite(resultFile,"Theta: %h\nValue: %h",m_axis_max_tdata,m_axis_all_tdata[m_axis_max_tdata * `NUM_SIZE +: `NUM_SIZE]);
+	$fwrite(resultFile,"Theta: %h\nValue: %h",`MAX_THETA ,`MAX_VALUE);
 	$fclose(resultFile);
 	
-	$display("Calculated Angle:%d\n",m_axis_max_tdata);		
+	$display("Calculated Angle:%d\n",`MAX_THETA * 10);		
 	
 	
 	resultFile = $fopen(`ALL_DEC_PATH,"w");
 	csvFile = $fopen(`ALL_DEC_CSV_PATH,"w");
 	for(i = 0; i < `THETA_COUNT; i = i + 1)begin
-		$fwrite(csvFile," %d%s",$signed(m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]), i == `THETA_COUNT - 1 ? "" : ",");
-		$fwrite(resultFile,"%d: %d\n",i, $signed(m_axis_all_tdata[i * `NUM_SIZE +: `NUM_SIZE]));
+		$fwrite(csvFile," %d%s",$signed(all_data_buffer[i * `NUM_SIZE +: `NUM_SIZE]), i == `THETA_COUNT - 1 ? "" : ",");
+		$fwrite(resultFile,"%d: %d\n",i, $signed(all_data_buffer[i * `NUM_SIZE +: `NUM_SIZE]));
 	end
 	$fclose(resultFile);
 	$fclose(csvFile);
 	resultFile = $fopen(`MAX_DEC_PATH,"w");
-	$fwrite(resultFile,"Theta: %h\nValue: %d",m_axis_max_tdata,$signed(m_axis_all_tdata[m_axis_max_tdata * `NUM_SIZE +: `NUM_SIZE]));
+	$fwrite(resultFile,"Theta: %h\nValue: %d",`MAX_THETA ,$signed(`MAX_VALUE));
 	$fclose(resultFile);	
 	#10 save = 0;
 end
@@ -291,7 +287,6 @@ max_freq_saved = 0;
 i = 0;
 send_index = 0;
 index = 0; s_axis_tlast = 0; s_axis_tvalid = 0; 
-m_axis_all_tready = 1; m_axis_max_tready = 1;
 save = 0;
 inc = 0; 
 s_axis_tdata = 0;
@@ -317,7 +312,9 @@ always #10 begin
 		debug_current_magnitude_buffer[current_mag_index] = debug_current_magnitude;
 		current_mag_index = current_mag_index + 1;
 	end
-	
+	if(m_axis_tvalid)begin
+		all_data_buffer[`NUM_SIZE * m_axis_tdest +: `NUM_SIZE] = m_axis_tdata;
+	end
 
 end
 
@@ -346,7 +343,7 @@ always@(*)begin
 	
 	s_axis_tdata <= hydro_data[index];
 	
-	if(m_axis_all_tvalid & !save) begin
+	if(m_axis_tlast & !save) begin
 		save = 1;
 	end
 	if(save) begin

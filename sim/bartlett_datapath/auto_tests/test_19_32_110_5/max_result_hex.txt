@@ -1,2 +1,2 @@
-Theta: 0b
-Value: 0111a0fc
+Theta: 00000000
+Value: 000b9c00

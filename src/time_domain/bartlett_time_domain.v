@@ -13,22 +13,20 @@ module bartlett_time_domain #(
 	input s_axis_fft_tvalid, s_axis_fft_tlast, s_axis_fft_tuser,
 	output s_axis_fft_tready,
 	
-	// max theta output channel
-	output[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
-	output m_axis_max_tvalid, m_axis_max_tuser, m_axis_max_tlast,
-	input m_axis_max_tready,
-	
-	// all thetas output channel
-	output[`THETA_COUNT * NUM_SIZE - 1:0]  m_axis_all_tdata, 
-	output m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
-	input m_axis_all_tready,	
+
+	output [31 : 0] m_axis_tdata,
+	output m_axis_tvalid, m_axis_tlast,
+	output[7:0] m_axis_tdest,
 	
 	output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
 	output debug_rxx_valid
 	
 	);
 	
-
+	// max theta output channel
+	wire[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata;
+	wire m_axis_max_tvalid, m_axis_max_tlast;
+	
 	
 	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
     wire rxx_valid,rxx_ready;
@@ -84,27 +82,6 @@ module bartlett_time_domain #(
     );
 	
 		
-	output_store #(
-		.NUM_SIZE(NUM_SIZE)
-		) 
-	output_store_inst (
-		.clk(clk),
-		.reset_n(reset_n),
-
-        .s_axis_tdata(m_axis_weight_tdata),
-        .s_axis_tvalid(m_axis_weight_tvalid),
-        .s_axis_tlast(m_axis_weight_tlast),
-		.s_axis_tuser(m_axis_weight_tdest),
-
-        .m_axis_all_tdata(m_axis_all_tdata),
-        .m_axis_all_tvalid(m_axis_all_tvalid),
-        .m_axis_all_tuser(m_axis_all_tuser),
-        .m_axis_all_tlast(m_axis_all_tlast),
-        .m_axis_all_tready(m_axis_all_tready)
-		);
-		
-		
-		
 	max #(
 		.NUM_SIZE(NUM_SIZE)
 		) 
@@ -120,12 +97,13 @@ module bartlett_time_domain #(
 		
         .m_axis_max_tdata(m_axis_max_tdata),
         .m_axis_max_tvalid(m_axis_max_tvalid),
-        .m_axis_max_tuser(m_axis_max_tuser),
-        .m_axis_max_tlast(m_axis_max_tlast),
-        .m_axis_max_tready(m_axis_max_tready)
+        .m_axis_max_tlast(m_axis_max_tlast)
 		);
 		
-	
+	assign m_axis_tdata = m_axis_max_tvalid ? m_axis_max_tdata : m_axis_weight_tdata;
+	assign m_axis_tvalid = m_axis_max_tvalid | m_axis_weight_tvalid;
+	assign m_axis_tlast = m_axis_max_tvalid ? m_axis_max_tlast : m_axis_weight_tlast;
+	assign m_axis_tdest = m_axis_max_tvalid ? `THETA_COUNT : m_axis_weight_tdest;
 	
 endmodule
 	

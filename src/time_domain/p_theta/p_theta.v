@@ -63,7 +63,7 @@ module p_theta #(
 				global_counter <= global_counter + 1;
 				valid_buf <= 1;
 				global_counter_buf <= global_counter;
-				last <= theta_counter > `THETA_COUNT;
+				last <= theta_counter == `THETA_COUNT;
 			end
 		end
 	end
