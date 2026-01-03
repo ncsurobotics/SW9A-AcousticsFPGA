@@ -263,6 +263,10 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
     wire [31:0] bartlett_CH1, bartlett_CH2, bartlett_CH3, bartlett_CH4;
     wire [31:0] min_frequency, max_frequency, threshold;
     wire data_valid, data_last;
+	
+	wire[8 + 8 + 32 - 1 :0] s_axis_bartlett_config_tdata;
+	wire s_axis_bartlett_config_tvalid, s_axis_bartlett_config_tready;
+	wire[5:0] s_axis_bartlett_config_tstrb;
 
     bartlett_datapath bartlett_inst(
     .clk(clk), // (in)
@@ -273,13 +277,14 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
     .s_axis_tready(bartlett_ready), // (out)
     .s_axis_tlast(data_last), // (in)
 		
-	.s_axis_config_tdata({max_frequency[7:0], min_frequency[7:0], threshold}), // (in) {upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
-	.s_axis_config_tstrb(6'b0), // (in)
-	.s_axis_config_tvalid(1'b1), // (in)
-	.s_axis_config_tready(), // (out)
+	// Config data is preloaded with correct parameters
+	.s_axis_config_tdata(s_axis_bartlett_config_tdata), // (in) {upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
+	.s_axis_config_tstrb(s_axis_bartlett_config_tstrb), // (in)
+	.s_axis_config_tvalid(s_axis_bartlett_config_tvalid), // (in)
+	.s_axis_config_tready(s_axis_bartlett_config_tready), // (out)
 
 	// output data channel
-	.m_axis_tdata(bartlett_data_out), // (out)
+	.m_axis_tdata(bartlett_data_in), // (out)
 	.m_axis_tvalid(bartlett_wr_en), // (out)
 	.m_axis_tlast(), // (out)
 	.m_axis_tdest(bartlett_addr), // (out)
@@ -303,6 +308,21 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
 	.debug_max_freq_vec(), // (out)
 	.debug_max_freq_vec_valid() // (out)
     );
+	
+	
+	// Controller for bartlett config
+	
+	bartlett_config_controller bartlett_config_controller_inst(
+		.clk(clk),
+		.reset_n(reset_b),
+		.max_frequency(max_frequency),
+		.min_frequency(min_frequency),
+		.threshold(threshold),
+		.m_axis_config_tdata(s_axis_bartlett_config_tdata),
+		.m_axis_config_tstrb(s_axis_bartlett_config_tstrb),
+		.m_axis_config_tvalid(s_axis_bartlett_config_tvalid),
+		.m_axis_config_tready(s_axis_bartlett_config_tready)
+		);
     
 //////////////////////////////////////////////////////////////////////////////////////////////
 
