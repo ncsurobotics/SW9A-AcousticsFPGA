@@ -10,164 +10,85 @@ module rxx #(
 	// 4x256 matrix input channel
 	input[`MATRIX_SIZE * NUM_SIZE - 1 : 0] s_axis_tdata, //MSB->LSB{channel_3, channel_2, channel_1, channel_0}
 	input s_axis_tvalid, s_axis_tlast, 
-	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tuser,
 	output s_axis_tready,
 	
 	// 4 x 4 matrix output channel
-	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0]  m_axis_tdata, //MSB->LSB{r44, r43, r42... r00}
+	output[NUM_SIZE - 1:0]  m_axis_tdata, //serially outputted values, id-ed with m_axis_tid.
 	output m_axis_tvalid, m_axis_tlast,
-	output [$clog2(`THETA_COUNT)-1:0] m_axis_tuser,
 	input m_axis_tready,
-	
-	output[`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE * 2 - 1 : 0] debug_mid,
-	output debug_mid_valid
-	
+	output[3:0] m_axis_tid
 	);
 	
-	assign debug_mid = mid_tdata;
-	assign debug_mid_valid = mid_tvalid;
+	wire[NUM_SIZE/2 - 1 :0] real_channel[3:0], imag_channel[3:0];
+	assign real_channel[0] = s_axis_tdata[0+:NUM_SIZE/2];
+	assign real_channel[1] = s_axis_tdata[1 * NUM_SIZE +:NUM_SIZE/2];
+	assign real_channel[2] = s_axis_tdata[2 * NUM_SIZE +:NUM_SIZE/2];
+	assign real_channel[3] = s_axis_tdata[3 * NUM_SIZE +:NUM_SIZE/2];
+	
+	assign imag_channel[0] = s_axis_tdata[NUM_SIZE/2 + 0+:NUM_SIZE/2];
+	assign imag_channel[1] = s_axis_tdata[NUM_SIZE/2 + 1 * NUM_SIZE +:NUM_SIZE/2];
+	assign imag_channel[2] = s_axis_tdata[NUM_SIZE/2 + 2 * NUM_SIZE +:NUM_SIZE/2];
+	assign imag_channel[3] = s_axis_tdata[NUM_SIZE/2 + 3 * NUM_SIZE +:NUM_SIZE/2];
+	
+	reg[NUM_SIZE - 1 : 0] base[3:0],conj[3:0];
+	reg[3:0] index;
+	wire[1:0] base_index, conj_index;
+	assign conj_index = index[1:0];
+	assign base_index = index[3:2];
+	reg valid;
+	reg state;
+	wire last;
+	assign last = index == 4'b1111;
+	
+	integer i;
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			for(i = 0; i < 4; i = i + 1)begin
+				base[i] <= 0;
+				conj[i] <= 0;
+			end
+			index <= 0;
+			valid <= 0;
+			state <= 0;
+		end else begin
+			if(state == 0)begin // idle
+				state <= s_axis_tvalid;
+				index <= 0;
+			end else begin
+				state <= !last;
+				if(m_axis_tready) index <= index + 1;
+				else index <= index;
+			end
+			for(i = 0; i < 4; i = i + 1)begin
+				base[i] <= {imag_channel[i],real_channel[i]};
+				conj[i] <= {-imag_channel[i],real_channel[i]};
+			end
+		end
+	end
+	
+	
+cmpy_rxx your_instance_name (
+  .aclk(clk),                              // input wire aclk
+  .aresetn(reset_n),                        // input wire aresetn
+  .s_axis_a_tvalid(state),        // input wire s_axis_a_tvalid
+  .s_axis_a_tlast(last),
+  .s_axis_a_tready(s_axis_tready),        // output wire s_axis_a_tready
+  .s_axis_a_tdata(conj[conj_index]),          // input wire [31 : 0] s_axis_a_tdata
+    .s_axis_a_tuser(conj_index),          // input wire [1 : 0] s_axis_a_tuser
 
-// mult -> addition -> scalar divide
-// complex_matrix_multiplier_zeroed -> scalar_divide_const
-assign m_axis_tvalid = m_axis_tvalid_buf & m_axis_tlast;
-	
-wire mid_tlast, mid_tvalid;
-wire [$clog2(`THETA_COUNT)-1:0] mid_tuser;
-wire[`MATRIX_SIZE * `MATRIX_SIZE * (NUM_SIZE * 2) - 1: 0] mid_tdata; 
-/*
-wire[`MATRIX_SIZE * `MATRIX_SIZE * (NUM_SIZE * 2) - 1:0] m_axis_tdata_buf;//larger buffer to prevent overflow
-genvar i;
-generate
-for(i = 0; i < `MATRIX_SIZE * `MATRIX_SIZE; i = i + 1)begin
-	assign m_axis_tdata[NUM_SIZE * i +: NUM_SIZE] = {
-	m_axis_tdata_buf[(NUM_SIZE * 2) * i + NUM_SIZE +: NUM_SIZE/2], 
-	m_axis_tdata_buf[(NUM_SIZE * 2) * i +: NUM_SIZE/2]
-	};
-end
-endgenerate 
-*/	
-	
-complex_matrix_multiplier #(
-	.NUM_SIZE(NUM_SIZE)
-	)
-complex_matrix_multiplier_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	.clken(clken),
-	
-	.channel_0_base(s_axis_tdata[0 * NUM_SIZE +: NUM_SIZE]),
-	.channel_1_base(s_axis_tdata[1 * NUM_SIZE +: NUM_SIZE]),
-	.channel_2_base(s_axis_tdata[2 * NUM_SIZE +: NUM_SIZE]),
-	.channel_3_base(s_axis_tdata[3 * NUM_SIZE +: NUM_SIZE]),
-	
-	.s_axis_tvalid(s_axis_tvalid),
-	.s_axis_tlast(s_axis_tlast),
-	.s_axis_tuser(s_axis_tuser),
-	.s_axis_tready(s_axis_tready),
-	
-	.m_axis_dout_tready(mid_tready),
-	.m_axis_dout_tlast(mid_tlast),
-	.m_axis_dout_tuser(mid_tuser),
-	.m_axis_dout_tvalid(mid_tvalid),
-	
-	.result_matrix_0_0(mid_tdata[15 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]), 
-    .result_matrix_0_1(mid_tdata[14 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_0_2(mid_tdata[13 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_0_3(mid_tdata[12 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_1_0(mid_tdata[11 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_1_1(mid_tdata[10 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_1_2(mid_tdata[9 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_1_3(mid_tdata[8 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_2_0(mid_tdata[7 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_2_1(mid_tdata[6 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_2_2(mid_tdata[5 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_2_3(mid_tdata[4 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_3_0(mid_tdata[3 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_3_1(mid_tdata[2 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_3_2(mid_tdata[1 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)]),
-    .result_matrix_3_3(mid_tdata[0 * (2 * NUM_SIZE) +: (2 * NUM_SIZE)])
+  .s_axis_b_tvalid(state),        // input wire s_axis_b_tvalid
+  //.s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
+  .s_axis_b_tdata(base[base_index]),          // input wire [31 : 0] s_axis_b_tdata
+  .s_axis_b_tuser(base_index),          // input wire [1 : 0] s_axis_a_tuser
+  
+  .m_axis_dout_tvalid(m_axis_tvalid),  // output wire m_axis_dout_tvalid
+  .m_axis_dout_tready(m_axis_tready),  // input wire m_axis_dout_tready
+  .m_axis_dout_tdata(m_axis_tdata),    // output wire [31 : 0] m_axis_dout_tdata
+  .m_axis_dout_tlast(m_axis_tlast),
+  .m_axis_dout_tuser(m_axis_tid)
 );
-
-// debug, non synthesized
-wire [NUM_SIZE -1 :0] real_values[15:0], imag_values[15:0];
-
-assign real_values[0] = mid_tdata[0 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[1] = mid_tdata[1 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[2] = mid_tdata[2 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[3] = mid_tdata[3 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[4] = mid_tdata[4 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[5] = mid_tdata[5 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[6] = mid_tdata[6 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[7] = mid_tdata[7 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[8] = mid_tdata[8 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[9] = mid_tdata[9 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[10] = mid_tdata[10 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[11] = mid_tdata[11 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[12] = mid_tdata[12 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[13] = mid_tdata[13 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[14] = mid_tdata[14 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign real_values[15] = mid_tdata[15 * (2 * NUM_SIZE) +:  NUM_SIZE];
-
-assign imag_values[0] = mid_tdata[NUM_SIZE + 0 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[1] = mid_tdata[NUM_SIZE + 1 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[2] = mid_tdata[NUM_SIZE + 2 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[3] = mid_tdata[NUM_SIZE + 3 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[4] = mid_tdata[NUM_SIZE + 4 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[5] = mid_tdata[NUM_SIZE + 5 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[6] = mid_tdata[NUM_SIZE + 6 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[7] = mid_tdata[NUM_SIZE + 7 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[8] = mid_tdata[NUM_SIZE + 8 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[9] = mid_tdata[NUM_SIZE + 9 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[10] = mid_tdata[NUM_SIZE + 10 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[11] = mid_tdata[NUM_SIZE + 11 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[12] = mid_tdata[NUM_SIZE + 12 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[13] = mid_tdata[NUM_SIZE + 13 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[14] = mid_tdata[NUM_SIZE + 14 * (2 * NUM_SIZE) +:  NUM_SIZE];
-assign imag_values[15] = mid_tdata[NUM_SIZE + 15 * (2 * NUM_SIZE) +:  NUM_SIZE];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
-	
-	
-	
-	
-scalar_divide_const #(
-	.MAT_HEIGHT(`MATRIX_SIZE),
-	.MAT_WIDTH(`MATRIX_SIZE),
-	.NUM_SIZE(NUM_SIZE * 2),
-	.SCALAR(256)
-	)
-scalar_divide_const_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	
-	.s_axis_tdata(mid_tdata),
-	.s_axis_tvalid(mid_tvalid),
-	.s_axis_tlast(mid_tlast),
-	.s_axis_tuser(mid_tuser),
-	.s_axis_tready(mid_tready),
-	
-	.m_axis_tdata(m_axis_tdata),
-	.m_axis_tvalid(m_axis_tvalid_buf),
-	.m_axis_tlast(m_axis_tlast),
-	.m_axis_tuser(m_axis_tuser),
-	.m_axis_tready(m_axis_tready)
-);
+
 
 
 

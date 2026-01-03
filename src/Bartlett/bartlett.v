@@ -28,7 +28,7 @@ module bartlett_datapath #(
     input clk,
     input reset_b,
 	
-    input [NUM_SIZE * 4 - 1:0] s_axis_tdata,
+    input [NUM_SIZE * 4 - 1:0] s_axis_tdata,//4 hydrophone channels
     input s_axis_tvalid,
     output s_axis_tready,
     input s_axis_tlast,
@@ -38,16 +38,9 @@ module bartlett_datapath #(
 	input s_axis_config_tvalid,
 	output s_axis_config_tready,
 
-	// max theta output channel
-	output[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
-	output m_axis_max_tvalid, m_axis_max_tuser, m_axis_max_tlast,
-	input m_axis_max_tready,
-	
-	// all thetas output channel
-	output[`THETA_COUNT * NUM_SIZE - 1:0]  m_axis_all_tdata, 
-	output m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
-	input m_axis_all_tready,
-	
+	output[31:0] m_axis_tdata,
+	output m_axis_tvalid, m_axis_tlast,
+	output[7:0] m_axis_tdest,
 
     //test
 
@@ -115,19 +108,7 @@ module bartlett_datapath #(
 		
 	
 	
-	wire[4:0] s_axis_theta_tdata;
-	
-	theta_driver theta_driver_inst(
-		.clk(clk),
-		.reset_n(reset_b),
-		
-		.enable(s_axis_theta_tready),
-		
-		.m_axis_theta_tdata(s_axis_theta_tdata),
-		.m_axis_theta_tlast(s_axis_theta_tlast),
-		//.m_axis_theta_tuser(s_axis_theta_tuser),
-		.m_axis_theta_tvalid(s_axis_theta_tvalid)
-		);
+
 	
 	bartlett_time_domain #(
 		.NUM_SIZE(NUM_SIZE)
@@ -142,23 +123,10 @@ module bartlett_datapath #(
 		.s_axis_fft_tready(m_axis_fft_max_tready),
 		.s_axis_fft_tuser(m_axis_fft_max_tuser),
 		
-		.s_axis_theta_tdata(s_axis_theta_tdata),
-		.s_axis_theta_tlast(s_axis_theta_tlast),
-		.s_axis_theta_tready(s_axis_theta_tready),
-		.s_axis_theta_tuser(s_axis_theta_tuser),
-		.s_axis_theta_tvalid(s_axis_theta_tvalid),
-		
-		.m_axis_max_tdata(m_axis_max_tdata),
-        .m_axis_max_tvalid(m_axis_max_tvalid),
-        .m_axis_max_tuser(m_axis_max_tuser),
-        .m_axis_max_tlast(m_axis_max_tlast),
-        .m_axis_max_tready(m_axis_max_tready),
-		
-		.m_axis_all_tdata(m_axis_all_tdata),
-        .m_axis_all_tvalid(m_axis_all_tvalid),
-        .m_axis_all_tuser(m_axis_all_tuser),
-        .m_axis_all_tlast(m_axis_all_tlast),
-        .m_axis_all_tready(m_axis_all_tready),
+		.m_axis_tdata(m_axis_tdata),
+        .m_axis_tvalid(m_axis_tvalid),
+        .m_axis_tlast(m_axis_tlast),
+		.m_axis_tdest(m_axis_tdest),
 		
 		.debug_rxx(debug_rxx),
 		.debug_rxx_valid(debug_rxx_valid)

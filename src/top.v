@@ -238,11 +238,11 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
     .reset_n(reset_b),
 
     .sample_ready({ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4}),
-    .RAM_Overflow({RAM_Overflow1, RAM_Overflow2, RAM_Overflow3, RAM_Overflow4}),
-    .bartlett_ready(bartlett_ready),
-    .SPI_en({SPI_en4, SPI_en3, SPI_en2, SPI_en1}),
-    .Send_Frame({Send_Frame4, Send_Frame3, Send_Frame2, Send_Frame1}),
-    .data_valid_out(data_valid),
+    //.RAM_Overflow({RAM_Overflow1, RAM_Overflow2, RAM_Overflow3, RAM_Overflow4}),
+    //.bartlett_ready(bartlett_ready),
+    //.SPI_en({SPI_en4, SPI_en3, SPI_en2, SPI_en1}),
+    //.Send_Frame({Send_Frame4, Send_Frame3, Send_Frame2, Send_Frame1}),
+    //.data_valid_out(data_valid),
     .data_last_out(data_last)
 );
 
@@ -278,19 +278,11 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
 	.s_axis_config_tvalid(1'b1), // (in)
 	.s_axis_config_tready(), // (out)
 
-	// max theta output channel
-	.m_axis_max_tdata(), // (out)
-	.m_axis_max_tvalid(), // (out)
-    .m_axis_max_tuser(), // (out)
-    .m_axis_max_tlast(), // (out)
-	.m_axis_max_tready(1'b1), // (in)
-	
-	// all thetas output channel
-	.m_axis_all_tdata(), // (out)
-	.m_axis_all_tvalid(), // (out)
-	.m_axis_all_tuser(), // (out)
-	.m_axis_all_tlast(), // (out)
-	.m_axis_all_tready(1'b1), // (in)
+	// output data channel
+	.m_axis_tdata(bartlett_data_out), // (out)
+	.m_axis_tvalid(bartlett_wr_en), // (out)
+	.m_axis_tlast(), // (out)
+	.m_axis_tdest(bartlett_addr), // (out)
 	
     //test
     .debug_rxx(), // (out)

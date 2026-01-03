@@ -149,6 +149,35 @@ endmodule
 
 
 
+module real_adder_saturate #(
+    parameter ELEMENT_SIZE = 32 
+)(
+    input signed [ELEMENT_SIZE-1:0] a, b,
+    output [ELEMENT_SIZE-1:0] sum
+);
+
+
+    // Add with extra bit for overflow detection
+    wire signed [ELEMENT_SIZE:0] sum_ex = a+b;
+
+    // Saturation logic
+    function [ELEMENT_SIZE-1:0] saturate;
+        input signed [ELEMENT_SIZE:0] val;
+        begin
+            if (val >  $signed({1'b0, {(ELEMENT_SIZE-1){1'b1}}})) // max
+                saturate = $signed({1'b0, {(ELEMENT_SIZE-1){1'b1}}});
+            else if (val < $signed({1'b1, {(ELEMENT_SIZE-1){1'b0}}})) // min
+                saturate = $signed({1'b1, {(ELEMENT_SIZE-1){1'b0}}});
+            else
+                saturate = val[ELEMENT_SIZE-1:0];
+        end
+    endfunction
+
+    assign sum = saturate(sum_ex);
+
+endmodule
+
+
 
 
 module shift_register #(
