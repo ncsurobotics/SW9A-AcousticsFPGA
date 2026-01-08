@@ -178,13 +178,32 @@ SPI_WRAPPER SPI_WRAPPER_inst( //contains 4 parallelized SPI channels.
 	.Data_Ready({ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4}),
     .SPI_Data_out({ADC_data1, ADC_data2, ADC_data3, ADC_data4}) // parallelized data outputs for FFT and Bartlett
 );
+/*
+wire adc_spi_ready;
+ADC_SPI_LTC1197_CONTROLLER ADC_SPI_LTC1197_CONTROLLER_inst(
+	.SPI_clk(SPI_clk),
+	.m_axis_tready(adc_spi_ready),
+	.reset_n(reset_b)
+	);
+
+ADC_SPI_LTC1197 ADC_SPI_LTC1197_inst(
+	.clk(clk),
+	.reset_n(reset_b),
+	.SPI_clk(SPI_clk),
+	.SPI_din(ADC_serial_data1),
+	.SPI_CS(ADC_cs1),
+	.m_axis_tdata(ADC_data1),
+	.m_axis_tvalid(),
+	.m_axis_tready(adc_spi_ready)
+	);
+*/
 
 // memories to store ADC data before sending to Bartlett module
 RING_BUFFER RING_BUFFER_channel_1_inst(
 
     .clk(clk),
     .reset_b(reset_b),
-    .Input_Data({22'd0, ADC_data1}),
+    .Input_Data(ADC_data1),
     .Input_Data_Ready(ADC_Ready1),
     .Triggered(1'b1),
     .Send_Frame(Send_Frame1),
@@ -197,7 +216,7 @@ RING_BUFFER RING_BUFFER_channel_2_inst(
 
     .clk(clk),
     .reset_b(reset_b),
-    .Input_Data({22'd0, ADC_data2}),
+    .Input_Data(ADC_data2),
     .Input_Data_Ready(ADC_Ready2),
     .Triggered(1'b1),
     .Send_Frame(Send_Frame2),
@@ -210,7 +229,7 @@ RING_BUFFER RING_BUFFER_channel_3_inst(
 
     .clk(clk),
     .reset_b(reset_b),
-    .Input_Data({22'd0, ADC_data3}),
+    .Input_Data(ADC_data3),
     .Input_Data_Ready(ADC_Ready3),
     .Triggered(1'b1),
     .Send_Frame(Send_Frame3),
@@ -223,7 +242,7 @@ RING_BUFFER RING_BUFFER_channel_4_inst(
 
     .clk(clk),
     .reset_b(reset_b),
-    .Input_Data({22'd0, ADC_data4}),
+    .Input_Data(ADC_data4),
     .Input_Data_Ready(ADC_Ready4),
     .Triggered(1'b1),
     .Send_Frame(Send_Frame4),
@@ -233,25 +252,23 @@ RING_BUFFER RING_BUFFER_channel_4_inst(
 );
 
 // Controls the SPI transaction process
-SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
+SPI_TRANSACTION_HANDLER SPI_TRANSACTION_HANDLER_inst(
     .clk(clk),
     .reset_n(reset_b),
 
     .sample_ready({ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4}),
     //.RAM_Overflow({RAM_Overflow1, RAM_Overflow2, RAM_Overflow3, RAM_Overflow4}),
-    //.bartlett_ready(bartlett_ready),
-    //.SPI_en({SPI_en4, SPI_en3, SPI_en2, SPI_en1}),
-    //.Send_Frame({Send_Frame4, Send_Frame3, Send_Frame2, Send_Frame1}),
-    //.data_valid_out(data_valid),
-    .data_last_out(data_last)
+    .bartlett_ready(bartlett_ready),
+    .SPI_en({SPI_en4, SPI_en3, SPI_en2, SPI_en1}),
+    .Send_Frame({Send_Frame4, Send_Frame3, Send_Frame2, Send_Frame1}),
+    .data_valid(data_valid),
+    .data_last(data_last)
 );
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-/*
-    
-*/
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -260,7 +277,7 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
     wire bartlett_ready;
     wire [4:0] bartlett_addr;
     wire [31:0] bartlett_data_in, bartlett_data_out, maxangle;
-    wire [31:0] bartlett_CH1, bartlett_CH2, bartlett_CH3, bartlett_CH4;
+    wire [9:0] bartlett_CH1, bartlett_CH2, bartlett_CH3, bartlett_CH4;
     wire [31:0] min_frequency, max_frequency, threshold;
     wire data_valid, data_last;
 	
@@ -272,7 +289,10 @@ SPI_HANDLER_WRAPPER SPI_TRANSACTION_HANDLER_inst(
     .clk(clk), // (in)
     .reset_b(reset_b), //(in)
 	
-    .s_axis_tdata({bartlett_CH1, bartlett_CH2, bartlett_CH3, bartlett_CH4}), // (in) 4 channels of 32-bit data
+    .s_axis_tdata({	16'd0,{6{bartlett_CH1[9]}},bartlett_CH1, 
+					16'd0,{6{bartlett_CH2[9]}},bartlett_CH2,  
+					16'd0,{6{bartlett_CH3[9]}},bartlett_CH3, 
+					16'd0,{6{bartlett_CH4[9]}},bartlett_CH4 }), // (in) 4 channels of 32-bit data
     .s_axis_tvalid(data_valid), // (in)
     .s_axis_tready(bartlett_ready), // (out)
     .s_axis_tlast(data_last), // (in)

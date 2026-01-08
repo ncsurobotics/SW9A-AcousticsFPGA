@@ -276,7 +276,7 @@ always@(*)begin
 		end
 	endcase
 end
-	
+
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
 			current_magnitude <= 0;
@@ -288,13 +288,13 @@ end
 			s_axis_weight_tready <= 0;
 			valid_threshold <= 0;
 			state <= 0;
-			config_register <= 48'h130700080000;
+			config_register <= 48'h130700001000;
 			m_axis_max_tvalid <= 0;
 			m_axis_max_tlast <= 0;
 		/*
 	UPPER_BOUND = 8'h19, // ~-25khz //248,  >40khz
 	LOWER_BOUND = 8'h07, // ~40khz //238,  <25khz
-	THRESHOLD = 32'h00080000 // arbitrary number
+	THRESHOLD = 32'h00001000 // arbitrary number
 	*/
 		end else begin
 			case(state)

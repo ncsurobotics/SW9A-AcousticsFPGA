@@ -20,18 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module RING_BUFFER(
+module RING_BUFFER #(
+	parameter WORD_SIZE = 10,
+	parameter WORD_COUNT = 256
+	)(
 
     input clk,
     input reset_b,
     
-    input [31:0] Input_Data,
+    input [WORD_SIZE - 1:0] Input_Data,
     input Input_Data_Ready,
     input Send_Frame,
     input Triggered,
     
     output RAM_Overflow,
-    output [31:0] Output_Data
+    output [WORD_SIZE - 1:0] Output_Data
 
 );
 
@@ -69,11 +72,14 @@ module RING_BUFFER(
 endmodule
 
 
-module RING_BUFFER_DATAPATH(
+module RING_BUFFER_DATAPATH #(
+	parameter WORD_SIZE = 10,
+	parameter WORD_COUNT = 256
+	)(
 
     input clk,
     input reset_b,
-    input [31:0] Input_Data,
+    input [WORD_SIZE - 1:0] Input_Data,
     input Data_Ready,
     input Triggered,
 
@@ -82,16 +88,16 @@ module RING_BUFFER_DATAPATH(
     input RAM_Read_Address_sel,
     
     output RAM_Overflow,
-    output [31:0] Output_Data
+    output [WORD_SIZE - 1:0] Output_Data
 
 );
     
-    reg  [7:0] RAM_Write_Address;
-    reg  [7:0] Head_Address;
-    reg  [7:0] RAM_Read_Address;
-    wire [7:0] Next_Head_Address;
-    wire [7:0] Next_Write_Address;
-    wire [7:0] Next_Read_Address;
+    reg  [$clog2(WORD_COUNT) - 1:0] RAM_Write_Address;
+    reg  [$clog2(WORD_COUNT) - 1:0] Head_Address;
+    reg  [$clog2(WORD_COUNT) - 1:0] RAM_Read_Address;
+    wire [$clog2(WORD_COUNT) - 1:0] Next_Head_Address;
+    wire [$clog2(WORD_COUNT) - 1:0] Next_Write_Address;
+    wire [$clog2(WORD_COUNT) - 1:0] Next_Read_Address;
 
     
     
@@ -100,7 +106,7 @@ module RING_BUFFER_DATAPATH(
     
     always@(posedge clk or negedge reset_b) begin
         if(!reset_b) begin
-            RAM_Write_Address = 8'b0;
+            RAM_Write_Address = 0;
         end
         else begin
             RAM_Write_Address = Next_Write_Address;
@@ -108,14 +114,14 @@ module RING_BUFFER_DATAPATH(
             
     end    
 
-    assign RAM_Overflow = (RAM_Write_Address == 255);
+    assign RAM_Overflow = (RAM_Write_Address == (WORD_COUNT-1));
     
     
     
     assign Next_Head_Address = Head_Counter_sel ? Head_Address : Head_Address + 1;
     always@(posedge clk or negedge reset_b) begin
         if(!reset_b) begin
-            Head_Address = 8'b0;
+            Head_Address = 0;
         end
         else begin
             Head_Address = Next_Head_Address;
@@ -124,11 +130,11 @@ module RING_BUFFER_DATAPATH(
     
     wire [7:0] Read_Address_Increment_Value;
 
-    assign Read_Address_Increment_Value = Triggered ? 8'd1 : 8'd4;
+    assign Read_Address_Increment_Value = Triggered ? 1 : 4;
     assign Next_Read_Address = RAM_Read_Address_sel ? Head_Address : RAM_Read_Address + Read_Address_Increment_Value;
     always@(posedge clk or negedge reset_b) begin
         if(!reset_b) begin
-            RAM_Read_Address = 8'b0;
+            RAM_Read_Address = 0;
         end
         else begin
             RAM_Read_Address = Next_Read_Address;

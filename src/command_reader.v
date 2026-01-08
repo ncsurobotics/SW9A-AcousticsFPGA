@@ -32,7 +32,7 @@ module command_reader (
       for (i = 20; i <= 25; i = i + 1)
         uart_flipflops[i] <= 0;
       // default stuff
-      uart_flipflops[20] <= 32'h0800000;  // threshold
+      uart_flipflops[20] <= 32'h0001000;  // threshold
       uart_flipflops[21] <= 32'h0007;     // min frequency
       uart_flipflops[22] <= 32'h0013;     // max frequency
       uart_flipflops[23] <= 32'h0005;     // vga

@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+/*
 module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256) (
     input clk,
     input reset_n,
@@ -57,8 +57,9 @@ end
 assign data_last = (sample_counter == SAMPLES - 2 && sample_ready);
 
 endmodule
-/*
-module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256) (
+*/
+
+module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256, parameter CHANNELS = 4) (
     input clk,
     input reset_n,
 
@@ -66,11 +67,11 @@ module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256) (
     
     input bartlett_ready,
 
-    output reg SPI_en,
-    output reg Send_Frame,
+    output reg[CHANNELS - 1 : 0] SPI_en,
+    output reg[CHANNELS - 1 : 0] Send_Frame,
 
     output reg data_valid,
-    output reg data_last,
+    output reg data_last
 );
 
 localparam IDLE = 0,
@@ -106,12 +107,12 @@ always@(posedge clk or negedge reset_n) begin
             end
             SAMPLE: begin
                 // Sample
-                SPI_en <= 1;
+                SPI_en <= 4'hF;
                 if(sample_ready) state <= COUNT;
                 else state <= SAMPLE;
             end
             COUNT: begin
-                SPI_en <= 1;
+                SPI_en <= 4'hF;
                 if (sample_counter <= SAMPLES) begin
                     sample_counter <= sample_counter + 1;
                     state <= SAMPLE;
@@ -123,7 +124,7 @@ always@(posedge clk or negedge reset_n) begin
             DATA_TO_BARTLETT: begin
                 SPI_en <= 0;
                 if (bartlett_ready) begin
-                    Send_Frame <= 1;
+                    Send_Frame <= 4'hF;
                     data_valid <= 1;
                     if (bartlett_counter < SAMPLES) begin
                         bartlett_counter <= bartlett_counter + 1;
@@ -139,7 +140,7 @@ always@(posedge clk or negedge reset_n) begin
             LAST: begin
                 SPI_en <= 0;
                 if (bartlett_ready) begin
-                    Send_Frame <= 1;
+                    Send_Frame <= 4'hF;
                     data_valid <= 1;
                     data_last <= 1;
                     state <= IDLE;
@@ -157,7 +158,7 @@ always@(posedge clk or negedge reset_n) begin
 end
 
 endmodule
-*/
+
 
 
 module SPI_HANDLER_WRAPPER #(parameter CHANNELS = 4) (

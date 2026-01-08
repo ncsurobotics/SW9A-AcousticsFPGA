@@ -1,16 +1,19 @@
-module SIPO( //Serial in Parallel out shift register
+module SIPO #( //Serial in Parallel out shift register
+	parameter INPUT_WIDTH = 1,
+	parameter OUTPUT_WIDTH = 10
+	)(
     input clk,
-    input data_in, //serial in
+    input [INPUT_WIDTH  - 1 : 0] data_in, //serial in
     input reset_b, //async active low
     input data_logging, //enable
-    output wire[9:0] data_out   //parallel out
+    output wire[OUTPUT_WIDTH - 1:0] data_out   //parallel out
 );
 
-    reg [9:0]  data_buffer;
+    reg [OUTPUT_WIDTH - 1:0]  data_buffer;
 
     always@(posedge clk or negedge reset_b)
     begin
-        if(!reset_b) data_buffer = 10'b0;
+        if(!reset_b) data_buffer = 0;
         
         else
             if(data_logging) 

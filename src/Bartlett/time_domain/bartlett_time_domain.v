@@ -18,7 +18,7 @@ module bartlett_time_domain #(
 	output m_axis_tvalid, m_axis_tlast,
 	output[7:0] m_axis_tdest,
 	
-	output [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] debug_rxx,
+	output [NUM_SIZE - 1:0] debug_rxx,
 	output debug_rxx_valid
 	
 	);
@@ -28,7 +28,7 @@ module bartlett_time_domain #(
 	wire m_axis_max_tvalid, m_axis_max_tlast;
 	
 	
-	wire [`MATRIX_SIZE * `MATRIX_SIZE * NUM_SIZE - 1:0] rxx_data;
+	wire [NUM_SIZE - 1:0] rxx_data;
     wire rxx_valid,rxx_ready;
 	wire[3:0] rxx_tid;
 	wire [NUM_SIZE- 1 : 0] m_axis_weight_tdata;

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2026 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -59,14 +59,14 @@ RING_BUFFER_RAM your_instance_name (
   .ena(ena),      // input wire ena
   .wea(wea),      // input wire [0 : 0] wea
   .addra(addra),  // input wire [7 : 0] addra
-  .dina(dina),    // input wire [31 : 0] dina
-  .douta(douta),  // output wire [31 : 0] douta
+  .dina(dina),    // input wire [9 : 0] dina
+  .douta(douta),  // output wire [9 : 0] douta
   .clkb(clkb),    // input wire clkb
   .enb(enb),      // input wire enb
   .web(web),      // input wire [0 : 0] web
   .addrb(addrb),  // input wire [7 : 0] addrb
-  .dinb(dinb),    // input wire [31 : 0] dinb
-  .doutb(doutb)  // output wire [31 : 0] doutb
+  .dinb(dinb),    // input wire [9 : 0] dinb
+  .doutb(doutb)  // output wire [9 : 0] doutb
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

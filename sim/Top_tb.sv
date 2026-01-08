@@ -18,6 +18,10 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
+// 0 - no print, 1 - some print, 2 - lots of print
+`define LOG_LEVEL 1
+
 module SW9_tb;
     // dut vars
     logic clock_100MHz;
@@ -97,7 +101,7 @@ module SW9_tb;
     // Send UART command task
     task send_UART_command(input [7:0] command);
         begin
-            $display("Sending UART command: %h", command);
+            if(`LOG_LEVEL>=1) $display("Sending UART command: %h", command);
             // Send start bit
             UART_rx = 1'b0;
             #(period_115200Baud);
@@ -131,9 +135,9 @@ module SW9_tb;
             // wait for stop bit
             #(period_115200Baud);
             if (UART_tx != 1'b1) begin
-                $display("UART Response Error: Stop bit not detected");
+                if(`LOG_LEVEL>=1) $display("UART Response Error: Stop bit not detected");
             end else begin
-                $display("Received UART response: %h", response);
+                if(`LOG_LEVEL>=1) $display("Received UART response: %h", response);
             end
         end
     endtask
@@ -168,8 +172,8 @@ module SW9_tb;
     endtask
 
     // send ADC sample task
-    task send_ADC_sample(input integer ADC, input [9:0] sample);
-        // $display("Sending sample to ADC %0d: %h", ADC, sample);
+    task automatic send_ADC_sample(input integer ADC, input [9:0] sample);
+        if(`LOG_LEVEL>=2)$display("Sending sample to ADC %0d: %h", ADC, sample);
         begin
             case (ADC) 
                 1: begin
@@ -179,6 +183,7 @@ module SW9_tb;
                         else if (i < 3) ADC_data1 = 1'b0;
                         else ADC_data1 = sample[12 - i];
                     end
+					if(`LOG_LEVEL>=2)$display("Done sending sample to ADC1: %h", sample);
                 end
                 2: begin 
                     for (int i = 0; i < 14; i = i + 1) begin
@@ -187,6 +192,7 @@ module SW9_tb;
                         else if (i < 3) ADC_data2 = 1'b0;
                         else ADC_data2 = sample[12 - i];
                     end
+					if(`LOG_LEVEL>=2)$display("Done sending sample to ADC2: %h", sample);
                 end
                 3: begin
                     for (int i = 0; i < 14; i = i + 1) begin
@@ -195,6 +201,7 @@ module SW9_tb;
                         else if (i < 3) ADC_data3 = 1'b0;
                         else ADC_data3 = sample[12 - i];
                     end
+					if(`LOG_LEVEL>=2)$display("Done sending sample to ADC3: %h", sample);
                 end
                 4: begin
                     for (int i = 0; i < 14; i = i + 1) begin
@@ -203,16 +210,17 @@ module SW9_tb;
                         else if (i < 3) ADC_data4 = 1'b0;
                         else ADC_data4 = sample[12 - i];
                     end
+					if(`LOG_LEVEL>=2) $display("Done sending sample to ADC4: %h", sample);
                 end
             endcase
         end
     endtask
 
     // sample files (paste your absolute paths here)
-    `define ADC1_sample_file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Bartlett_test_vals/ADC1_samples.txt"
-    `define ADC2_sample_file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Bartlett_test_vals/ADC2_samples.txt"
-    `define ADC3_sample_file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Bartlett_test_vals/ADC3_samples.txt"
-    `define ADC4_sample_file "/home/bigpi/AMD/Vivado/2022.2/Projects/SW9A-AcousticsFPGA/sim/Bartlett_test_vals/ADC4_samples.txt"
+    `define ADC1_sample_file "../../../../sim/Bartlett_test_vals/ADC1_samples.txt"
+    `define ADC2_sample_file "../../../../sim/Bartlett_test_vals/ADC2_samples.txt"
+    `define ADC3_sample_file "../../../../sim/Bartlett_test_vals/ADC3_samples.txt"
+    `define ADC4_sample_file "../../../../sim/Bartlett_test_vals/ADC4_samples.txt"
 
     // clock_100MHz generation
    initial begin
@@ -233,8 +241,8 @@ module SW9_tb;
 
 
         
-        //#(.0028*100000000); // wait for finish
-        //write_regs_to_file();
+        #(.0028*100000000); // wait for finish
+        write_regs_to_file();
                 
     end
 
@@ -248,10 +256,11 @@ module SW9_tb;
         ADC_data1 = 1'b1;
         $readmemh(`ADC1_sample_file, ADC1_samples);
         ADC1_total_samples = $size(ADC1_samples);
-        $display("Detected %0d samples for ADC1", ADC1_total_samples);
+        if(`LOG_LEVEL>=1) $display("Detected %0d samples for ADC1", ADC1_total_samples);
+		if(`LOG_LEVEL>=2) foreach(ADC1_samples[i]) if(i<5)$display("%x",ADC1_samples[i]);
         forever @(negedge ADC_cs1) begin 
             if (ADC1_sample_number < ADC1_total_samples) begin
-                $display("Sending ADC1 Sample Number: %0d, at time %0t", ADC1_sample_number, $time);
+                if(`LOG_LEVEL>=1 && ADC1_sample_number%8==0) $display("Sending ADC1 Sample Number: %0d, at time %0t. Sample = %h", ADC1_sample_number, $time, ADC1_samples[ADC1_sample_number]);
                 send_ADC_sample(1, ADC1_samples[ADC1_sample_number++]);    
             end
             else ADC_data1 = 1'b1;
@@ -262,10 +271,11 @@ module SW9_tb;
         ADC_data2 = 1'b1;
         $readmemh(`ADC2_sample_file, ADC2_samples);
         ADC2_total_samples = $size(ADC2_samples);
-        $display("Detected %0d samples for ADC2", ADC2_total_samples);
+        if(`LOG_LEVEL>=1) $display("Detected %0d samples for ADC2", ADC2_total_samples);
+		if(`LOG_LEVEL>=2) foreach(ADC2_samples[i]) if(i<5) $display("%x",ADC2_samples[i]);
         forever @(negedge ADC_cs2) begin
             if (ADC2_sample_number < ADC2_total_samples) begin
-                $display("Sending ADC2 Sample Number: %0d, at time %0t", ADC2_sample_number, $time);
+                if(`LOG_LEVEL>=1 && ADC2_sample_number%8==0) $display("Sending ADC2 Sample Number: %0d, at time %0t. Sample = %h", ADC2_sample_number,$time, ADC2_samples[ADC2_sample_number]);
                 send_ADC_sample(2, ADC2_samples[ADC2_sample_number++]);    
             end
             else ADC_data2 = 1'b1;
@@ -276,10 +286,11 @@ module SW9_tb;
         ADC_data3 = 1'b1;
         $readmemh(`ADC3_sample_file, ADC3_samples);
         ADC3_total_samples = $size(ADC3_samples);
-        $display("Detected %0d samples for ADC3", ADC3_total_samples);
+        if(`LOG_LEVEL>=1)$display("Detected %0d samples for ADC3", ADC3_total_samples);
+		if(`LOG_LEVEL>=2)foreach(ADC3_samples[i]) if(i<5) $display("%x",ADC3_samples[i]);
         forever @(negedge ADC_cs3) begin
             if (ADC3_sample_number < ADC3_total_samples) begin
-                $display("Sending ADC3 Sample Number: %0d, at time %0t", ADC3_sample_number, $time);
+                if(`LOG_LEVEL>=1 && ADC3_sample_number%8==0) $display("Sending ADC3 Sample Number: %0d, at time %0t. Sample = %h", ADC3_sample_number,$time,ADC3_samples[ADC3_sample_number]);
                 send_ADC_sample(3, ADC3_samples[ADC3_sample_number++]);   
             end 
             else ADC_data3 = 1'b1;
@@ -290,10 +301,11 @@ module SW9_tb;
         ADC_data4 = 1'b1;
         $readmemh(`ADC4_sample_file, ADC4_samples);
         ADC4_total_samples = $size(ADC4_samples);
-        $display("Detected %0d samples for ADC4", ADC4_total_samples);
+        if(`LOG_LEVEL>=1)$display("Detected %0d samples for ADC4", ADC4_total_samples);
+		if(`LOG_LEVEL>=2)foreach(ADC4_samples[i]) if(i<5) $display("%x",ADC4_samples[i]);
         forever @(negedge ADC_cs4) begin
             if (ADC4_sample_number < ADC4_total_samples) begin
-                $display("Sending ADC4 Sample Number: %0d, at time %0t", ADC4_sample_number, $time);
+                if(`LOG_LEVEL>=1 && ADC4_sample_number%8==0) $display("Sending ADC4 Sample Number: %0d, at time %0t. Sample = %h", ADC4_sample_number,$time, ADC4_samples[ADC4_sample_number]);
                 send_ADC_sample(4, ADC4_samples[ADC4_sample_number++]);    
             end
             else ADC_data4 = 1'b1;
