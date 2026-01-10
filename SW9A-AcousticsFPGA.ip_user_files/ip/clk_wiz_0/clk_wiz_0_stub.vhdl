@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Sat Jan  3 16:25:19 2026
+-- Date        : Sat Jan 10 14:46:49 2026
 -- Host        : AustinsPC running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               c:/Users/Aweso/Verilog/Aquapack/top_test/SW9A-AcousticsFPGA/SW9A-AcousticsFPGA.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
@@ -16,7 +16,9 @@ entity clk_wiz_0 is
   Port ( 
     UART_clk : out STD_LOGIC;
     SPI_clk_2x : out STD_LOGIC;
+    clk_100mhz : out STD_LOGIC;
     resetn : in STD_LOGIC;
+    power_down : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
 
@@ -26,6 +28,6 @@ architecture stub of clk_wiz_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "UART_clk,SPI_clk_2x,resetn,clk_in1";
+attribute black_box_pad_pin of stub : architecture is "UART_clk,SPI_clk_2x,clk_100mhz,resetn,power_down,clk_in1";
 begin
 end;

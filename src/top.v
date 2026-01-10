@@ -19,10 +19,150 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+module cmod_a7_board(
+	input sysclk, // 12mhz on board oscillator
+	
+	//LEDS - NOT USED
+	output[1:0] led, // single color leds
+	//output led0_b,//tricolor led blue channel
+	//output led0_g,//tricolor led green channel
+	//output led0_r,//tricolor led red channel
+	
+	//Buttons
+	input [1:0] btn, //on board buttons
+	
+	//PMOD Header JA - NOT USED
+	//inout[7:0] ja, // pmod header
+	
+	// Analog XADC Pins - UNCOMMENT THESE IF USING THE XADC (WE DONT USE IT)
+	//input[1:0] xa_n,negative input
+	//input[1:0] xa_p,positive input
+	
+	//GPIO Pins - number corresponds to physical board pin number
+	input pio1, // UART RX
+	output pio2, // UART TX
+	output pio3, // Acoustic Single Channel 1 - Clock 
+	input pio4, // Acoustic Single Channel 1 - Data
+	output pio5, // Acoustic Single Channel 1 - CS (Chip Select)
+	output pio6, // Acoustic Single Channel 1 - VGA Gain[2] 
+	output pio7, // Acoustic Single Channel 1 - VGA Gain[1]
+	output pio8, // Acoustic Single Channel 1 - VGA Gain[0]
+	input pio9, // not connected
+	input pio10,// not connected
+	input pio11,// not connected
+	input pio12,// not connected
+	input pio13,// not connected
+	input pio14,// not connected
+	// pio15 == analog
+	// pio 16 == analog
+	input pio17,// not connected
+	input pio18,// reset_n pushbutton (active low)
+	input pio19,// not connected
+	output pio20,// debug header 4
+	output pio21,// debug header 3
+	output pio22,// debug header 2
+	output pio23,// debug header 1
+	// pio24 == +3.3V
+	// pio25 == GND
+	input pio26,// not connected
+	input pio27,// not connected
+	input pio28,// not connected
+	output pio29,// Acoustic Single Channel 4 - CS (Chip Select) 
+	output pio30,// Acoustic Single Channel 4 - Clock
+	input pio31,// Acoustic Single Channel 4 - Data
+	output pio32,// Acoustic Single Channel 4 - VGA Gain[0] 
+	output pio33,// Acoustic Single Channel 4 - VGA Gain[1]
+	output pio34,// Acoustic Single Channel 4 - VGA Gain[2]
+	input pio35,// not connected
+	output pio36,// Acoustic Single Channel 3 - VGA Gain[2]
+	output pio37,// Acoustic Single Channel 3 - VGA Gain[1]
+	output pio38,// Acoustic Single Channel 3 - VGA Gain[0]
+	output pio39,// Acoustic Single Channel 3 - CS (Chip Select)  
+	input pio40,// Acoustic Single Channel 3 - Data
+	output pio41,// Acoustic Single Channel 3 - Clock
+	input pio42,// not connected
+	input pio44,// Acoustic Single Channel 2 - Data
+	output pio43,// Acoustic Single Channel 2 - Clock
+	output pio45,// Acoustic Single Channel 2 - CS (Chip Select)  
+	output pio46,// Acoustic Single Channel 2 - VGA Gain[0]
+	output pio47,// Acoustic Single Channel 2 - VGA Gain[1]
+	output pio48// Acoustic Single Channel 2 - VGA Gain[2]
+	
+	
+	// UART - Connects to USB port- NOT USED
+	//input uart_txd_in,
+	//output uart_rxd_out,
+	
+	//Crypto 1 Wire interface - NOT USED
+	//input crypto_sda, 
+
+	// Cellular RAM - 512kb of off chip on board SRAM - NOT USED
+	// output[19:0] MemAdr, // memory address
+	// inout[7:0] MemDB, // memory data line
+	// output RamOEn, // output enable - active low
+	// output RamWEn, // write enable - active low
+	// output RAMCEn // chip enable - active low
+	);
+	
+	
+	
+    top top_inst (
+        .reset_b(pio18),
+        .clk_12mhz(sysclk),
+
+        // ADCs
+        .ADC_clk1(pio3),
+        .ADC_cs1(pio5),
+        .ADC_serial_data1(pio4),
+
+        .ADC_clk2(pio43),
+        .ADC_cs2(pio45),
+        .ADC_serial_data2(pio44),
+		
+        .ADC_clk3(pio41),
+        .ADC_cs3(pio39),
+        .ADC_serial_data3(pio40),
+
+        .ADC_clk4(pio30),
+        .ADC_cs4(pio29),
+        .ADC_serial_data4(pio31),
+        
+		// UART
+        .UART_tx(pio2),
+        .UART_rx(pio1),
+
+        // VGA
+        .VGA1({pio6,pio7,pio8}),
+        .VGA2({pio48,pio47,pio46}),
+        .VGA3({pio36,pio37,pio38}),
+        .VGA4({pio34,pio33,pio32}),
+
+        // Other I/O
+        .debug1(pio23),
+        .debug2(pio22),
+        .debug3(pio21),
+        .debug4(pio20)
+
+    );
+    
+	reg led_button;
+	always@(posedge sysclk or negedge pio18)begin
+		if(!pio18)begin
+			led_button <= 0;
+		end else begin
+			led_button <= led_button ^ btn[0];
+		end
+	end
+	assign led[0] = led_button & sysclk; //%50 duty cycle
+	assign led[1] = 0;
+	
+	
+endmodule
+	
 
 module top(
     input reset_b,
-    input clk,
+    input clk_12mhz,
 
     // ADCs
     output ADC_clk1,
@@ -45,10 +185,10 @@ module top(
     input UART_rx,
 
     // VGA
-    output VGA1,
-    output VGA2,
-    output VGA3,
-    output VGA4,
+    output[2:0] VGA1,
+    output[2:0] VGA2,
+    output[2:0] VGA3,
+    output[2:0] VGA4,
 
     // Other I/O
     output debug1,
@@ -59,13 +199,16 @@ module top(
 
 ////////////////////////////////////////////////////////////////////////////////////////////`
     // clocking wizard and clock divider to generate required clocks
-    wire UART_clk, SPI_clk_2x, SPI_clk;
+    wire UART_clk, SPI_clk_2x, SPI_clk,clk_100mhz;
 
     clk_wiz_0 clk_wiz_inst (
-        .clk_in1(clk),      // input 100 MHz
+        .clk_in1(clk_12mhz),      // input 12 MHz
         .resetn(reset_b),   // active low reset
         .UART_clk(UART_clk),  // output 5.76 MHz
-        .SPI_clk_2x(SPI_clk_2x)   // output 6 MHz (IP cannot output below 5MHz)
+        .SPI_clk_2x(SPI_clk_2x),   // output 6 MHz (IP cannot output below 5MHz)
+		.power_down(0),   // input power_down
+
+		.clk_100mhz(clk_100mhz) // output 100.28571
     );
     clk_div clk_div_inst (
         .clk_in(SPI_clk_2x), // input 6 MHz
@@ -95,7 +238,7 @@ module top(
 
     UART UART_inst(	
         .UART_clk(UART_clk),
-        .clk(clk),
+        .clk(clk_100mhz),
         .reset_b(reset_b),
         .TX_Data_in(Word_To_Send),
         .TX_en(Word_To_Send_en),
@@ -109,7 +252,7 @@ module top(
     );
 
     UART_TRANSACTION_HANDLER UART_TRANSACTION_HANDLER_inst( // handles communication between UART and register map
-        .clk(clk),
+        .clk(clk_100mhz),
         .reset_n(reset_b),
         .rx_data(rx_data),
         .rx_ready(rx_ready),
@@ -133,7 +276,7 @@ module top(
     wire [31:0] reg_map_datain, reg_map_dataout;
 
     command_reader command_reader_inst (
-        .clk(clk),
+        .clk(clk_100mhz),
         .rst_n(reset_b),
         .uart_addr(reg_map_addr),
         .uart_wr_en(op),
@@ -169,7 +312,7 @@ assign VGA4 = vga;
     wire [9:0] ADC_data1, ADC_data2, ADC_data3, ADC_data4;
 
 SPI_WRAPPER SPI_WRAPPER_inst( //contains 4 parallelized SPI channels.
-    .clk(clk), // 100 MHz (input)
+    .clk(clk_100mhz), // 100 MHz (input)
     .SPI_clk(SPI_clk), // 3 MHz (input)
     .reset_b(reset_b),  // active low reset (input)
     .data_in({ADC_serial_data1, ADC_serial_data2, ADC_serial_data3, ADC_serial_data4}), //From outside FPGA
@@ -201,7 +344,7 @@ ADC_SPI_LTC1197 ADC_SPI_LTC1197_inst(
 // memories to store ADC data before sending to Bartlett module
 RING_BUFFER RING_BUFFER_channel_1_inst(
 
-    .clk(clk),
+    .clk(clk_100mhz),
     .reset_b(reset_b),
     .Input_Data(ADC_data1),
     .Input_Data_Ready(ADC_Ready1),
@@ -214,7 +357,7 @@ RING_BUFFER RING_BUFFER_channel_1_inst(
 
 RING_BUFFER RING_BUFFER_channel_2_inst(
 
-    .clk(clk),
+    .clk(clk_100mhz),
     .reset_b(reset_b),
     .Input_Data(ADC_data2),
     .Input_Data_Ready(ADC_Ready2),
@@ -227,7 +370,7 @@ RING_BUFFER RING_BUFFER_channel_2_inst(
 
 RING_BUFFER RING_BUFFER_channel_3_inst(
 
-    .clk(clk),
+    .clk(clk_100mhz),
     .reset_b(reset_b),
     .Input_Data(ADC_data3),
     .Input_Data_Ready(ADC_Ready3),
@@ -240,7 +383,7 @@ RING_BUFFER RING_BUFFER_channel_3_inst(
 
 RING_BUFFER RING_BUFFER_channel_4_inst(
 
-    .clk(clk),
+    .clk(clk_100mhz),
     .reset_b(reset_b),
     .Input_Data(ADC_data4),
     .Input_Data_Ready(ADC_Ready4),
@@ -253,7 +396,7 @@ RING_BUFFER RING_BUFFER_channel_4_inst(
 
 // Controls the SPI transaction process
 SPI_TRANSACTION_HANDLER SPI_TRANSACTION_HANDLER_inst(
-    .clk(clk),
+    .clk(clk_100mhz),
     .reset_n(reset_b),
 
     .sample_ready({ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4}),
@@ -286,7 +429,7 @@ SPI_TRANSACTION_HANDLER SPI_TRANSACTION_HANDLER_inst(
 	wire[5:0] s_axis_bartlett_config_tstrb;
 
     bartlett_datapath bartlett_inst(
-    .clk(clk), // (in)
+    .clk(clk_100mhz), // (in)
     .reset_b(reset_b), //(in)
 	
     .s_axis_tdata({	16'd0,{6{bartlett_CH1[9]}},bartlett_CH1, 
@@ -333,7 +476,7 @@ SPI_TRANSACTION_HANDLER SPI_TRANSACTION_HANDLER_inst(
 	// Controller for bartlett config
 	
 	bartlett_config_controller bartlett_config_controller_inst(
-		.clk(clk),
+		.clk(clk_100mhz),
 		.reset_n(reset_b),
 		.max_frequency(max_frequency),
 		.min_frequency(min_frequency),

@@ -55,7 +55,7 @@ module command_reader (
   
   // uart reading
   always @(*) begin
-    if (uart_addr == 19)
+    if (uart_addr <= 19)
       uart_data_out = bartlett_flipflops[uart_addr];
     else if (uart_addr >= 20 && uart_addr <= 25)
       uart_data_out = uart_flipflops[uart_addr];  

@@ -55,13 +55,14 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// UART_clk___5.76000______0.000______50.0______554.734____328.297
-// SPI_clk_2x___6.00000______0.000______50.0______550.936____328.297
+// UART_clk___5.76000______0.000______50.0______822.039____643.744
+// SPI_clk_2x___6.00000______0.000______50.0______816.735____643.744
+// clk_100mhz__100.28571______0.000______50.0______503.549____643.744
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
 //----------------------------------------------------------------------------
-// __primary_________100.000____________0.010
+// __primary______________12____________0.010
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
@@ -74,8 +75,10 @@
     // Clock out ports
     .UART_clk(UART_clk),     // output UART_clk
     .SPI_clk_2x(SPI_clk_2x),     // output SPI_clk_2x
+    .clk_100mhz(clk_100mhz),     // output clk_100mhz
     // Status and control signals
     .resetn(resetn), // input resetn
+    .power_down(power_down),   // input power_down
    // Clock in ports
     .clk_in1(clk_in1)      // input clk_in1
 );

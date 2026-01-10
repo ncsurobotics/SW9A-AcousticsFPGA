@@ -1,2 +1,2 @@
-xfft_0.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xfft_0/sim/xfft_0.vhd,
+xfft_0.vhd,vhdl,xil_defaultlib,../../../../bartlett.gen/sources_1/ip/xfft_0_1/sim/xfft_0.vhd,
 glbl.v,Verilog,xil_defaultlib,glbl.v

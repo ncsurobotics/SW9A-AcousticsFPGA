@@ -13,7 +13,7 @@ view structure
 
 do {clk_wiz_0.udo}
 
-run
+run 1000ns
 
 endsim
 

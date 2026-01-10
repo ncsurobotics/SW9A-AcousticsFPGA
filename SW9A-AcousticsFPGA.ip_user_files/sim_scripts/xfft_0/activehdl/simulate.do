@@ -13,7 +13,7 @@ view structure
 
 do {xfft_0.udo}
 
-run
+run 1000ns
 
 endsim
 

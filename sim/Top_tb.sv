@@ -22,9 +22,18 @@
 // 0 - no print, 1 - some print, 2 - lots of print
 `define LOG_LEVEL 1
 
+// sample files (paste your absolute paths here)
+`define ADC1_sample_file "../../../../sim/Bartlett_test_vals/ADC1_samples.txt"
+`define ADC2_sample_file "../../../../sim/Bartlett_test_vals/ADC2_samples.txt"
+`define ADC3_sample_file "../../../../sim/Bartlett_test_vals/ADC3_samples.txt"
+`define ADC4_sample_file "../../../../sim/Bartlett_test_vals/ADC4_samples.txt"
+
+`define UART_dump_path "../../../../sim/Bartlett_test_vals/output.txt"
+
+
 module SW9_tb;
     // dut vars
-    logic clock_100MHz;
+    logic clock_12MHz;
     logic reset_b;
 
     logic ADC_clk1, ADC_clk2, ADC_clk3, ADC_clk4;
@@ -57,7 +66,7 @@ module SW9_tb;
     // DUT instantiation
     top DUT (
         .reset_b(reset_b),
-        .clk(clock_100MHz),
+        .clk(clock_12MHz),
 
         // ADCs
         .ADC_clk1(ADC_clk1),
@@ -92,9 +101,35 @@ module SW9_tb;
 
     );
     
+	
+	
+	UART_RX UART_RX_inst(
+    
+        .clk(clock_12MHz),
+        .reset_b(reset_b),
+        .RX_Data_in(UART_tx),
+        
+        .RX_Data_out(UART_TX_WORD),
+        .RX_Data_Ready(UART_TX_READY)
+        
+    );
+	logic[7:0] UART_buffer[3:0];
+	wire[7:0] UART_TX_WORD;
+	wire UART_TX_READY;
+	logic displayed_tx_word=0;
+	always @(*)begin
+		if(UART_TX_READY && !displayed_tx_word)begin
+			if(`LOG_LEVEL>=1) $display("Received UART response: %h", UART_TX_WORD);
+			displayed_tx_word = 1;
+		end else begin
+			displayed_tx_word = 0;
+		end
+	end
+	
+	
     // parameters / defines
     parameter 
-        period_100MHz = 10,  
+        period_12MHz = 83.333333,  
         period_115200Baud = 8680.55,
         period_3MHz = 333.33333;
 
@@ -118,32 +153,9 @@ module SW9_tb;
         end
     endtask
 
-    task recieve_UART_response();
-    logic [7:0] response;
-        begin
-            // wait for start bit
-            @(negedge UART_tx);
-            #(period_115200Baud / 2); // sample in the middle of the bit
-
-            // read data bits
-            
-            for (int i = 0; i < 8; i = i + 1) begin
-                #(period_115200Baud);
-                response[7- i] = UART_tx;
-            end
-
-            // wait for stop bit
-            #(period_115200Baud);
-            if (UART_tx != 1'b1) begin
-                if(`LOG_LEVEL>=1) $display("UART Response Error: Stop bit not detected");
-            end else begin
-                if(`LOG_LEVEL>=1) $display("Received UART response: %h", response);
-            end
-        end
-    endtask
 
     task write_regs_to_file();
-    int file = $fopen("output.txt", "w");
+    int file = $fopen(`UART_dump_path, "w");
     int addr = 0;
     logic [7:0] rx_data;
         begin
@@ -152,15 +164,9 @@ module SW9_tb;
             for(addr = 0; addr < 26; addr = addr + 1) begin
                 send_UART_command(addr); // write command
                 // wait for start bit
-                @(negedge UART_tx);
-                #(period_115200Baud / 2);
-            
-                for (int i = 0; i < 8; i = i + 1) begin
-                    #(period_115200Baud);
-                    rx_data[7- i] = UART_tx;
-                end
+                wait(UART_TX_READY);
+				rx_data = UART_TX_WORD;
 
-                #(period_115200Baud);
                 if (UART_tx != 1'b1) begin
                     $fdisplay(file, "%h\t ERROR\t %0t", addr, $time);
                 end else begin
@@ -216,16 +222,11 @@ module SW9_tb;
         end
     endtask
 
-    // sample files (paste your absolute paths here)
-    `define ADC1_sample_file "../../../../sim/Bartlett_test_vals/ADC1_samples.txt"
-    `define ADC2_sample_file "../../../../sim/Bartlett_test_vals/ADC2_samples.txt"
-    `define ADC3_sample_file "../../../../sim/Bartlett_test_vals/ADC3_samples.txt"
-    `define ADC4_sample_file "../../../../sim/Bartlett_test_vals/ADC4_samples.txt"
 
-    // clock_100MHz generation
+    // clk_12mhz generation
    initial begin
-        clock_100MHz = 0;
-        forever #(period_100MHz/2) clock_100MHz = ~clock_100MHz;
+        clock_12MHz = 0;
+        forever #(period_12MHz/2) clock_12MHz = ~clock_12MHz;
     end
 
     // Reset generation
@@ -240,16 +241,13 @@ module SW9_tb;
         UART_rx = 1'b1; // idle state
 
 
-        
-        #(.0028*100000000); // wait for finish
-        write_regs_to_file();
+       
+		
+		#(2900000); // wait for finish. 2.9ms
+		write_regs_to_file();	
                 
     end
 
-    // UART_Rx monitoring
-    initial begin
-        forever recieve_UART_response();
-    end
 
     // ADC stimulus
     initial begin
