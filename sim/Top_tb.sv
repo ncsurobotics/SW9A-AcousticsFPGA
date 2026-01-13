@@ -66,7 +66,7 @@ module SW9_tb;
     // DUT instantiation
     top DUT (
         .reset_b(reset_b),
-        .clk(clock_12MHz),
+        .clk_12mhz(clock_12MHz),
 
         // ADCs
         .ADC_clk1(ADC_clk1),

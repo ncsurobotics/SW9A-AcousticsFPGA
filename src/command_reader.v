@@ -29,7 +29,7 @@ module command_reader (
   integer i;
   always @(posedge clk or negedge rst_n) begin  
     if (!rst_n) begin
-      for (i = 20; i <= 25; i = i + 1)
+      for (i = 20; i < 20; i = i + 1)
         uart_flipflops[i] <= 0;
       // default stuff
       uart_flipflops[20] <= 32'h0001000;  // threshold
@@ -45,7 +45,7 @@ module command_reader (
   integer j;
   always @(posedge clk or negedge rst_n) begin  
     if (!rst_n) begin
-      for (j = 0; j <= 19; j = j + 1)
+      for (j = 0; j < 19; j = j + 1)
         bartlett_flipflops[j] <= 0;
       bartlett_flipflops[19] <= 32'hFFFF;  // default value for the maxangle
     end else if (bartlett_wr_en && bartlett_addr <= 19) begin
@@ -59,8 +59,6 @@ module command_reader (
       uart_data_out = bartlett_flipflops[uart_addr];
     else if (uart_addr >= 20 && uart_addr <= 25)
       uart_data_out = uart_flipflops[uart_addr];  
-    else
-      uart_data_out = 32'hzzzzzzzz;  // invalid read
   end
   
   // bartlett reading

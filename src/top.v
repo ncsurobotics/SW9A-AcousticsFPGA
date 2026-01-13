@@ -156,7 +156,6 @@ module cmod_a7_board(
 	assign led[0] = led_button & sysclk; //%50 duty cycle
 	assign led[1] = 0;
 	
-	
 endmodule
 	
 
@@ -491,8 +490,8 @@ SPI_TRANSACTION_HANDLER SPI_TRANSACTION_HANDLER_inst(
 
 //////////////////////////////////////////////////////////////////////////////////////////////
     // assign debug outputs
-    assign debug1 = 1'b0;
-    assign debug2 = 1'b0;
+    assign debug1 = 1'b1;
+    assign debug2 = 1'b1;
     assign debug3 = 1'b0;
     assign debug4 = 1'b0;
 

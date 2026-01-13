@@ -1,0 +1,2 @@
+cmpy_rxx.vhd,vhdl,xil_defaultlib,../../../../bartlett.gen/sources_1/ip/cmpy_rxx/sim/cmpy_rxx.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

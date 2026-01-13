@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Sat Jan  3 16:32:58 2026
+// Date        : Sat Jan  3 16:32:55 2026
 // Host        : AustinsPC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/Aweso/Verilog/Aquapack/top_test/SW9A-AcousticsFPGA/bartlett.gen/sources_1/ip/cmpy_1/cmpy_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top cmpy_1 -prefix
+//               cmpy_1_ cmpy_1_stub.v
 // Design      : cmpy_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
