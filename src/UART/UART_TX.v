@@ -46,7 +46,9 @@ assign TX_Ready = 1'b1;
 
 // Clock Domain Crossing for TX_Data_in
 xpm_fifo_async #(
-    .FIFO_WRITE_DEPTH(9'd256), .READ_DATA_WIDTH(4'd8), .WRITE_DATA_WIDTH(4'd8)
+    .FIFO_WRITE_DEPTH(256),
+    .READ_DATA_WIDTH(8), 
+    .WRITE_DATA_WIDTH(8)
 ) MASTER_TO_UART(
     .din(TX_Data_in),
     .rst(~reset_b), // FIFO has an active high reset

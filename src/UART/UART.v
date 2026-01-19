@@ -23,16 +23,14 @@ module UART #(parameter WORD_SIZE=8, parameter WORD_SIZE_WIDTH=4) (
 
     input clk,
     input UART_clk,
-    //input Slow_clk,
     input reset_b,
     input [WORD_SIZE-1:0] TX_Data_in,
     input TX_en,
-    //input TX_Write_en,
     input RX_Data_in,
     
     output wire TX_Data_out,
     output wire TX_Ready_To_Send,
-    output /*reg*/wire [WORD_SIZE-1:0] RX_Data_out,
+    output wire [WORD_SIZE-1:0] RX_Data_out,
     output wire RX_Data_Ready
 
     

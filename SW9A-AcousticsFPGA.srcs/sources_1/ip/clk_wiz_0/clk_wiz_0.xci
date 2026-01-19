@@ -132,10 +132,10 @@
         "CLKFB_OUT_N_PORT": [ { "value": "clkfb_out_n", "resolve_type": "user", "usage": "all" } ],
         "PLATFORM": [ { "value": "UNKNOWN", "resolve_type": "user", "usage": "all" } ],
         "SUMMARY_STRINGS": [ { "value": "empty", "resolve_type": "user", "usage": "all" } ],
-        "USE_LOCKED": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+        "USE_LOCKED": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "CALC_DONE": [ { "value": "empty", "resolve_type": "user", "usage": "all" } ],
         "USE_RESET": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "USE_POWER_DOWN": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+        "USE_POWER_DOWN": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "USE_STATUS": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "USE_FREEZE": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
         "USE_CLK_VALID": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
@@ -319,10 +319,10 @@
         "C_CLKFB_IN_SIGNALING": [ { "value": "SINGLE", "resolve_type": "generated", "usage": "all" } ],
         "C_USE_RESET": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_RESET_LOW": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_USE_LOCKED": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_USE_LOCKED": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_USE_INCLK_STOPPED": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_USE_CLKFB_STOPPED": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_USE_POWER_DOWN": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_USE_POWER_DOWN": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_USE_STATUS": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_USE_FREEZE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_NUM_OUT_CLKS": [ { "value": "3", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -615,7 +615,7 @@
         "UART_clk": [ { "direction": "out" } ],
         "SPI_clk_2x": [ { "direction": "out" } ],
         "clk_100mhz": [ { "direction": "out" } ],
-        "power_down": [ { "direction": "in" } ]
+        "locked": [ { "direction": "out" } ]
       },
       "interfaces": {
         "resetn": {

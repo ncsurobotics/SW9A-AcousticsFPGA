@@ -37,60 +37,60 @@ vmap floating_point_v7_0_20 modelsim_lib/msim/floating_point_v7_0_20
 vmap xfft_v9_1_8 modelsim_lib/msim/xfft_v9_1_8
 vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 
-vlog -work xpm  -incr -mfcu  -sv \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+vlog -work xpm -64 -incr -mfcu  -sv \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
 
-vcom -work xpm  -93  \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
+vcom -work xpm -64 -93  \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vcom -work xbip_utils_v3_0_10  -93  \
+vcom -work xbip_utils_v3_0_10 -64 -93  \
 "../../../ipstatic/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
 
-vcom -work axi_utils_v2_0_6  -93  \
+vcom -work axi_utils_v2_0_6 -64 -93  \
 "../../../ipstatic/hdl/axi_utils_v2_0_vh_rfs.vhd" \
 
-vcom -work c_reg_fd_v12_0_6  -93  \
+vcom -work c_reg_fd_v12_0_6 -64 -93  \
 "../../../ipstatic/hdl/c_reg_fd_v12_0_vh_rfs.vhd" \
 
-vcom -work xbip_dsp48_wrapper_v3_0_4  -93  \
+vcom -work xbip_dsp48_wrapper_v3_0_4 -64 -93  \
 "../../../ipstatic/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
 
-vcom -work xbip_pipe_v3_0_6  -93  \
+vcom -work xbip_pipe_v3_0_6 -64 -93  \
 "../../../ipstatic/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
 
-vcom -work xbip_dsp48_addsub_v3_0_6  -93  \
+vcom -work xbip_dsp48_addsub_v3_0_6 -64 -93  \
 "../../../ipstatic/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd" \
 
-vcom -work xbip_addsub_v3_0_6  -93  \
+vcom -work xbip_addsub_v3_0_6 -64 -93  \
 "../../../ipstatic/hdl/xbip_addsub_v3_0_vh_rfs.vhd" \
 
-vcom -work c_addsub_v12_0_14  -93  \
+vcom -work c_addsub_v12_0_14 -64 -93  \
 "../../../ipstatic/hdl/c_addsub_v12_0_vh_rfs.vhd" \
 
-vcom -work c_mux_bit_v12_0_6  -93  \
+vcom -work c_mux_bit_v12_0_6 -64 -93  \
 "../../../ipstatic/hdl/c_mux_bit_v12_0_vh_rfs.vhd" \
 
-vcom -work c_shift_ram_v12_0_14  -93  \
+vcom -work c_shift_ram_v12_0_14 -64 -93  \
 "../../../ipstatic/hdl/c_shift_ram_v12_0_vh_rfs.vhd" \
 
-vcom -work xbip_bram18k_v3_0_6  -93  \
+vcom -work xbip_bram18k_v3_0_6 -64 -93  \
 "../../../ipstatic/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
 
-vcom -work mult_gen_v12_0_18  -93  \
+vcom -work mult_gen_v12_0_18 -64 -93  \
 "../../../ipstatic/hdl/mult_gen_v12_0_vh_rfs.vhd" \
 
-vcom -work cmpy_v6_0_21  -93  \
+vcom -work cmpy_v6_0_21 -64 -93  \
 "../../../ipstatic/hdl/cmpy_v6_0_vh_rfs.vhd" \
 
-vcom -work floating_point_v7_0_20  -93  \
+vcom -work floating_point_v7_0_20 -64 -93  \
 "../../../ipstatic/hdl/floating_point_v7_0_vh_rfs.vhd" \
 
-vcom -work xfft_v9_1_8  -93  \
+vcom -work xfft_v9_1_8 -64 -93  \
 "../../../ipstatic/hdl/xfft_v9_1_vh_rfs.vhd" \
 
-vcom -work xil_defaultlib  -93  \
+vcom -work xil_defaultlib -64 -93  \
 "../../../../bartlett.gen/sources_1/ip/xfft_0_1/sim/xfft_0.vhd" \
 
 vlog -work xil_defaultlib \

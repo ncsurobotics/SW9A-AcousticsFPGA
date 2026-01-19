@@ -46,7 +46,7 @@ vcom -work cmpy_v6_0_21 -93  \
 "../../../ipstatic/hdl/cmpy_v6_0_vh_rfs.vhd" \
 
 vcom -work xil_defaultlib -93  \
-"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd" \
+"../../../../bartlett.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

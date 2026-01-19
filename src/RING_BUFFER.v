@@ -22,7 +22,7 @@
 
 module RING_BUFFER #(
 	parameter WORD_SIZE = 10,
-	parameter WORD_COUNT = 256
+	parameter WORD_COUNT = 257
 	)(
 
     input clk,
@@ -34,7 +34,11 @@ module RING_BUFFER #(
     input Triggered,
     
     output RAM_Overflow,
-    output [WORD_SIZE - 1:0] Output_Data
+    output [WORD_SIZE - 1:0] Output_Data,
+
+    // debug
+    output [$clog2(WORD_COUNT) - 1:0] addr_write_test,
+    output [$clog2(WORD_COUNT) - 1:0] addr_read_test
 
 );
 
@@ -53,8 +57,12 @@ module RING_BUFFER #(
         .RAM_Read_Address_sel(RAM_Read_Address_sel),
         
         .RAM_Overflow(RAM_Overflow),
-        .Output_Data(Output_Data)
-            
+        .Output_Data(Output_Data),
+
+        // debug
+
+        .addr_write_test(addr_write_test),
+        .addr_read_test(addr_read_test)
     );
     
     RING_BUFFER_CONTROLLER RING_BUFFER_CONTROLLER_inst(
@@ -88,10 +96,18 @@ module RING_BUFFER_DATAPATH #(
     input RAM_Read_Address_sel,
     
     output RAM_Overflow,
-    output [WORD_SIZE - 1:0] Output_Data
+    output [WORD_SIZE - 1:0] Output_Data,
+
+    // debug
+    output [$clog2(WORD_COUNT) - 1:0] addr_write_test,
+    output [$clog2(WORD_COUNT) - 1:0] addr_read_test
 
 );
     
+    // debug
+    assign addr_write_test = RAM_Write_Address;
+    assign addr_read_test = RAM_Read_Address;
+
     reg  [$clog2(WORD_COUNT) - 1:0] RAM_Write_Address;
     reg  [$clog2(WORD_COUNT) - 1:0] Head_Address;
     reg  [$clog2(WORD_COUNT) - 1:0] RAM_Read_Address;
@@ -109,7 +125,7 @@ module RING_BUFFER_DATAPATH #(
             RAM_Write_Address = 0;
         end
         else begin
-            RAM_Write_Address = Next_Write_Address;
+            RAM_Write_Address = (RAM_Write_Address >= WORD_COUNT - 2) ? 0 : Next_Write_Address;
         end
             
     end    
@@ -124,7 +140,7 @@ module RING_BUFFER_DATAPATH #(
             Head_Address = 0;
         end
         else begin
-            Head_Address = Next_Head_Address;
+            Head_Address = (Head_Address >= WORD_COUNT - 2) ? 0 : Next_Head_Address;
         end
     end
     
@@ -137,7 +153,7 @@ module RING_BUFFER_DATAPATH #(
             RAM_Read_Address = 0;
         end
         else begin
-            RAM_Read_Address = Next_Read_Address;
+            RAM_Read_Address = (RAM_Read_Address >= WORD_COUNT - 2) ? 0 : Next_Read_Address;
         end
     end
     
@@ -152,7 +168,8 @@ module RING_BUFFER_DATAPATH #(
         .addra(RAM_Write_Address),
         .addrb(RAM_Read_Address),
         .dina(Input_Data),
-        .doutb(Output_Data)  
+        .doutb(Output_Data),
+        .dinb(1'b0)  
         
     );
     

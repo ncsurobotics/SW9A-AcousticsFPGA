@@ -38,12 +38,12 @@ vmap xfft_v9_1_8 riviera/xfft_v9_1_8
 vmap xil_defaultlib riviera/xil_defaultlib
 
 vlog -work xpm  -sv2k12 \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
 
 vcom -work xpm -93  \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xbip_utils_v3_0_10 -93  \
 "../../../ipstatic/hdl/xbip_utils_v3_0_vh_rfs.vhd" \

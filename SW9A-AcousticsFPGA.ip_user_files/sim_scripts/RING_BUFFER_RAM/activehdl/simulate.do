@@ -13,7 +13,7 @@ view structure
 
 do {RING_BUFFER_RAM.udo}
 
-run 1000ns
+run
 
 endsim
 

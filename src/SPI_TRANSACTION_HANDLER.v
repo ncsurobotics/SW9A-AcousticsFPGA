@@ -67,6 +67,9 @@ module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256, parameter CHANNELS = 4
     
     input bartlett_ready,
 
+    input [7:0] read_addr,
+    input [7:0] write_addr,
+
     output reg[CHANNELS - 1 : 0] SPI_en,
     output reg[CHANNELS - 1 : 0] Send_Frame,
 

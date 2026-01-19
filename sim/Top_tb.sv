@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // 0 - no print, 1 - some print, 2 - lots of print
-`define LOG_LEVEL 1
+`define LOG_LEVEL 2
 
 // sample files (paste your absolute paths here)
 `define ADC1_sample_file "../../../../sim/Bartlett_test_vals/ADC1_samples.txt"
@@ -32,6 +32,10 @@
 
 
 module SW9_tb;
+initial begin
+	#50058
+    $stop;   
+end
     // dut vars
     logic clock_12MHz;
     logic reset_b;
@@ -43,7 +47,7 @@ module SW9_tb;
     reg UART_rx;
     logic UART_tx;
 
-    logic VGA1, VGA2, VGA3, VGA4;
+    logic [2:0] VGA1, VGA2, VGA3, VGA4;
 
     logic debug1, debug2, debug3, debug4;
 
@@ -101,18 +105,6 @@ module SW9_tb;
 
     );
     
-	
-	
-	UART_RX UART_RX_inst(
-    
-        .clk(clock_12MHz),
-        .reset_b(reset_b),
-        .RX_Data_in(UART_tx),
-        
-        .RX_Data_out(UART_TX_WORD),
-        .RX_Data_Ready(UART_TX_READY)
-        
-    );
 	logic[7:0] UART_buffer[3:0];
 	wire[7:0] UART_TX_WORD;
 	wire UART_TX_READY;
@@ -153,6 +145,29 @@ module SW9_tb;
         end
     endtask
 
+task recieve_UART_response();
+    logic [7:0] response;
+        begin
+            // wait for start bit
+            @(negedge UART_tx);
+            #(period_115200Baud / 2); // sample in the middle of the bit
+
+            // read data bits (LSB first)
+            
+            for (int i = 0; i < 8; i = i + 1) begin
+                #(period_115200Baud);
+                response[i] = UART_tx;
+            end
+
+            // wait for stop bit
+            #(period_115200Baud);
+            if (UART_tx != 1'b1) begin
+                $display("UART Response Error: Stop bit not detected");
+            end else begin
+                $display("Received UART response: %h", response);
+            end
+        end
+    endtask
 
     task write_regs_to_file();
     int file = $fopen(`UART_dump_path, "w");
@@ -232,21 +247,28 @@ module SW9_tb;
     // Reset generation
     initial begin
         reset_b = 0;
-        #1000 reset_b = 1;
+        #50000 
+		if(`LOG_LEVEL>=2) $display("Ending reset");
+		reset_b = 1;
     end
 
     // UART_Tx stimulus
     initial begin
         // Initialize inputs
         UART_rx = 1'b1; // idle state
-
-
-       
+        #350000 
+		if(`LOG_LEVEL>=2) $display("Sending UART command");
+		send_UART_command(8'd22); // example command
 		
-		#(2900000); // wait for finish. 2.9ms
-		write_regs_to_file();	
-                
+		#(3000000); // wait for finish. 3ms
+		if(`LOG_LEVEL>=2) $display("Writing reg to file");
+		write_regs_to_file();	         
     end
+
+    // UART_Rx monitoring
+    initial begin
+        forever recieve_UART_response();
+    end    
 
 
     // ADC stimulus
@@ -260,6 +282,7 @@ module SW9_tb;
             if (ADC1_sample_number < ADC1_total_samples) begin
                 if(`LOG_LEVEL>=1 && ADC1_sample_number%8==0) $display("Sending ADC1 Sample Number: %0d, at time %0t. Sample = %h", ADC1_sample_number, $time, ADC1_samples[ADC1_sample_number]);
                 send_ADC_sample(1, ADC1_samples[ADC1_sample_number++]);    
+                if (ADC1_sample_number >= ADC1_total_samples) ADC1_sample_number = 0;
             end
             else ADC_data1 = 1'b1;
         end    
@@ -274,7 +297,8 @@ module SW9_tb;
         forever @(negedge ADC_cs2) begin
             if (ADC2_sample_number < ADC2_total_samples) begin
                 if(`LOG_LEVEL>=1 && ADC2_sample_number%8==0) $display("Sending ADC2 Sample Number: %0d, at time %0t. Sample = %h", ADC2_sample_number,$time, ADC2_samples[ADC2_sample_number]);
-                send_ADC_sample(2, ADC2_samples[ADC2_sample_number++]);    
+                send_ADC_sample(2, ADC2_samples[ADC2_sample_number++]);   
+                if (ADC2_sample_number >= ADC2_total_samples) ADC2_sample_number = 0; 
             end
             else ADC_data2 = 1'b1;
         end
@@ -290,6 +314,7 @@ module SW9_tb;
             if (ADC3_sample_number < ADC3_total_samples) begin
                 if(`LOG_LEVEL>=1 && ADC3_sample_number%8==0) $display("Sending ADC3 Sample Number: %0d, at time %0t. Sample = %h", ADC3_sample_number,$time,ADC3_samples[ADC3_sample_number]);
                 send_ADC_sample(3, ADC3_samples[ADC3_sample_number++]);   
+                if (ADC3_sample_number >= ADC3_total_samples) ADC3_sample_number = 0;
             end 
             else ADC_data3 = 1'b1;
         end
@@ -305,6 +330,7 @@ module SW9_tb;
             if (ADC4_sample_number < ADC4_total_samples) begin
                 if(`LOG_LEVEL>=1 && ADC4_sample_number%8==0) $display("Sending ADC4 Sample Number: %0d, at time %0t. Sample = %h", ADC4_sample_number,$time, ADC4_samples[ADC4_sample_number]);
                 send_ADC_sample(4, ADC4_samples[ADC4_sample_number++]);    
+                if (ADC4_sample_number >= ADC4_total_samples) ADC4_sample_number = 0;
             end
             else ADC_data4 = 1'b1;
         end

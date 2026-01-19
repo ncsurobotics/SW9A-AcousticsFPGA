@@ -103,12 +103,8 @@ module bartlett_datapath #(
 		.debug_fft_valid(debug_fft_valid),
 		.debug_current_magnitude(debug_current_magnitude),
 		.debug_current_magnitude_valid(debug_current_magnitude_valid)
-		);
-		
-		
+		);	
 	
-	
-
 	
 	bartlett_time_domain #(
 		.NUM_SIZE(NUM_SIZE)

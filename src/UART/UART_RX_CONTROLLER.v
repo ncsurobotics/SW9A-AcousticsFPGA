@@ -18,7 +18,8 @@ parameter [2:0] // state localparams
     COUNT_TO_54         = 3'b001,
     SAMPLE              = 3'b010,
     WAIT_FOR_STOP_BIT   = 3'b011,
-    DATA_READY          = 3'b100;
+    DATA_READY          = 3'b100,
+    STALL_TEST               = 3'b101; // Myles
 
 parameter [1:0] // counter to 55 localparams
     HOLD_CTR = 2'b10,
@@ -34,6 +35,7 @@ parameter
     TRUE =  1'b1;
 
 reg [2:0] current_state, next_state;
+wire sample_test;
 
 always @ (posedge clk or negedge reset_b) begin
     if (!reset_b) begin
@@ -50,9 +52,21 @@ always @ (*) begin
             RX_Data_Ready           <= FALSE;
             Baud_Counter_sel        <= ZERO;
 
-            if (!RX_Data_in) next_state <= COUNT_TO_54;
+            if (!RX_Data_in) next_state <= STALL_TEST;
             else next_state             <= IDLE;
-        end 
+        end
+
+        STALL_TEST: begin
+            RX_Shift_Register_sel   <= HOLD;
+            Bit_Counter_sel         <= ZERO;
+            RX_Data_Ready           <= FALSE;
+            Baud_Counter_sel        <= ZERO;
+
+            if (sample_test) begin 
+                next_state <= COUNT_TO_54;
+            end
+            else next_state <= STALL_TEST;
+        end
 
         COUNT_TO_54: begin
             RX_Shift_Register_sel   <= HOLD;
@@ -110,4 +124,17 @@ always @ (*) begin
     endcase 
 end
 
+
+
+GENERAL_COUNTER #(.COUNT_VAL(16), .COUNT_BIT_WIDTH(5)) STALL_COUNTER (
+    
+    .clk(clk),
+    .reset_b(reset_b),
+    .Count_sel((current_state == STALL_TEST) ? 2'b11 : 2'b00),
+        
+    .Count_Reached(sample_test) 
+);
+
+
 endmodule
+

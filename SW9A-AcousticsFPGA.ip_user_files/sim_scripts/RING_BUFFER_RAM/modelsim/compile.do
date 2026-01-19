@@ -9,18 +9,18 @@ vmap xpm modelsim_lib/msim/xpm
 vmap blk_mem_gen_v8_4_5 modelsim_lib/msim/blk_mem_gen_v8_4_5
 vmap xil_defaultlib modelsim_lib/msim/xil_defaultlib
 
-vlog -work xpm  -incr -mfcu  -sv \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+vlog -work xpm -64 -incr -mfcu  -sv \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
 
-vcom -work xpm  -93  \
-"C:/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
+vcom -work xpm -64 -93  \
+"/home/bigpi/AMD/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vlog -work blk_mem_gen_v8_4_5  -incr -mfcu  \
+vlog -work blk_mem_gen_v8_4_5 -64 -incr -mfcu  \
 "../../../ipstatic/simulation/blk_mem_gen_v8_4.v" \
 
-vlog -work xil_defaultlib  -incr -mfcu  \
+vlog -work xil_defaultlib -64 -incr -mfcu  \
 "../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/RING_BUFFER_RAM/sim/RING_BUFFER_RAM.v" \
 
 vlog -work xil_defaultlib \

@@ -1,2 +1,2 @@
-cmpy_1.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd,
+cmpy_1.vhd,vhdl,xil_defaultlib,../../../../bartlett.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd,
 glbl.v,Verilog,xil_defaultlib,glbl.v

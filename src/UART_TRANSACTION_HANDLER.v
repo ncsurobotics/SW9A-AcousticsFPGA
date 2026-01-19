@@ -139,7 +139,7 @@ always@(posedge clk or negedge reset_n) begin
 
     assign address = (byte_counter > 4'hD) ? SIPO[0][6:0] : 7'h0;
     assign op = (byte_counter > 4'hD) ? SIPO[0][7] : 1'b0;
-    assign data_out = (byte_counter > 4'hD) ? {SIPO[4], SIPO[3], SIPO[2], SIPO[1]} : 32'h0;
+    assign data_out = (byte_counter > 4'hD) ? {SIPO[1], SIPO[2], SIPO[3], SIPO[4]} : 32'h0;
 
 endmodule
 
@@ -166,10 +166,10 @@ reg [8:0] PISO [0:PISO_DEPTH-1];
             for (i = 0; i < PISO_DEPTH; i = i + 1) PISO[i] <= 0;
         end else begin
             if (byte_counter == 4'hF && !op) begin
-                PISO[0] <= {1'b1, data_in[7:0]};
-                PISO[1] <= {1'b1, data_in[15:8]};
-                PISO[2] <= {1'b1, data_in[23:16]};
-                PISO[3] <= {1'b1, data_in[31:24]};
+                PISO[3] <= {1'b1, data_in[7:0]};
+                PISO[2] <= {1'b1, data_in[15:8]};
+                PISO[1] <= {1'b1, data_in[23:16]};
+                PISO[0] <= {1'b1, data_in[31:24]};
             end
             if((uart_tx_ready) && (PISO[0][8] == 1'b1)) begin
                 for (i = 0; i < PISO_DEPTH - 1; i = i + 1) begin
@@ -183,3 +183,4 @@ reg [8:0] PISO [0:PISO_DEPTH-1];
     assign Word_To_Send = ((PISO[0][8] == 1'b1)) ? PISO[0][7:0] : 8'b0;
     assign Word_To_Send_en = (uart_tx_ready) & (PISO[0][8] == 1'b1);
 endmodule
+

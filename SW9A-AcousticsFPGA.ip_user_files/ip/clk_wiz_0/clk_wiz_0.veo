@@ -78,7 +78,7 @@
     .clk_100mhz(clk_100mhz),     // output clk_100mhz
     // Status and control signals
     .resetn(resetn), // input resetn
-    .power_down(power_down),   // input power_down
+    .locked(locked),       // output locked
    // Clock in ports
     .clk_in1(clk_in1)      // input clk_in1
 );

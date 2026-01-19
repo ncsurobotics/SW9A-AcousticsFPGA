@@ -25,7 +25,7 @@
   "../../../ipstatic/hdl/cmpy_v6_0_vh_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd" \
+  "../../../../bartlett.gen/sources_1/ip/cmpy_1/sim/cmpy_1.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

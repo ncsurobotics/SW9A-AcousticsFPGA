@@ -58,13 +58,13 @@ RING_BUFFER_RAM your_instance_name (
   .clka(clka),    // input wire clka
   .ena(ena),      // input wire ena
   .wea(wea),      // input wire [0 : 0] wea
-  .addra(addra),  // input wire [7 : 0] addra
+  .addra(addra),  // input wire [8 : 0] addra
   .dina(dina),    // input wire [9 : 0] dina
   .douta(douta),  // output wire [9 : 0] douta
   .clkb(clkb),    // input wire clkb
   .enb(enb),      // input wire enb
   .web(web),      // input wire [0 : 0] web
-  .addrb(addrb),  // input wire [7 : 0] addrb
+  .addrb(addrb),  // input wire [8 : 0] addrb
   .dinb(dinb),    // input wire [9 : 0] dinb
   .doutb(doutb)  // output wire [9 : 0] doutb
 );
