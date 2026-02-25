@@ -1,0 +1,1539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="feb17_e2e_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="feb17_e2e_tb" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="113,180.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="119,065.001 ns"></ZoomEndTime>
+      <Cursor1Time time="116,080.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="280"></NameColumnWidth>
+      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="group321" type="group">
+      <obj_property name="label">DUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/reset_b" type="logic">
+         <obj_property name="ElementShortName">reset_b</obj_property>
+         <obj_property name="ObjectShortName">reset_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/clk_12mhz" type="logic">
+         <obj_property name="ElementShortName">clk_12mhz</obj_property>
+         <obj_property name="ObjectShortName">clk_12mhz</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_btn" type="logic">
+         <obj_property name="ElementShortName">SPI_btn</obj_property>
+         <obj_property name="ObjectShortName">SPI_btn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_clk1" type="logic">
+         <obj_property name="ElementShortName">ADC_clk1</obj_property>
+         <obj_property name="ObjectShortName">ADC_clk1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_clk2" type="logic">
+         <obj_property name="ElementShortName">ADC_clk2</obj_property>
+         <obj_property name="ObjectShortName">ADC_clk2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_clk3" type="logic">
+         <obj_property name="ElementShortName">ADC_clk3</obj_property>
+         <obj_property name="ObjectShortName">ADC_clk3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_clk4" type="logic">
+         <obj_property name="ElementShortName">ADC_clk4</obj_property>
+         <obj_property name="ObjectShortName">ADC_clk4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_cs1" type="logic">
+         <obj_property name="ElementShortName">ADC_cs1</obj_property>
+         <obj_property name="ObjectShortName">ADC_cs1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_cs2" type="logic">
+         <obj_property name="ElementShortName">ADC_cs2</obj_property>
+         <obj_property name="ObjectShortName">ADC_cs2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_cs3" type="logic">
+         <obj_property name="ElementShortName">ADC_cs3</obj_property>
+         <obj_property name="ObjectShortName">ADC_cs3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_cs4" type="logic">
+         <obj_property name="ElementShortName">ADC_cs4</obj_property>
+         <obj_property name="ObjectShortName">ADC_cs4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/UART_tx" type="logic">
+         <obj_property name="ElementShortName">UART_tx</obj_property>
+         <obj_property name="ObjectShortName">UART_tx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/UART_rx" type="logic">
+         <obj_property name="ElementShortName">UART_rx</obj_property>
+         <obj_property name="ObjectShortName">UART_rx</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/VGA1" type="array">
+         <obj_property name="ElementShortName">VGA1[2:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA1[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/VGA2" type="array">
+         <obj_property name="ElementShortName">VGA2[2:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA2[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/VGA3" type="array">
+         <obj_property name="ElementShortName">VGA3[2:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA3[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/VGA4" type="array">
+         <obj_property name="ElementShortName">VGA4[2:0]</obj_property>
+         <obj_property name="ObjectShortName">VGA4[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/debug1" type="logic">
+         <obj_property name="ElementShortName">debug1</obj_property>
+         <obj_property name="ObjectShortName">debug1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/debug2" type="logic">
+         <obj_property name="ElementShortName">debug2</obj_property>
+         <obj_property name="ObjectShortName">debug2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/debug3" type="logic">
+         <obj_property name="ElementShortName">debug3</obj_property>
+         <obj_property name="ObjectShortName">debug3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/debug4" type="logic">
+         <obj_property name="ElementShortName">debug4</obj_property>
+         <obj_property name="ObjectShortName">debug4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/UART_clk" type="logic">
+         <obj_property name="ElementShortName">UART_clk</obj_property>
+         <obj_property name="ObjectShortName">UART_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_clk_2x" type="logic">
+         <obj_property name="ElementShortName">SPI_clk_2x</obj_property>
+         <obj_property name="ObjectShortName">SPI_clk_2x</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_clk" type="logic">
+         <obj_property name="ElementShortName">SPI_clk</obj_property>
+         <obj_property name="ObjectShortName">SPI_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/clk_100mhz" type="logic">
+         <obj_property name="ElementShortName">clk_100mhz</obj_property>
+         <obj_property name="ObjectShortName">clk_100mhz</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/spi_aresetn" type="logic">
+         <obj_property name="ElementShortName">spi_aresetn</obj_property>
+         <obj_property name="ObjectShortName">spi_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/uart_aresetn" type="logic">
+         <obj_property name="ElementShortName">uart_aresetn</obj_property>
+         <obj_property name="ObjectShortName">uart_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/aresetn_100" type="logic">
+         <obj_property name="ElementShortName">aresetn_100</obj_property>
+         <obj_property name="ObjectShortName">aresetn_100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/rx_ready" type="logic">
+         <obj_property name="ElementShortName">rx_ready</obj_property>
+         <obj_property name="ObjectShortName">rx_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/tx_ready" type="logic">
+         <obj_property name="ElementShortName">tx_ready</obj_property>
+         <obj_property name="ObjectShortName">tx_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/Word_To_Send_en" type="logic">
+         <obj_property name="ElementShortName">Word_To_Send_en</obj_property>
+         <obj_property name="ObjectShortName">Word_To_Send_en</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/rx_data" type="array">
+         <obj_property name="ElementShortName">rx_data[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rx_data[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/Word_To_Send" type="array">
+         <obj_property name="ElementShortName">Word_To_Send[7:0]</obj_property>
+         <obj_property name="ObjectShortName">Word_To_Send[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/reg_map_datain" type="array">
+         <obj_property name="ElementShortName">reg_map_datain[31:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_map_datain[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/reg_map_dataout" type="array">
+         <obj_property name="ElementShortName">reg_map_dataout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_map_dataout[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_valid" type="logic">
+         <obj_property name="ElementShortName">bartlett_valid</obj_property>
+         <obj_property name="ObjectShortName">bartlett_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/dumpram" type="logic">
+         <obj_property name="ElementShortName">dumpram</obj_property>
+         <obj_property name="ObjectShortName">dumpram</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/softreset" type="logic">
+         <obj_property name="ElementShortName">softreset</obj_property>
+         <obj_property name="ObjectShortName">softreset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/UART_ready" type="logic">
+         <obj_property name="ElementShortName">UART_ready</obj_property>
+         <obj_property name="ObjectShortName">UART_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/uart_wen" type="logic">
+         <obj_property name="ElementShortName">uart_wen</obj_property>
+         <obj_property name="ObjectShortName">uart_wen</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/vga" type="array">
+         <obj_property name="ElementShortName">vga[2:0]</obj_property>
+         <obj_property name="ObjectShortName">vga[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/reg_map_addr" type="array">
+         <obj_property name="ElementShortName">reg_map_addr[5:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_map_addr[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_Ready1" type="logic">
+         <obj_property name="ElementShortName">ADC_Ready1</obj_property>
+         <obj_property name="ObjectShortName">ADC_Ready1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_Ready2" type="logic">
+         <obj_property name="ElementShortName">ADC_Ready2</obj_property>
+         <obj_property name="ObjectShortName">ADC_Ready2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_Ready3" type="logic">
+         <obj_property name="ElementShortName">ADC_Ready3</obj_property>
+         <obj_property name="ObjectShortName">ADC_Ready3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_Ready4" type="logic">
+         <obj_property name="ElementShortName">ADC_Ready4</obj_property>
+         <obj_property name="ObjectShortName">ADC_Ready4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/RAM_Overflow1" type="logic">
+         <obj_property name="ElementShortName">RAM_Overflow1</obj_property>
+         <obj_property name="ObjectShortName">RAM_Overflow1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/RAM_Overflow2" type="logic">
+         <obj_property name="ElementShortName">RAM_Overflow2</obj_property>
+         <obj_property name="ObjectShortName">RAM_Overflow2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/RAM_Overflow3" type="logic">
+         <obj_property name="ElementShortName">RAM_Overflow3</obj_property>
+         <obj_property name="ObjectShortName">RAM_Overflow3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/RAM_Overflow4" type="logic">
+         <obj_property name="ElementShortName">RAM_Overflow4</obj_property>
+         <obj_property name="ObjectShortName">RAM_Overflow4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_data1" type="array">
+         <obj_property name="ElementShortName">ADC_data1[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ADC_data1[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_data2" type="array">
+         <obj_property name="ElementShortName">ADC_data2[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ADC_data2[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_data3" type="array">
+         <obj_property name="ElementShortName">ADC_data3[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ADC_data3[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_data4" type="array">
+         <obj_property name="ElementShortName">ADC_data4[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ADC_data4[9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_ready" type="logic">
+         <obj_property name="ElementShortName">bartlett_ready</obj_property>
+         <obj_property name="ObjectShortName">bartlett_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_last" type="logic">
+         <obj_property name="ElementShortName">bartlett_last</obj_property>
+         <obj_property name="ObjectShortName">bartlett_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_addr" type="array">
+         <obj_property name="ElementShortName">bartlett_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">bartlett_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_data_in" type="array">
+         <obj_property name="ElementShortName">bartlett_data_in[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bartlett_data_in[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_data_out" type="array">
+         <obj_property name="ElementShortName">bartlett_data_out[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bartlett_data_out[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/maxangle" type="array">
+         <obj_property name="ElementShortName">maxangle[31:0]</obj_property>
+         <obj_property name="ObjectShortName">maxangle[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/min_frequency" type="array">
+         <obj_property name="ElementShortName">min_frequency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">min_frequency[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/max_frequency" type="array">
+         <obj_property name="ElementShortName">max_frequency[31:0]</obj_property>
+         <obj_property name="ObjectShortName">max_frequency[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/threshold" type="array">
+         <obj_property name="ElementShortName">threshold[31:0]</obj_property>
+         <obj_property name="ObjectShortName">threshold[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/data_valid" type="logic">
+         <obj_property name="ElementShortName">data_valid</obj_property>
+         <obj_property name="ObjectShortName">data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/data_last" type="logic">
+         <obj_property name="ElementShortName">data_last</obj_property>
+         <obj_property name="ObjectShortName">data_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/s_axis_bartlett_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_bartlett_config_tdata[47:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_bartlett_config_tdata[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/s_axis_bartlett_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_bartlett_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_bartlett_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/s_axis_bartlett_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_bartlett_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_bartlett_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/s_axis_bartlett_config_tstrb" type="array">
+         <obj_property name="ElementShortName">s_axis_bartlett_config_tstrb[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_bartlett_config_tstrb[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_serial_data1" type="logic">
+         <obj_property name="ElementShortName">ADC_serial_data1</obj_property>
+         <obj_property name="ObjectShortName">ADC_serial_data1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_serial_data2" type="logic">
+         <obj_property name="ElementShortName">ADC_serial_data2</obj_property>
+         <obj_property name="ObjectShortName">ADC_serial_data2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_serial_data3" type="logic">
+         <obj_property name="ElementShortName">ADC_serial_data3</obj_property>
+         <obj_property name="ObjectShortName">ADC_serial_data3</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/ADC_serial_data4" type="logic">
+         <obj_property name="ElementShortName">ADC_serial_data4</obj_property>
+         <obj_property name="ObjectShortName">ADC_serial_data4</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bram_dina" type="array">
+         <obj_property name="ElementShortName">bram_dina[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_dina[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bram_doutb" type="array">
+         <obj_property name="ElementShortName">bram_doutb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_doutb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bram_addra" type="array">
+         <obj_property name="ElementShortName">bram_addra[12:0]</obj_property>
+         <obj_property name="ObjectShortName">bram_addra[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bram_ena" type="logic">
+         <obj_property name="ElementShortName">bram_ena</obj_property>
+         <obj_property name="ObjectShortName">bram_ena</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bram_wea" type="logic">
+         <obj_property name="ElementShortName">bram_wea</obj_property>
+         <obj_property name="ObjectShortName">bram_wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/CLOCK_MODE" type="array">
+         <obj_property name="ElementShortName">CLOCK_MODE[119:0]</obj_property>
+         <obj_property name="ObjectShortName">CLOCK_MODE[119:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group327" type="group">
+      <obj_property name="label">BARTLETT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/reset_b" type="logic">
+         <obj_property name="ElementShortName">reset_b</obj_property>
+         <obj_property name="ObjectShortName">reset_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tdata[47:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tdata[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_config_tstrb" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tstrb[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tstrb[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_tdest" type="array">
+         <obj_property name="ElementShortName">m_axis_tdest[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdest[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_rxx" type="array">
+         <obj_property name="ElementShortName">debug_rxx[511:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_rxx_valid" type="logic">
+         <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft" type="array">
+         <obj_property name="ElementShortName">debug_fft[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft_max_index" type="array">
+         <obj_property name="ElementShortName">debug_fft_max_index[8:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft_max_index_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_max_index_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_max_index_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft_mag" type="array">
+         <obj_property name="ElementShortName">debug_fft_mag[31:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_mag[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_fft_mag_valid" type="logic">
+         <obj_property name="ElementShortName">debug_fft_mag_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_fft_mag_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_max_freq_vec" type="array">
+         <obj_property name="ElementShortName">debug_max_freq_vec[127:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_max_freq_vec[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/debug_max_freq_vec_valid" type="logic">
+         <obj_property name="ElementShortName">debug_max_freq_vec_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_max_freq_vec_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_fft_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_fft_max_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_fft_max_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_fft_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_fft_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_fft_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_fft_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_fft_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_fft_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_fft_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_fft_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_fft_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_converted_fft_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_converted_fft_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_converted_fft_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_converted_fft_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_converted_fft_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_converted_fft_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/m_axis_fft_max_tuser" type="logic">
+         <obj_property name="ElementShortName">m_axis_fft_max_tuser</obj_property>
+         <obj_property name="ObjectShortName">m_axis_fft_max_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group328" type="group">
+      <obj_property name="label">SAMPLE_MEM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/sw" type="array">
+         <obj_property name="ElementShortName">sw[0:0]</obj_property>
+         <obj_property name="ObjectShortName">sw[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/btnC" type="logic">
+         <obj_property name="ElementShortName">btnC</obj_property>
+         <obj_property name="ObjectShortName">btnC</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/spi_clk" type="logic">
+         <obj_property name="ElementShortName">spi_clk</obj_property>
+         <obj_property name="ObjectShortName">spi_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/spi_cs" type="logic">
+         <obj_property name="ElementShortName">spi_cs</obj_property>
+         <obj_property name="ObjectShortName">spi_cs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/button" type="logic">
+         <obj_property name="ElementShortName">button</obj_property>
+         <obj_property name="ObjectShortName">button</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/spi_dout" type="array">
+         <obj_property name="ElementShortName">spi_dout[3:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_dout[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses" type="array">
+         <obj_property name="ElementShortName">addresses[3:0][10:0]</obj_property>
+         <obj_property name="ObjectShortName">addresses[3:0][10:0]</obj_property>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[3]" type="array">
+            <obj_property name="ElementShortName">[3][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][10:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[2]" type="array">
+            <obj_property name="ElementShortName">[2][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][10:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[1]" type="array">
+            <obj_property name="ElementShortName">[1][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][10:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[0]" type="array">
+            <obj_property name="ElementShortName">[0][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][10:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[3]" type="array">
+            <obj_property name="ElementShortName">[3][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][10:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[2]" type="array">
+            <obj_property name="ElementShortName">[2][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][10:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[1]" type="array">
+            <obj_property name="ElementShortName">[1][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][10:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[0]" type="array">
+            <obj_property name="ElementShortName">[0][10:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][10:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/rom_dout" type="array">
+         <obj_property name="ElementShortName">rom_dout[3:0][159:0]</obj_property>
+         <obj_property name="ObjectShortName">rom_dout[3:0][159:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/mem_reader_dout" type="array">
+         <obj_property name="ElementShortName">mem_reader_dout[3:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_reader_dout[3:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/address_offset" type="array">
+         <obj_property name="ElementShortName">address_offset[10:0]</obj_property>
+         <obj_property name="ObjectShortName">address_offset[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/serial_out" type="array">
+         <obj_property name="ElementShortName">serial_out[3:0]</obj_property>
+         <obj_property name="ObjectShortName">serial_out[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/piso_load" type="logic">
+         <obj_property name="ElementShortName">piso_load</obj_property>
+         <obj_property name="ObjectShortName">piso_load</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/piso_shift" type="logic">
+         <obj_property name="ElementShortName">piso_shift</obj_property>
+         <obj_property name="ObjectShortName">piso_shift</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/get_word" type="logic">
+         <obj_property name="ElementShortName">get_word</obj_property>
+         <obj_property name="ObjectShortName">get_word</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/tristate" type="logic">
+         <obj_property name="ElementShortName">tristate</obj_property>
+         <obj_property name="ObjectShortName">tristate</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group325" type="group">
+      <obj_property name="label">SPI</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/SPI_clk" type="logic">
+         <obj_property name="ElementShortName">SPI_clk</obj_property>
+         <obj_property name="ObjectShortName">SPI_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/reset_b" type="logic">
+         <obj_property name="ElementShortName">reset_b</obj_property>
+         <obj_property name="ObjectShortName">reset_b</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/spi_areset_n" type="logic">
+         <obj_property name="ElementShortName">spi_areset_n</obj_property>
+         <obj_property name="ObjectShortName">spi_areset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/counter" type="array">
+         <obj_property name="ElementShortName">counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">counter[7:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/SPI_en" type="array">
+         <obj_property name="ElementShortName">SPI_en[3:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_en[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/data_last" type="logic">
+         <obj_property name="ElementShortName">data_last</obj_property>
+         <obj_property name="ObjectShortName">data_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/data_in" type="array">
+         <obj_property name="ElementShortName">data_in[3:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/CS" type="array">
+         <obj_property name="ElementShortName">CS[3:0]</obj_property>
+         <obj_property name="ObjectShortName">CS[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/Data_Ready" type="array">
+         <obj_property name="ElementShortName">Data_Ready[3:0]</obj_property>
+         <obj_property name="ObjectShortName">Data_Ready[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/SPI_Data_out" type="array">
+         <obj_property name="ElementShortName">SPI_Data_out[39:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_Data_out[39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/CHANNELS" type="array">
+         <obj_property name="ElementShortName">CHANNELS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CHANNELS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/WIDTH" type="array">
+         <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/SPI_WRAPPER_inst/TOTAL_BITS" type="array">
+         <obj_property name="ElementShortName">TOTAL_BITS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TOTAL_BITS[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1101" type="group">
+      <obj_property name="label">FFT_MAX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tdata[47:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tdata[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_config_tstrb" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tstrb[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tstrb[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/fft_s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">fft_s_axis_config_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_s_axis_config_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/k_index" type="array">
+         <obj_property name="ElementShortName">k_index[7:0]</obj_property>
+         <obj_property name="ObjectShortName">k_index[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_spectrum_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_spectrum_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_spectrum_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_spectrum_tuser[39:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tuser[39:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_spectrum_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_spectrum_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_spectrum_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_spectrum_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_spectrum_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_status_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_status_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_status_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/real_part" type="array">
+         <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/imag_part" type="array">
+         <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/m_axis_status_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_status_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_status_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_frame_started" type="logic">
+         <obj_property name="ElementShortName">event_frame_started</obj_property>
+         <obj_property name="ObjectShortName">event_frame_started</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_tlast_unexpected" type="logic">
+         <obj_property name="ElementShortName">event_tlast_unexpected</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_unexpected</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_tlast_missing" type="logic">
+         <obj_property name="ElementShortName">event_tlast_missing</obj_property>
+         <obj_property name="ObjectShortName">event_tlast_missing</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_status_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_status_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_status_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_data_in_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_in_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_in_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/event_data_out_channel_halt" type="logic">
+         <obj_property name="ElementShortName">event_data_out_channel_halt</obj_property>
+         <obj_property name="ObjectShortName">event_data_out_channel_halt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/ZERO_PAD" type="array">
+         <obj_property name="ElementShortName">ZERO_PAD[11:0]</obj_property>
+         <obj_property name="ObjectShortName">ZERO_PAD[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/FWD" type="array">
+         <obj_property name="ElementShortName">FWD[3:0]</obj_property>
+         <obj_property name="ObjectShortName">FWD[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/REV" type="array">
+         <obj_property name="ElementShortName">REV[3:0]</obj_property>
+         <obj_property name="ObjectShortName">REV[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1102" type="group">
+      <obj_property name="label">BTD</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_fft_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_fft_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_fft_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_fft_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_fft_tuser" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tuser</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tuser</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_fft_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_fft_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_fft_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_tdest" type="array">
+         <obj_property name="ElementShortName">m_axis_tdest[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdest[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/debug_rxx" type="array">
+         <obj_property name="ElementShortName">debug_rxx[31:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/debug_rxx_valid" type="logic">
+         <obj_property name="ElementShortName">debug_rxx_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_rxx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_data" type="array">
+         <obj_property name="ElementShortName">rxx_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_data[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_valid" type="logic">
+         <obj_property name="ElementShortName">rxx_valid</obj_property>
+         <obj_property name="ObjectShortName">rxx_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_ready" type="logic">
+         <obj_property name="ElementShortName">rxx_ready</obj_property>
+         <obj_property name="ObjectShortName">rxx_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_tid" type="array">
+         <obj_property name="ElementShortName">rxx_tid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_tid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_weight_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_user" type="array">
+         <obj_property name="ElementShortName">rxx_user[4:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_user[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_weight_tdest" type="array">
+         <obj_property name="ElementShortName">m_axis_weight_tdest[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tdest[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/s_axis_theta_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_theta_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_theta_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_last" type="logic">
+         <obj_property name="ElementShortName">rxx_last</obj_property>
+         <obj_property name="ObjectShortName">rxx_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_weight_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_weight_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/m_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group360" type="group">
+      <obj_property name="label">FFT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_weight_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_weight_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_weight_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_weight_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_weight_tuser[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tuser[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_weight_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_weight_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_weight_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_config_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tdata[47:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tdata[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_config_tstrb" type="array">
+         <obj_property name="ElementShortName">s_axis_config_tstrb[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tstrb[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_config_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/s_axis_config_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_config_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/m_axis_max_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tuser[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tuser[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/m_axis_max_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/debug_current_magnitude" type="array">
+         <obj_property name="ElementShortName">debug_current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/debug_current_magnitude_valid" type="logic">
+         <obj_property name="ElementShortName">debug_current_magnitude_valid</obj_property>
+         <obj_property name="ObjectShortName">debug_current_magnitude_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/real_part" type="array">
+         <obj_property name="ElementShortName">real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/imag_part" type="array">
+         <obj_property name="ElementShortName">imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part" type="array">
+         <obj_property name="ElementShortName">max_real_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">max_real_part[3:0][15:0]</obj_property>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_imag_part" type="array">
+         <obj_property name="ElementShortName">max_imag_part[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">max_imag_part[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/current_magnitude" type="array">
+         <obj_property name="ElementShortName">current_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">current_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/maximum_magnitude" type="array">
+         <obj_property name="ElementShortName">maximum_magnitude[33:0]</obj_property>
+         <obj_property name="ObjectShortName">maximum_magnitude[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/partial_prod" type="array">
+         <obj_property name="ElementShortName">partial_prod[1:0][32:0]</obj_property>
+         <obj_property name="ObjectShortName">partial_prod[1:0][32:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/partial_prod[1]" type="array">
+            <obj_property name="ElementShortName">[1][32:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][32:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/partial_prod[0]" type="array">
+            <obj_property name="ElementShortName">[0][32:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][32:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/valid_sr" type="array">
+         <obj_property name="ElementShortName">valid_sr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">valid_sr[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/last_sr" type="array">
+         <obj_property name="ElementShortName">last_sr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">last_sr[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/user_sr" type="array">
+         <obj_property name="ElementShortName">user_sr[1:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">user_sr[1:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/data_sr" type="array">
+         <obj_property name="ElementShortName">data_sr[1:0][127:0]</obj_property>
+         <obj_property name="ObjectShortName">data_sr[1:0][127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/valid_threshold" type="logic">
+         <obj_property name="ElementShortName">valid_threshold</obj_property>
+         <obj_property name="ObjectShortName">valid_threshold</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/config_register" type="array">
+         <obj_property name="ElementShortName">config_register[47:0]</obj_property>
+         <obj_property name="ObjectShortName">config_register[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/upper_bound" type="array">
+         <obj_property name="ElementShortName">upper_bound[7:0]</obj_property>
+         <obj_property name="ObjectShortName">upper_bound[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/lower_bound" type="array">
+         <obj_property name="ElementShortName">lower_bound[7:0]</obj_property>
+         <obj_property name="ObjectShortName">lower_bound[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/threshold" type="array">
+         <obj_property name="ElementShortName">threshold[31:0]</obj_property>
+         <obj_property name="ObjectShortName">threshold[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/INDEX_COUNT" type="array">
+         <obj_property name="ElementShortName">INDEX_COUNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">INDEX_COUNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/SR_SIZE" type="array">
+         <obj_property name="ElementShortName">SR_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">SR_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/IDLE" type="array">
+         <obj_property name="ElementShortName">IDLE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">IDLE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/IN_RANGE" type="array">
+         <obj_property name="ElementShortName">IN_RANGE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">IN_RANGE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/DONE" type="array">
+         <obj_property name="ElementShortName">DONE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">DONE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/WAIT" type="array">
+         <obj_property name="ElementShortName">WAIT[1:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group404" type="group">
+      <obj_property name="label">RXX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/clken" type="logic">
+         <obj_property name="ElementShortName">clken</obj_property>
+         <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[127:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/m_axis_tid" type="array">
+         <obj_property name="ElementShortName">m_axis_tid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel" type="array">
+         <obj_property name="ElementShortName">real_channel[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">real_channel[3:0][15:0]</obj_property>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="AnalogYRangeMin">-48211.9</obj_property>
+            <obj_property name="AnalogYRRangeMax">12915.1</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="AnalogYRangeMin">-6489</obj_property>
+            <obj_property name="AnalogYRRangeMax">-3477</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="AnalogYRangeMin">-470378</obj_property>
+            <obj_property name="AnalogYRRangeMax">654977</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/imag_channel" type="array">
+         <obj_property name="ElementShortName">imag_channel[3:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">imag_channel[3:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/base" type="array">
+         <obj_property name="ElementShortName">base[3:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">base[3:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/conj" type="array">
+         <obj_property name="ElementShortName">conj[3:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">conj[3:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/index" type="array">
+         <obj_property name="ElementShortName">index[3:0]</obj_property>
+         <obj_property name="ObjectShortName">index[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/base_index" type="array">
+         <obj_property name="ElementShortName">base_index[1:0]</obj_property>
+         <obj_property name="ObjectShortName">base_index[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/conj_index" type="array">
+         <obj_property name="ElementShortName">conj_index[1:0]</obj_property>
+         <obj_property name="ObjectShortName">conj_index[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/valid" type="logic">
+         <obj_property name="ElementShortName">valid</obj_property>
+         <obj_property name="ObjectShortName">valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/state" type="logic">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/last" type="logic">
+         <obj_property name="ElementShortName">last</obj_property>
+         <obj_property name="ObjectShortName">last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group429" type="group">
+      <obj_property name="label">PTHETA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/clken" type="logic">
+         <obj_property name="ElementShortName">clken</obj_property>
+         <obj_property name="ObjectShortName">clken</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_r_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tdata[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_r_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_axis_r_tid" type="array">
+         <obj_property name="ElementShortName">s_axis_r_tid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_r_tid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/m_axis_tdest" type="array">
+         <obj_property name="ElementShortName">m_axis_tdest[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdest[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/r_buffer" type="array">
+         <obj_property name="ElementShortName">r_buffer[15:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">r_buffer[15:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/r_factor" type="array">
+         <obj_property name="ElementShortName">r_factor[31:0]</obj_property>
+         <obj_property name="ObjectShortName">r_factor[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_factor" type="array">
+         <obj_property name="ElementShortName">s_factor[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_factor[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/theta_counter" type="array">
+         <obj_property name="ElementShortName">theta_counter[4:0]</obj_property>
+         <obj_property name="ObjectShortName">theta_counter[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/r_counter" type="array">
+         <obj_property name="ElementShortName">r_counter[3:0]</obj_property>
+         <obj_property name="ObjectShortName">r_counter[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/global_counter" type="array">
+         <obj_property name="ElementShortName">global_counter[8:0]</obj_property>
+         <obj_property name="ObjectShortName">global_counter[8:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/global_counter_buf" type="array">
+         <obj_property name="ElementShortName">global_counter_buf[8:0]</obj_property>
+         <obj_property name="ObjectShortName">global_counter_buf[8:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/state" type="logic">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/valid_buf" type="logic">
+         <obj_property name="ElementShortName">valid_buf</obj_property>
+         <obj_property name="ObjectShortName">valid_buf</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/last" type="logic">
+         <obj_property name="ElementShortName">last</obj_property>
+         <obj_property name="ObjectShortName">last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/s_sh_theta" type="array">
+         <obj_property name="ElementShortName">s_sh_theta[511:0]</obj_property>
+         <obj_property name="ObjectShortName">s_sh_theta[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/mid_data" type="array">
+         <obj_property name="ElementShortName">mid_data[63:0]</obj_property>
+         <obj_property name="ObjectShortName">mid_data[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/mid_last" type="logic">
+         <obj_property name="ElementShortName">mid_last</obj_property>
+         <obj_property name="ObjectShortName">mid_last</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/mid_valid" type="logic">
+         <obj_property name="ElementShortName">mid_valid</obj_property>
+         <obj_property name="ObjectShortName">mid_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/mid_tuser" type="array">
+         <obj_property name="ElementShortName">mid_tuser[8:0]</obj_property>
+         <obj_property name="ObjectShortName">mid_tuser[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/accumulation" type="array">
+         <obj_property name="ElementShortName">accumulation[31:0]</obj_property>
+         <obj_property name="ObjectShortName">accumulation[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group461" type="group">
+      <obj_property name="label">MAX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/s_axis_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_tuser[4:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tuser[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/m_axis_max_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_max_tdata[4:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tdata[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/m_axis_max_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/m_axis_max_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_max_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_max_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/max_weight" type="array">
+         <obj_property name="ElementShortName">max_weight[31:0]</obj_property>
+         <obj_property name="ObjectShortName">max_weight[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

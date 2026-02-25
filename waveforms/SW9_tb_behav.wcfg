@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="SW9_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="SW9_tb" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2,724,087.362 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,724,313.195 ns"></ZoomEndTime>
+      <Cursor1Time time="2,724,215.100 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="312"></NameColumnWidth>
+      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/reset_b">
+      <obj_property name="ElementShortName">reset_b</obj_property>
+      <obj_property name="ObjectShortName">reset_b</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/bartlett_ready">
+      <obj_property name="ElementShortName">bartlett_ready</obj_property>
+      <obj_property name="ObjectShortName">bartlett_ready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/SPI_en">
+      <obj_property name="ElementShortName">SPI_en[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SPI_en[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/sample_ready">
+      <obj_property name="ElementShortName">sample_ready[3:0]</obj_property>
+      <obj_property name="ObjectShortName">sample_ready[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/Send_Frame">
+      <obj_property name="ElementShortName">Send_Frame[3:0]</obj_property>
+      <obj_property name="ObjectShortName">Send_Frame[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_1_inst/Output_Data">
+      <obj_property name="ElementShortName">Output_Data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Output_Data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_1_inst/RAM_Overflow">
+      <obj_property name="ElementShortName">RAM_Overflow</obj_property>
+      <obj_property name="ObjectShortName">RAM_Overflow</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_2_inst/Output_Data">
+      <obj_property name="ElementShortName">Output_Data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Output_Data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_2_inst/RAM_Overflow">
+      <obj_property name="ElementShortName">RAM_Overflow</obj_property>
+      <obj_property name="ObjectShortName">RAM_Overflow</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_3_inst/Output_Data">
+      <obj_property name="ElementShortName">Output_Data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Output_Data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_3_inst/RAM_Overflow">
+      <obj_property name="ElementShortName">RAM_Overflow</obj_property>
+      <obj_property name="ObjectShortName">RAM_Overflow</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_4_inst/Output_Data">
+      <obj_property name="ElementShortName">Output_Data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Output_Data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/RING_BUFFER_channel_4_inst/RAM_Overflow">
+      <obj_property name="ElementShortName">RAM_Overflow</obj_property>
+      <obj_property name="ObjectShortName">RAM_Overflow</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/data_valid_out">
+      <obj_property name="ElementShortName">data_valid_out</obj_property>
+      <obj_property name="ObjectShortName">data_valid_out</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/SW9_tb/DUT/SPI_TRANSACTION_HANDLER_inst/data_last_out">
+      <obj_property name="ElementShortName">data_last_out</obj_property>
+      <obj_property name="ObjectShortName">data_last_out</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/ADC_data1">
+      <obj_property name="ElementShortName">ADC_data1[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADC_data1[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/ADC_data2">
+      <obj_property name="ElementShortName">ADC_data2[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADC_data2[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/ADC_data3">
+      <obj_property name="ElementShortName">ADC_data3[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADC_data3[9:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/SW9_tb/DUT/ADC_data4">
+      <obj_property name="ElementShortName">ADC_data4[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ADC_data4[9:0]</obj_property>
+   </wvobject>
+</wave_config>
