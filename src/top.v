@@ -24,9 +24,9 @@ module cmod_a7_board(
 	
 	//LEDS - NOT USED
 	output[1:0] led, // single color leds
-	input led0_b,//tricolor led blue channel
-	input led0_g,//tricolor led green channel
-	input led0_r,//tricolor led red channel
+	output led0_b,//tricolor led blue channel
+	output led0_g,//tricolor led green channel
+	output led0_r,//tricolor led red channel
 	
 	//Buttons
 	input [1:0] btn, //on board buttons
@@ -56,7 +56,7 @@ module cmod_a7_board(
 	// pio15 == analog
 	// pio 16 == analog
 	input pio17,// not connected
-	input pio18,// reset_n pushbutton (active low)
+	input pio18,// not connected
 	input pio19,// not connected
 	output pio20,// debug header 4
 	output pio21,// debug header 3
@@ -86,12 +86,12 @@ module cmod_a7_board(
 	output pio45,// Acoustic Single Channel 2 - CS (Chip Select)  
 	output pio46,// Acoustic Single Channel 2 - VGA Gain[0]
 	output pio47,// Acoustic Single Channel 2 - VGA Gain[1]
-	output pio48// Acoustic Single Channel 2 - VGA Gain[2]
+	output pio48,// Acoustic Single Channel 2 - VGA Gain[2]
 	
 	
 	// UART - Connects to USB port- NOT USED
-	//input uart_txd_in,
-	//output uart_rxd_out,
+	input uart_txd_in,
+	output uart_rxd_out
 	
 	//Crypto 1 Wire interface - NOT USED
 	//input crypto_sda, 
@@ -129,8 +129,8 @@ top top_inst (
     //.ADC_serial_data4(pio31),
         
 		// UART
-    .UART_tx(pio2),
-    .UART_rx(pio1),
+    .UART_tx(uart_rxd_out),
+    .UART_rx(uart_txd_in),
 
     // VGA
     .VGA1({pio6,pio7,pio8}),
@@ -153,9 +153,9 @@ top top_inst (
 	assign led[0] = led_button & sysclk; //%50 duty cycle
 	assign led[1] = 0;
 	
-	//assign led0_b = 0;
-	//assign led0_g = 0;
-	//assign led0_r = 0;
+	assign led0_b = 1'bz;
+	assign led0_g = 1'bz;
+	assign led0_r = 1'bz;
 	
 endmodule
 
