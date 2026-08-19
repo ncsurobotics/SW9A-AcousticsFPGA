@@ -18,15 +18,15 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`define CHANNEL_COUNT 4
 module cmod_a7_board(
 	input sysclk, // 12mhz on board oscillator
 	
 	//LEDS - NOT USED
 	output[1:0] led, // single color leds
-	input led0_b,//tricolor led blue channel
-	input led0_g,//tricolor led green channel
-	input led0_r,//tricolor led red channel
+	output led0_b,//tricolor led blue channel
+	output led0_g,//tricolor led green channel
+	output led0_r,//tricolor led red channel
 	
 	//Buttons
 	input [1:0] btn, //on board buttons
@@ -39,14 +39,14 @@ module cmod_a7_board(
 	//input[1:0] xa_p,positive input
 	
 	//GPIO Pins - number corresponds to physical board pin number
-	input pio1, // UART RX
-	output pio2, // UART TX
-	output pio3, // Acoustic Single Channel 1 - Clock 
-	input pio4, // Acoustic Single Channel 1 - Data
-	output pio5, // Acoustic Single Channel 1 - CS (Chip Select)
-	output pio6, // Acoustic Single Channel 1 - VGA Gain[2] 
-	output pio7, // Acoustic Single Channel 1 - VGA Gain[1]
-	output pio8, // Acoustic Single Channel 1 - VGA Gain[0]
+	output pio1, // UART RX - to mcu
+	output pio2, // UART TX - to mcu
+	input pio3, // not connected
+	input pio4, // not connected
+	input pio5, // not connected
+	input pio6, // not connected
+	input pio7, // not connected
+	input pio8, // not connected
 	input pio9, // not connected
 	input pio10,// not connected
 	input pio11,// not connected
@@ -56,42 +56,42 @@ module cmod_a7_board(
 	// pio15 == analog
 	// pio 16 == analog
 	input pio17,// not connected
-	input pio18,// reset_n pushbutton (active low)
+	input pio18,// not connected
 	input pio19,// not connected
-	output pio20,// debug header 4
-	output pio21,// debug header 3
-	output pio22,// debug header 2
-	output pio23,// debug header 1
+	input pio20,// not connected
+	input pio21,// not connected
+	input pio22,// not connected
+	input pio23,// not connected
 	// pio24 == +3.3V
 	// pio25 == GND
-	input pio26,// not connected
-	input pio27,// not connected
-	input pio28,// not connected
-	output pio29,// Acoustic Single Channel 4 - CS (Chip Select) 
-	output pio30,// Acoustic Single Channel 4 - Clock
-	input pio31,// Acoustic Single Channel 4 - Data
-	output pio32,// Acoustic Single Channel 4 - VGA Gain[0] 
-	output pio33,// Acoustic Single Channel 4 - VGA Gain[1]
-	output pio34,// Acoustic Single Channel 4 - VGA Gain[2]
-	input pio35,// not connected
-	output pio36,// Acoustic Single Channel 3 - VGA Gain[2]
-	output pio37,// Acoustic Single Channel 3 - VGA Gain[1]
-	output pio38,// Acoustic Single Channel 3 - VGA Gain[0]
-	output pio39,// Acoustic Single Channel 3 - CS (Chip Select)  
-	input pio40,// Acoustic Single Channel 3 - Data
-	output pio41,// Acoustic Single Channel 3 - Clock
-	input pio42,// not connected
-	input pio44,// Acoustic Single Channel 2 - Data
-	output pio43,// Acoustic Single Channel 2 - Clock
-	output pio45,// Acoustic Single Channel 2 - CS (Chip Select)  
-	output pio46,// Acoustic Single Channel 2 - VGA Gain[0]
-	output pio47,// Acoustic Single Channel 2 - VGA Gain[1]
-	output pio48// Acoustic Single Channel 2 - VGA Gain[2]
+	output pio26,// not connected
+	output pio27,// not connected
+	output pio28,// not connected
+	output pio29,// not connected
+	output pio30,// not connected
+	output pio31,// not connected
+	output pio32,// not connected
+	output pio33,// not connected
+	output pio34,// not connected
+	input pio35,// not not connected
+	input pio36,//  not connected
+	input pio37,//  not connected
+	input pio38,//  not connected
+	input pio39,//  not connected
+	input pio40,//  not connected
+	input pio41,//  not connected
+	input pio42,// not  connected
+	input pio44,// not connected
+	input pio43,// ot connected
+	input pio45,// ot connected
+	input pio46,// ot connected
+	input pio47,// ot connected
+	input pio48,// ot connected
 	
 	
 	// UART - Connects to USB port- NOT USED
-	//input uart_txd_in,
-	//output uart_rxd_out,
+	input uart_txd_in,
+	output uart_rxd_out
 	
 	//Crypto 1 Wire interface - NOT USED
 	//input crypto_sda, 
@@ -104,45 +104,55 @@ module cmod_a7_board(
 	// output RAMCEn // chip enable - active low
 );
 	
+	wire [5:0] SPI_SCLK;
+	wire [5:0] SPI_CS_N;
+	wire [5:0] SPI_DI;
+	wire [5:0] SPI_SDO_DRDY;
+	wire [5:0] SPI_START;
 	
 	
-top top_inst (
+	assign pio34 = 1'bz; // nc
+	assign pio33 = 1'bz; // nc
+	assign pio32 = SPI_SDO_DRDY[0];
+	assign pio31 = SPI_SCLK[0];
+	assign pio30 = 1'bz; // nc
+	assign pio29 = SPI_DI[0];
+	assign pio28 = SPI_CS_N[0];
+	assign pio27 = ~btn[1];// active low reset
+	assign pio26 = SPI_START[0];
+	
+	assign pio1 = uart_rxd_out; // UART RX - to mcu
+	assign pio2 = uart_txd_in; // UART TX - to mcu
+	
+top  #(
+	.CLOCK_MODE("SYNTHESIS"),
+	.DEBUG_MODE("FALSE")
+	) top_inst(
     .reset_b(led_button),
     .clk_12mhz(sysclk),
-    .SPI_btn(btn[1]),
 
-    // ADCs
-    .ADC_clk1(pio3),
-    .ADC_cs1(pio5),
-    //.ADC_serial_data1(pio4),
-
-    .ADC_clk2(pio43),
-    .ADC_cs2(pio45),
-    //.ADC_serial_data2(pio44),
+	.SPI_SCLK(SPI_SCLK),
+	.SPI_CS_N(SPI_CS_N),
+	.SPI_DI(SPI_DI),
+	.SPI_SDO_DRDY(SPI_SDO_DRDY),
+	.SPI_START(SPI_START),
 	
-    .ADC_clk3(pio41),
-    .ADC_cs3(pio39),
-    //.ADC_serial_data3(pio40),
-
-    .ADC_clk4(pio30),
-    .ADC_cs4(pio29),
-    //.ADC_serial_data4(pio31),
         
 		// UART
-    .UART_tx(pio2),
-    .UART_rx(pio1),
+    .UART_tx(uart_rxd_out),
+    .UART_rx(uart_txd_in)
 
     // VGA
-    .VGA1({pio6,pio7,pio8}),
-    .VGA2({pio48,pio47,pio46}),
-    .VGA3({pio36,pio37,pio38}),
-    .VGA4({pio34,pio33,pio32}),
+    //.VGA1({pio6,pio7,pio8}),
+    //.VGA2({pio48,pio47,pio46}),
+    //.VGA3({pio36,pio37,pio38}),
+    //.VGA4({pio34,pio33,pio32}),
 
     // Other I/O
-    .debug1(pio23),
-    .debug2(pio22),
-    .debug3(pio21),
-    .debug4(pio20)
+    //.debug1(pio23),
+    //.debug2(pio22),
+    //.debug3(pio21),
+    //.debug4(pio20)
 
 );
     
@@ -153,9 +163,9 @@ top top_inst (
 	assign led[0] = led_button & sysclk; //%50 duty cycle
 	assign led[1] = 0;
 	
-	//assign led0_b = 0;
-	//assign led0_g = 0;
-	//assign led0_r = 0;
+	assign led0_b = 1'bz;
+	assign led0_g = 1'bz;
+	assign led0_r = 1'bz;
 	
 endmodule
 
@@ -165,25 +175,17 @@ module top #(
 	)(
     input reset_b,
     input clk_12mhz,
-    input SPI_btn,
 	input sample_mem_reset,
 
-    // ADCs
-    output ADC_clk1,
-    output ADC_clk2,
-    output ADC_clk3,
-    output ADC_clk4,
-
-    output ADC_cs1,
-    output ADC_cs2,
-    output ADC_cs3,
-    output ADC_cs4,
-
-//    input ADC_serial_data1,
-//    input ADC_serial_data2,
-//    input ADC_serial_data3,
-//    input ADC_serial_data4,
-
+    // SPI
+	// To and From ADC (off chip)
+	output[5:0] SPI_SCLK,
+	output[5:0]	SPI_CS_N,
+	output[5:0] SPI_DI,
+	input[5:0] SPI_SDO_DRDY,
+	output[5:0] SPI_START,
+	
+	
     // UART
     output UART_tx,
     input UART_rx,
@@ -276,37 +278,7 @@ assign aresetn_100 = reset_b;
       .src_arst(reset_b)    // 1-bit input: Source asynchronous reset signal.
    );
 */
-assign ADC_clk1 = SPI_clk;
-assign ADC_clk2 = SPI_clk;
-assign ADC_clk3 = SPI_clk;
-assign ADC_clk4 = SPI_clk;
 
-reg SPI_en;
-reg SPI_button;
-wire SPI_Data_Ready;
-generate 
-if(DEBUG_MODE=="TRUE")begin
-	assign SPI_Data_Ready = ADC_Ready1;
-	always@(posedge clk_100mhz or negedge aresetn_100)begin
-		if(!aresetn_100)begin
-			SPI_en <= 0; 
-			SPI_button <= 0;
-		end else begin
-			SPI_button <= SPI_button ? !ADC_last : SPI_btn;
-			if(SPI_en)begin
-				SPI_en <= bartlett_ready && (!ADC_Ready1 && ADC_last ? 0 : 1);
-			end else begin
-				SPI_en <= SPI_button && bartlett_ready;
-			end
-		end
-	end
-end else begin
-//normal mode
-	always@(*) SPI_en <= bartlett_ready;
-	assign SPI_Data_Ready = ADC_Ready1;
-end
-
-endgenerate
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -319,54 +291,82 @@ endgenerate
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Instantiate the UART Modules
-wire rx_ready, tx_ready, Word_To_Send_en;
-wire [7:0] rx_data, Word_To_Send;
+wire[7:0] s_axis_uart_tdata;
+wire s_axis_uart_tvalid, s_axis_uart_tready;
 
-UART UART_inst(	
-    .UART_clk(UART_clk),
-    .clk(clk_100mhz),
-    .reset_b(aresetn_100),
-	.uart_aresetn(uart_aresetn),
-    .TX_Data_in(Word_To_Send),
-    .TX_en(Word_To_Send_en),
-    .RX_Data_in(UART_rx),
-                    
-    .TX_Data_out(UART_tx),
-    .TX_Ready_To_Send(tx_ready),
-    .RX_Data_out(rx_data),
-    .RX_Data_Ready(rx_ready)   
-);
+wire[7:0] m_axis_uart_tdata;
+wire m_axis_uart_tvalid;
 
-UART_TRANSACTION_HANDLER UART_TRANSACTION_HANDLER_inst( // handles communication between UART and register map
-    .clk(clk_100mhz),
-    .reset_n(aresetn_100),
-    .rx_data(rx_data),
-    .rx_ready(rx_ready),
-    .command_reader_out(reg_map_dataout),
-    .uart_tx_ready(tx_ready),
-    .uart_addr(reg_map_addr),
-    .uart_wen(uart_wen),
-    .uart_data_in(reg_map_datain),
-    .Word_To_Send(Word_To_Send),
-    .Word_To_Send_en(Word_To_Send_en),
-	.data_storage_memory_out(bram_doutb)
-);
+	UART_axis_wrapper uart_inst(
+		.s_axis_clk(clk_100mhz),
+		.s_axis_areset_n(aresetn_100),
+		
+		.s_axis_tdata(s_axis_uart_tdata),
+		.s_axis_tvalid(s_axis_uart_tvalid),
+		.s_axis_tready(s_axis_uart_tready),
+		
+		.m_axis_tdata(m_axis_uart_tdata),
+		.m_axis_tvalid(m_axis_uart_tvalid),
+		
+		
+		.uart_clk(UART_clk),
+		.uart_areset_n(uart_aresetn),
+		
+		.uart_rx_in(UART_rx),
+		.uart_tx_out(UART_tx)
+		);
+		
 
+UART_TRANSACTION_HANDLER_v2 UART_TRANSACTION_HANDLER_v2_inst(
+	.s_axis_clk(clk_100mhz),
+	.s_axis_aresetn(aresetn_100),
+	
+	.s_axis_uart_tdata(m_axis_uart_tdata),
+	.s_axis_uart_tvalid(m_axis_uart_tvalid),
+	
+	.m_axis_uart_tdata(s_axis_uart_tdata),
+	.m_axis_uart_tvalid(s_axis_uart_tvalid),
+	.m_axis_uart_tready(s_axis_uart_tready),
+	
+	.regmap_addr(reg_map_addr),
+	.regmap_din(reg_map_datain),
+	.regmap_dout(reg_map_dataout),
+	.regmap_wea(regmap_uart_wen),
+	
+	.m_axis_spi_tdata(axis_u2s_tdata),
+	.m_axis_spi_tdest(axis_u2s_tdest),
+	.m_axis_spi_tvalid(axis_u2s_tvalid),
+	.m_axis_spi_tready(axis_u2s_tready),
+	
+	.s_axis_spi_tdata(axis_s2u_tdata),
+	.s_axis_spi_tvalid(axis_s2u_tvalid),
+	.s_axis_spi_tlast(axis_s2u_tready),
+	.s_axis_spi_tready(axis_s2u_tlast),
+	
+	.mem_addr(),
+	.mem_din(),
+	.mem_dout(),
+	.mem_wea(),
+	
+	.max_angle(maxangle)
+	);
+	
+	
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Instantiate the Register map
 wire [31:0] reg_map_datain, reg_map_dataout;
 wire bartlett_valid, dumpram, softreset;
-wire UART_ready, uart_wen;
+wire UART_ready, regmap_uart_wen;
 wire [2:0] vga;
 wire [5:0] reg_map_addr;
-
+wire spi_select;
 command_reader command_reader_inst (
     .clk(clk_100mhz),
     .rst_n(aresetn_100),
     .uart_addr(reg_map_addr),
-    .uart_wr_en(uart_wen),
+    .uart_wr_en(regmap_uart_wen),
     .uart_data_in(reg_map_datain),
     .uart_data_out(reg_map_dataout),
     .bartlett_addr(bartlett_addr),
@@ -379,7 +379,8 @@ command_reader command_reader_inst (
     .vga(vga),
     .dumpram(dumpram),
     .softreset(softreset),
-    .maxangle(maxangle)
+    .maxangle(maxangle),
+	.spi_select(spi_select)
 );
 
 // assign 3 Lsb's of vga to VGA outputs
@@ -391,34 +392,74 @@ assign VGA4 = vga;
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// Instantiate the SPI Modules and connect to memory (Ring Buffers)
-// Both of these modules are controlled by the SPI_TRANSACTION_HANDLER
-localparam ADC_BIT_WIDTH = 10;
-localparam BARTLETT_BIT_WIDTH = 16;
-
-wire ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4;
-wire RAM_Overflow1, RAM_Overflow2, RAM_Overflow3, RAM_Overflow4;
-wire [ADC_BIT_WIDTH-1:0] ADC_data1, ADC_data2, ADC_data3, ADC_data4;
-wire [BARTLETT_BIT_WIDTH-1:0] ADC_data1_sext, ADC_data2_sext, ADC_data3_sext, ADC_data4_sext;
-
-assign ADC_data1_sext = {{(BARTLETT_BIT_WIDTH-ADC_BIT_WIDTH){ADC_data1[9]}},ADC_data1};
-assign ADC_data2_sext = {{(BARTLETT_BIT_WIDTH-ADC_BIT_WIDTH){ADC_data2[9]}},ADC_data2};
-assign ADC_data3_sext = {{(BARTLETT_BIT_WIDTH-ADC_BIT_WIDTH){ADC_data3[9]}},ADC_data3};
-assign ADC_data4_sext = {{(BARTLETT_BIT_WIDTH-ADC_BIT_WIDTH){ADC_data4[9]}},ADC_data4};
 
 
-SPI_WRAPPER SPI_WRAPPER_inst( //contains 4 parallelized SPI channels.
-    .clk(clk_100mhz), // 100 MHz (input)
-    .SPI_clk(SPI_clk), // 3 MHz (input)
-    .reset_b(aresetn_100),  // active low reset (input)
-	.spi_areset_n(spi_aresetn),
-    .data_in({ADC_serial_data1, ADC_serial_data2, ADC_serial_data3, ADC_serial_data4}), //From outside FPGA
-    .SPI_en({SPI_en, SPI_en, SPI_en, SPI_en}), //From FSM
-    .CS({ADC_cs1, ADC_cs2, ADC_cs3, ADC_cs4}), //Outputs out of FPGA
-	.Data_Ready({ADC_Ready1, ADC_Ready2, ADC_Ready3, ADC_Ready4}),
-    .SPI_Data_out({ADC_data1, ADC_data2, ADC_data3, ADC_data4}), // parallelized data outputs for FFT and Bartlett
-	.data_last(ADC_last)
+wire[15:0] axis_u2s_tdata;
+wire[`CHANNEL_COUNT:0] axis_u2s_tdest;
+wire axis_u2s_tvalid, axis_u2s_tready;
+
+wire[7:0] axis_s2u_tdata;
+wire axis_s2u_tvalid, axis_s2u_tready, axis_s2u_tlast;
+
+ADC_SPI_BATCH #(
+	.CHANNEL_COUNT(`CHANNEL_COUNT), // number of hydrophones/channels
+	.CONVERSION_FRAME_SIZE(256) // fft frame size
+	) ADC_SPI_BATCH_inst(
+	.clk(clk_100mhz),
+	.reset_n(aresetn_100),
+	
+	.SPI_clk(SPI_clk),
+	.SPI_reset_n(spi_aresetn),
+	
+	// From regmap
+	.SPI_select(spi_select),
+	
+	// To and From ADC (off chip)
+	.SPI_SCLK(SPI_SCLK),
+	.SPI_CS_N(SPI_CS_N),
+	.SPI_DI(SPI_DI),
+	.SPI_SDO_DRDY(SPI_SDO_DRDY),
+	.SPI_START(SPI_START),
+	
+	// From UART
+	.s_axis_tdata(axis_u2s_tdata),
+	.s_axis_tdest(axis_u2s_tdest),
+	.s_axis_tvalid(axis_u2s_tvalid),
+	.s_axis_tready(axis_u2s_tready),
+	
+	// To UART
+	.m_axis_reg_tdata(axis_s2u_tdata),
+	.m_axis_reg_tvalid(axis_s2u_tvalid),
+	.m_axis_reg_tready(axis_s2u_tready),
+	.m_axis_reg_tlast(axis_s2u_tlast),
+	
+	// To DSP
+	.m_axis_conversion_tdata(m_axis_conversion_tdata),
+	.m_axis_conversion_tlast(m_axis_conversion_tlast),
+	.m_axis_conversion_tvalid(m_axis_conversion_tvalid),
+	.m_axis_conversion_tready(m_axis_conversion_tready)
+	);
+		
+//----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
+axis_combiner_0 axis_combiner_0_inst (
+  .aclk(clk_100mhz),                    // input wire aclk
+  .aresetn(aresetn_100),              // input wire aresetn
+  .s_axis_tvalid(m_axis_conversion_tvalid),  // input wire [3 : 0] s_axis_tvalid
+  .s_axis_tready(m_axis_conversion_tready),  // output wire [3 : 0] s_axis_tready
+  .s_axis_tdata(m_axis_conversion_tdata),    // input wire [63 : 0] s_axis_tdata
+  .s_axis_tlast(m_axis_conversion_tlast),    // input wire [3 : 0] s_axis_tlast
+  .m_axis_tvalid(m_axis_combined_tvalid),  // output wire m_axis_tvalid
+  .m_axis_tready(m_axis_combined_tready),  // input wire m_axis_tready
+  .m_axis_tdata(m_axis_combined_tdata),    // output wire [63 : 0] m_axis_tdata
+  .m_axis_tlast(m_axis_combined_tlast)    // output wire m_axis_tlast
 );
+
+wire[63:0] m_axis_combined_tdata;
+wire m_axis_combined_tvalid, m_axis_combined_tready, m_axis_combined_tlast; 
+
+wire[16 * `CHANNEL_COUNT - 1:0] m_axis_conversion_tdata;
+wire[`CHANNEL_COUNT - 1:0] m_axis_conversion_tvalid, m_axis_conversion_tready, m_axis_conversion_tlast; 
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -440,13 +481,13 @@ bartlett_datapath bartlett_inst(
     .clk(clk_100mhz), // (in)
     .reset_b(aresetn_100), //(in)
         
-    .s_axis_tdata({	16'd0,{6{ADC_data1[9]}},ADC_data1, 
-                        16'd0,{6{ADC_data2[9]}},ADC_data2,  
-                        16'd0,{6{ADC_data3[9]}},ADC_data3, 
-                        16'd0,{6{ADC_data4[9]}},ADC_data4 }), // (in) 4 channels of 32-bit data
-    .s_axis_tvalid(SPI_Data_Ready), // (in)
-    .s_axis_tready(bartlett_ready), // (out)
-    .s_axis_tlast(ADC_last), // (in)
+    .s_axis_tdata({	16'd0,m_axis_combined_tdata[15:0], 
+                        16'd0,m_axis_combined_tdata[31:16],  
+                        16'd0,m_axis_combined_tdata[47:32], 
+                        16'd0,m_axis_combined_tdata[63:48] }), // (in) 4 channels of 32-bit data
+    .s_axis_tvalid(m_axis_combined_tvalid), // (in)
+    .s_axis_tready(m_axis_combined_tready), // (out)
+    .s_axis_tlast(m_axis_combined_tlast), // (in)
             
     // Config data is preloaded with correct parameters
     .s_axis_config_tdata(s_axis_bartlett_config_tdata), // (in) {upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
@@ -495,16 +536,6 @@ bartlett_config_controller bartlett_config_controller_inst(
 );
    
 //////////////////////////////////////////////////////////////////////////////////////////////
-wire ADC_serial_data1, ADC_serial_data2, ADC_serial_data3, ADC_serial_data4;
-sample_mem sample_mem_inst(
-    //.clk(clk_100mhz), //100mhz clk
-    .sw(1'b1), //switch
-    .btnC(sample_mem_reset), // reset, active high, center button
-    .spi_clk(SPI_clk),
-    .spi_cs(ADC_cs1), // always enabled
-    .button(SPI_btn),
-    .spi_dout({ADC_serial_data1, ADC_serial_data2, ADC_serial_data3, ADC_serial_data4})
-);
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 // assign debug outputs

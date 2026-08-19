@@ -71,7 +71,7 @@ for(i = 0; i < 4;i = i + 1)begin
 		.rom_dout(rom_dout[i])
 );
 			
-piso piso_inst(
+piso_sample_mem piso_inst(
 	.clk(spi_clk),
 	.reset(btnC),
 	.load(piso_load),
@@ -140,7 +140,7 @@ output [10:0] address
 	assign dout = rom_dout[offset * WORD_SIZE +: WORD_SIZE];
 	
 endmodule
-module piso #(
+module piso_sample_mem #(
 	parameter WORD_SIZE = 10
 	)(
 	input clk,

@@ -1,0 +1,2 @@
+cosine_generator.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cosine_generator/sim/cosine_generator.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

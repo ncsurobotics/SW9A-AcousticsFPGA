@@ -18,6 +18,50 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+module UART_axis_wrapper(
+	input s_axis_clk,
+	input s_axis_areset_n,
+	
+	input[7:0] s_axis_tdata,
+	input s_axis_tvalid,
+	output s_axis_tready,
+	
+	output [7:0] m_axis_tdata,
+	output m_axis_tvalid,
+	
+	input uart_clk,
+	input uart_areset_n,
+	
+	input uart_rx_in,
+	output uart_tx_out
+	
+	);
+	
+	UART #(
+		.WORD_SIZE(8),
+		.WORD_SIZE_WIDTH(4)
+		)
+		UART_inst(
+		.clk(s_axis_clk),
+		.UART_clk(uart_clk),
+		.reset_b(s_axis_areset_n),
+		.uart_aresetn(uart_areset_n),
+		
+		.TX_Data_in(s_axis_tdata),
+		.TX_en(s_axis_tvalid),
+		.TX_Ready_To_Send(s_axis_tready),
+		
+		.RX_Data_out(m_axis_tdata),
+		.RX_Data_Ready(m_axis_tvalid),
+		
+		.TX_Data_out(uart_tx_out),
+		.RX_Data_in(uart_rx_in)
+		);
+		
+	
+	
+	
+endmodule
 
 module UART #(parameter WORD_SIZE=8, parameter WORD_SIZE_WIDTH=4) (
 

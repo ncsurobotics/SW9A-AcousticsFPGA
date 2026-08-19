@@ -17,13 +17,14 @@ module command_reader (
   output [31:0] vga,
   output dumpram,
   output softreset,
-  output [31:0] maxangle
+  output [31:0] maxangle,
+  output spi_select
 );
   // bartlett bins and maxangle
   reg [31:0] bartlett_flipflops [0:19];
   
   // uart bins
-  reg [31:0] uart_flipflops [20:25];
+  reg [31:0] uart_flipflops [20:26];
   
   // uart writing
   integer i;
@@ -36,7 +37,8 @@ module command_reader (
       uart_flipflops[21] <= 32'h0007;     // min frequency
       uart_flipflops[22] <= 32'h0013;     // max frequency
       uart_flipflops[23] <= 32'h0005;     // vga
-    end else if (uart_wr_en && uart_addr >= 20 && uart_addr <= 25) begin
+	  uart_flipflops[26] <= 32'h0001;	  // spi_select
+    end else if (uart_wr_en && uart_addr >= 20 && uart_addr <= 26) begin
       uart_flipflops[uart_addr] <= uart_data_in;
     end
   end
@@ -77,4 +79,5 @@ module command_reader (
   assign vga           = uart_flipflops[23];
   assign dumpram       = uart_flipflops[24][0];
   assign softreset     = uart_flipflops[25][0];
+  assign spi_select	   = uart_flipflops[26][0];
 endmodule

@@ -22,6 +22,78 @@
 `define THETA_COUNT 19
 `define MATRIX_SIZE 4
 
+
+// upsample by a factor of 2 using lerp
+module linear_interpolator #(
+	parameter WORD_SIZE = 16
+	)(
+	input s_axis_clk,
+	input s_axis_aresetn, // global reset
+	
+	input reset, // logic reset from '''controller'''
+	
+	input[WORD_SIZE-1:0] s_axis_tdata,
+	input s_axis_tvalid,
+	output reg s_axis_tready,
+	
+	output reg [WORD_SIZE-1:0] m_axis_tdata,
+	output reg m_axis_tvalid,
+	input m_axis_tready
+	);
+	
+	reg[WORD_SIZE-1:0] values[1:0];
+	reg[1:0] valid;
+	wire[WORD_SIZE:0] out_pipe;
+	reg out_pipe_valid;
+	wire sign;
+	
+	reg out_pipe_valid_delayed;
+	assign out_pipe = values[0] + values[1];
+	assign sign = values[0][WORD_SIZE-1] ^ values[1][WORD_SIZE-1];
+
+	always@(posedge s_axis_clk or negedge s_axis_aresetn)begin
+		if(!s_axis_aresetn || reset)begin
+			values[0]<=0;
+			values[1]<=0;
+			valid <= 0;
+			out_pipe_valid <= 0;
+			s_axis_tready <= 0;
+			m_axis_tvalid <= 0;
+			m_axis_tdata <= 0;
+			out_pipe_valid_delayed <= 0;
+		end else begin
+			s_axis_tready <= ~s_axis_tvalid && !(&valid);
+			if(s_axis_tvalid && s_axis_tready)begin
+				values[0] <= s_axis_tdata;
+				valid[0] <= 1;
+				values[1] <= values[0];
+				valid[1] <= valid[0];
+				out_pipe_valid <= 0;
+			end else if(m_axis_tready && &valid)begin
+				valid[1] <= 0;
+				out_pipe_valid <= 1;
+			end else begin
+				out_pipe_valid <= 0;
+			end
+			out_pipe_valid_delayed <= out_pipe_valid;
+			
+			if(out_pipe_valid) begin
+				if(sign) m_axis_tdata <= out_pipe[WORD_SIZE-1:0]; // upper bits, overflow
+				else m_axis_tdata <= out_pipe[WORD_SIZE:1]; // lower bits, no overflow
+			end else m_axis_tdata <= values[0]; //passthrough
+			m_axis_tvalid <= out_pipe_valid || out_pipe_valid_delayed;
+			
+			
+		end
+	end
+	
+
+	
+	
+endmodule
+	
+
+
 module bartlett_datapath #(
 	parameter NUM_SIZE = 32  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
 	) (
@@ -64,6 +136,13 @@ module bartlett_datapath #(
 
     );
 	
+	linear_interpolator #(.WORD_SIZE(16))lerp(
+		.s_axis_clk(clk),
+		.s_axis_aresetn(reset_b),
+		.s_axis_tdata(s_axis_tdata[15:0]),
+		.s_axis_tvalid(s_axis_tvalid),
+		.m_axis_tready(1)
+		);
 
 
 	assign debug_max_freq_vec = m_axis_fft_max_tdata;

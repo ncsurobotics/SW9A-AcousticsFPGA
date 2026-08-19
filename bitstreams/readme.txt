@@ -1,0 +1,1 @@
+cmod_a7_board.bit should work with the normal pinouts

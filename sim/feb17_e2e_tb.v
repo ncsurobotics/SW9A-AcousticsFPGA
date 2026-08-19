@@ -107,6 +107,7 @@ initial begin
 	#10 send_spi_sample = 0;
 			#60000 reset_n = 0; #50 reset_n = 1; #100 send_spi_sample = 1;
 	#10 send_spi_sample = 0;
+	
 
 end
 

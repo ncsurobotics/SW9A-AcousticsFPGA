@@ -4,11 +4,11 @@ module CDC_DRIVER #(
     input src_clk,
     input dest_clk,
     input reset_b,
-    input Data_Ready,
+    input Data_Ready, // indicates that Data_in is ready to be converted
     input [DATA_LENGTH-1:0] Data_in,
 
-    output [DATA_LENGTH-1:0] Data_out,
-    output dest_req
+    output [DATA_LENGTH-1:0] Data_out, 
+    output dest_req // indicates that Data_out is valid
 );
 
     wire src_send, src_rcv;

@@ -1,7 +1,41 @@
 `timescale 1ns/1ps
 
+// inserts blank frames into an AXIS such that no two consecutive frames are valid. Halves maximum throughput.
 
+module axis_spacer #(
+	parameter DATA_WIDTH = 32
+	)(
+	input clk,
+	input reset_n,
+	
+	input[DATA_WIDTH-1:0] s_axis_tdata,
+	input s_axis_tvalid,
+	output reg s_axis_tready,
+	
+	output reg[DATA_WIDTH-1:0] m_axis_tdata,
+	output reg m_axis_tvalid,
+	input m_axis_tready
+	);
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			m_axis_tdata <= 0;
+			m_axis_tvalid <= 0;
+			s_axis_tready <= 0;
+		end else begin
+			if(s_axis_tvalid && s_axis_tready)begin
+				m_axis_tdata <= s_axis_tdata;
+				m_axis_tvalid <= 1;
+				s_axis_tready <= 0;
+			end else begin
+				m_axis_tdata <= 0;
+				m_axis_tvalid <= 0;
+				s_axis_tready <= m_axis_tready;
+			end
 
+		end
+	end
+endmodule
 
 module complex_multiplier #(
 	parameter NUM_SIZE = 32

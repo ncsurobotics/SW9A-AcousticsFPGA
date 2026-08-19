@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="113,180.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="119,065.001 ns"></ZoomEndTime>
-      <Cursor1Time time="116,080.000 ns"></Cursor1Time>
+      <ZoomStartTime time="3.326667 us"></ZoomStartTime>
+      <ZoomEndTime time="62.926668 us"></ZoomEndTime>
+      <Cursor1Time time="13.260000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="280"></NameColumnWidth>
-      <ValueColumnWidth column_width="79"></ValueColumnWidth>
+      <NameColumnWidth column_width="272"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="11" />
    <wvobject fp_name="group321" type="group">
       <obj_property name="label">DUT</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -532,52 +532,6 @@
       <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses" type="array">
          <obj_property name="ElementShortName">addresses[3:0][10:0]</obj_property>
          <obj_property name="ObjectShortName">addresses[3:0][10:0]</obj_property>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[3]" type="array">
-            <obj_property name="ElementShortName">[3][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][10:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[2]" type="array">
-            <obj_property name="ElementShortName">[2][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][10:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[1]" type="array">
-            <obj_property name="ElementShortName">[1][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][10:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[0]" type="array">
-            <obj_property name="ElementShortName">[0][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][10:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[3]" type="array">
-            <obj_property name="ElementShortName">[3][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][10:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[2]" type="array">
-            <obj_property name="ElementShortName">[2][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][10:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[1]" type="array">
-            <obj_property name="ElementShortName">[1][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][10:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/addresses[0]" type="array">
-            <obj_property name="ElementShortName">[0][10:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][10:0]</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/feb17_e2e_tb/dut/sample_mem_inst/rom_dout" type="array">
          <obj_property name="ElementShortName">rom_dout[3:0][159:0]</obj_property>
@@ -683,7 +637,6 @@
    <wvobject fp_name="group1101" type="group">
       <obj_property name="label">FFT_MAX</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -950,7 +903,6 @@
    <wvobject fp_name="group360" type="group">
       <obj_property name="label">FFT</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1034,31 +986,6 @@
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part" type="array">
          <obj_property name="ElementShortName">max_real_part[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">max_real_part[3:0][15:0]</obj_property>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_real_part[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/max_imag_part" type="array">
          <obj_property name="ElementShortName">max_imag_part[3:0][15:0]</obj_property>
@@ -1076,19 +1003,6 @@
          <obj_property name="ElementShortName">partial_prod[1:0][32:0]</obj_property>
          <obj_property name="ObjectShortName">partial_prod[1:0][32:0]</obj_property>
          <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/partial_prod[1]" type="array">
-            <obj_property name="ElementShortName">[1][32:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][32:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/partial_prod[0]" type="array">
-            <obj_property name="ElementShortName">[0][32:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][32:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/fft_max_inst/max_fft_bin_inst/i" type="array">
          <obj_property name="ElementShortName">i[31:0]</obj_property>
@@ -1217,70 +1131,6 @@
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel" type="array">
          <obj_property name="ElementShortName">real_channel[3:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">real_channel[3:0][15:0]</obj_property>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-            <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="AnalogYRangeMin">-48211.9</obj_property>
-            <obj_property name="AnalogYRRangeMax">12915.1</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="AnalogYRangeMin">-6489</obj_property>
-            <obj_property name="AnalogYRRangeMax">-3477</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-            <obj_property name="CellHeight">100</obj_property>
-            <obj_property name="AnalogYRangeMin">-470378</obj_property>
-            <obj_property name="AnalogYRRangeMax">654977</obj_property>
-            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-            <obj_property name="AnalogHorizLine">0.000000</obj_property>
-            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[3]" type="array">
-            <obj_property name="ElementShortName">[3][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[2]" type="array">
-            <obj_property name="ElementShortName">[2][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[1]" type="array">
-            <obj_property name="ElementShortName">[1][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/real_channel[0]" type="array">
-            <obj_property name="ElementShortName">[0][15:0]</obj_property>
-            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
-         </wvobject>
       </wvobject>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/rxx_inst/imag_channel" type="array">
          <obj_property name="ElementShortName">imag_channel[3:0][15:0]</obj_property>
@@ -1330,7 +1180,6 @@
    <wvobject fp_name="group429" type="group">
       <obj_property name="label">PTHETA</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/p_theta_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1534,6 +1383,93 @@
       <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/bartlett_time_domain_inst/max_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group374" type="group">
+      <obj_property name="label">LERP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/s_axis_clk" type="logic">
+         <obj_property name="ElementShortName">s_axis_clk</obj_property>
+         <obj_property name="ObjectShortName">s_axis_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/s_axis_aresetn" type="logic">
+         <obj_property name="ElementShortName">s_axis_aresetn</obj_property>
+         <obj_property name="ObjectShortName">s_axis_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/reset" type="logic">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeMin">-200</obj_property>
+         <obj_property name="AnalogYRRangeMax">257</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/values" type="array">
+         <obj_property name="ElementShortName">values[1:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">values[1:0][15:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/valid" type="array">
+         <obj_property name="ElementShortName">valid[1:0]</obj_property>
+         <obj_property name="ObjectShortName">valid[1:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/out_pipe" type="array">
+         <obj_property name="ElementShortName">out_pipe[16:0]</obj_property>
+         <obj_property name="ObjectShortName">out_pipe[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/out_pipe_valid" type="logic">
+         <obj_property name="ElementShortName">out_pipe_valid</obj_property>
+         <obj_property name="ObjectShortName">out_pipe_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/sign" type="logic">
+         <obj_property name="ElementShortName">sign</obj_property>
+         <obj_property name="ObjectShortName">sign</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/out_pipe_valid_delayed" type="logic">
+         <obj_property name="ElementShortName">out_pipe_valid_delayed</obj_property>
+         <obj_property name="ObjectShortName">out_pipe_valid_delayed</obj_property>
+      </wvobject>
+      <wvobject fp_name="/feb17_e2e_tb/dut/bartlett_inst/lerp/WORD_SIZE" type="array">
+         <obj_property name="ElementShortName">WORD_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORD_SIZE[31:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

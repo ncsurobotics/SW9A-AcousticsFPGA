@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_th_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_th_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2,067.166 ns"></ZoomStartTime>
+      <ZoomEndTime time="2,168.967 ns"></ZoomEndTime>
+      <Cursor1Time time="2,092.366 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="247"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="group604" type="group">
+      <obj_property name="label">TB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/s_axis_uart_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_uart_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_uart_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/s_axis_uart_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_uart_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_uart_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/fake_regmap" type="array">
+         <obj_property name="ElementShortName">fake_regmap[255:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">fake_regmap[255:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/regmap_dout" type="array">
+         <obj_property name="ElementShortName">regmap_dout[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regmap_dout[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/regmap_din" type="array">
+         <obj_property name="ElementShortName">regmap_din[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regmap_din[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/regmap_wea" type="logic">
+         <obj_property name="ElementShortName">regmap_wea</obj_property>
+         <obj_property name="ObjectShortName">regmap_wea</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/regmap_addr" type="array">
+         <obj_property name="ElementShortName">regmap_addr[7:0]</obj_property>
+         <obj_property name="ObjectShortName">regmap_addr[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_u2s_tdata" type="array">
+         <obj_property name="ElementShortName">axis_u2s_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">axis_u2s_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_u2s_tdest" type="array">
+         <obj_property name="ElementShortName">axis_u2s_tdest[5:0]</obj_property>
+         <obj_property name="ObjectShortName">axis_u2s_tdest[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_u2s_tvalid" type="logic">
+         <obj_property name="ElementShortName">axis_u2s_tvalid</obj_property>
+         <obj_property name="ObjectShortName">axis_u2s_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_u2s_tready" type="logic">
+         <obj_property name="ElementShortName">axis_u2s_tready</obj_property>
+         <obj_property name="ObjectShortName">axis_u2s_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_s2u_tdata" type="array">
+         <obj_property name="ElementShortName">axis_s2u_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">axis_s2u_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_s2u_tvalid" type="logic">
+         <obj_property name="ElementShortName">axis_s2u_tvalid</obj_property>
+         <obj_property name="ObjectShortName">axis_s2u_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_s2u_tready" type="logic">
+         <obj_property name="ElementShortName">axis_s2u_tready</obj_property>
+         <obj_property name="ObjectShortName">axis_s2u_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_s2u_tlast" type="logic">
+         <obj_property name="ElementShortName">axis_s2u_tlast</obj_property>
+         <obj_property name="ObjectShortName">axis_s2u_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_SCLK" type="array">
+         <obj_property name="ElementShortName">SPI_SCLK[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SCLK[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_CS_N" type="array">
+         <obj_property name="ElementShortName">SPI_CS_N[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_CS_N[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_DI" type="array">
+         <obj_property name="ElementShortName">SPI_DI[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_DI[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_SDO_DRDY" type="array">
+         <obj_property name="ElementShortName">SPI_SDO_DRDY[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SDO_DRDY[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_mode" type="logic">
+         <obj_property name="ElementShortName">SPI_mode</obj_property>
+         <obj_property name="ObjectShortName">SPI_mode</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/spi_counter" type="array">
+         <obj_property name="ElementShortName">spi_counter[5:0][3:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_counter[5:0][3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/spi_hash" type="array">
+         <obj_property name="ElementShortName">spi_hash[5:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_hash[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/j" type="array">
+         <obj_property name="ElementShortName">j[7:0]</obj_property>
+         <obj_property name="ObjectShortName">j[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/COMMAND_LENGTH" type="array">
+         <obj_property name="ElementShortName">COMMAND_LENGTH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COMMAND_LENGTH[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_GET" type="array">
+         <obj_property name="ElementShortName">OP_GET[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_GET[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_R" type="array">
+         <obj_property name="ElementShortName">OP_R[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_R[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_RS" type="array">
+         <obj_property name="ElementShortName">OP_RS[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_RS[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_RM" type="array">
+         <obj_property name="ElementShortName">OP_RM[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_RM[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_RX" type="array">
+         <obj_property name="ElementShortName">OP_RX[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_RX[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_W" type="array">
+         <obj_property name="ElementShortName">OP_W[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_W[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_WS" type="array">
+         <obj_property name="ElementShortName">OP_WS[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_WS[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_WM" type="array">
+         <obj_property name="ElementShortName">OP_WM[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_WM[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/OP_WX" type="array">
+         <obj_property name="ElementShortName">OP_WX[7:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_WX[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/REGMAP_MAX_ADDRESS" type="array">
+         <obj_property name="ElementShortName">REGMAP_MAX_ADDRESS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">REGMAP_MAX_ADDRESS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/SPI_MAX_ADDRESS" type="array">
+         <obj_property name="ElementShortName">SPI_MAX_ADDRESS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_MAX_ADDRESS[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group603" type="group">
+      <obj_property name="label">DUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_clk" type="logic">
+         <obj_property name="ElementShortName">s_axis_clk</obj_property>
+         <obj_property name="ObjectShortName">s_axis_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_aresetn" type="logic">
+         <obj_property name="ElementShortName">s_axis_aresetn</obj_property>
+         <obj_property name="ObjectShortName">s_axis_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_uart_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_uart_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_uart_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_uart_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_uart_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_uart_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_uart_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_uart_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_uart_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_uart_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_uart_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_uart_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_uart_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_uart_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_uart_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_uart_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_uart_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_uart_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="group950" type="group">
+         <obj_property name="label">REGMAP</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/regmap_addr" type="array">
+            <obj_property name="ElementShortName">regmap_addr[7:0]</obj_property>
+            <obj_property name="ObjectShortName">regmap_addr[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/regmap_din" type="array">
+            <obj_property name="ElementShortName">regmap_din[31:0]</obj_property>
+            <obj_property name="ObjectShortName">regmap_din[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/regmap_dout" type="array">
+            <obj_property name="ElementShortName">regmap_dout[31:0]</obj_property>
+            <obj_property name="ObjectShortName">regmap_dout[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/regmap_wea" type="logic">
+            <obj_property name="ElementShortName">regmap_wea</obj_property>
+            <obj_property name="ObjectShortName">regmap_wea</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group948" type="group">
+         <obj_property name="label">M_SPI</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_spi_tdata" type="array">
+            <obj_property name="ElementShortName">m_axis_spi_tdata[15:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_spi_tdata[15:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_spi_tdest" type="array">
+            <obj_property name="ElementShortName">m_axis_spi_tdest[7:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_spi_tdest[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_spi_tvalid" type="logic">
+            <obj_property name="ElementShortName">m_axis_spi_tvalid</obj_property>
+            <obj_property name="ObjectShortName">m_axis_spi_tvalid</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/m_axis_spi_tready" type="logic">
+            <obj_property name="ElementShortName">m_axis_spi_tready</obj_property>
+            <obj_property name="ObjectShortName">m_axis_spi_tready</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group949" type="group">
+         <obj_property name="label">S_SPI</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_spi_tdata" type="array">
+            <obj_property name="ElementShortName">s_axis_spi_tdata[7:0]</obj_property>
+            <obj_property name="ObjectShortName">s_axis_spi_tdata[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_spi_tvalid" type="logic">
+            <obj_property name="ElementShortName">s_axis_spi_tvalid</obj_property>
+            <obj_property name="ObjectShortName">s_axis_spi_tvalid</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_spi_tlast" type="logic">
+            <obj_property name="ElementShortName">s_axis_spi_tlast</obj_property>
+            <obj_property name="ObjectShortName">s_axis_spi_tlast</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/s_axis_spi_tready" type="logic">
+            <obj_property name="ElementShortName">s_axis_spi_tready</obj_property>
+            <obj_property name="ObjectShortName">s_axis_spi_tready</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/max_angle" type="array">
+         <obj_property name="ElementShortName">max_angle[31:0]</obj_property>
+         <obj_property name="ObjectShortName">max_angle[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group947" type="group">
+         <obj_property name="label">MEM</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/mem_addr" type="array">
+            <obj_property name="ElementShortName">mem_addr[7:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_addr[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/mem_din" type="array">
+            <obj_property name="ElementShortName">mem_din[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_din[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/mem_dout" type="array">
+            <obj_property name="ElementShortName">mem_dout[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_dout[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/mem_wea" type="logic">
+            <obj_property name="ElementShortName">mem_wea</obj_property>
+            <obj_property name="ObjectShortName">mem_wea</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/ibuf" type="array">
+         <obj_property name="ElementShortName">ibuf[47:0]</obj_property>
+         <obj_property name="ObjectShortName">ibuf[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/spi_buf" type="array">
+         <obj_property name="ElementShortName">spi_buf[47:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_buf[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/obuf" type="array">
+         <obj_property name="ElementShortName">obuf[47:0]</obj_property>
+         <obj_property name="ObjectShortName">obuf[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/ibuf_words" type="array">
+         <obj_property name="ElementShortName">ibuf_words[5:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">ibuf_words[5:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/state" type="array">
+         <obj_property name="ElementShortName">state[3:0]</obj_property>
+         <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/operation" type="array">
+         <obj_property name="ElementShortName">operation[3:0]</obj_property>
+         <obj_property name="ObjectShortName">operation[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/rx_counter" type="array">
+         <obj_property name="ElementShortName">rx_counter[2:0]</obj_property>
+         <obj_property name="ObjectShortName">rx_counter[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/tx_counter" type="array">
+         <obj_property name="ElementShortName">tx_counter[2:0]</obj_property>
+         <obj_property name="ObjectShortName">tx_counter[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/word_count" type="array">
+         <obj_property name="ElementShortName">word_count[2:0]</obj_property>
+         <obj_property name="ObjectShortName">word_count[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/piso_load" type="logic">
+         <obj_property name="ElementShortName">piso_load</obj_property>
+         <obj_property name="ObjectShortName">piso_load</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/piso_shift" type="logic">
+         <obj_property name="ElementShortName">piso_shift</obj_property>
+         <obj_property name="ObjectShortName">piso_shift</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/sipo_clear" type="logic">
+         <obj_property name="ElementShortName">sipo_clear</obj_property>
+         <obj_property name="ObjectShortName">sipo_clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/sipo_enable" type="logic">
+         <obj_property name="ElementShortName">sipo_enable</obj_property>
+         <obj_property name="ObjectShortName">sipo_enable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/pause" type="logic">
+         <obj_property name="ElementShortName">pause</obj_property>
+         <obj_property name="ObjectShortName">pause</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group952" type="group">
+      <obj_property name="label">PISO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/din" type="array">
+         <obj_property name="ElementShortName">din[47:0]</obj_property>
+         <obj_property name="ObjectShortName">din[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/dout" type="array">
+         <obj_property name="ElementShortName">dout[7:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/load" type="logic">
+         <obj_property name="ElementShortName">load</obj_property>
+         <obj_property name="ObjectShortName">load</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/shift" type="logic">
+         <obj_property name="ElementShortName">shift</obj_property>
+         <obj_property name="ObjectShortName">shift</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/words" type="array">
+         <obj_property name="ElementShortName">words[5:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">words[5:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/WORD_SIZE" type="array">
+         <obj_property name="ElementShortName">WORD_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORD_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/output_buffer/WORD_COUNT" type="array">
+         <obj_property name="ElementShortName">WORD_COUNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORD_COUNT[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group953" type="group">
+      <obj_property name="label">SIPO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/din" type="array">
+         <obj_property name="ElementShortName">din[7:0]</obj_property>
+         <obj_property name="ObjectShortName">din[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/din_valid" type="logic">
+         <obj_property name="ElementShortName">din_valid</obj_property>
+         <obj_property name="ObjectShortName">din_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/dout" type="array">
+         <obj_property name="ElementShortName">dout[47:0]</obj_property>
+         <obj_property name="ObjectShortName">dout[47:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/word_count" type="array">
+         <obj_property name="ElementShortName">word_count[2:0]</obj_property>
+         <obj_property name="ObjectShortName">word_count[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/clear" type="logic">
+         <obj_property name="ElementShortName">clear</obj_property>
+         <obj_property name="ObjectShortName">clear</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/words" type="array">
+         <obj_property name="ElementShortName">words[5:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">words[5:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/i" type="array">
+         <obj_property name="ElementShortName">i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/WORD_SIZE" type="array">
+         <obj_property name="ElementShortName">WORD_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORD_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/UART_TRANSACTION_HANDLER_v2_inst/input_buffer/WORD_COUNT" type="array">
+         <obj_property name="ElementShortName">WORD_COUNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORD_COUNT[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group488" type="group">
+      <obj_property name="label">SPI_BATCH</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_clk" type="logic">
+         <obj_property name="ElementShortName">SPI_clk</obj_property>
+         <obj_property name="ObjectShortName">SPI_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_reset_n" type="logic">
+         <obj_property name="ElementShortName">SPI_reset_n</obj_property>
+         <obj_property name="ObjectShortName">SPI_reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_select" type="logic">
+         <obj_property name="ElementShortName">SPI_select</obj_property>
+         <obj_property name="ObjectShortName">SPI_select</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_SCLK" type="array">
+         <obj_property name="ElementShortName">SPI_SCLK[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SCLK[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_CS_N" type="array">
+         <obj_property name="ElementShortName">SPI_CS_N[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_CS_N[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_DI" type="array">
+         <obj_property name="ElementShortName">SPI_DI[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_DI[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_SDO_DRDY" type="array">
+         <obj_property name="ElementShortName">SPI_SDO_DRDY[5:0]</obj_property>
+         <obj_property name="ObjectShortName">SPI_SDO_DRDY[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_START" type="logic">
+         <obj_property name="ElementShortName">SPI_START</obj_property>
+         <obj_property name="ObjectShortName">SPI_START</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tdest" type="array">
+         <obj_property name="ElementShortName">s_axis_tdest[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdest[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="group1960" type="group">
+         <obj_property name="label">Regmap</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_reg_tdata" type="array">
+            <obj_property name="ElementShortName">m_axis_reg_tdata[7:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_reg_tdata[7:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_reg_tvalid" type="logic">
+            <obj_property name="ElementShortName">m_axis_reg_tvalid</obj_property>
+            <obj_property name="ObjectShortName">m_axis_reg_tvalid</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_reg_tlast" type="logic">
+            <obj_property name="ElementShortName">m_axis_reg_tlast</obj_property>
+            <obj_property name="ObjectShortName">m_axis_reg_tlast</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_reg_tready" type="logic">
+            <obj_property name="ElementShortName">m_axis_reg_tready</obj_property>
+            <obj_property name="ObjectShortName">m_axis_reg_tready</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group1959" type="group">
+         <obj_property name="label">Conversion</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_conversion_tdata" type="array">
+            <obj_property name="ElementShortName">m_axis_conversion_tdata[95:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_conversion_tdata[95:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_conversion_tlast" type="array">
+            <obj_property name="ElementShortName">m_axis_conversion_tlast[5:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_conversion_tlast[5:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_conversion_tvalid" type="array">
+            <obj_property name="ElementShortName">m_axis_conversion_tvalid[5:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_conversion_tvalid[5:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_conversion_tready" type="array">
+            <obj_property name="ElementShortName">m_axis_conversion_tready[5:0]</obj_property>
+            <obj_property name="ObjectShortName">m_axis_conversion_tready[5:0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/internal_select" type="logic">
+         <obj_property name="ElementShortName">internal_select</obj_property>
+         <obj_property name="ObjectShortName">internal_select</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/SPI_select_buffer" type="logic">
+         <obj_property name="ElementShortName">SPI_select_buffer</obj_property>
+         <obj_property name="ObjectShortName">SPI_select_buffer</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/counter" type="array">
+         <obj_property name="ElementShortName">counter[7:0]</obj_property>
+         <obj_property name="ObjectShortName">counter[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/last_dest" type="array">
+         <obj_property name="ElementShortName">last_dest[5:0]</obj_property>
+         <obj_property name="ObjectShortName">last_dest[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/reg_values" type="array">
+         <obj_property name="ElementShortName">reg_values[5:0][7:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_values[5:0][7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/reg_values_valid" type="array">
+         <obj_property name="ElementShortName">reg_values_valid[5:0][1:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_values_valid[5:0][1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/xor_rvv" type="array">
+         <obj_property name="ElementShortName">xor_rvv[5:0]</obj_property>
+         <obj_property name="ObjectShortName">xor_rvv[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/reg_values_index" type="array">
+         <obj_property name="ElementShortName">reg_values_index[7:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_values_index[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/reg_state" type="array">
+         <obj_property name="ElementShortName">reg_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[5:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[5:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_tid" type="array">
+         <obj_property name="ElementShortName">m_axis_tid[5:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tid[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_tvalid" type="array">
+         <obj_property name="ElementShortName">m_axis_tvalid[5:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/m_axis_tready" type="array">
+         <obj_property name="ElementShortName">m_axis_tready[5:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tready_i" type="array">
+         <obj_property name="ElementShortName">s_axis_tready_i[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready_i[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tvalid_i" type="array">
+         <obj_property name="ElementShortName">s_axis_tvalid_i[5:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid_i[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/s_axis_tdata_i" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata_i[5:0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata_i[5:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/j" type="array">
+         <obj_property name="ElementShortName">j[31:0]</obj_property>
+         <obj_property name="ObjectShortName">j[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/CHANNEL_COUNT" type="array">
+         <obj_property name="ElementShortName">CHANNEL_COUNT[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CHANNEL_COUNT[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/CONVERSION_FRAME_SIZE" type="array">
+         <obj_property name="ElementShortName">CONVERSION_FRAME_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">CONVERSION_FRAME_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group533" type="group">
+      <obj_property name="label">SPI_INST</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_clk" type="logic">
+         <obj_property name="ElementShortName">SPI_clk</obj_property>
+         <obj_property name="ObjectShortName">SPI_clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_reset_n" type="logic">
+         <obj_property name="ElementShortName">SPI_reset_n</obj_property>
+         <obj_property name="ObjectShortName">SPI_reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_SCLK" type="logic">
+         <obj_property name="ElementShortName">SPI_SCLK</obj_property>
+         <obj_property name="ObjectShortName">SPI_SCLK</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_CS_N" type="logic">
+         <obj_property name="ElementShortName">SPI_CS_N</obj_property>
+         <obj_property name="ObjectShortName">SPI_CS_N</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_DI" type="logic">
+         <obj_property name="ElementShortName">SPI_DI</obj_property>
+         <obj_property name="ObjectShortName">SPI_DI</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /SPI_SDO_DRDY" type="logic">
+         <obj_property name="ElementShortName">SPI_SDO_DRDY</obj_property>
+         <obj_property name="ObjectShortName">SPI_SDO_DRDY</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_tid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /state" type="array">
+         <obj_property name="ElementShortName">state[2:0]</obj_property>
+         <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /buffer" type="array">
+         <obj_property name="ElementShortName">buffer[15:0]</obj_property>
+         <obj_property name="ObjectShortName">buffer[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /drdy_buffer" type="logic">
+         <obj_property name="ElementShortName">drdy_buffer</obj_property>
+         <obj_property name="ObjectShortName">drdy_buffer</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /f2s_data" type="array">
+         <obj_property name="ElementShortName">f2s_data[15:0]</obj_property>
+         <obj_property name="ObjectShortName">f2s_data[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /f2s_valid" type="logic">
+         <obj_property name="ElementShortName">f2s_valid</obj_property>
+         <obj_property name="ObjectShortName">f2s_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s2f_data" type="array">
+         <obj_property name="ElementShortName">s2f_data[16:0]</obj_property>
+         <obj_property name="ObjectShortName">s2f_data[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s2f_valid" type="logic">
+         <obj_property name="ElementShortName">s2f_valid</obj_property>
+         <obj_property name="ObjectShortName">s2f_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_if_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_if_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_if_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /read_twice" type="logic">
+         <obj_property name="ElementShortName">read_twice</obj_property>
+         <obj_property name="ObjectShortName">read_twice</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /operation" type="array">
+         <obj_property name="ElementShortName">operation[1:0]</obj_property>
+         <obj_property name="ObjectShortName">operation[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_if_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_if_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_if_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_if_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_if_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_if_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /s_axis_if_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_if_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_if_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_if_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_if_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_if_tdata[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_if_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_if_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_if_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /m_axis_if_tid" type="logic">
+         <obj_property name="ElementShortName">m_axis_if_tid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_if_tid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_IDLE" type="array">
+         <obj_property name="ElementShortName">S_IDLE[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_IDLE[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_SEND" type="array">
+         <obj_property name="ElementShortName">S_SEND[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_SEND[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_WAIT" type="array">
+         <obj_property name="ElementShortName">S_WAIT[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_WAIT[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_RECEIVE" type="array">
+         <obj_property name="ElementShortName">S_RECEIVE[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_RECEIVE[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_SEND_AGAIN" type="array">
+         <obj_property name="ElementShortName">S_SEND_AGAIN[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_SEND_AGAIN[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_WAIT_AGAIN" type="array">
+         <obj_property name="ElementShortName">S_WAIT_AGAIN[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_WAIT_AGAIN[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /S_RECEIVE_AGAIN" type="array">
+         <obj_property name="ElementShortName">S_RECEIVE_AGAIN[2:0]</obj_property>
+         <obj_property name="ObjectShortName">S_RECEIVE_AGAIN[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /OP_NOP" type="array">
+         <obj_property name="ElementShortName">OP_NOP[1:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_NOP[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /OP_READ" type="array">
+         <obj_property name="ElementShortName">OP_READ[1:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_READ[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/ADC_SPI_BATCH_inst/\genblk1[0].u1 /OP_WRITE" type="array">
+         <obj_property name="ElementShortName">OP_WRITE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">OP_WRITE[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group2540" type="group">
+      <obj_property name="label">AXIS_SPACER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/s_axis_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/state" type="logic">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+      <wvobject fp_name="/uart_th_tb/axis_spacer_inst/DATA_WIDTH" type="array">
+         <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

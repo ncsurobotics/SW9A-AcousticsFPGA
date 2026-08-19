@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/complex_exponential/sim/complex_exponential.vhd" \
+
+nosort
