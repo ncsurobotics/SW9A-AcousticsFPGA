@@ -64,29 +64,29 @@ module cmod_a7_board(
 	input pio23,// not connected
 	// pio24 == +3.3V
 	// pio25 == GND
-	output pio26,// not connected
-	output pio27,// not connected
-	output pio28,// not connected
-	output pio29,// not connected
-	output pio30,// not connected
-	output pio31,// not connected
-	output pio32,// not connected
-	output pio33,// not connected
-	output pio34,// not connected
-	input pio35,// not not connected
-	input pio36,//  not connected
-	input pio37,//  not connected
-	input pio38,//  not connected
-	input pio39,//  not connected
-	input pio40,//  not connected
-	input pio41,//  not connected
-	input pio42,// not  connected
-	input pio44,// not connected
-	input pio43,// ot connected
-	input pio45,// ot connected
-	input pio46,// ot connected
-	input pio47,// ot connected
-	input pio48,// ot connected
+	input pio26,// not connected
+	input pio27,// not connected
+	input pio28,// not connected
+	output pio29,// Acoustic Single Channel 4 - CS (Chip Select) 
+	output pio30,// Acoustic Single Channel 4 - Clock
+	input pio31,// Acoustic Single Channel 4 - Data
+	output pio32,// Acoustic Single Channel 4 - VGA Gain[0] 
+	output pio33,// Acoustic Single Channel 4 - VGA Gain[1]
+	output pio34,// Acoustic Single Channel 4 - VGA Gain[2]
+	input pio35,// not connected
+	output pio36,// Acoustic Single Channel 3 - VGA Gain[2]
+	output pio37,// Acoustic Single Channel 3 - VGA Gain[1]
+	output pio38,// Acoustic Single Channel 3 - VGA Gain[0]
+	output pio39,// Acoustic Single Channel 3 - CS (Chip Select)  
+	input pio40,// Acoustic Single Channel 3 - Data
+	output pio41,// Acoustic Single Channel 3 - Clock
+	input pio42,// not connected
+	input pio44,// Acoustic Single Channel 2 - Data
+	output pio43,// Acoustic Single Channel 2 - Clock
+	output pio45,// Acoustic Single Channel 2 - CS (Chip Select)  
+	output pio46,// Acoustic Single Channel 2 - VGA Gain[0]
+	output pio47,// Acoustic Single Channel 2 - VGA Gain[1]
+	output pio48,// Acoustic Single Channel 2 - VGA Gain[2]
 	
 	
 	// UART - Connects to USB port- NOT USED
@@ -140,6 +140,7 @@ top  #(
         
 		// UART
     .UART_tx(uart_rxd_out),
+
     .UART_rx(uart_txd_in)
 
     // VGA
