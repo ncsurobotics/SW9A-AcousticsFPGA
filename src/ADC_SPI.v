@@ -40,6 +40,7 @@ module ADC_SPI_BATCH #(
 	
 	);
 	
+	
 	reg internal_select, SPI_select_buffer;
 	reg[$clog2(CONVERSION_FRAME_SIZE)-1:0] counter;
 	reg[CHANNEL_COUNT-1:0] last_dest;
@@ -72,19 +73,20 @@ module ADC_SPI_BATCH #(
 			m_axis_reg_tlast<= 0;
 			reg_values_index <= 0;
 		end else begin
-			SPI_select_buffer <= SPI_select;
-			if(internal_select==0)begin // conversion
+			SPI_select_buffer <= SPI_select; // saves pending select until frame is done being sent
+			// internal select chooses between adc conversion mode and adc register mode
+			if(internal_select==0)begin // adc conversion mode
 				if(m_axis_conversion_tvalid)begin
-					counter <= counter + 1;
+					counter <= counter + 1; // counts samples as it sends them
 				end
 				if(counter==(CONVERSION_FRAME_SIZE-1))begin // after one fft frame is sent, we can check for spi select changes
-					counter <= 0;
-					internal_select <= SPI_select_buffer;
+					counter <= 0; // resets counter
+					internal_select <= SPI_select_buffer; // commits select value
 				end // otherwise keep sending conversion data
 			end else begin // in reg mode, we dont go back to conversion unless reg mode is done
 				last_dest <= s_axis_tvalid ? s_axis_tdest : last_dest;
 				case(reg_state)
-					2'b00:begin
+					2'b00:begin // start command
 						if(s_axis_tvalid && s_axis_tdata[14])begin
 							reg_state <= 2'b01;
 							for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
@@ -99,7 +101,7 @@ module ADC_SPI_BATCH #(
 						m_axis_reg_tdata <= 0;
 						m_axis_reg_tlast <= 0;
 					end
-					2'b01:begin
+					2'b01:begin // sends commands and waits for commands to complete
 						for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
 							if(m_axis_tvalid[j]) begin
 								reg_values[j] <= m_axis_tdata[j];
@@ -111,7 +113,7 @@ module ADC_SPI_BATCH #(
 						end
 						reg_values_index <= 0;
 					end
-					2'b10:begin
+					2'b10:begin // checks ready and leaves
 						if(m_axis_reg_tready)begin						
 							reg_values_index<= reg_values_index + 1;
 							m_axis_reg_tdata <= reg_values[reg_values_index];

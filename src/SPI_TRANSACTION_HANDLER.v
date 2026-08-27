@@ -23,9 +23,9 @@ module SPI_TRANSACTION_HANDLER #(parameter SAMPLES = 256, parameter CHANNELS = 4
     input clk,
     input reset_n,
 
-    input sample_ready,
+    input sample_ready, 
     
-    input bartlett_ready,
+    input bartlett_ready,  
 
     input [7:0] read_addr,
     input [7:0] write_addr,

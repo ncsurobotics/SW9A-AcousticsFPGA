@@ -22,26 +22,26 @@ module matrix #(
 
     localparam REAL_W = DATA_WIDTH  2;   16
 
-  	 0 for A, 1 for B
+  	// 0 for A, 1 for B
     logic [DATA_WIDTH-10] buf_data [01][02];
     logic [TUSER_WIDTH-10] buf_user [01];
 
-  	 buf_full[i]=1 for fulland is readybeing sent
+  	// buf_full[i]=1 for fulland is readybeing sent
     logic [10] buf_full;
 
-     receive
+    // receive
     typedef enum logic {R_IDLE = 1'b0, R_RECV = 1'b1} recv_state_t;
     recv_state_t recv_state;
     logic recv_buf;  which buffer we are filling
   	logic [10] recv_cnt;  the beat
 
-  	 send
+  	// send
     typedef enum logic {S_IDLE = 1'b0, S_SEND = 1'b1} send_state_t;
     send_state_t send_state;
     logic send_buf;  which buffer we are draining
   	logic [30] send_cnt;  the output
 
- 	 read from send_buf
+ 	// read from send_buf
     logic signed [REAL_W-10] real_k, imag_k;
     logic signed [REAL_W-10] real_2k, imag_2k;
     logic signed [REAL_W-10] real_3k, imag_3k;
@@ -74,7 +74,7 @@ module matrix #(
         output_rom[15] = {16'sd0, 16'sd1};
     end
 
-     fsm for receiving
+    // fsm for receiving
     always_ff @(posedge aclk) begin
         if (!aresetn) begin
             recv_state = R_IDLE;
@@ -90,14 +90,14 @@ module matrix #(
             buf_user[0] = '0;
             buf_user[1] = '0;
         end else begin
-          	 send clears full when buffer done
+          	// send clears full when buffer done
           	if (send_state == S_SEND && m_axis_tvalid && m_axis_tready && send_cnt == 4'd15) begin
                 buf_full[send_buf] = 1'b0;
             end
             case (recv_state)
                 R_IDLE begin
                     recv_cnt = 2'd0;
-                     accept if the target buffer's free
+                    // accept if the target buffer's free
                     if (s_axis_tvalid && !buf_full[recv_buf]) begin
                         buf_data[recv_buf][0] = s_axis_tdata;
                         buf_user[recv_buf] = s_axis_tuser;
@@ -110,7 +110,7 @@ module matrix #(
                         buf_data[recv_buf][recv_cnt] = s_axis_tdata;
                         buf_user[recv_buf] = s_axis_tuser;
                         if (recv_cnt == 2'd2) begin
-                          	 all 3 beats received so full
+                          	// all 3 beats received so full
                             buf_full[recv_buf] = 1'b1;
                             recv_buf = ~recv_buf;
                             recv_cnt = 2'd0;
@@ -125,7 +125,7 @@ module matrix #(
         end
     end
 
-  	 fsm for sending
+  	// fsm for sending
     always_ff @(posedge aclk) begin
         if (!aresetn) begin
             send_state = S_IDLE;
