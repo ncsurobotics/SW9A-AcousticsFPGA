@@ -4,6 +4,7 @@
 *.sim/
 *.gen/
 *.runs/
+*.ip_user_files/
 *.srcs/sources_1/bd/
 *.srcs/constrs_1/tmp/
 .Xil
