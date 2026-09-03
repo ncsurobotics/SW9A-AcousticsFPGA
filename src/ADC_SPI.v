@@ -5,11 +5,11 @@ module ADC_SPI_BATCH #(
 	parameter CHANNEL_COUNT = 6,
 	parameter CONVERSION_FRAME_SIZE = 256
 	)(
-	input clk,
+	input clk,	// 100 MHz
 	input reset_n,
 	
 	// source
-	input SPI_clk,
+	input SPI_clk,   // 3 MHz
 	input SPI_reset_n,
 	
 	input SPI_select, // 0-adc conversion into dsp, 1-uart passthrough to SPI
@@ -22,7 +22,7 @@ module ADC_SPI_BATCH #(
 	output SPI_START,
 	
 	// input channel
-	input[15:0] s_axis_tdata, 
+	input[15:0] s_axis_tdata,
 	input[CHANNEL_COUNT-1:0] s_axis_tdest, // one hot encoding to select an ADC. multi/broadcast only work on write
 	input s_axis_tvalid,
 	output s_axis_tready,
@@ -407,7 +407,11 @@ SPI_IF SPI_IF_inst(
 endmodule
 
 
+// AXI-Stream to SPI bridge
 // handles the tx and rx but no logic.
+
+// SPI Mode 1: CPOL = 0, CPHA = 1
+// SCLK idles low, data updated on SCLK rising edge, data read by ADC on SCLK falling edge
 module SPI_IF(
 	// source
 	input SPI_clk,
@@ -459,24 +463,24 @@ module SPI_IF(
 		end else begin
 			case(state)
 				S_IDLE: begin
-					SPI_CS_N = 1; // inactive CS
-					send_clk = 0; // dont send clock
+					SPI_CS_N <= 1; // inactive CS
+					send_clk <= 0; // dont send clock
 					m_axis_tid <= 0;
 					m_axis_tvalid <= 0;
 					s_axis_tready <= 1; // ready to receive command
 					if(s_axis_tvalid)begin
 						piso_load <= 1;
-						state = S_CS;
+						state <= S_CS;
 					end
 				end
 				S_CS: begin
 					piso_load <= 0;
-					SPI_CS_N = 0; // active CS
-					send_clk = 0;
-					state = S_DRDY;
+					SPI_CS_N <= 0; // active CS
+					send_clk <= 0;
+					state <= S_DRDY;
 				end
 				S_DRDY: begin
-					state = S_DATA;
+					state <= S_DATA;
 					m_axis_tid <= SPI_SDO_DRDY;
 					send_clk <= 1;
 					sipo_in_valid <= 1;
@@ -498,7 +502,7 @@ module SPI_IF(
 					if(m_axis_tready && m_axis_tvalid) state <= S_IDLE;
 				end
 				default:begin
-					state = S_IDLE;
+					state <= S_IDLE;
 				end
 			endcase
 		end
@@ -529,3 +533,10 @@ module SPI_IF(
 		);	
 	
 endmodule
+
+// test reading from multiple SPI at once
+// test tdest
+
+// use master clock, divide 3x to 33 MHz
+// max SCLK is 40 MHz
+// fix SPI_IF
