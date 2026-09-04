@@ -445,7 +445,7 @@ module sipo #(
 
 	always@(*)begin
 		for(i = 0; i < WORD_COUNT; i = i+1)begin
-			dout[i*WORD_SIZE +:WORD_SIZE] <= words[i];
+			dout[i*WORD_SIZE +:WORD_SIZE] = words[i];
 		end
 	end
 	

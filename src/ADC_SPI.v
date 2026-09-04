@@ -540,3 +540,6 @@ endmodule
 // use master clock, divide 3x to 33 MHz
 // max SCLK is 40 MHz
 // fix SPI_IF
+
+// Initial config that needs to be performed on reset:
+// - Change 24-bit to 16-bit resolution
