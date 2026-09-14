@@ -1,59 +1,33 @@
+`timescale 1ns/1ps
+
 module SPI_IF #(
-	parameter CLK_DIVIDE = 3 // how many times to divide master clk to produce SCLK, make sure this is 3+
+	parameter CLK_DIVIDE = 7 			// how many times to divide master clk to produce half cycle SCLK
 )(
     // source
-	input clk, // 100 MHz
-	input spi_reset_n, // asynchronous(?)
+	input clk, 							// 100 MHz
+	input reset_n, 						// asynchronous(?)
 	
 	// connects to ADC
-	output logic spi_SCLK,
-	output logic spi_CS_n,
-	output spi_DI,
-	input spi_SDO_DRDY,
+	output logic SPI_SCLK,
+	output logic SPI_CS_N,
+	output SPI_DI,
+	input SPI_SDO_DRDY,
 	
 	// input channel
-	input [15:0] s_axis_tdata, // two byte command. specified below
+	input [15:0] s_axis_tdata, 			// two byte command. specified below
 	input s_axis_tvalid,
 	output logic s_axis_tready,
-	output logic s_axis_tuser, // flag for sending write command to change from 24-bit to 16-bit resolution
+	output logic s_axis_tuser, 			// flag for sending write command to change from 24-bit to 16-bit resolution
 	
 	// output channel
 	output logic [15:0] m_axis_tdata,
 	output logic m_axis_tvalid,
 	input m_axis_tready,
-	output logic m_axis_tuser // stores DRDY
+	output logic m_axis_tuser 			// stores DRDY
 );
 
-
-	/* 
-	The following information is defined by the ADSS127L21 datasheet
-	https://www.ti.com/lit/ds/symlink/ads127l21.pdf
-	
-		commands: 
-	Description				Byte 1			Byte 2
-	NOP/read conversion		00h				00h
-	Read register			40h+addr[4:0]	don't care
-	Write register			80h+addr[4:0]	write data
-	
-	Frame based communication:
-		Frame starts when CS goes low, and ends when it goes high
-		Within a frame there can be 2-5 bytes transferred.
-		Each byte corresponds to 8 cycles of SPI_SCLK
-		Register reads are sent on frame(n) and data comes back on frame(n+1)
-		
-		SPI_SDO_DRDY = {STATUS,CONV_DATA_MSB,CONV_DATA_MID,CONV_DATA_LOW,CRC} at max with no register read on previous frame
-		SPI_SDO_DRDY = {STATUS,reg_data,00h,00h,CRC} at max with register read on previous frame
-		
-		Configuration choices we make:
-		No CRC
-		No status byte
-		16 bit conversions
-		Start/Stop mode with Start pin
-		SDO_DRDY as DRDY and DO. 
-		
-		SDO_DRDY - When CS goes low, this pin becomes DRDY. It becomes DO once SCLK starts ticking.
-		Our operation will then be: Start frame, wait a few ticks to get DRDY, then start clock operation
-	*/
+	// TODO:
+	// Have SDO/DRDY synchronized with 2 registers to avoid metastability
 
 
 	logic sclk_en; // toggles sclk when counter overflows, <40 MHz
@@ -89,17 +63,17 @@ module SPI_IF #(
 
 	assign sclk_counter_maxed = (sclk_counter == (CLK_DIVIDE-1));
 
-	always_ff @(posedge clk or negedge spi_reset_n) begin
-		if (~spi_reset_n) begin
+	always_ff @(posedge clk or negedge reset_n) begin
+		if (~reset_n) begin
 			sclk_counter <= 0;
-			spi_SCLK <= 0;
+			SPI_SCLK <= 0;
 		end
 
 		// sclk_counter counts upto (CLK_DIVIDE - 1) when sclk_en is asserted
 		else if (sclk_en) begin
 			if (sclk_counter_maxed) begin
 				sclk_counter <= 0;
-				spi_SCLK <= ~spi_SCLK;
+				SPI_SCLK <= ~SPI_SCLK;
 			end
 			else sclk_counter <= sclk_counter + 1;
 		end
@@ -124,11 +98,11 @@ module SPI_IF #(
 			end
 			S_DATA_SHIFT_OUT: begin
 				sclk_en = 1;
-				piso_shift = ~spi_SCLK & sclk_counter_maxed;
+				piso_shift = ~SPI_SCLK & sclk_counter_maxed;
 			end
 			S_DATA_SAMPLE_IN: begin
 				sclk_en = 1;
-				sipo_din_valid = spi_SCLK & sclk_counter_maxed;
+				sipo_din_valid = SPI_SCLK & sclk_counter_maxed;
 			end
 			S_RECEIVED: begin
 			end
@@ -136,9 +110,9 @@ module SPI_IF #(
 	end
 
 
-	always_ff @(posedge clk or negedge spi_reset_n) begin
-		if (~spi_reset_n) begin
-			spi_CS_n <= 1;
+	always_ff @(posedge clk or negedge reset_n) begin
+		if (~reset_n) begin
+			SPI_CS_N <= 1;
 			bit_count <= 0;
 			state <= S_IDLE;
 
@@ -147,7 +121,7 @@ module SPI_IF #(
 				S_IDLE: begin
 					if (s_axis_tvalid) begin
 						init_flag <= s_axis_tuser;
-						spi_CS_n <= 0;
+						SPI_CS_N <= 0;
 						delay_counter <= 0;
 						state <= S_WAIT_DRDY;
 					end
@@ -159,14 +133,14 @@ module SPI_IF #(
 					// wait 30ns for DRDY to leave high-impedance state
 					if (delay_counter >= 2) begin
 						delay_counter <= 0;
-						drdy_n <= spi_SDO_DRDY;
+						drdy_n <= (init_flag) ? 1'b1: SPI_SDO_DRDY; // invalidate the 24-bit conversion automatically
 						state <= (init_flag) ? S_WAIT_INIT : S_DATA_SHIFT_OUT;
 					end
 				end
 
 				S_WAIT_INIT: begin
 					// Delay for 8 cycles SCLK, the data doesn't matter 
-					if (spi_SCLK & sclk_counter_maxed) begin
+					if (SPI_SCLK & sclk_counter_maxed) begin
 						if (bit_count < 7) begin
 							bit_count <= bit_count + 1;
 						end else begin
@@ -177,13 +151,13 @@ module SPI_IF #(
 				end
 
 				S_DATA_SHIFT_OUT: begin
-					if (~spi_SCLK & sclk_counter_maxed) begin
+					if (~SPI_SCLK & sclk_counter_maxed) begin
 						state <= S_DATA_SAMPLE_IN;
 					end
 				end
 
 				S_DATA_SAMPLE_IN: begin
-					if (spi_SCLK & sclk_counter_maxed) begin
+					if (SPI_SCLK & sclk_counter_maxed) begin
 						if (bit_count < 15) begin
 							bit_count <= bit_count + 1;
 							state <= S_DATA_SHIFT_OUT;
@@ -200,7 +174,7 @@ module SPI_IF #(
 					// wait 20ns before pulling up CS
 					if (delay_counter >= 1) begin
 						delay_counter <= 0;
-						spi_CS_n <= 1;
+						SPI_CS_N <= 1;
 						state <= S_RECEIVED;
 					end
 				end
@@ -221,8 +195,8 @@ module SPI_IF #(
 		.WORD_COUNT(16)
 	) USIPO (
 		.clk(clk),
-		.reset_n(spi_reset_n),
-		.din(spi_SDO_DRDY),
+		.reset_n(reset_n),
+		.din(SPI_SDO_DRDY),
 		.din_valid(sipo_din_valid),
 		.dout(m_axis_tdata),
 		.word_count(), // don't need
@@ -234,9 +208,9 @@ module SPI_IF #(
 		.WORD_COUNT(16)
 	) UPISO (
 		.clk(clk),
-		.reset_n(spi_reset_n),
+		.reset_n(reset_n),
 		.din(s_axis_tdata),
-		.dout(spi_DI),
+		.dout(SPI_DI),
 		.shift(piso_shift),
 		.load(piso_load)
 	);
