@@ -57,8 +57,10 @@ module ADC_SPI_BATCH #(
 
 	logic [$clog2(CONVERSION_FRAME_SIZE)-1:0] counter; // counts samples as it sends them
 	logic [7:0] reg_values[CHANNEL_COUNT - 1 : 0]; // buffered values for regmap
-	logic [1:0] reg_values_valid [CHANNEL_COUNT - 1 : 0]; // [0] == tdest, [1] == valid
-	logic [CHANNEL_COUNT-1:0] xor_rvv;
+	logic [1:0] reg_values_valid [CHANNEL_COUNT - 1 : 0]; // [0] == valid, [1] == tdest
+	logic [CHANNEL_COUNT-1:0] channel_valid; // whether the channel has returned valid value
+	logic [CHANNEL_COUNT-1:0] channel_enable; // whether the channel is used 
+	logic channels_done; // asserted when all channels are either valid or unused
 	logic [7:0] reg_values_index; // index for output
 
 	logic [15:0] s_axis_adc_tdata [CHANNEL_COUNT-1:0];
@@ -76,11 +78,14 @@ module ADC_SPI_BATCH #(
 			internal_select <= 1;
 			SPI_select_buffer <= 1;
 			counter <= 0;
-			state <= 0;
+			state <= S_IDLE;
+
+			channel_enable <= '0;
+			channel_valid <= '0;
 			for (j = 0; j < CHANNEL_COUNT; j = j + 1) begin
 				reg_values[j] <= 0;
-				reg_values_valid[j] <= 0;
 			end
+
 			m_axis_reg_tvalid <= 0;
 			m_axis_reg_tdata <= 0;
 			m_axis_reg_tlast <= 0;
@@ -104,10 +109,10 @@ module ADC_SPI_BATCH #(
 					S_IDLE: begin // start command
 						if (s_axis_tvalid & s_axis_tready & s_axis_tdata[14]) begin
 							state <= S_WAIT;
+							channel_enable <= s_axis_tdest;
+							channel_valid <= '0;
 							for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
 								reg_values[j] <= 0;
-								reg_values_valid[j][1] <= s_axis_tdest[j];
-								reg_values_valid[j][0] <= 0;
 							end
 						end else begin
 							internal_select <= SPI_select_buffer;
@@ -121,10 +126,10 @@ module ADC_SPI_BATCH #(
 						for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
 							if(s_axis_adc_tvalid[j]) begin
 								reg_values[j] <= s_axis_adc_tdata[j];
-								reg_values_valid[j][0] <= 1;
+								channel_valid[j] <= 1;
 							end
 						end
-						if (!(|xor_rvv)) begin // no xors == all valid
+						if (channels_done) begin
 							state <= S_RESPOND;
 						end
 						reg_values_index <= 0;
@@ -133,11 +138,11 @@ module ADC_SPI_BATCH #(
 						if (m_axis_reg_tready) begin						
 							reg_values_index<= reg_values_index + 1;
 							m_axis_reg_tdata <= reg_values[reg_values_index];
-							m_axis_reg_tvalid <= &reg_values_valid[reg_values_index] || reg_values_index == (CHANNEL_COUNT-1);
+							m_axis_reg_tvalid <= channel_valid[reg_values_index] || (reg_values_index == (CHANNEL_COUNT-1));
 							m_axis_reg_tlast <= reg_values_index == (CHANNEL_COUNT-1);
-							if(reg_values_index == (CHANNEL_COUNT-1)) state <= S_IDLE;
+							if (reg_values_index == (CHANNEL_COUNT-1)) state <= S_IDLE;
 						end else begin
-							reg_values_index<= reg_values_index;
+							reg_values_index <= reg_values_index;
 							m_axis_reg_tdata <= 0;
 							m_axis_reg_tvalid <= 0;
 							m_axis_reg_tlast <= 0;
@@ -159,12 +164,13 @@ module ADC_SPI_BATCH #(
 	// assign s_axis_tready = m_axis_adc_tready[0];
 	assign s_axis_tready = &(m_axis_adc_tready | ~s_axis_tdest) & (internal_select) & (state == S_IDLE);
 	
+	assign channels_done = &(~channel_enable | channel_valid);
+
 	genvar i;
 	generate
 		for(i = 0; i < CHANNEL_COUNT; i = i + 1)begin
 			assign m_axis_adc_tdata[i] = internal_select ? s_axis_tdata : 16'h0000;
 			assign m_axis_adc_tvalid[i] = internal_select ? (s_axis_tvalid && s_axis_tdest[i]) : 1;
-			assign xor_rvv[i] = ^reg_values_valid[i];
 			ADC_SPI_ADS127L21 u1(
 				.clk(clk),
 				.reset_n(reset_n),
@@ -195,5 +201,9 @@ module ADC_SPI_BATCH #(
 	
 endmodule
 
-// In S_IDLE, if internal_select is 1 and SPI_select_buffer is 0 it will cause issue
+// (Check) In S_IDLE, if internal_select is 1 and SPI_select_buffer is 0 it will cause issue
+// If doing a write, make sure proper handshake is done with ADCs
 // 'if (m_axis_conversion_tvalid)' or 'if (&m_axis_conversion_tvalid)', which is better 
+// (Check) Fix xor_rvv
+// In S_RESPOND, assert valid on last valid channel instead of last channel
+// In S_RESPOND, valid should not be dependent on ready and other issues.
