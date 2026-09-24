@@ -29,8 +29,7 @@ module SPI_IF #(
 
 	// TODO:
 	// Have SDO/DRDY synchronized with 2 registers to avoid metastability
-	// Use counter for delay instead of making clock divider extremely slow
-	// Does drdy need to be invalidated during the first 24-bit conversion?
+	// Reset all registers in the main block or move them to another process block
 
 
 	logic SDO_DRDY_sync_1, SDO_DRDY_sync_2;  // 2FF synchronizer for asynchronous input
@@ -57,11 +56,12 @@ module SPI_IF #(
 		S_IDLE, 			// wait for command, lower CS
 		S_WAIT_DRDY,		// wait for DRDY to be driven, and then store it
 		S_WAIT_INIT,		// wait for 8 bits during writing configuration from 24-bit to 16-bit resolution
-		S_DATA_SHIFT_OUT,	// transmit data out on DI
-		S_DATA_SAMPLE_IN,	// receive data on SDO_DRDY
+		S_DATA_SHIFT_OUT,	// transmit data out on DI at posedge SCLK
+		S_DATA_SAMPLE_IN,	// receive data on SDO_DRDY on negedge SCLK
 		S_DATA_SAMPLE_BUF,	// store the buffered data from SDO_DRDY_sync_2
 		S_END_DELAY,		// delay between negedge SCLK and posedge CS
-		S_RECEIVED			// sends back the received data
+		S_RECEIVED,			// sends back the received data
+		S_UNKNOWN = 3'bxxx
 	} state_t;
 	state_t state;
 
@@ -150,20 +150,82 @@ module SPI_IF #(
 	end
 
 
+	// Main logic
+	always_ff @(posedge clk) begin
+		case (state)
+			S_IDLE: begin
+				if (s_axis_tvalid) begin
+					init_flag <= s_axis_tuser;
+					conv_flag <= s_axis_tdata[15:14] == 2'b00;
+					delay_counter <= 0;
+				end
+			end
+
+			S_WAIT_DRDY: begin
+				// If doing a conversion, wait the appropriate delay for conversion to complete
+				// Otherwise, we still need to wait 30ns for DRDY pin to leave high-impedance state + 2 cycles pipeline latency
+				delay_counter <= delay_counter + 1;
+				if (delay_counter >= (conv_flag ? (DELAY_CYCLES-1) : 4)) begin
+					delay_counter <= 0;
+					bit_count <= 0;
+					drdy_n <= SDO_DRDY_sync_2;
+				end
+			end
+
+			S_WAIT_INIT: begin
+				// Delay for 8 cycles SCLK, the data doesn't matter 
+				if (SPI_SCLK & sclk_counter_maxed) begin
+					if (bit_count < 7) begin
+						bit_count <= bit_count + 1;
+					end else begin
+						bit_count <= 0;
+					end
+				end
+			end
+
+			S_DATA_SHIFT_OUT: begin
+			end
+
+			S_DATA_SAMPLE_IN: begin
+			end
+
+			S_DATA_SAMPLE_BUF: begin
+				// Delay for the SDO to propagate through synchronizer buffers
+				// Also, it serves as 20 ns end delay on the last bit before CS is pulled up
+				delay_counter <= delay_counter + 1;
+				if (delay_counter >= 1) begin
+					delay_counter <= 0;
+					if (bit_count < 15) begin
+						bit_count <= bit_count + 1;
+					end else begin
+						bit_count <= 0;
+					end
+				end
+			end
+
+			S_RECEIVED: begin
+			end
+
+			default: begin 
+				delay_counter <= 'x;
+				bit_count <= 'x;
+				drdy_n <= 'x;
+			end
+		endcase
+	end
+
+
+	// Main logic for state and CS
 	always_ff @(posedge clk or negedge reset_n) begin
 		if (~reset_n) begin
 			SPI_CS_N <= 1;
-			bit_count <= 0;
 			state <= S_IDLE;
 
 		end else begin
 			case (state)
 				S_IDLE: begin
 					if (s_axis_tvalid) begin
-						init_flag <= s_axis_tuser;
-						conv_flag <= s_axis_tdata[15:14] == 2'b00;
 						SPI_CS_N <= 0;
-						delay_counter <= 0;
 						state <= S_WAIT_DRDY;
 					end
 				end
@@ -171,35 +233,26 @@ module SPI_IF #(
 				S_WAIT_DRDY: begin
 					// If doing a conversion, wait the appropriate delay for conversion to complete
 					// Otherwise, we still need to wait 30ns for DRDY pin to leave high-impedance state + 2 cycles pipeline latency
-					delay_counter <= delay_counter + 1;
 					if (delay_counter >= (conv_flag ? (DELAY_CYCLES-1) : 4)) begin
-						delay_counter <= 0;
-						bit_count <= 0;
-						drdy_n <= SDO_DRDY_sync_2;
 						state <= (init_flag) ? S_WAIT_INIT : S_DATA_SHIFT_OUT;
 					end
 				end
 
 				S_WAIT_INIT: begin
 					// Delay for 8 cycles SCLK, the data doesn't matter 
-					if (SPI_SCLK & sclk_counter_maxed) begin
-						if (bit_count < 7) begin
-							bit_count <= bit_count + 1;
-						end else begin
-							bit_count <= 0;
-							state <= S_DATA_SHIFT_OUT;
-						end
+					if (SPI_SCLK & sclk_counter_maxed & (bit_count >= 7)) begin
+						state <= S_DATA_SHIFT_OUT;
 					end
 				end
 
 				S_DATA_SHIFT_OUT: begin
-					if (/*~SPI_SCLK & */sclk_counter_maxed) begin
+					if (sclk_counter_maxed) begin
 						state <= S_DATA_SAMPLE_IN;
 					end
 				end
 
 				S_DATA_SAMPLE_IN: begin
-					if (/*SPI_SCLK & */sclk_counter_maxed) begin
+					if (sclk_counter_maxed) begin
 						state <= S_DATA_SAMPLE_BUF;
 					end
 				end
@@ -207,14 +260,10 @@ module SPI_IF #(
 				S_DATA_SAMPLE_BUF: begin
 					// Delay for the SDO to propagate through synchronizer buffers
 					// Also, it serves as 20 ns end delay on the last bit before CS is pulled up
-					delay_counter <= delay_counter + 1;
 					if (delay_counter >= 1) begin
-						delay_counter <= 0;
 						if (bit_count < 15) begin
-							bit_count <= bit_count + 1;
 							state <= S_DATA_SHIFT_OUT;
 						end else begin
-							bit_count <= 0;
 							SPI_CS_N <= 1;
 							state <= S_RECEIVED;
 						end
@@ -227,7 +276,10 @@ module SPI_IF #(
 					end
 				end
 
-				default: state <= S_IDLE;
+				default: begin 
+					state <= S_UNKNOWN;
+					SPI_CS_N <= 'x;
+				end
 			endcase
 		end
 	end
