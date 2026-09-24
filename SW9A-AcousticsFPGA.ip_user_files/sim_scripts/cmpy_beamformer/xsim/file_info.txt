@@ -1,0 +1,2 @@
+cmpy_beamformer.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_beamformer/sim/cmpy_beamformer.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -43,7 +43,7 @@
     <Option Name="SimulatorGccVersionRiviera" Val="9.3.0"/>
     <Option Name="SimulatorGccVersionActiveHdl" Val="9.3.0"/>
     <Option Name="BoardPart" Val=""/>
-    <Option Name="ActiveSimSet" Val="steering"/>
+    <Option Name="ActiveSimSet" Val="dsp_test"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
@@ -57,20 +57,20 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="798"/>
+    <Option Name="WTXSimLaunchSim" Val="930"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="71"/>
-    <Option Name="WTModelSimExportSim" Val="71"/>
-    <Option Name="WTQuestaExportSim" Val="71"/>
+    <Option Name="WTXSimExportSim" Val="79"/>
+    <Option Name="WTModelSimExportSim" Val="79"/>
+    <Option Name="WTQuestaExportSim" Val="79"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="71"/>
-    <Option Name="WTRivieraExportSim" Val="71"/>
-    <Option Name="WTActivehdlExportSim" Val="71"/>
+    <Option Name="WTVcsExportSim" Val="79"/>
+    <Option Name="WTRivieraExportSim" Val="79"/>
+    <Option Name="WTActivehdlExportSim" Val="79"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -102,7 +102,188 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized1.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized1.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized2.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized3.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized3.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized4.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized4.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized5.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized5.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block1.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized_block1.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized_block2.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block3.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized_block3.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block4.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized_block4.v"/>
+          <Attr Name="ImportTime" Val="1789419755"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Cosine_HDL_Optimized_block5.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Cosine_HDL_Optimized_block5.v"/>
+          <Attr Name="ImportTime" Val="1789419755"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder1.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder1.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder2.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder2.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder3.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder3.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder4.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder4.v"/>
+          <Attr Name="ImportTime" Val="1789419754"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder5.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder5.v"/>
+          <Attr Name="ImportTime" Val="1789419755"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Distance_Finder6.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Distance_Finder6.v"/>
+          <Attr Name="ImportTime" Val="1789419755"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/src/GENERAL_COUNTER.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/parallel_beamformer_9_21/Parallel_Beamformer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../simulink_hdl/parallel_beamformer_9_21/Parallel_Beamformer.v"/>
+          <Attr Name="ImportTime" Val="1789419755"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/Bartlett/constants.vh">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+          <Attr Name="IsVisible" Val="1"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/Bartlett/Parallel_Beamformer_Wrapper.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -172,13 +353,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/src/Bartlett/constants.vh">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-          <Attr Name="IsVisible" Val="1"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/src/Bartlett/time_domain/p_theta/accumulator.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -194,13 +368,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/src/Bartlett/bartlett_config_controller.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/Bartlett/time_domain/bartlett_time_domain.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -263,15 +430,24 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/src/Bartlett/time_domain/p_theta/s_theta.v">
+      <File Path="$PPRDIR/src/top.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/src/top.v">
+      <File Path="$PPRDIR/src/Bartlett/time_domain/bartlett_time_domain.v">
         <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/src/Bartlett/time_domain/p_theta/s_theta.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -508,14 +684,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/src/Bartlett/steering_vector_generator.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -807,21 +975,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="cosine_generator" Type="BlockSrcs" RelSrcDir="$PSRCDIR/cosine_generator" RelGenDir="$PGENDIR/cosine_generator">
-      <File Path="$PSRCDIR/sources_1/ip/cosine_generator/cosine_generator.xci">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <Config>
-        <Option Name="TopModule" Val="cosine_generator"/>
-        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="complex_exponential" Type="BlockSrcs" RelSrcDir="$PSRCDIR/complex_exponential" RelGenDir="$PGENDIR/complex_exponential">
       <File Path="$PSRCDIR/sources_1/ip/complex_exponential/complex_exponential.xci">
         <FileInfo>
@@ -865,6 +1018,65 @@
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/steering_tb_behav.wcfg"/>
         <Option Name="xsim.simulate.runtime" Val="10ms"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="cosine_generator" Type="BlockSrcs" RelSrcDir="$PSRCDIR/cosine_generator" RelGenDir="$PGENDIR/cosine_generator">
+      <File Path="$PSRCDIR/sources_1/ip/cosine_generator/cosine_generator.xci">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="cosine_generator"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="dsp_test" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/dsp_test" RelGenDir="$PGENDIR/dsp_test">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/sim/dsp_tb/dsp_tb.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/dsp_tb_behav.wcfg">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="dsp_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SelectedSimModel" Val="rtl"/>
+        <Option Name="PamDesignTestbench" Val=""/>
+        <Option Name="PamDutBypassFile" Val="xil_dut_bypass"/>
+        <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
+        <Option Name="PamPseudoTop" Val="pseudo_tb"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/dsp_tb_behav.wcfg"/>
+        <Option Name="xsim.simulate.runtime" Val="10ns"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="cmpy_beamformer" Type="BlockSrcs" RelSrcDir="$PSRCDIR/cmpy_beamformer" RelGenDir="$PGENDIR/cmpy_beamformer">
+      <File Path="$PSRCDIR/sources_1/ip/cmpy_beamformer/cmpy_beamformer.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="cmpy_beamformer"/>
+        <Option Name="dataflowViewerSettings" Val="min_width=16"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
   </FileSets>
@@ -1007,6 +1219,16 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
+    <Run Id="complex_exponential_synth_1" Type="Ft3:Synth" SrcSet="complex_exponential" Part="xc7a35tcpg236-1" ConstrsSet="complex_exponential" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/complex_exponential_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/complex_exponential_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/complex_exponential_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
     <Run Id="cosine_generator_synth_1" Type="Ft3:Synth" SrcSet="cosine_generator" Part="xc7a35tcpg236-1" ConstrsSet="cosine_generator" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/cosine_generator_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cosine_generator_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cosine_generator_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
@@ -1017,9 +1239,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="complex_exponential_synth_1" Type="Ft3:Synth" SrcSet="complex_exponential" Part="xc7a35tcpg236-1" ConstrsSet="complex_exponential" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/complex_exponential_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/complex_exponential_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/complex_exponential_synth_1">
+    <Run Id="cmpy_beamformer_synth_1" Type="Ft3:Synth" SrcSet="cmpy_beamformer" Part="xc7a35tcpg236-1" ConstrsSet="cmpy_beamformer" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/cmpy_beamformer_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1232,23 +1456,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="cosine_generator_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="cosine_generator" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="cosine_generator_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cosine_generator_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cosine_generator_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="complex_exponential_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="complex_exponential" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="complex_exponential_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/complex_exponential_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/complex_exponential_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
@@ -1395,6 +1602,42 @@
           <ReportConfigOption Name="dummy_option" Type="string"/>
         </ReportConfig>
       </ReportStrategy>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="cosine_generator_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="cosine_generator" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="cosine_generator_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cosine_generator_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cosine_generator_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="cmpy_beamformer_impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcpg236-1" ConstrsSet="cmpy_beamformer" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="cmpy_beamformer_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>

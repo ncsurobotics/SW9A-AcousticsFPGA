@@ -3,7 +3,8 @@
 `include "constants.vh"
 
 module max #(
-	parameter NUM_SIZE = 32
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 16
 	) (
 	input clk, reset_n,
 
@@ -11,12 +12,12 @@ module max #(
 	
 	// current weight input channel
 	input[NUM_SIZE - 1 : 0] s_axis_tdata,
-	input [$clog2(`THETA_COUNT) - 1:0] s_axis_tuser,//theta
+	input [TUSER_SIZE - 1:0] s_axis_tuser,//theta
 	input s_axis_tvalid, s_axis_tlast,
 	output reg s_axis_tready,
 	
 	// max theta output channel
-	output reg[$clog2(`THETA_COUNT) - 1:0]  m_axis_max_tdata, 
+	output reg[TUSER_SIZE - 1:0]  m_axis_max_tdata, 
 	output reg m_axis_max_tvalid, m_axis_max_tlast
 	);
 	

@@ -57,13 +57,13 @@
 axis_combiner_0 your_instance_name (
   .aclk(aclk),                    // input wire aclk
   .aresetn(aresetn),              // input wire aresetn
-  .s_axis_tvalid(s_axis_tvalid),  // input wire [3 : 0] s_axis_tvalid
-  .s_axis_tready(s_axis_tready),  // output wire [3 : 0] s_axis_tready
-  .s_axis_tdata(s_axis_tdata),    // input wire [63 : 0] s_axis_tdata
-  .s_axis_tlast(s_axis_tlast),    // input wire [3 : 0] s_axis_tlast
+  .s_axis_tvalid(s_axis_tvalid),  // input wire [5 : 0] s_axis_tvalid
+  .s_axis_tready(s_axis_tready),  // output wire [5 : 0] s_axis_tready
+  .s_axis_tdata(s_axis_tdata),    // input wire [95 : 0] s_axis_tdata
+  .s_axis_tlast(s_axis_tlast),    // input wire [5 : 0] s_axis_tlast
   .m_axis_tvalid(m_axis_tvalid),  // output wire m_axis_tvalid
   .m_axis_tready(m_axis_tready),  // input wire m_axis_tready
-  .m_axis_tdata(m_axis_tdata),    // output wire [63 : 0] m_axis_tdata
+  .m_axis_tdata(m_axis_tdata),    // output wire [95 : 0] m_axis_tdata
   .m_axis_tlast(m_axis_tlast)    // output wire m_axis_tlast
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

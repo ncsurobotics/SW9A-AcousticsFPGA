@@ -19,53 +19,57 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module fft_max (
+module fft_max #(
+	parameter NUM_SIZE = 32
+	)(
     input clk,
     input reset_n,
 
-    input [127:0] s_axis_tdata,
+    input [NUM_SIZE * `HYDROPHONE_COUNT - 1:0] s_axis_tdata,
     input s_axis_tvalid,
     input s_axis_tlast,
     output s_axis_tready,
 	
-	input[8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
-	input[5:0] s_axis_config_tstrb,
+	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[6:0] s_axis_config_tstrb,
 	input s_axis_config_tvalid,
 	output s_axis_config_tready,
 
-    output [127:0] m_axis_tdata,
-	output[15:0] m_axis_tuser,
+    output [NUM_SIZE * `HYDROPHONE_COUNT - 1:0] m_axis_tdata,
+	output[7:0] m_axis_tuser,
     output m_axis_tvalid,
     input m_axis_tready,
     output m_axis_tlast,
 	
+	output [7:0] beam_freq
+	
 	
 	// debug
-	
-	output[127:0] debug_fft,
+	/*
+	output[NUM_SIZE * `HYDROPHONE_COUNT:0] debug_fft,
 	output debug_fft_valid,
 	
-	output[33:0] debug_current_magnitude,
-	output debug_current_magnitude_valid
+	output[NUM_SIZE+1:0] debug_current_magnitude,
+	output debug_current_magnitude_valid*/
 	
 );
     //config parameters
-    localparam [11:0] ZERO_PAD = 12'b0;
-    localparam [3:0] FWD = 4'b1111;
-    localparam [3:0] REV = 4'b0000;
-    wire [15:0] fft_s_axis_config_tdata; 
-	assign fft_s_axis_config_tdata = {ZERO_PAD, FWD};       //block float
+    localparam [`HYDROPHONE_COUNT-1:0] FWD = {`HYDROPHONE_COUNT{1'b1}};
+    localparam [`HYDROPHONE_COUNT-1:0] REV = {`HYDROPHONE_COUNT{1'b0}};
+    wire [39:0] fft_s_axis_config_tdata; 
+	assign fft_s_axis_config_tdata[`HYDROPHONE_COUNT-1:0] = FWD;       //block float
+	assign fft_s_axis_config_tdata[39:`HYDROPHONE_COUNT] = {(39-`HYDROPHONE_COUNT){1'b0}};       //block float
 	
 	wire [7:0] k_index;
 	assign k_index = m_axis_tuser[7:0];
 	
-	wire [127:0] m_axis_spectrum_tdata;
+	wire [NUM_SIZE * `HYDROPHONE_COUNT - 1:0] m_axis_spectrum_tdata;
 	wire[39:0] m_axis_spectrum_tuser;
     wire m_axis_spectrum_tvalid;
     wire m_axis_spectrum_tready;
     wire m_axis_spectrum_tlast;
 	
-	wire [31:0] m_axis_status_tdata;
+	wire [NUM_SIZE:0] m_axis_status_tdata;
 	
 	assign debug_fft = m_axis_spectrum_tdata;
 	assign debug_fft_valid = m_axis_spectrum_tvalid;
@@ -86,7 +90,13 @@ module fft_max (
 		end
 	end
 	*/
-	
+	wire[NUM_SIZE/2 -1 : 0] signals[`HYDROPHONE_COUNT-1:0];
+	genvar sig_index;
+	generate
+		for(sig_index=0;sig_index<`HYDROPHONE_COUNT;sig_index=sig_index+1)begin
+			assign signals[sig_index] = s_axis_tdata[sig_index*NUM_SIZE +: NUM_SIZE/2];
+		end
+	endgenerate
     //first FFT
 xfft_0 your_instance_name (
   .aclk(clk),                                                // input wire aclk
@@ -110,6 +120,8 @@ xfft_0 your_instance_name (
   .m_axis_status_tvalid(m_axis_status_tvalid),                // output wire m_axis_status_tvalid
   .m_axis_status_tready(1),                // input wire m_axis_status_tready
   
+  
+  
   .event_frame_started(event_frame_started),                  // output wire event_frame_started
   .event_tlast_unexpected(event_tlast_unexpected),            // output wire event_tlast_unexpected
   .event_tlast_missing(event_tlast_missing),                  // output wire event_tlast_missing
@@ -120,20 +132,16 @@ xfft_0 your_instance_name (
 );
 
 
+genvar num_index;
+wire[NUM_SIZE/2 -1:0] real_part[`HYDROPHONE_COUNT - 1:0], imag_part[`HYDROPHONE_COUNT - 1:0];
+generate
+	for(num_index = 0; num_index < `HYDROPHONE_COUNT; num_index = num_index+1)begin
+		assign real_part[num_index] = m_axis_spectrum_tdata[NUM_SIZE * num_index +: NUM_SIZE/2];
+		assign imag_part[num_index] = m_axis_spectrum_tdata[NUM_SIZE * num_index + NUM_SIZE/2 +: NUM_SIZE/2];
+	end
+endgenerate
 
-wire[15:0] real_part[3:0], imag_part[3:0];
-
-assign real_part[0] = m_axis_spectrum_tdata[32 * 0 +: 16];
-assign imag_part[0] = m_axis_spectrum_tdata[32 * 0 + 16 +: 16];
-assign real_part[1] = m_axis_spectrum_tdata[32 * 1 +: 16];
-assign imag_part[1] = m_axis_spectrum_tdata[32 * 1 + 16 +: 16];
-assign real_part[2] = m_axis_spectrum_tdata[32 * 2 +: 16];
-assign imag_part[2] = m_axis_spectrum_tdata[32 * 2 + 16 +: 16 ];
-assign real_part[3] = m_axis_spectrum_tdata[32 * 3 +: 16];
-assign imag_part[3] = m_axis_spectrum_tdata[32 * 3 + 16+: 16];
-
-
-max_fft_bin #(.NUM_SIZE(32), .INDEX_COUNT(256))
+max_fft_bin #(.NUM_SIZE(NUM_SIZE), .INDEX_COUNT(256))
 	 max_fft_bin_inst (
 	 .clk(clk),
 	 .reset_n(reset_n),
@@ -147,6 +155,8 @@ max_fft_bin #(.NUM_SIZE(32), .INDEX_COUNT(256))
 	 .s_axis_config_tready(s_axis_config_tready),
 	 .s_axis_config_tstrb(s_axis_config_tstrb),
 	 .s_axis_config_tvalid(s_axis_config_tvalid),
+	 
+	 .beam_freq(beam_freq),
 	 
      .m_axis_max_tdata(m_axis_tdata),
      .m_axis_max_tvalid(m_axis_tvalid),
@@ -171,20 +181,22 @@ module max_fft_bin #(
 	input clk, reset_n,
 
 	// current weight input channel
-	input[4 * NUM_SIZE - 1 : 0] s_axis_weight_tdata,
+	input[`HYDROPHONE_COUNT * NUM_SIZE - 1 : 0] s_axis_weight_tdata,
 	input s_axis_weight_tvalid, s_axis_weight_tlast, 
-	input[$clog2(INDEX_COUNT)  - 1: 0] s_axis_weight_tuser,
+	input[$clog2(INDEX_COUNT)  - 1: 0] s_axis_weight_tuser, // index
 	output reg s_axis_weight_tready,
 	
-	input[8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
-	input[5:0] s_axis_config_tstrb,
+	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[6:0] s_axis_config_tstrb,
 	input s_axis_config_tvalid,
 	output reg s_axis_config_tready,
 	
-	output reg[4 * NUM_SIZE - 1 :0] m_axis_max_tdata,
+	output reg[`HYDROPHONE_COUNT * NUM_SIZE - 1 :0] m_axis_max_tdata,
 	output reg m_axis_max_tvalid, m_axis_max_tlast,
 	output reg [$clog2(INDEX_COUNT)  - 1: 0] m_axis_max_tuser,
 	input m_axis_max_tready,
+	
+	output[7:0] beam_freq,
 	
 	output[NUM_SIZE+1:0] debug_current_magnitude,
 	output debug_current_magnitude_valid
@@ -193,27 +205,17 @@ module max_fft_bin #(
 	assign debug_current_magnitude_valid = s_axis_weight_tvalid;
 	assign debug_current_magnitude = current_magnitude;
 
-	wire signed [15:0] real_part[3:0], imag_part[3:0];
-	
-	assign real_part[0] = s_axis_weight_tdata[NUM_SIZE * 0 +: NUM_SIZE/2];
-	assign imag_part[0] = s_axis_weight_tdata[NUM_SIZE * 0 + NUM_SIZE/2 +: NUM_SIZE/2];
-	assign real_part[1] = s_axis_weight_tdata[NUM_SIZE * 1 +: NUM_SIZE/2];
-	assign imag_part[1] = s_axis_weight_tdata[NUM_SIZE * 1 + NUM_SIZE/2 +: NUM_SIZE/2];
-	assign real_part[2] = s_axis_weight_tdata[NUM_SIZE * 2 +: NUM_SIZE/2];
-	assign imag_part[2] = s_axis_weight_tdata[NUM_SIZE * 2 + NUM_SIZE/2 +: NUM_SIZE/2 ];
-	assign real_part[3] = s_axis_weight_tdata[NUM_SIZE * 3 +: NUM_SIZE/2];
-	assign imag_part[3] = s_axis_weight_tdata[NUM_SIZE * 3 + NUM_SIZE/2+: NUM_SIZE/2];
-	
-	wire [15:0] max_real_part[3:0], max_imag_part[3:0];
-	
-	assign max_real_part[0] = m_axis_max_tdata[NUM_SIZE * 0 +: NUM_SIZE/2];
-	assign max_imag_part[0] = m_axis_max_tdata[NUM_SIZE * 0 + NUM_SIZE/2 +: NUM_SIZE/2];
-	assign max_real_part[1] = m_axis_max_tdata[NUM_SIZE * 1 +: NUM_SIZE/2];
-	assign max_imag_part[1] = m_axis_max_tdata[NUM_SIZE * 1 + NUM_SIZE/2 +: NUM_SIZE/2];
-	assign max_real_part[2] = m_axis_max_tdata[NUM_SIZE * 2 +: NUM_SIZE/2];
-	assign max_imag_part[2] = m_axis_max_tdata[NUM_SIZE * 2 + NUM_SIZE/2 +: NUM_SIZE/2 ];
-	assign max_real_part[3] = m_axis_max_tdata[NUM_SIZE * 3 +: NUM_SIZE/2];
-	assign max_imag_part[3] = m_axis_max_tdata[NUM_SIZE * 3 + NUM_SIZE/2+: NUM_SIZE/2];
+	wire signed [NUM_SIZE/2 - 1:0] real_part[`HYDROPHONE_COUNT-1:0], imag_part[`HYDROPHONE_COUNT-1:0];
+	wire [NUM_SIZE/2 - 1:0] max_real_part[`HYDROPHONE_COUNT-1:0], max_imag_part[`HYDROPHONE_COUNT-1:0];
+	genvar part_select;
+	generate
+		for(part_select = 0; part_select < `HYDROPHONE_COUNT; part_select = part_select+1)begin
+			assign real_part[part_select] = s_axis_weight_tdata[NUM_SIZE * part_select +: NUM_SIZE/2];
+			assign imag_part[part_select] = s_axis_weight_tdata[NUM_SIZE * part_select + NUM_SIZE/2 +: NUM_SIZE/2];
+			assign max_real_part[part_select] = m_axis_max_tdata[NUM_SIZE * part_select +: NUM_SIZE/2];
+			assign max_imag_part[part_select] = m_axis_max_tdata[NUM_SIZE * part_select + NUM_SIZE/2 +: NUM_SIZE/2];
+		end
+	endgenerate
 	
 	reg signed [NUM_SIZE+1:0]  current_magnitude, maximum_magnitude;
 	reg signed [NUM_SIZE:0]  partial_prod[1:0];
@@ -222,12 +224,16 @@ module max_fft_bin #(
 	integer i;
 	reg valid_sr[SR_SIZE-1:0], last_sr[SR_SIZE-1:0];
 	reg[7:0] user_sr[SR_SIZE-1:0];
-	reg[4 * NUM_SIZE - 1:0] data_sr[SR_SIZE-1:0];
+	reg[`HYDROPHONE_COUNT * NUM_SIZE - 1:0] data_sr[SR_SIZE-1:0];
 	reg valid_threshold;
-	reg[8 + 8 + 32 - 1 : 0] config_register;
+	reg[8 + 8 + 8 + 32 - 1 : 0] config_register;
+	
+	reg[$clog2(INDEX_COUNT)  - 1: 0] current_frequency, partial_frequency, maximum_frequency;
+	
 	
 	wire[7:0] upper_bound, lower_bound;
 	wire[31:0] threshold;
+	assign beam_freq = config_register[55:48];
 	assign upper_bound = config_register[47:40];
 	assign lower_bound = config_register[39:32];
 	assign threshold = config_register[31:0];
@@ -288,7 +294,7 @@ end
 			s_axis_weight_tready <= 0;
 			valid_threshold <= 0;
 			state <= 0;
-			config_register <= 48'h130700001000;
+			config_register <= 56'h00FF0000001000;
 			m_axis_max_tvalid <= 0;
 			m_axis_max_tlast <= 0;
 		/*
@@ -314,7 +320,7 @@ end
 						state <= IDLE;
 				end
 			endcase
-			for(i = 0; i < 6; i=i+1)begin
+			for(i = 0; i < 7; i=i+1)begin
 				if(s_axis_config_tstrb[i] && s_axis_config_tvalid) config_register[i*8+:8] <= s_axis_config_tdata[i*8+:8];
 				else config_register[i*8+:8] <= config_register[i*8+:8];
 			end
@@ -322,26 +328,32 @@ end
 			if(s_axis_weight_tvalid)begin 
 				partial_prod[1] <= imag_part[0] * imag_part[0];
 				partial_prod[0] <= real_part[0] * real_part[0];
+				partial_frequency <= s_axis_weight_tuser;
 			end else begin
 				partial_prod[0] <= 0;
 				partial_prod[1] <= 0;
+				partial_frequency <= 0;
 			end
 			
 			if(valid_sr[0] && (state==IN_RANGE))begin
 				current_magnitude <= partial_prod[0] + partial_prod[1];
+				current_frequency <= partial_frequency;
 			end else begin
 				current_magnitude <= 0;
+				current_frequency <= 0;
 			end
 
 			if(current_magnitude > maximum_magnitude)begin
 				m_axis_max_tdata <= data_sr[1];
 				m_axis_max_tuser <= user_sr[1];
 				maximum_magnitude <= current_magnitude;
+				maximum_frequency <= current_frequency;
 			end
 			else begin
 				m_axis_max_tdata <= state==IDLE ? 0 : m_axis_max_tdata;
 				m_axis_max_tuser <= state==IDLE ? 0 : m_axis_max_tuser;
 				maximum_magnitude <= state==IDLE ? 0 : maximum_magnitude;
+				maximum_frequency <= state==IDLE ? 0 : maximum_frequency;
 			end				
 			s_axis_weight_tready <= m_axis_max_tready;
 			m_axis_max_tlast <= state==DONE;

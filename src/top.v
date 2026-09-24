@@ -455,7 +455,7 @@ axis_combiner_0 axis_combiner_0_inst (
   .m_axis_tlast(m_axis_combined_tlast)    // output wire m_axis_tlast
 );
 
-wire[63:0] m_axis_combined_tdata;
+wire[16 * `CHANNEL_COUNT - 1:0] m_axis_combined_tdata;
 wire m_axis_combined_tvalid, m_axis_combined_tready, m_axis_combined_tlast; 
 
 wire[16 * `CHANNEL_COUNT - 1:0] m_axis_conversion_tdata;
@@ -480,7 +480,7 @@ wire[5:0] s_axis_bartlett_config_tstrb;
 
 bartlett_datapath bartlett_inst(
     .clk(clk_100mhz), // (in)
-    .reset_b(aresetn_100), //(in)
+    .reset_n(aresetn_100), //(in)
         
     .s_axis_tdata({	16'd0,m_axis_combined_tdata[15:0], 
                         16'd0,m_axis_combined_tdata[31:16],  
@@ -500,26 +500,26 @@ bartlett_datapath bartlett_inst(
     .m_axis_tdata(bartlett_data_in), // (out)
     .m_axis_tvalid(bartlett_valid), // (out)
     .m_axis_tlast(bartlett_last), // (out)
-    .m_axis_tdest(bartlett_addr), // (out)
+    .m_axis_tdest(bartlett_addr) // (out)
         
     //test
-    .debug_rxx(), // (out)
-    .debug_rxx_valid(), // (out)
-	
-	.debug_fft(), // (out)
-	.debug_fft_valid(), // (out)
-	
-	.debug_fft_max_index(), // (out)
-	.debug_fft_max_index_valid(), // (out)
-	
-	.debug_fft_mag(), // (out)
-	.debug_fft_mag_valid(), // (out)
-	
-	.debug_current_magnitude(), // (out)
-	.debug_current_magnitude_valid(), // (out)
-	
-	.debug_max_freq_vec(), // (out)
-	.debug_max_freq_vec_valid() // (out)
+    //.debug_rxx(), // (out)
+    //.debug_rxx_valid(), // (out)
+	//
+	//.debug_fft(), // (out)
+	//.debug_fft_valid(), // (out)
+	//
+	//.debug_fft_max_index(), // (out)
+	//.debug_fft_max_index_valid(), // (out)
+	//
+	//.debug_fft_mag(), // (out)
+	//.debug_fft_mag_valid(), // (out)
+	//
+	//.debug_current_magnitude(), // (out)
+	//.debug_current_magnitude_valid(), // (out)
+	//
+	//.debug_max_freq_vec(), // (out)
+	//.debug_max_freq_vec_valid() // (out)
 );
 	
 	

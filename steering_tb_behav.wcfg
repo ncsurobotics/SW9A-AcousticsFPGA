@@ -11,12 +11,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="655.460001 us"></ZoomEndTime>
-      <Cursor1Time time="14.990000 us"></Cursor1Time>
+      <ZoomStartTime time="69.116667 us"></ZoomStartTime>
+      <ZoomEndTime time="236.316668 us"></ZoomEndTime>
+      <Cursor1Time time="100.920000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="247"></NameColumnWidth>
+      <NameColumnWidth column_width="242"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="2" />
@@ -63,6 +63,20 @@
          <obj_property name="CellHeight">100</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
+      <wvobject fp_name="/steering_tb/dut/cosine" type="array">
+         <obj_property name="ElementShortName">cosine[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cosine[15:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/steering_tb/dut/sine" type="array">
+         <obj_property name="ElementShortName">sine[15:0]</obj_property>
+         <obj_property name="ObjectShortName">sine[15:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
       <wvobject fp_name="/steering_tb/dut/s_axis_theta_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tvalid</obj_property>
@@ -88,8 +102,8 @@
          <obj_property name="ObjectShortName">s_axis_freq_tready</obj_property>
       </wvobject>
       <wvobject fp_name="/steering_tb/dut/m_axis_tdata" type="array">
-         <obj_property name="ElementShortName">m_axis_tdata[15:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdata[15:0]</obj_property>
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
          <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
          <obj_property name="CellHeight">100</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>

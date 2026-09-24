@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Mon Aug 17 17:02:59 2026
+// Date        : Mon Aug 31 20:31:19 2026
 // Host        : AustinsPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/Aweso/Verilog/Aquapack/sw9-jan/SW9A-AcousticsFPGA.gen/sources_1/ip/cosine_generator/cosine_generator_stub.v
@@ -17,7 +17,7 @@
 module cosine_generator(aclk, aresetn, s_axis_phase_tvalid, 
   s_axis_phase_tready, s_axis_phase_tdata, m_axis_data_tvalid, m_axis_data_tready, 
   m_axis_data_tdata)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_phase_tvalid,s_axis_phase_tready,s_axis_phase_tdata[15:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tdata[15:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_phase_tvalid,s_axis_phase_tready,s_axis_phase_tdata[15:0],m_axis_data_tvalid,m_axis_data_tready,m_axis_data_tdata[31:0]" */;
   input aclk;
   input aresetn;
   input s_axis_phase_tvalid;
@@ -25,5 +25,5 @@ module cosine_generator(aclk, aresetn, s_axis_phase_tvalid,
   input [15:0]s_axis_phase_tdata;
   output m_axis_data_tvalid;
   input m_axis_data_tready;
-  output [15:0]m_axis_data_tdata;
+  output [31:0]m_axis_data_tdata;
 endmodule

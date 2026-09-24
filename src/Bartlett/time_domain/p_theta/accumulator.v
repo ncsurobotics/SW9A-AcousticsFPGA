@@ -76,22 +76,23 @@ endmodule
 */
 
 module real_accumulator #(
-	parameter NUM_SIZE = 32
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 8
 	) (
 	input clk, reset_n,
 	input [NUM_SIZE -1 : 0] s_axis_tdata,
 	input s_axis_tvalid, s_axis_tlast,
 	input[3:0] s_axis_tid,
-	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tdest,
+	input [TUSER_SIZE - 1: 0] s_axis_tdest,
 	
 	output reg[NUM_SIZE -1 : 0] m_axis_tdata,
 	output reg m_axis_tvalid, m_axis_tlast,
-	output reg [$clog2(`THETA_COUNT) - 1: 0] m_axis_tdest
+	output reg [TUSER_SIZE - 1: 0] m_axis_tdest
 	);
 	
 	reg valid_buf[1:0], last_buf[1:0];
 	reg[3:0] tid_buf[1:0];
-	reg[$clog2(`THETA_COUNT) - 1: 0] dest_buf[1:0];
+	reg[TUSER_SIZE - 1: 0] dest_buf[1:0];
 	
 	reg[NUM_SIZE - 1:0] sum_buf;
 	wire[NUM_SIZE - 1:0] sum_w;
@@ -140,20 +141,21 @@ endmodule
 
 module matrix_accumulator_no_latency_real #(
 	parameter NUM_SIZE = 32, //element size
-	parameter WIDTH = 4 //Matrix width
+	parameter WIDTH = 4, //Matrix width
+	parameter TUSER_SIZE = 8
 	)(
 	input clk, reset_n,
 	input[NUM_SIZE * WIDTH * WIDTH - 1:0] s_axis_tdata,
 	
 	output reg[NUM_SIZE/2 - 1:0] m_axis_tdata, //no imaginary component
 	//TODO implement functional AXI protocol
-	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tuser,
+	input [TUSER_SIZE - 1: 0] s_axis_tuser,
 	input s_axis_tvalid, s_axis_tlast,
 	output s_axis_tready,
 	
 	input m_axis_tready,
 	output  m_axis_tvalid, m_axis_tlast,
-	output[$clog2(`THETA_COUNT) - 1: 0]m_axis_tuser
+	output[TUSER_SIZE - 1: 0]m_axis_tuser
 	);
 	
 	localparam L0W = 16;//Layer 0 NUM_SIZE
@@ -205,7 +207,7 @@ shift_register #(
 	);
 	
 shift_register #(
-	.SIZE($clog2(`THETA_COUNT)), .STAGES(1)
+	.SIZE(TUSER_SIZE), .STAGES(1)
 	) tuser_sr (
 	.clk(clk),
 	.reset_n(reset_n),
@@ -275,20 +277,21 @@ endmodule
 
 module matrix_accumulator_no_latency #(
 	parameter NUM_SIZE = 32, //element size
-	parameter WIDTH = 4 //Matrix width
+	parameter WIDTH = 4, //Matrix width
+	parameter TUSER_SIZE = 8
 	)(
 	input clk, reset_n,
 	input[NUM_SIZE * WIDTH * WIDTH - 1:0] s_axis_tdata,
 	
 	output reg[NUM_SIZE - 1:0] m_axis_tdata, //no imaginary component
 	//TODO implement functional AXI protocol
-	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tuser,
+	input [TUSER_SIZE - 1: 0] s_axis_tuser,
 	input s_axis_tvalid, s_axis_tlast,
 	output s_axis_tready,
 	
 	input m_axis_tready,
 	output  m_axis_tvalid, m_axis_tlast,
-	output[$clog2(`THETA_COUNT) - 1: 0]m_axis_tuser
+	output[TUSER_SIZE - 1: 0]m_axis_tuser
 	);
 	
 	localparam L0W = 16;//Layer 0 NUM_SIZE
@@ -340,7 +343,7 @@ shift_register #(
 	);
 	
 shift_register #(
-	.SIZE($clog2(`THETA_COUNT)), .STAGES(1)
+	.SIZE(TUSER_SIZE), .STAGES(1)
 	) tuser_sr (
 	.clk(clk),
 	.reset_n(reset_n),
@@ -382,21 +385,21 @@ shift_register #(
 		);
 	end
 	for(j = 0; j < L1W; j = j + 2)begin
-		complex_adder_saturate_real #(.ELEMENT_SIZE(NUM_SIZE)) layer_2_adder(
+		complex_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE)) layer_2_adder(
 		.a(layer1[j]),
 		.b(layer1[j+1]),
 		.sum(layer2[j/2])
 		);
 	end
 	for(j = 0; j < L2W; j = j + 2)begin
-		complex_adder_saturate_real #(.ELEMENT_SIZE(NUM_SIZE)) layer_3_adder(
+		complex_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE)) layer_3_adder(
 		.a(layer2[j]),
 		.b(layer2[j+1]),
 		.sum(layer3[j/2])
 		);
 	end
 	for(j = 0; j < L3W; j = j + 2)begin
-		complex_adder_saturate_real #(.ELEMENT_SIZE(NUM_SIZE)) layer_4_adder(
+		complex_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE)) layer_4_adder(
 		.a(layer3[j]),
 		.b(layer3[j+1]),
 		.sum(layer4[j/2])

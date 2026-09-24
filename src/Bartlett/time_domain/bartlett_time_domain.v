@@ -2,7 +2,7 @@
 
 
 `include "constants.vh"
-
+/*
 module bartlett_time_domain #(
 	parameter NUM_SIZE = 64  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
 	) (
@@ -112,3 +112,4 @@ endmodule
 	
 	
 
+*/

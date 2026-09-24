@@ -55,19 +55,19 @@ COMPONENT xfft_0
   PORT (
     aclk : IN STD_LOGIC;
     aresetn : IN STD_LOGIC;
-    s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    s_axis_config_tdata : IN STD_LOGIC_VECTOR(39 DOWNTO 0);
     s_axis_config_tvalid : IN STD_LOGIC;
     s_axis_config_tready : OUT STD_LOGIC;
-    s_axis_data_tdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+    s_axis_data_tdata : IN STD_LOGIC_VECTOR(191 DOWNTO 0);
     s_axis_data_tvalid : IN STD_LOGIC;
     s_axis_data_tready : OUT STD_LOGIC;
     s_axis_data_tlast : IN STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-    m_axis_data_tuser : OUT STD_LOGIC_VECTOR(39 DOWNTO 0);
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(191 DOWNTO 0);
+    m_axis_data_tuser : OUT STD_LOGIC_VECTOR(55 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
     m_axis_data_tready : IN STD_LOGIC;
     m_axis_data_tlast : OUT STD_LOGIC;
-    m_axis_status_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m_axis_status_tdata : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
     m_axis_status_tvalid : OUT STD_LOGIC;
     m_axis_status_tready : IN STD_LOGIC;
     event_frame_started : OUT STD_LOGIC;

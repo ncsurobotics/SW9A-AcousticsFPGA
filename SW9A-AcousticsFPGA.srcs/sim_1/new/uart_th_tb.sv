@@ -232,11 +232,13 @@ begin
             // Handshake occurs here
             @(posedge clk);
 
-            s_axis_uart_tvalid = 0;
+            s_axis_uart_tvalid = 0;	
         end
     end
 end
 endtask
+
+
 
 task GetAngle();
 $display("Getting angle");
