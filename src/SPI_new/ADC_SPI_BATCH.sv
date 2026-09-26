@@ -8,7 +8,7 @@ module ADC_SPI_BATCH #(
 	
 	input SPI_select, // 0-adc conversion into dsp, 1-uart passthrough to SPI
 	
-	// connects to ADC
+	// connects to ADCs
 	output [CHANNEL_COUNT-1:0] SPI_SCLK,
 	output [CHANNEL_COUNT-1:0] SPI_CS_N,
 	output [CHANNEL_COUNT-1:0] SPI_DI,
@@ -17,14 +17,14 @@ module ADC_SPI_BATCH #(
 	
 	// input channel (for register operations)
     input [15:0] s_axis_tdata,
-	input [CHANNEL_COUNT-1:0] s_axis_tdest, // one hot encoding to select an ADC. multi/broadcast only work on write
+	input [CHANNEL_COUNT-1:0] s_axis_tdest, // bit mask to select an ADC. multi/broadcast only work on write
 	input s_axis_tvalid,
 	output s_axis_tready,
 	
 	// output channels
 	output reg [7:0] m_axis_reg_tdata, // register data
-	output reg m_axis_reg_tvalid,
-	output reg m_axis_reg_tlast,
+	output m_axis_reg_tvalid,
+	output m_axis_reg_tlast,
 	input m_axis_reg_tready,
 		
 	output [(16*CHANNEL_COUNT)-1:0] m_axis_conversion_tdata, // conversion data
@@ -49,53 +49,56 @@ module ADC_SPI_BATCH #(
 		internal
 
 */
-    typedef enum logic [1:0] {S_IDLE, S_WAIT, S_RESPOND} state_t;
+    typedef enum logic [1:0] {S_START, S_WAIT, S_RESPOND} state_t;
     state_t state; // 0 idle, 1 waiting, 2 responding
 	
 	logic internal_select;
 	logic SPI_select_buffer; // buffer the signal
 
 	logic [$clog2(CONVERSION_FRAME_SIZE)-1:0] counter; // counts samples as it sends them
-	logic [7:0] reg_values[CHANNEL_COUNT - 1 : 0]; // buffered values for regmap
-	logic [1:0] reg_values_valid [CHANNEL_COUNT - 1 : 0]; // [0] == valid, [1] == tdest
-	logic [CHANNEL_COUNT-1:0] channel_valid; // whether the channel has returned valid value
+	logic [7:0] reg_values [CHANNEL_COUNT-1:0]; // buffered values for regmap
 	logic [CHANNEL_COUNT-1:0] channel_enable; // whether the channel is used 
 	logic channels_done; // asserted when all channels are either valid or unused
 	logic [7:0] reg_values_index; // index for output
 
 	logic [15:0] s_axis_adc_tdata [CHANNEL_COUNT-1:0];
-	logic s_axis_adc_tid [CHANNEL_COUNT-1:0];
-	logic s_axis_adc_tvalid [CHANNEL_COUNT-1:0];
-	logic s_axis_adc_tready [CHANNEL_COUNT-1:0];
-	logic m_axis_adc_tready [CHANNEL_COUNT-1:0];
-	logic m_axis_adc_tvalid [CHANNEL_COUNT-1:0];
+	logic [CHANNEL_COUNT-1:0] s_axis_adc_tid;  // Unused, maybe useful for debugging
+	logic [CHANNEL_COUNT-1:0] s_axis_adc_tvalid;
+	logic [CHANNEL_COUNT-1:0] s_axis_adc_tready;
+	
+	logic [CHANNEL_COUNT-1:0] m_axis_adc_tready;
+	logic [CHANNEL_COUNT-1:0] m_axis_adc_tvalid;
 	logic [15:0] m_axis_adc_tdata [CHANNEL_COUNT-1:0];
 
 	integer j;
 
-	always@ (posedge clk or negedge reset_n) begin
+
+	always_ff @(posedge clk) begin
+		SPI_select_buffer <= SPI_select;
+	end
+
+	always_ff @(posedge clk or negedge reset_n) begin
 		if (!reset_n) begin
 			internal_select <= 1;
-			SPI_select_buffer <= 1;
+			state <= S_START;
+
 			counter <= 0;
-			state <= S_IDLE;
 
 			channel_enable <= '0;
-			channel_valid <= '0;
 			for (j = 0; j < CHANNEL_COUNT; j = j + 1) begin
 				reg_values[j] <= 0;
 			end
 
-			m_axis_reg_tvalid <= 0;
-			m_axis_reg_tdata <= 0;
-			m_axis_reg_tlast <= 0;
 			reg_values_index <= 0;
 
 		end else begin
-			SPI_select_buffer <= SPI_select; // saves pending select until frame is done being sent
+
 			// internal select chooses between adc conversion mode and adc register mode
 			if (internal_select == 0) begin // adc conversion mode
-				if (&m_axis_conversion_tready & m_axis_conversion_tvalid) begin // Checks if one packet of conversion data can be sent
+				
+				// Checks if one packet of conversion data can be sent
+				// Wait for all external tready and adc tvalid to be asserted before doing handshake
+				if ((&m_axis_conversion_tready) & (&s_axis_adc_tvalid)) begin
 					if (counter == (CONVERSION_FRAME_SIZE-1)) begin // Checks if this is the last packet in the frame
 						counter <= 0; // resets counter
 						internal_select <= SPI_select_buffer; // after one fft frame is sent, we can check for spi select changes
@@ -106,27 +109,21 @@ module ADC_SPI_BATCH #(
 
 			end else begin // in reg mode, we dont go back to conversion unless reg mode is done
 				case (state)
-					S_IDLE: begin // start command
-						if (s_axis_tvalid & s_axis_tready & s_axis_tdata[14]) begin
-							state <= S_WAIT;
-							channel_enable <= s_axis_tdest;
-							channel_valid <= '0;
-							for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
-								reg_values[j] <= 0;
-							end
+					S_START: begin // start command
+						channel_enable <= s_axis_tdest;
+
+						// If doing a read command, need to send back the received data as well, so we change state
+						// Wait for the external tvalid and all the targeted ADC tready before handshake
+						if (s_axis_tvalid & (&(m_axis_adc_tready | ~s_axis_tdest)) & s_axis_tdata[14]) begin
+							state <= S_WAIT; // If this is read command, need to wait and send back data
 						end else begin
-							internal_select <= SPI_select_buffer;
+							internal_select <= SPI_select_buffer;  // Only update internal_select if no R/W command handshake
 						end
-						reg_values_index <= 0;
-						m_axis_reg_tvalid <= 0;
-						m_axis_reg_tdata <= 0;
-						m_axis_reg_tlast <= 0;
 					end
-					S_WAIT: begin // sends commands and waits for commands to complete
+					S_WAIT: begin // waits for commands to complete
 						for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
 							if(s_axis_adc_tvalid[j]) begin
 								reg_values[j] <= s_axis_adc_tdata[j];
-								channel_valid[j] <= 1;
 							end
 						end
 						if (channels_done) begin
@@ -135,21 +132,14 @@ module ADC_SPI_BATCH #(
 						reg_values_index <= 0;
 					end
 					S_RESPOND: begin // checks ready and leaves
+					// For now, reading only supports reading all the channels
 						if (m_axis_reg_tready) begin						
-							reg_values_index<= reg_values_index + 1;
-							m_axis_reg_tdata <= reg_values[reg_values_index];
-							m_axis_reg_tvalid <= channel_valid[reg_values_index] || (reg_values_index == (CHANNEL_COUNT-1));
-							m_axis_reg_tlast <= reg_values_index == (CHANNEL_COUNT-1);
-							if (reg_values_index == (CHANNEL_COUNT-1)) state <= S_IDLE;
-						end else begin
-							reg_values_index <= reg_values_index;
-							m_axis_reg_tdata <= 0;
-							m_axis_reg_tvalid <= 0;
-							m_axis_reg_tlast <= 0;
+							reg_values_index <= reg_values_index + 1;
+							if (reg_values_index == (CHANNEL_COUNT-1)) state <= S_START;
 						end
 					end
-					default: begin
-						state <= S_IDLE;
+					default: begin  // Should this be used?
+						state <= S_START;
 					end
 					
 				endcase
@@ -162,9 +152,15 @@ module ADC_SPI_BATCH #(
 			
 	
 	// assign s_axis_tready = m_axis_adc_tready[0];
-	assign s_axis_tready = &(m_axis_adc_tready | ~s_axis_tdest) & (internal_select) & (state == S_IDLE);
-	
-	assign channels_done = &(~channel_enable | channel_valid);
+
+	// Ready to receive commands when all destinations are ready
+	assign s_axis_tready = (state == S_START) & (&(m_axis_adc_tready | ~s_axis_tdest)) & (internal_select);
+
+	assign m_axis_reg_tdata = reg_values[reg_values_index];
+	assign m_axis_reg_tvalid = (state == S_RESPOND) & (channel_enable[reg_values_index] | (reg_values_index == (CHANNEL_COUNT-1)));
+	assign m_axis_reg_tlast = reg_values_index == (CHANNEL_COUNT-1);
+
+	assign channels_done = &(~channel_enable | s_axis_adc_tvalid);
 
 	genvar i;
 	generate
@@ -193,7 +189,7 @@ module ADC_SPI_BATCH #(
 			assign m_axis_conversion_tdata[i * 16 +: 16] = internal_select ? 0 : s_axis_adc_tdata[i];
 			assign m_axis_conversion_tvalid[i] = internal_select ? 0 : s_axis_adc_tvalid[i];
 			assign m_axis_conversion_tlast[i] = (counter == (CONVERSION_FRAME_SIZE-1)) /*& ~internal_select*/;
-			assign s_axis_adc_tready[i] = internal_select ? 1 : m_axis_conversion_tready[i];
+			assign s_axis_adc_tready[i] = internal_select ? 1 : (&m_axis_conversion_tready);
 		end
 	endgenerate
 	
@@ -201,9 +197,9 @@ module ADC_SPI_BATCH #(
 	
 endmodule
 
-// (Check) In S_IDLE, if internal_select is 1 and SPI_select_buffer is 0 it will cause issue
+// (Check) In S_START, if internal_select is 1 and SPI_select_buffer is 0 it will cause issue
 // If doing a write, make sure proper handshake is done with ADCs
-// 'if (m_axis_conversion_tvalid)' or 'if (&m_axis_conversion_tvalid)', which is better 
-// (Check) Fix xor_rvv
+// (Check) Fix xor_rvv -> changed to channels_done
 // In S_RESPOND, assert valid on last valid channel instead of last channel
-// In S_RESPOND, valid should not be dependent on ready and other issues.
+// (Check) In S_RESPOND, valid should not be dependent on ready and other issues.
+// Does s_axis_adc_tready[i] need to be dependent on &m_axis_conversion_tready instead?

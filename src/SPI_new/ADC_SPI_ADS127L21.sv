@@ -65,11 +65,12 @@ module ADC_SPI_ADS127L21 (
 	*/
 	
 
-    typedef enum logic [2:0] {
+    typedef enum logic [1:0] {
         S_IDLE,			// Wait for command
         S_SEND, 		// Send command to IF
         S_RECEIVE,		// Receive data from IF
-		S_OUTPUT
+		S_OUTPUT,
+		S_UNKNOWN = 2'bxx
     } state_t;
 	state_t state;
 
@@ -78,12 +79,12 @@ module ADC_SPI_ADS127L21 (
     logic [15:0] m_axis_spi_tdata;
 	logic m_axis_spi_tvalid;
 	logic m_axis_spi_tready;
-    logic m_axis_spi_tuser;
+    logic m_axis_spi_tuser;  // Flag for the initial write to change from 24-bit to 16-bit mode
 	
 	logic [15:0] s_axis_spi_tdata;
 	logic s_axis_spi_tvalid;
     logic s_axis_spi_tready;
-	logic s_axis_spi_tuser;
+	logic s_axis_spi_tuser;  // DRDY status
 
 
 	logic [15:0] buffer;
@@ -178,7 +179,7 @@ module ADC_SPI_ADS127L21 (
 					end
 				end
 				default: begin
-					state <= S_IDLE;
+					state <= S_UNKNOWN;
 				end
 			endcase
 		end

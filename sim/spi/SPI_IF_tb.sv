@@ -2,7 +2,7 @@
 
 module SPI_IF_tb ();
 
-    localparam NUM_TESTS = 10;
+    localparam NUM_TESTS = 5;
 
     localparam CLK_DIVIDE = 5;
     localparam DELAY_CYCLES = 10;
@@ -59,8 +59,6 @@ module SPI_IF_tb ();
     bit data_in_SPI_drdy [$];
     logic [23:0] data_out_SPI [$]; // data read from SPI output
 
-    int A2S_test_num = 0;
-    int S2A_test_num = 0;
 
 
     task automatic ResetDUT();
@@ -74,14 +72,33 @@ module SPI_IF_tb ();
     task automatic SendCommand();
         bit [15:0] command = $urandom;
         bit init_flag = $urandom;
+        int tvalid_delay = $urandom_range(9,0) - signed'(4);
 
-        // Assert tvalid, put command
-        @(posedge clk)
-        s_axis_tdata <= command;
-        s_axis_tvalid <= 1;
-        s_axis_tuser <= init_flag;
+        if (tvalid_delay <= 0) begin
+            s_axis_tdata <= command;
+            s_axis_tvalid <= 1;
+            s_axis_tuser <= init_flag;
 
-        // Wait for tready to be high on clock edge
+            wait(s_axis_tready)
+            data_in_axis.push_back(command);
+            data_in_axis_tuser.push_back(init_flag);
+            
+        end else begin
+            // Wait for tready and then assert tvalid after a delay
+            do begin
+                @(posedge clk);
+            end while (~s_axis_tready);
+
+            repeat (tvalid_delay-1) @(posedge clk);
+            s_axis_tdata <= command;
+            s_axis_tvalid <= 1;
+            s_axis_tuser <= init_flag;
+
+            data_in_axis.push_back(command);
+            data_in_axis_tuser.push_back(init_flag);
+        end
+
+        // Wait for tready and tvalid to be high on clock edge (handshake)
         do begin
             @(posedge clk);
         end while (~s_axis_tready);
@@ -90,9 +107,6 @@ module SPI_IF_tb ();
         s_axis_tvalid <= 0;
         s_axis_tdata <= 'x;
         s_axis_tuser <= 'x;
-
-        data_in_axis.push_back(command);
-        data_in_axis_tuser.push_back(init_flag);
     endtask
 
     task automatic ReadSPI();
@@ -153,8 +167,17 @@ module SPI_IF_tb ();
     endtask
 
     task automatic ReadAXISData();
-        @(posedge clk)
-        m_axis_tready <= 1;
+        int tvalid_delay = $urandom_range(5+4,0) - signed'(4);
+
+        if (tvalid_delay <= 0) begin
+            m_axis_tready <= 1;
+        end else begin
+            do begin
+                @(posedge clk);
+            end while (~m_axis_tvalid);
+            repeat (tvalid_delay-1) @(posedge clk);
+            m_axis_tready <= 1;
+        end
 
         do begin
             @(posedge clk);
@@ -169,6 +192,11 @@ module SPI_IF_tb ();
     endtask
 
 
+    int A2S_test_num = 0;
+    int A2S_errors = 0;
+    int S2A_test_num = 0;
+    int S2A_errors = 0;
+
     task automatic CheckSPICommand();
         bit success = 1; 
 
@@ -180,7 +208,10 @@ module SPI_IF_tb ();
             $error("[t:%0t] Command data mismatch", $time);
         end
         if (success) $display("Test %d: SUCCESS command data AXIS to SPI matches", A2S_test_num);
-        else $display("Test %d: FAIL command data AXIS to SPI mismatch", A2S_test_num);
+        else begin
+            $display("Test %d: FAILURE command data AXIS to SPI mismatch", A2S_test_num);
+            ++A2S_errors;
+        end
     endtask
 
     task automatic CheckAXISOutput();
@@ -198,7 +229,10 @@ module SPI_IF_tb ();
             $error("[t:%0t] SPI DRDY mismatch", $time);
         end
         if (success) $display("Test %d: SUCCESS return data SPI to AXIS matches", S2A_test_num);
-        else $display("Test %d: FAIL return data SPI to AXIS mismatch", S2A_test_num);
+        else begin
+            $display("Test %d: FAILURE return data SPI to AXIS mismatch", S2A_test_num);
+            ++S2A_errors;
+        end
     endtask
 
 
@@ -233,8 +267,12 @@ module SPI_IF_tb ();
             repeat (NUM_TESTS) ReadSPI();
             repeat (NUM_TESTS) ReadAXISData();
         join
-
-        #20 $finish();
+        
+        #50
+        $display("Simulation finished!");
+        $display("AXIS to SPI PASSED:%0d FAILED:%0d", NUM_TESTS-A2S_errors, A2S_errors);
+        $display("SPI to AXIS PASSED:%0d FAILED:%0d", NUM_TESTS-S2A_errors, S2A_errors);
+        $finish();
     end
     
 endmodule

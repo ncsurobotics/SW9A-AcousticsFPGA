@@ -154,21 +154,19 @@ module SPI_IF #(
 	always_ff @(posedge clk) begin
 		case (state)
 			S_IDLE: begin
-				if (s_axis_tvalid) begin
-					init_flag <= s_axis_tuser;
-					conv_flag <= s_axis_tdata[15:14] == 2'b00;
-					delay_counter <= 0;
-				end
+				init_flag <= s_axis_tuser;
+				conv_flag <= s_axis_tdata[15:14] == 2'b00;
+				delay_counter <= 0;
 			end
 
 			S_WAIT_DRDY: begin
 				// If doing a conversion, wait the appropriate delay for conversion to complete
 				// Otherwise, we still need to wait 30ns for DRDY pin to leave high-impedance state + 2 cycles pipeline latency
 				delay_counter <= delay_counter + 1;
+				bit_count <= 0;
+				drdy_n <= SDO_DRDY_sync_2;
 				if (delay_counter >= (conv_flag ? (DELAY_CYCLES-1) : 4)) begin
 					delay_counter <= 0;
-					bit_count <= 0;
-					drdy_n <= SDO_DRDY_sync_2;
 				end
 			end
 
@@ -215,7 +213,7 @@ module SPI_IF #(
 	end
 
 
-	// Main logic for state and CS
+	// Main logic for state and CS (they need to be reset)
 	always_ff @(posedge clk or negedge reset_n) begin
 		if (~reset_n) begin
 			SPI_CS_N <= 1;
