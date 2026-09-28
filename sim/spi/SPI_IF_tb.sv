@@ -2,7 +2,7 @@
 
 module SPI_IF_tb ();
 
-    localparam NUM_TESTS = 5;
+    localparam NUM_TESTS = 500;
 
     localparam CLK_DIVIDE = 5;
     localparam DELAY_CYCLES = 10;
@@ -59,6 +59,20 @@ module SPI_IF_tb ();
     bit data_in_SPI_drdy [$];
     logic [23:0] data_out_SPI [$]; // data read from SPI output
 
+
+    property p_sclk_high_cycles;
+        @(posedge clk) disable iff (!reset_n || SPI_CS_N)
+        $rose(SPI_SCLK) |-> SPI_SCLK[*(CLK_DIVIDE)] ##1 ~SPI_SCLK;
+    endproperty
+    assert property(p_sclk_high_cycles)
+    else $error("[t:%0t] SCLK high period != %0d clk cycles", $time, CLK_DIVIDE);
+
+    property p_sclk_low_cycles;
+        @(posedge clk) disable iff (!reset_n || SPI_CS_N)
+        $fell(SPI_SCLK) |-> ~SPI_SCLK[*(CLK_DIVIDE)];
+    endproperty
+    assert property(p_sclk_high_cycles)
+    else $error("[t:%0t] SCLK high period != %0d clk cycles", $time, CLK_DIVIDE);
 
 
     task automatic ResetDUT();
@@ -203,7 +217,7 @@ module SPI_IF_tb ();
         wait(data_in_axis.size() > 0 && data_out_SPI.size() > 0);
         ++A2S_test_num;
 
-        if (data_in_axis.pop_front() != data_out_SPI.pop_front()) begin
+        if (data_in_axis.pop_front() !== data_out_SPI.pop_front()) begin
             success = 0;
             $error("[t:%0t] Command data mismatch", $time);
         end
@@ -220,11 +234,11 @@ module SPI_IF_tb ();
         wait(data_in_SPI.size() > 0 && data_out_axis.size() > 0);
         ++S2A_test_num;
 
-        if (data_in_SPI.pop_front() != data_out_axis.pop_front()) begin
+        if (data_in_SPI.pop_front() !== data_out_axis.pop_front()) begin
             success = 0;
             $error("[t:%0t] SPI data mismatch", $time);
         end
-        if (data_in_SPI_drdy.pop_front() != data_out_axis_tuser.pop_front()) begin
+        if (data_in_SPI_drdy.pop_front() !== data_out_axis_tuser.pop_front()) begin
             success = 0;
             $error("[t:%0t] SPI DRDY mismatch", $time);
         end

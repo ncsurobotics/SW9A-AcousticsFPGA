@@ -126,8 +126,8 @@ module ADC_SPI_ADS127L21 (
 			state <= S_SEND;
 
 			read_twice <= 0;
-			// m_axis_tdata <= 0;
-			// m_axis_tid <= 0;
+			m_axis_tdata <= 0;
+			
 		end else begin
 			case (state)
 				S_IDLE: begin
