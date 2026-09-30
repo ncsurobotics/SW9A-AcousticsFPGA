@@ -60,8 +60,9 @@ module ADC_SPI_ADS127L21 (
 		Max SCLK is 50MHz or so
 		If sampling rate f_DATA is 512 kSam/s:
 		- Minimum SCLK is 2.048 MHz (assuming I understood what the datasheet meant)
-		- The conversion will happen at a period of 1953 ns, so the plan is that SCLK is selected so the SPI frame around
-		  the same amount of time as the conversion so the next one is ready in time
+		- The conversion will happen at a period of 1953 ns, so the plan is that SCLK and delay are selected
+		  so the SPI transaction takes around the same amount of time as the conversion. So by the time the
+		  next SPI frame occurs, the next conversion is ready in time
 	*/
 	
 
