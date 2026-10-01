@@ -46,29 +46,29 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-// IP VLNV: xilinx.com:ip:axis_combiner:1.1
-// IP Revision: 25
+// IP VLNV: xilinx.com:ip:axis_data_fifo:2.0
+// IP Revision: 9
 
 // The following must be inserted into your Verilog file for this
 // core to be instantiated. Change the instance name and port connections
 // (in parentheses) to your own signal names.
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
-axis_combiner_0 your_instance_name (
-  .aclk(aclk),                    // input wire aclk
-  .aresetn(aresetn),              // input wire aresetn
-  .s_axis_tvalid(s_axis_tvalid),  // input wire [5 : 0] s_axis_tvalid
-  .s_axis_tready(s_axis_tready),  // output wire [5 : 0] s_axis_tready
-  .s_axis_tdata(s_axis_tdata),    // input wire [95 : 0] s_axis_tdata
-  .s_axis_tlast(s_axis_tlast),    // input wire [5 : 0] s_axis_tlast
-  .m_axis_tvalid(m_axis_tvalid),  // output wire m_axis_tvalid
-  .m_axis_tready(m_axis_tready),  // input wire m_axis_tready
-  .m_axis_tdata(m_axis_tdata),    // output wire [95 : 0] m_axis_tdata
-  .m_axis_tlast(m_axis_tlast)    // output wire m_axis_tlast
+axis_data_fifo_0 your_instance_name (
+  .s_axis_aresetn(s_axis_aresetn),  // input wire s_axis_aresetn
+  .s_axis_aclk(s_axis_aclk),        // input wire s_axis_aclk
+  .s_axis_tvalid(s_axis_tvalid),    // input wire s_axis_tvalid
+  .s_axis_tready(s_axis_tready),    // output wire s_axis_tready
+  .s_axis_tdata(s_axis_tdata),      // input wire [191 : 0] s_axis_tdata
+  .s_axis_tlast(s_axis_tlast),      // input wire s_axis_tlast
+  .m_axis_tvalid(m_axis_tvalid),    // output wire m_axis_tvalid
+  .m_axis_tready(m_axis_tready),    // input wire m_axis_tready
+  .m_axis_tdata(m_axis_tdata),      // output wire [191 : 0] m_axis_tdata
+  .m_axis_tlast(m_axis_tlast)      // output wire m_axis_tlast
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 
-// You must compile the wrapper file axis_combiner_0.v when simulating
-// the core, axis_combiner_0. When compiling the wrapper file, be sure to
+// You must compile the wrapper file axis_data_fifo_0.v when simulating
+// the core, axis_data_fifo_0. When compiling the wrapper file, be sure to
 // reference the Verilog simulation library.
 

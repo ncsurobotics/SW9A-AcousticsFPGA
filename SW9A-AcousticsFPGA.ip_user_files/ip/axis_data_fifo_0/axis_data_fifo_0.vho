@@ -45,23 +45,23 @@
 -- PART OF THIS FILE AT ALL TIMES.
 -- 
 -- DO NOT MODIFY THIS FILE.
--- IP VLNV: xilinx.com:ip:axis_combiner:1.1
--- IP Revision: 25
+-- IP VLNV: xilinx.com:ip:axis_data_fifo:2.0
+-- IP Revision: 9
 
 -- The following code must appear in the VHDL architecture header.
 
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
-COMPONENT axis_combiner_0
+COMPONENT axis_data_fifo_0
   PORT (
-    aclk : IN STD_LOGIC;
-    aresetn : IN STD_LOGIC;
-    s_axis_tvalid : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-    s_axis_tready : OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
-    s_axis_tdata : IN STD_LOGIC_VECTOR(95 DOWNTO 0);
-    s_axis_tlast : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+    s_axis_aresetn : IN STD_LOGIC;
+    s_axis_aclk : IN STD_LOGIC;
+    s_axis_tvalid : IN STD_LOGIC;
+    s_axis_tready : OUT STD_LOGIC;
+    s_axis_tdata : IN STD_LOGIC_VECTOR(191 DOWNTO 0);
+    s_axis_tlast : IN STD_LOGIC;
     m_axis_tvalid : OUT STD_LOGIC;
     m_axis_tready : IN STD_LOGIC;
-    m_axis_tdata : OUT STD_LOGIC_VECTOR(95 DOWNTO 0);
+    m_axis_tdata : OUT STD_LOGIC_VECTOR(191 DOWNTO 0);
     m_axis_tlast : OUT STD_LOGIC 
   );
 END COMPONENT;
@@ -71,10 +71,10 @@ END COMPONENT;
 -- body. Substitute your own instance name and net names.
 
 ------------- Begin Cut here for INSTANTIATION Template ----- INST_TAG
-your_instance_name : axis_combiner_0
+your_instance_name : axis_data_fifo_0
   PORT MAP (
-    aclk => aclk,
-    aresetn => aresetn,
+    s_axis_aresetn => s_axis_aresetn,
+    s_axis_aclk => s_axis_aclk,
     s_axis_tvalid => s_axis_tvalid,
     s_axis_tready => s_axis_tready,
     s_axis_tdata => s_axis_tdata,
@@ -86,8 +86,8 @@ your_instance_name : axis_combiner_0
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 
--- You must compile the wrapper file axis_combiner_0.vhd when simulating
--- the core, axis_combiner_0. When compiling the wrapper file, be sure to
+-- You must compile the wrapper file axis_data_fifo_0.vhd when simulating
+-- the core, axis_data_fifo_0. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
 
 
