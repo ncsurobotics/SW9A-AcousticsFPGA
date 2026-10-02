@@ -238,6 +238,8 @@ module max_fft_bin #(
 	assign lower_bound = config_register[39:32];
 	assign threshold = config_register[31:0];
 	
+	reg[7:0] timeout; // used to prevent state machine from getting stuck.
+	
 	reg [1:0] state;
 	localparam IDLE = 2'b00;
 	localparam IN_RANGE = 2'b01;
@@ -297,29 +299,41 @@ end
 			config_register <= 56'h00FF0000001000;
 			m_axis_max_tvalid <= 0;
 			m_axis_max_tlast <= 0;
+			timeout <= 0;
 		/*
 	UPPER_BOUND = 8'h19, // ~-25khz //248,  >40khz
 	LOWER_BOUND = 8'h07, // ~40khz //238,  <25khz
 	THRESHOLD = 32'h00001000 // arbitrary number
 	*/
 		end else begin
-			case(state)
-				IDLE: begin
-					if((s_axis_weight_tuser < upper_bound) && (s_axis_weight_tuser > lower_bound))
-						state <= IN_RANGE;
-				end
-				IN_RANGE: begin
-					if(user_sr[0] > upper_bound)
-						state <= DONE;
-				end
-				DONE: begin
-					state <= WAIT;
-				end
-				WAIT:begin
-					if(last_sr[1])
-						state <= IDLE;
-				end
-			endcase
+			if(timeout == 16'd10000) state <= IDLE;
+			else begin
+				case(state)
+					IDLE: begin
+						if((s_axis_weight_tuser <= upper_bound) && (s_axis_weight_tuser >= lower_bound))
+							state <= IN_RANGE;
+							
+						timeout <= 0;
+					end
+					IN_RANGE: begin
+						if(user_sr[0] >= upper_bound)
+							state <= DONE;
+							
+						timeout <= timeout+1;
+					end
+					DONE: begin
+						state <= WAIT;
+						
+						timeout <= timeout+1;
+					end
+					WAIT:begin
+						if(last_sr[1])
+							state <= IDLE;
+							
+						timeout <= timeout+1;
+					end
+				endcase
+			end
 			for(i = 0; i < 7; i=i+1)begin
 				if(s_axis_config_tstrb[i] && s_axis_config_tvalid) config_register[i*8+:8] <= s_axis_config_tdata[i*8+:8];
 				else config_register[i*8+:8] <= config_register[i*8+:8];

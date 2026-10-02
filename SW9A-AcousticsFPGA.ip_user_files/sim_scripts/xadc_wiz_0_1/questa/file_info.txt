@@ -1,0 +1,10 @@
+xpm_cdc.sv,systemverilog,xpm,../../../../../../../../../Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,
+xpm_fifo.sv,systemverilog,xpm,../../../../../../../../../Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv,
+xpm_memory.sv,systemverilog,xpm,../../../../../../../../../Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd,
+xadc_wiz_0_drp_arbiter.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_drp_arbiter.vhd,
+xadc_wiz_0_drp_to_axi_stream.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_drp_to_axi_stream.vhd,
+xadc_wiz_0_xadc_core_drp.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_xadc_core_drp.vhd,
+xadc_wiz_0_axi_xadc.vhd,vhdl,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_axi_xadc.vhd,
+xadc_wiz_0.v,verilog,xil_defaultlib,../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

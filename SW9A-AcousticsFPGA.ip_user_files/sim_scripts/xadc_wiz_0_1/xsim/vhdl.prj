@@ -1,0 +1,7 @@
+vhdl xil_defaultlib  \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_drp_arbiter.vhd" \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_drp_to_axi_stream.vhd" \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_xadc_core_drp.vhd" \
+"../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/xadc_wiz_0_1/xadc_wiz_0_axi_xadc.vhd" \
+
+nosort

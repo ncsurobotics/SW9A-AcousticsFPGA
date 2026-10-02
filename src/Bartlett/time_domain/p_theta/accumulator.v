@@ -137,6 +137,97 @@ module real_accumulator #(
 	
 endmodule
 
+module accumulator #(
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 17
+	)(
+	input clk,
+	input reset_n,
+	
+	input	[NUM_SIZE-1:0]	s_axis_tdata, // accumulates this data
+	input	s_axis_tvalid,
+	input	s_axis_tlast, // signals the end of the vector, now we can output the sum
+	input	[TUSER_SIZE-1:0]	s_axis_tuser,
+	
+	output reg[NUM_SIZE-1:0]	m_axis_tdata,
+	output reg m_axis_tvalid,
+	output reg[TUSER_SIZE-1:0]	m_axis_tuser
+	);
+	
+	wire[NUM_SIZE-1:0] sum_w;
+	reg[NUM_SIZE-1:0] sum_r;
+	reg[NUM_SIZE-1:0] op_a, op_b;
+	reg [1:0] state;
+	reg m_axis_tvalid_buf;
+	localparam S_IDLE = 2'b00;
+	localparam S_PROC = 2'b01;
+	localparam S_LAST = 2'b10;
+	localparam S_ERR = 2'b11;
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			m_axis_tdata <= 0;
+			state <= S_IDLE;
+			op_a <= 0;
+			op_b <= 0;
+			sum_r<=0;
+			m_axis_tvalid_buf <= 0;
+		end else begin
+			case(state)
+				S_IDLE:begin
+					m_axis_tvalid <= 0;
+					if(s_axis_tvalid)begin
+						op_a <= s_axis_tdata;
+						op_b <= 0;
+						state <= s_axis_tlast ? S_IDLE : S_PROC;
+					end else begin
+						op_a <= 0;
+					    op_b <= 0;
+					    state <= S_IDLE;
+					end
+				end
+				S_PROC:begin
+					m_axis_tvalid <= 0;
+					if(s_axis_tvalid)begin
+						op_a <= s_axis_tdata;
+						op_b <= sum_r;
+						state <= s_axis_tlast ? S_IDLE : S_PROC;
+					end else begin
+						op_a <= 0;
+					    op_b <= sum_r;
+					    state <= S_PROC;
+					end
+				end
+				S_LAST:begin
+				
+				end
+				S_ERR:begin
+					state <= S_IDLE;
+				end
+			endcase
+			m_axis_tvalid_buf <= s_axis_tlast&s_axis_tvalid;
+			m_axis_tvalid <= m_axis_tvalid_buf;
+			m_axis_tuser <= s_axis_tuser;
+			sum_r <= sum_w;
+			m_axis_tdata <= sum_r;
+			
+		end
+	end
+	
+	real_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE)) accum(
+		.a(op_a),
+		.b(op_b),
+		.sum(sum_w)
+		);
+	
+	
+	
+endmodule
+
+	
+	
+
+
 
 
 module matrix_accumulator_no_latency_real #(
@@ -406,5 +497,98 @@ shift_register #(
 		);
 	end
 	endgenerate
+	
+endmodule
+
+
+module complex_accumulator #(
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 17
+	)(
+	input clk,
+	input reset_n,
+	
+	input	[NUM_SIZE-1:0]	s_axis_tdata, // accumulates this data {imag,real}
+	input	s_axis_tvalid,
+	input	s_axis_tlast, // signals the end of the vector, now we can output the sum
+	input	[TUSER_SIZE-1:0]	s_axis_tuser,
+	
+	output reg[NUM_SIZE-1:0]	m_axis_tdata, 
+	output reg m_axis_tvalid,
+	output reg[TUSER_SIZE-1:0]	m_axis_tuser
+	);
+	
+	wire[NUM_SIZE-1:0] sum_w;
+	reg[NUM_SIZE-1:0] sum_r;
+	reg[NUM_SIZE-1:0] op_a, op_b;
+	reg [1:0] state;
+	reg m_axis_tvalid_buf;
+	localparam S_IDLE = 2'b00;
+	localparam S_PROC = 2'b01;
+	localparam S_LAST = 2'b10;
+	localparam S_ERR = 2'b11;
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			m_axis_tdata <= 0;
+			state <= S_IDLE;
+			op_a <= 0;
+			op_b <= 0;
+			sum_r<=0;
+			m_axis_tvalid_buf <= 0;
+		end else begin
+			case(state)
+				S_IDLE:begin
+					m_axis_tvalid <= 0;
+					if(s_axis_tvalid)begin
+						op_a <= s_axis_tdata;
+						op_b <= 0;
+						state <= s_axis_tlast ? S_IDLE : S_PROC;
+					end else begin
+						op_a <= 0;
+					    op_b <= 0;
+					    state <= S_IDLE;
+					end
+				end
+				S_PROC:begin
+					m_axis_tvalid <= 0;
+					if(s_axis_tvalid)begin
+						op_a <= s_axis_tdata;
+						op_b <= sum_w;
+						state <= s_axis_tlast ? S_IDLE : S_PROC;
+					end else begin
+						op_a <= 0;
+					    op_b <= sum_w;
+					    state <= S_PROC;
+					end
+				end
+				S_LAST:begin
+				
+				end
+				S_ERR:begin
+					state <= S_IDLE;
+				end
+			endcase
+			m_axis_tvalid_buf <= s_axis_tlast&s_axis_tvalid;
+			m_axis_tvalid <= m_axis_tvalid_buf;
+			m_axis_tuser <= s_axis_tuser;
+			sum_r <= sum_w;
+			m_axis_tdata <= sum_w;
+			
+		end
+	end
+	
+	real_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE/2)) real_inst(
+		.a(op_a[NUM_SIZE/2-1:0]),
+		.b(op_b[NUM_SIZE/2-1:0]),
+		.sum(sum_w[NUM_SIZE/2-1:0])
+		);
+	
+	real_adder_saturate #(.ELEMENT_SIZE(NUM_SIZE/2)) imag_inst(
+		.a(op_a[NUM_SIZE-1:NUM_SIZE/2]),
+		.b(op_b[NUM_SIZE-1:NUM_SIZE/2]),
+		.sum(sum_w[NUM_SIZE-1:NUM_SIZE/2])
+		);
+	
 	
 endmodule

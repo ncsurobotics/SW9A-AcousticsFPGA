@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 
-
-
-// `define MATRIX_SIZE 4  // commented out for reference, dont use
 `define HYDROPHONE_COUNT 6
-// `define THETA_COUNT 19 //ditto
+
+
+ //`define MATRIX_SIZE 0  // commented out for reference, dont use
+ //`define THETA_COUNT 0 //ditto

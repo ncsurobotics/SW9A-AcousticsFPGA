@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Wed Sep 23 19:16:21 2026
+// Date        : Sat Sep 26 11:51:51 2026
 // Host        : AustinsPC running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/Aweso/Verilog/Aquapack/sw9-jan/SW9A-AcousticsFPGA.gen/sources_1/ip/cmpy_beamformer/cmpy_beamformer_stub.v
@@ -18,12 +18,12 @@ module cmpy_beamformer(aclk, aresetn, s_axis_a_tvalid,
   s_axis_a_tready, s_axis_a_tuser, s_axis_a_tlast, s_axis_a_tdata, s_axis_b_tvalid, 
   s_axis_b_tready, s_axis_b_tdata, m_axis_dout_tvalid, m_axis_dout_tready, 
   m_axis_dout_tuser, m_axis_dout_tlast, m_axis_dout_tdata)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_a_tvalid,s_axis_a_tready,s_axis_a_tuser[15:0],s_axis_a_tlast,s_axis_a_tdata[31:0],s_axis_b_tvalid,s_axis_b_tready,s_axis_b_tdata[31:0],m_axis_dout_tvalid,m_axis_dout_tready,m_axis_dout_tuser[15:0],m_axis_dout_tlast,m_axis_dout_tdata[63:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s_axis_a_tvalid,s_axis_a_tready,s_axis_a_tuser[16:0],s_axis_a_tlast,s_axis_a_tdata[31:0],s_axis_b_tvalid,s_axis_b_tready,s_axis_b_tdata[31:0],m_axis_dout_tvalid,m_axis_dout_tready,m_axis_dout_tuser[16:0],m_axis_dout_tlast,m_axis_dout_tdata[63:0]" */;
   input aclk;
   input aresetn;
   input s_axis_a_tvalid;
   output s_axis_a_tready;
-  input [15:0]s_axis_a_tuser;
+  input [16:0]s_axis_a_tuser;
   input s_axis_a_tlast;
   input [31:0]s_axis_a_tdata;
   input s_axis_b_tvalid;
@@ -31,7 +31,7 @@ module cmpy_beamformer(aclk, aresetn, s_axis_a_tvalid,
   input [31:0]s_axis_b_tdata;
   output m_axis_dout_tvalid;
   input m_axis_dout_tready;
-  output [15:0]m_axis_dout_tuser;
+  output [16:0]m_axis_dout_tuser;
   output m_axis_dout_tlast;
   output [63:0]m_axis_dout_tdata;
 endmodule

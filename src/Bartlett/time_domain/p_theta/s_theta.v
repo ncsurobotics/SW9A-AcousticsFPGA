@@ -7,7 +7,7 @@
 `include "constants.vh"
 
 
-
+/*
 
 module s_theta_16(
 	input[$clog2(`THETA_COUNT) - 1:0] theta,
@@ -71,3 +71,4 @@ module s_theta_32(
 		endcase
 	end
 endmodule
+*/

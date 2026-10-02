@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 `include "constants.vh"
-
+/*
 module theta_driver (
 	input clk, reset_n,
 	input enable, //when high, theta values will be sent starting from 0
@@ -40,4 +40,4 @@ module theta_driver (
 	
 	end
 	
-endmodule
+endmodule*/

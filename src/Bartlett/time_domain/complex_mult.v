@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `include "constants.vh"
-
+/*
 
 module complex_matrix_hadamard #(
 	parameter NUM_SIZE = 32,
@@ -107,7 +107,7 @@ module complex_matrix_hadamard #(
 		end
 	endgenerate
 endmodule
-
+*/
 /*
 module no_ip_complex_matrix_hadamard #(
 	parameter NUM_SIZE = 32,
@@ -369,7 +369,7 @@ cmpy_rxx your_instance_name (
 endgenerate
 endmodule
 
-
+/*
 module complex_matrix_multiplier #(
 	parameter NUM_SIZE = 32
 	) (
@@ -951,3 +951,4 @@ cmpy_1 x_complex_multiplier_3_3 (
 
 
 endmodule
+*/

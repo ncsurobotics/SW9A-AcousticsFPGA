@@ -13,7 +13,7 @@ view structure
 
 do {cmpy_rxx.udo}
 
-run
+run 1000ns
 
 endsim
 

@@ -19,7 +19,7 @@ module bartlett_to_dsm #(
 	
 	);
 	
-	
+
 	reg [26:0] sample_counter;
 	reg [4:0] word_counter;
 	
@@ -28,7 +28,7 @@ module bartlett_to_dsm #(
 	localparam S_RECEIVING = 2'b01;
 	localparam S_FILL = 2'b10;
 	localparam S_DONE = 2'b11;
-	
+
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
 			sample_counter <= 0;

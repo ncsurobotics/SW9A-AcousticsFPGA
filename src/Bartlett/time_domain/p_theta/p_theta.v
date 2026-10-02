@@ -212,27 +212,6 @@ module ptheta_v2 #(
 	wire mid_last, mid_valid;
 	wire [TUSER_SIZE-1:0] mid_tuser;
 	
-cmpy_1 your_instance_name (
-  .aclk(clk),                              // input wire aclk
-  .aresetn(reset_n),                        // input wire aresetn
-  
-  .s_axis_a_tvalid(0),        // input wire s_axis_a_tvalid
-  //.s_axis_a_tready(s_axis_a_tready),        // output wire s_axis_a_tready
-  .s_axis_a_tuser(0),          // input wire [3 : 0] s_axis_a_tuser
-  .s_axis_a_tdata(0),          // input wire [31 : 0] s_axis_a_tdata
-  
-  .s_axis_b_tvalid(0),        // input wire s_axis_b_tvalid
- // .s_axis_b_tready(s_axis_b_tready),        // output wire s_axis_b_tready
-  .s_axis_b_tuser(0),          // input wire [4 : 0] s_axis_b_tuser
-  .s_axis_b_tlast(last),          // input wire s_axis_b_tlast
-  .s_axis_b_tdata(0),          // input wire [31 : 0] s_axis_b_tdata
-  
-  .m_axis_dout_tvalid(mid_valid),  // output wire m_axis_dout_tvalid
-  .m_axis_dout_tready(1),  // input wire m_axis_dout_tready
-  .m_axis_dout_tuser(mid_tuser),    // output wire [8 : 0] m_axis_dout_tuser
-  .m_axis_dout_tlast(mid_last),    // output wire m_axis_dout_tlast
-  .m_axis_dout_tdata(mid_data)    // output wire [63 : 0] m_axis_dout_tdata
-);
 
 wire[NUM_SIZE - 1 :0] accumulation;
 assign m_axis_tdata = accumulation;
@@ -258,4 +237,69 @@ real_accumulator_inst (
 	);
 	
 
+endmodule
+
+module complex_dot_product #(
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 17
+	)(
+	input clk,
+	input reset_n,
+	
+	input[NUM_SIZE * 2 - 1:0] s_axis_tdata, // A*B, both operands in this field
+	input s_axis_tvalid,
+	input s_axis_tlast, // end of vector
+	input [TUSER_SIZE-1:0] s_axis_tuser,
+	
+	output[NUM_SIZE * 2 : 0] m_axis_tdata,
+	output m_axis_tvalid,
+	output[TUSER_SIZE - 1 : 0] m_axis_tuser
+	);
+	
+	
+	
+//----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
+cmpy_dot_product your_instance_name (
+  .aclk(clk),                              // input wire aclk
+  .aresetn(reset_n),                        // input wire aresetn
+  
+  .s_axis_a_tvalid(s_axis_tvalid),        // input wire s_axis_a_tvalid
+  .s_axis_a_tuser(s_axis_tuser),          // input wire [16 : 0] s_axis_a_tuser
+  .s_axis_a_tlast(s_axis_tlast),          // input wire s_axis_a_tlast
+  .s_axis_a_tdata(s_axis_tdata[0+:NUM_SIZE]),          // input wire [31 : 0] s_axis_a_tdata
+  
+  .s_axis_b_tvalid(s_axis_tvalid),        // input wire s_axis_b_tvalid
+  .s_axis_b_tdata(s_axis_tdata[NUM_SIZE+:NUM_SIZE]),          // input wire [31 : 0] s_axis_b_tdata
+  
+  .m_axis_dout_tvalid(m_axis_dout_tvalid),  // output wire m_axis_dout_tvalid
+  .m_axis_dout_tuser(m_axis_dout_tuser),    // output wire [16 : 0] m_axis_dout_tuser
+  .m_axis_dout_tlast(m_axis_dout_tlast),    // output wire m_axis_dout_tlast
+  .m_axis_dout_tdata(m_axis_dout_tdata)    // output wire [63 : 0] m_axis_dout_tdata
+);
+// INST_TAG_END ------ End INSTANTIATION Template ---------
+
+wire	[NUM_SIZE*2-1:0]	m_axis_dout_tdata;
+wire	m_axis_dout_tvalid;
+wire	m_axis_dout_tlast;
+wire	[TUSER_SIZE-1:0]	m_axis_dout_tuser;
+
+complex_accumulator #(
+	.NUM_SIZE(2*NUM_SIZE),
+	.TUSER_SIZE(TUSER_SIZE)
+	) 
+comp_accumulator_inst (
+	.clk(clk),
+	.reset_n(reset_n),
+	
+	.s_axis_tdata(m_axis_dout_tdata), 
+	.s_axis_tvalid(m_axis_dout_tvalid), 
+	.s_axis_tlast(m_axis_dout_tlast),
+	.s_axis_tuser(m_axis_dout_tuser),
+	
+	
+	.m_axis_tdata(m_axis_tdata),
+	.m_axis_tvalid(m_axis_tvalid),
+	.m_axis_tuser(m_axis_tuser)
+	);
+	
 endmodule

@@ -13,12 +13,14 @@ global rotate_robot move_pinger
 rotate_robot = false; % automated rotation of robot
 move_pinger = false; %automated movement of pinger|
 use_user_update_flag = true; % only updates the screen when a robot value changes
+best_guess_angle_rel = 1;
+angle_error_deg = 1;
 
 % plot options
-plot_array_signals = false;
+plot_array_signals = true;
 plot_weight_polar = true;
 plot_weight_stem = true;
-plot_directivity = false;
+plot_directivity = true;
 plot_fft = true;
 plot_robot = true;
 framecount = 10e5; 
@@ -28,7 +30,7 @@ degreesperframe = 2.5; %degrees that the pinger moves each frame
 %constants
 c = 1480; %speed of sound in water m/s
 alpha = 1e-3; % constant for amplitude decay
-fs = 512e3; % sampling freq
+fs = 250e3; % sampling freq
 hydrophone_diameter = 0.0254; % physical constraint for the hydrophones
 sample_count = 512; % 512 samples at 512khz fs means each bin the fft output is 1khz.
 dec_factor = 1; % downsampling factor - we dont need to downsample
@@ -38,6 +40,7 @@ r0=5; % reference distance in meters. minimum distance from hydrophones to signa
 array_graph_scale = 50; % affects robot view
 robot_graph_limits = 50;
 guess_vec_count = 1; % number of vectors to best guesses of the pinger
+num_of_bits = 12;
 
 
 
@@ -134,7 +137,8 @@ gv_length = zeros(4);
 array_factor = zeros(H,length(theta)); % allocate space for array manifold
 directivity = zeros(1,length(theta)); % directivity is summed array_factor
 pinger_angle_abs = 0;
-global p_norm robot_pos robot_facing update_flag pinger_loc show_pinger window_size
+global p_norm robot_pos robot_facing update_flag pinger_loc show_pinger window_size delay_correction
+delay_correction = false;
 robot_pos = [0 0 0];
 robot_facing = [1 0 0];
 update_flag = false;
@@ -196,7 +200,7 @@ if plot_array_signals
     signals_P = gobjects(H,1);
     hold on;
     for i = 1:H
-        signals_P(i) = plot(t_plot, zeros(1,length(t_plot)), 'DisplayName', ['Hydrophone ' num2str(i)]);
+        signals_P(i) = stairs(t_plot, zeros(1, length(t_plot)), 'DisplayName', ['Hydrophone ' num2str(i)]);
     end
     hold off;
     title('Received Signals from Hydrophones');
@@ -278,6 +282,10 @@ el_txt = text(axRobot, -robot_graph_limits+2, robot_graph_limits-16, ...
     sprintf('Elevation Angle: %.1f°', angle_deg), ...
     'FontSize',10, 'FontWeight','bold', 'BackgroundColor','w', 'EdgeColor','k', ...
     'Margin',4, 'HorizontalAlignment','left');
+angle_err_txt = text(axRobot, -robot_graph_limits+2, robot_graph_limits-22, ...
+    sprintf('Angle Error: %.1f°', angle_error_deg), ...
+    'FontSize',10, 'FontWeight','bold', 'BackgroundColor','w', 'EdgeColor','k', ...
+    'Margin',4, 'HorizontalAlignment','left');
 
 legend(axRobot,'Location','bestoutside');
 hold(axRobot,'off');
@@ -286,7 +294,7 @@ function bdf(~, event)
     % Parameters for movement/rotation (tweak as desired)
     moveStep = 1;    % meters per keypress
     rotDeg   = 2.5;    % degrees per keypress
-    global robot_pos robot_facing update_flag pinger_loc f_signal show_pinger window_size awgn_snr ha_list ha_idx hydrophone_array rotate_robot move_pinger p_norm
+    global robot_pos robot_facing update_flag pinger_loc f_signal show_pinger window_size awgn_snr ha_list ha_idx hydrophone_array rotate_robot move_pinger p_norm delay_correction
     update_flag = true;
     % Ensure robot_facing is 2D direction (ignore z)
     f = robot_facing(1:2);
@@ -361,9 +369,9 @@ function bdf(~, event)
         case "z" %decrease window
             window_size = max(window_size-1,0)
         case "l" %increase snr
-            awgn_snr = 100
+            awgn_snr = awgn_snr+1
         case "k" % decrease snr
-            awgn_snr = 0.001
+            awgn_snr = awgn_snr-1
         case "g" % cycle array geometry
             ha_idx = mod(ha_idx, numel(ha_list)) + 1;   % advance index cyclically
             hydrophone_array = ha_list{ha_idx};
@@ -401,6 +409,8 @@ function bdf(~, event)
         case "u" % switch p_mag mode
             p_norm = not(p_norm);
             p_norm
+        case "i" % toggle delay_correction
+            delay_correction = not(delay_correction)
     end
 end
 
@@ -477,7 +487,9 @@ for frame=0:framecount
         % distances and relative delays (seconds)
         signal_distance = vecnorm(mobile_h_array - pinger_loc, 2, 2); % Hx1
         tau = signal_distance / c;                % absolute delay to each hydrophone (s)
-        
+        acquisition_time = 1e-6; % 300ns according to documentation + 50ns for control logic (idk if this is necessary, worst case)
+        acquisition_delays = [0 0 acquisition_time acquisition_time 2*acquisition_time 2*acquisition_time]';
+        tau = tau + acquisition_delays  ;
         %scaling to represent lower amplitude with distance
         % choose reference distance r0 (use provided r0 as reference)
         r0 = max(r0, 1e-6);                       % avoid div/zero
@@ -497,8 +509,12 @@ for frame=0:framecount
         
         % Add AWGN noise to signals
         signalPower = rms(hydro(:,1))^2;
-        [hydroNoisey, noiseVar] = awgn(hydro,awgn_snr,'measured'); % 2nd parameter is SNR
+        %quantization_snr = 10*log10(signalPower/1)+4.8+6* num_of_bits;
+        %hydro = awgn(hydro,79,"measured"); % quantization snr
         
+        [hydroNoisey, noiseVar] = awgn(hydro,awgn_snr,'measured'); % 2nd parameter is SNR
+        %hydroNoisey = quantizenumeric(hydroNoisey,1,12,11,'nearest','saturate')
+        hydroNoisey = quantizenumeric(hydroNoisey,1,12,11,'nearest','saturate');
         % Decimate hydrophone signals
         for h = 1 : H
             hydro_dec(h,:) = hydroNoisey(h,1:dec_factor:end);
@@ -559,6 +575,10 @@ for frame=0:framecount
             sumMags(r) = sum(abs(segment));     % optional
         end
 
+        if delay_correction
+            sumVals = sumVals .* exp(f_signal * j * 2 * pi * acquisition_delays);
+        end
+
         R = sumVals * sumVals';
         % dont divide R, because the power is distributed evenly among the
         % window
@@ -569,6 +589,7 @@ for frame=0:framecount
         % Normalize P by s(theta)^H*s(theta)
         for i=1:length(theta)
             P(i) = array_factor(:,i)'*R*array_factor(:,i) / (array_factor(:,i)'*array_factor(:,i));
+            %imag(P(i));
             if p_norm %apparently P is always all real
                 magP(i) = norm(P(i)); 
             else 
@@ -582,7 +603,8 @@ for frame=0:framecount
         guess_idx = min(guess_vec_count, numel(magP));
         [topVals, topIdx] = maxk(magP, guess_idx);   % topVals: values, topIdx: indices into magP
         gv_angles = theta(topIdx);
-        
+        best_guess_angle_rel = gv_angles(1);
+
         
         % Build guess vectors (2 x guess_vec_count). Each column = endpoint [x;y;z]
         guess_vectors = nan(2, guess_vec_count);
@@ -642,6 +664,12 @@ for frame=0:framecount
                     elevDeg = rad2deg(elevRad);
                     set(el_txt, 'String', sprintf('Elevation Angle: %.1f°', elevDeg));
                 end
+                if exist('angle_err_txt','var') && isgraphics(angle_err_txt)
+                    correct_angle_rel = mod(pinger_angle_abs - robot_angle + pi, 2*pi) - pi;
+                    angle_error_deg = abs(rad2deg(mod(correct_angle_rel - best_guess_angle_rel + pi, 2*pi) - pi));
+                    set(angle_err_txt, 'String', sprintf('Angle Error: %.1f°', angle_error_deg));
+                end
+
 
             else
                 set(pinger_h, 'XData', 0, 'YData', 0);
@@ -651,6 +679,10 @@ for frame=0:framecount
                 if exist('angle_txt','var') && isgraphics(angle_txt)
                     set(angle_txt, 'String', "");
                 end
+                if exist('angle_err_txt','var') && isgraphics(angle_err_txt)
+                    set(angle_err_txt, 'String', "");
+                end
+
             end
             for i = 1:guess_vec_count   
                 set(gv_h(i),'XData', robot_pos(1), 'YData', robot_pos(2),'UData', guess_vectors(1,i), 'VData', guess_vectors(2,i));

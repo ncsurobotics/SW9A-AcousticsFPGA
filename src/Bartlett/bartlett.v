@@ -20,7 +20,56 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
+
 `include "constants.vh"
+
+
+
+	
+
+
+module theta_generator_sim #(
+	parameter THETA_WIDTH = 16
+	) (
+	input clk,
+	input reset_n,
+	
+	output reg[THETA_WIDTH-1:0] m_axis_theta_tdata,
+	output reg m_axis_theta_tvalid,
+	output reg m_axis_theta_tlast
+	);
+	reg [31:0] pause_counter;
+	reg [31:0] theta_counter;
+
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			m_axis_theta_tdata <= 0;
+			m_axis_theta_tvalid <= 0;
+			m_axis_theta_tlast <= 0;
+			pause_counter <= 0;
+			theta_counter <= 0;
+		end else begin
+			pause_counter <= pause_counter == 100 ? 0 : pause_counter + 1;
+			if(pause_counter == 0 )begin
+				theta_counter <= theta_counter + 1;
+				m_axis_theta_tdata <= theta_counter * 182;
+				m_axis_theta_tvalid <= 1;
+				if(theta_counter == 360) m_axis_theta_tlast <= 1;
+				else m_axis_theta_tlast <= 0;
+			end else begin 
+				m_axis_theta_tvalid <= 0;
+				m_axis_theta_tlast <= 0;
+				m_axis_theta_tdata <= 0;
+				
+			end	
+		end
+	end
+
+
+endmodule
+
+
 // upsample by a factor of 2 using lerp
 module linear_interpolator #(
 	parameter WORD_SIZE = 16
@@ -111,7 +160,7 @@ module bartlett_datapath #(
 
     );
 	
-	localparam THETA_WIDTH = 10;
+	localparam THETA_WIDTH = 16;
 	
 	wire[7:0]beam_freq;
 	
@@ -132,22 +181,28 @@ module bartlett_datapath #(
 		.s_axis_config_tstrb(s_axis_config_tstrb),
 		.s_axis_config_tvalid(s_axis_config_tvalid),
 		
-		.m_axis_tdata(m_axis_signal_power_tdata),
-		.m_axis_tlast(m_axis_signal_power_tlast),
-		.m_axis_tvalid(m_axis_signal_power_tvalid),
-		.m_axis_tready(m_axis_signal_power_tready),
-		.m_axis_tuser(m_axis_signal_power_tuser),
+		.m_axis_tdata(m_axis_signal_freq_tdata),
+		.m_axis_tlast(m_axis_signal_freq_tlast),
+		.m_axis_tvalid(m_axis_signal_freq_tvalid),
+		.m_axis_tready(m_axis_signal_freq_tready),
+		.m_axis_tuser(m_axis_signal_freq_tuser),
 		
 		.beam_freq(beam_freq)
 		);	
 		
-wire	[`HYDROPHONE_COUNT*NUM_SIZE - 1:0]	m_axis_signal_power_tdata;
-wire		m_axis_signal_power_tvalid;
-wire		m_axis_signal_power_tready;
-wire		m_axis_signal_power_tlast;
-wire	[7:0]	m_axis_signal_power_tuser;
+wire	[`HYDROPHONE_COUNT*NUM_SIZE - 1:0]	m_axis_signal_freq_tdata;
+wire		m_axis_signal_freq_tvalid;
+wire		m_axis_signal_freq_tready;
+wire		m_axis_signal_freq_tlast;
+wire	[7:0]	m_axis_signal_freq_tuser;
 
 		
+wire	[NUM_SIZE - 1:0]	m_axis_rxx_tdata;
+wire		m_axis_rxx_tvalid;
+wire		m_axis_rxx_tready;
+wire		m_axis_rxx_tlast;
+wire	[$clog2(`HYDROPHONE_COUNT)-1:0]	m_axis_rxx_tuser;
+
 
 		    // Instantiate Rxx for the signal
     signal_covariance #(
@@ -157,32 +212,36 @@ wire	[7:0]	m_axis_signal_power_tuser;
         .reset_n(reset_n),
         .clken(1'b1), // Always enabled, can customize
 
-        .s_axis_tdata(m_axis_signal_power_tdata),
-        .s_axis_tvalid(m_axis_signal_power_tvalid),
-        .s_axis_tlast(m_axis_signal_power_tlast),
-        .s_axis_tready(m_axis_signal_power_tready),
+        .s_axis_tdata(m_axis_signal_freq_tdata),
+        .s_axis_tvalid(m_axis_signal_freq_tvalid),
+        .s_axis_tlast(m_axis_signal_freq_tlast),
+        .s_axis_tready(m_axis_signal_freq_tready),
 
-        .m_axis_tdata(),
-        .m_axis_tvalid(),
-        .m_axis_tready(1),
-		.m_axis_tlast(),
-		.m_axis_tid()
+        .m_axis_tdata(m_axis_rxx_tdata),
+        .m_axis_tvalid(m_axis_rxx_tvalid),
+        .m_axis_tready(m_axis_rxx_tready),
+		.m_axis_tlast(m_axis_rxx_tlast)
     );
 
-	/*
 	
-theta_generator #(
+	
+wire	[15:0]	m_axis_theta_tdata;
+wire		m_axis_theta_tvalid;
+wire		m_axis_theta_tlast;
+
+
+	
+theta_generator_sim #(
 	.THETA_WIDTH(THETA_WIDTH)
 	) theta_generator_inst(
 	.clk(clk),
 	.reset_n(reset_n),
 	
-	.m_axis_theta_tdata(), // theta value
-	.m_axis_theta_tvalid(),
-	.m_axis_theta_tlast() // last theta value
+	.m_axis_theta_tdata(m_axis_theta_tdata), // theta value
+	.m_axis_theta_tvalid(m_axis_theta_tvalid),
+	.m_axis_theta_tlast(m_axis_theta_tlast) // last theta value
 	
 	);
-	*/
 	
 
 Parallel_Beamformer_Wrapper #(
@@ -194,12 +253,12 @@ PBW_inst(
 	.clk(clk),
 	.reset_n(reset_n),
 	
-	.s_axis_theta_tdata(0),
-	.s_axis_theta_tvalid(0),
-	.s_axis_theta_tlast(0),
+	.s_axis_theta_tdata(m_axis_theta_tdata),
+	.s_axis_theta_tvalid(m_axis_theta_tvalid),
+	.s_axis_theta_tlast(m_axis_theta_tlast),
 	.s_axis_theta_tready(),
 	
-	.beam_freq(2'b00), // 2 bit mux to select frequency value
+	.beam_freq(beam_freq), // 2 bit mux to select frequency value
 	
 	.m_axis_tdata(m_axis_beam_vector_tdata), // steering vector values
 	.m_axis_tvalid(m_axis_beam_vector_tvalid),
@@ -215,10 +274,13 @@ wire		m_axis_beam_vector_tlast;
 wire	[THETA_WIDTH:0]	m_axis_beam_vector_tuser;
 
 		
-
+wire [NUM_SIZE - 1 : 0] m_axis_stheta_tdata;
+wire m_axis_stheta_tvalid, m_axis_stheta_tlast, m_axis_stheta_tready;
+wire[THETA_WIDTH:0] m_axis_stheta_tuser; 
 	    // Instantiate Rxx for the beam
     beam_covariance #(
-        .NUM_SIZE(NUM_SIZE)
+        .NUM_SIZE(NUM_SIZE),
+		.TUSER_SIZE(THETA_WIDTH+1)
     ) beam_covariance_inst (
         .clk(clk),
         .reset_n(reset_n),
@@ -231,42 +293,33 @@ wire	[THETA_WIDTH:0]	m_axis_beam_vector_tuser;
 		.s_axis_tuser(m_axis_beam_vector_tuser),
 		
 
-        .m_axis_tdata(),
-        .m_axis_tvalid(),
-        .m_axis_tready(1),
-		.m_axis_tlast(),
-		.m_axis_tuser()
+        .m_axis_tdata(m_axis_stheta_tdata),
+        .m_axis_tvalid(m_axis_stheta_tvalid),
+        .m_axis_tready(m_axis_stheta_tready),
+		.m_axis_tlast(m_axis_stheta_tlast),
+		.m_axis_tuser(m_axis_stheta_tuser)
     );
 
+assign m_axis_stheta_tready = 1;
+assign m_axis_rxx_tready = 1;
 	
 	
+	complex_dot_product #(
+		.NUM_SIZE(NUM_SIZE),
+		.TUSER_SIZE(THETA_WIDTH+1)
+		) cdp_inst (
+		.clk(clk),
+		.reset_n(reset_n),
+		.s_axis_tdata(s_axis_tdata),
+		.s_axis_tvalid(s_axis_tvalid),
+		.s_axis_tlast(s_axis_tlast),
+		.s_axis_tuser(s_axis_tuser),
+		
+		.m_axis_tdata(m_axis_tdata),
+		.m_axis_tvalid(m_axis_tvalid),
+		.m_axis_tuser(m_axis_tuser)
+);
 
-ptheta_v2 #(
-	.NUM_SIZE(NUM_SIZE),
-	.TUSER_SIZE(1),
-	.MATRIX_SIZE(`HYDROPHONE_COUNT*`HYDROPHONE_COUNT)
-	) p_theta_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	
-	.s_axis_rxx_tdata(0),
-	.s_axis_rxx_tvalid(0),
-	.s_axis_rxx_tlast(0),
-	.s_axis_rxx_tready(),
-	
-	.s_axis_stheta_tdata(0),
-	.s_axis_stheta_tvalid(0),
-	.s_axis_stheta_tready(),
-	.s_axis_stheta_tlast(0),
-	.s_axis_stheta_tuser(0),
-
-	.m_axis_product_tdata(),
-	.m_axis_product_tvalid(),
-	.m_axis_product_tready(1),
-	.m_axis_product_tlast(),
-	.m_axis_product_tuser()
-	);
-	
 
 	max #(
 		.NUM_SIZE(NUM_SIZE)

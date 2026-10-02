@@ -5,7 +5,8 @@
 
 
 module output_store #(
-	parameter NUM_SIZE = 32
+	parameter NUM_SIZE = 32,
+	parameter THETA_SIZE = 16
 	) (
 	input clk, reset_n, 
 
@@ -13,11 +14,11 @@ module output_store #(
 	// current weight input channel
 	input[NUM_SIZE - 1 : 0] s_axis_tdata,
 	input s_axis_tvalid, s_axis_tlast, 
-	input [$clog2(`THETA_COUNT) - 1: 0] s_axis_tuser,
+	input [THETA_SIZE - 1: 0] s_axis_tuser,
 	output reg s_axis_tready,
 	
 	// all weights output channel
-	output reg[`THETA_COUNT * NUM_SIZE - 1:0]  m_axis_all_tdata, 
+	output reg[THETA_SIZE * NUM_SIZE - 1:0]  m_axis_all_tdata, 
 	output reg m_axis_all_tvalid, m_axis_all_tuser, m_axis_all_tlast,
 	input m_axis_all_tready	
 	);
