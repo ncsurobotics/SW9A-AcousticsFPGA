@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module ADC_SPI_ADS127L21 (
+module adc_spi_ads127l21 (
 	input clk,
 	input reset_n,
 	
@@ -188,7 +188,7 @@ module ADC_SPI_ADS127L21 (
 	
 	
 	// handles the serial interface but no logic
-    SPI_IF SPI_IF_inst (
+    spi_if spi_if_inst (
         .clk(clk),
         .reset_n(reset_n),
 

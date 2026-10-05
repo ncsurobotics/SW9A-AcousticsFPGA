@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module ADC_SPI_BATCH #(
+module adc_spi_batch #(
 	parameter CHANNEL_COUNT = 6,
 	parameter CONVERSION_FRAME_SIZE = 256
 )(
@@ -17,7 +17,7 @@ module ADC_SPI_BATCH #(
 	
 	// input channel (for register operations)
     input [15:0] s_axis_tdata,
-	input [CHANNEL_COUNT-1:0] s_axis_tdest, // bit mask to select an ADC. multi/broadcast only work on write
+	input [CHANNEL_COUNT-1:0] s_axis_tuser, // bit mask to indicate the corresponding enabled ADCs for register R/W
 	input s_axis_tvalid,
 	output s_axis_tready,
 	
@@ -45,7 +45,7 @@ module ADC_SPI_BATCH #(
 
 	Register mode:
 		Register data is read from or written to ADC internal registers.
-		s_axis_tdest selects which channels are written to during writes
+		s_axis_tuser selects which channels are written to during writes
 		internal
 
 */
@@ -111,11 +111,11 @@ module ADC_SPI_BATCH #(
 			end else begin // in reg mode, we dont go back to conversion unless reg mode is done
 				case (state)
 					S_START: begin // start command
-						channel_enable <= s_axis_tdest;
+						channel_enable <= s_axis_tuser;
 
 						// If doing a read command, need to send back the received data as well, so we change state
 						// Wait for the external tvalid and all the targeted ADC tready before handshake
-						if (s_axis_tvalid & (&(m_axis_adc_tready | ~s_axis_tdest)) & s_axis_tdata[14]) begin
+						if (s_axis_tvalid & (&(m_axis_adc_tready | ~s_axis_tuser)) & s_axis_tdata[14]) begin
 							state <= S_WAIT; // If this is read command, need to wait and send back data
 						end else begin
 							internal_select <= SPI_select_buffer;  // Only update internal_select if no R/W command handshake
@@ -124,7 +124,8 @@ module ADC_SPI_BATCH #(
 					S_WAIT: begin // waits for commands to complete
 						for (j = 0; j < CHANNEL_COUNT; j = j + 1) begin
 							if (s_axis_adc_tvalid[j]) begin
-								reg_values[j] <= s_axis_adc_tdata[j];
+								// Get the top byte only, since during a read the lower byte is only padding
+								reg_values[j] <= s_axis_adc_tdata[j][15:8]; 
 							end
 						end
 						if (channels_done) begin
@@ -160,7 +161,7 @@ module ADC_SPI_BATCH #(
 	// assign s_axis_tready = m_axis_adc_tready[0];
 
 	// Ready to receive commands when all destinations are ready
-	assign s_axis_tready = (state == S_START) & (&(m_axis_adc_tready | ~s_axis_tdest)) & (internal_select);
+	assign s_axis_tready = (state == S_START) & (&(m_axis_adc_tready | ~s_axis_tuser)) & (internal_select);
 
 	assign channels_done = &(~channel_enable | s_axis_adc_tvalid);
 
@@ -182,8 +183,8 @@ module ADC_SPI_BATCH #(
 	generate
 		for(i = 0; i < CHANNEL_COUNT; i = i + 1)begin
 			assign m_axis_adc_tdata[i] = internal_select ? s_axis_tdata : 16'h0000;
-			assign m_axis_adc_tvalid[i] = internal_select ? (s_axis_tvalid && s_axis_tdest[i]) : 1;
-			ADC_SPI_ADS127L21 u1(
+			assign m_axis_adc_tvalid[i] = internal_select ? (s_axis_tvalid && s_axis_tuser[i]) : 1;
+			adc_spi_ads127l21 u1(
 				.clk(clk),
 				.reset_n(reset_n),
 				

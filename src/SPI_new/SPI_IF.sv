@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module SPI_IF #(
+module spi_if #(
 	parameter CLK_DIVIDE = 7, 			// how many times to divide master clk to produce half cycle SCLK
 	parameter DELAY_CYCLES = 10			// absolute minimum should be 5
 )(
