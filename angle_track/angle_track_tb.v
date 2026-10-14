@@ -4,10 +4,10 @@ module angle_track_tb;
 	parameter THETA_WIDTH = 16;
 	reg clk;
 	reg rst_n;
-	reg [31:0] prev_angle;
-	reg [31:0] confidence;
-	reg rx_tvalid;
-	wire rx_tready;
+	reg [31:0] s_axis_tdata;
+	reg [31:0] s_axis_tuser;
+	reg s_axis_tvalid;
+	wire s_axis_tready;
 	wire [THETA_WIDTH-1:0] m_axis_tdata;
 	wire m_axis_tvalid;
 	wire m_axis_tlast;
@@ -23,10 +23,10 @@ module angle_track_tb;
 	angle_track #(.THETA_WIDTH(THETA_WIDTH)) dut (
 		.clk(clk),
 		.rst_n(rst_n),
-		.prev_angle(prev_angle),
-		.confidence(confidence),
-		.rx_tvalid(rx_tvalid),
-		.rx_tready(rx_tready),
+		.s_axis_tdata(s_axis_tdata),
+		.s_axis_tuser(s_axis_tuser),
+		.s_axis_tvalid(s_axis_tvalid),
+		.s_axis_tready(s_axis_tready),
 		.m_axis_tdata(m_axis_tdata),
 		.m_axis_tvalid(m_axis_tvalid),
 		.m_axis_tready(m_axis_tready),
@@ -79,10 +79,10 @@ module angle_track_tb;
 		integer ang;
 		begin
 			@(negedge clk);
-			while (!rx_tready) @(negedge clk);
+			while (!s_axis_tready) @(negedge clk);
 
-			prev_angle = prev;
-			confidence = conf;
+			s_axis_tdata = prev;
+			s_axis_tuser = conf;
 
 			// build the list of angles we expect
 			exp_cnt = 0;
@@ -93,9 +93,9 @@ module angle_track_tb;
 			end
 
 			// one-cycle trigger pulse
-			rx_tvalid = 1;
+			s_axis_tvalid = 1;
 			@(negedge clk);
-			rx_tvalid = 0;
+			s_axis_tvalid = 0;
 
 			// wait for every beat to come out, bail out if it hangs
 			wait_cyc = 0;
@@ -120,9 +120,9 @@ module angle_track_tb;
 		hold_pend = 0;
 		hold_data = 0;
 		rst_n = 0;
-		rx_tvalid = 0;
-		prev_angle = 0;
-		confidence = 0;
+		s_axis_tvalid = 0;
+		s_axis_tdata = 0;
+		s_axis_tuser = 0;
 		m_axis_tready = 1;
 		repeat (3) @(negedge clk);
 		rst_n = 1;

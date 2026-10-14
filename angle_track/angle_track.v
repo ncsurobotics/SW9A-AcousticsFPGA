@@ -11,10 +11,10 @@ module angle_track #(
 )(
 	input wire clk,
 	input wire rst_n,
-	input wire [31:0] prev_angle,
-	input wire [31:0] confidence,
-	input wire rx_tvalid,
-	output wire rx_tready,
+	input wire [31:0] s_axis_tdata, // confidence
+	input wire [31:0] s_axis_tuser, // prevangle
+	input wire s_axis_tvalid,
+	output wire s_axis_tready,
 
 	// master for values to the wrapper
 	output reg [THETA_WIDTH-1:0] m_axis_tdata,
@@ -32,14 +32,14 @@ module angle_track #(
 	wire next_last = (next_ang + step_sz > end_ang);
 
 	// clamp the window around prev_angle so it stays in range
-	wire [31:0] lo_raw = (prev_angle > window) ? prev_angle - window : 0;
-	wire [31:0] hi_raw = prev_angle + window;
+	wire [31:0] lo_raw = (s_axis_tdata > window) ? s_axis_tdata - window : 0;
+	wire [31:0] hi_raw = s_axis_tdata + window;
 	wire [31:0] win_lo = (lo_raw < angle_min) ? angle_min : lo_raw;
 	wire [31:0] win_hi = (hi_raw > angle_max) ? angle_max : hi_raw;
 
 	// only take a new trigger when no sweep is running
-	assign rx_tready = !in_sweep;
-	wire got_trig = rx_tvalid && rx_tready;
+	assign s_axis_tready = !in_sweep;
+	wire got_trig = s_axis_tvalid && s_axis_tready;
 
 	always @(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
@@ -52,7 +52,7 @@ module angle_track #(
 		end else begin
 			// new trigger, pick local window or global sweep based on confidence
 			if (got_trig) begin
-				if (confidence >= threshold) begin
+				if (s_axis_tuser >= threshold) begin
 					// confident, search a small window around the last angle
 					m_axis_tdata <= win_lo[THETA_WIDTH-1:0];
 					end_ang <= win_hi;
