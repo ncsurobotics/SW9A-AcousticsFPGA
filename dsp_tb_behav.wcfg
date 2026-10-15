@@ -13,18 +13,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,350.001 ns"></ZoomEndTime>
-      <Cursor1Time time="10.000 ns"></Cursor1Time>
+      <ZoomStartTime time="33.201666 us"></ZoomStartTime>
+      <ZoomEndTime time="271.201667 us"></ZoomEndTime>
+      <Cursor1Time time="231.535000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="257"></NameColumnWidth>
-      <ValueColumnWidth column_width="104"></ValueColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="group260" type="group">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/dsp_tb/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -48,10 +49,6 @@
       <wvobject fp_name="/dsp_tb/s_axis_tlast" type="logic">
          <obj_property name="ElementShortName">s_axis_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/s_axis_tdest" type="logic">
-         <obj_property name="ElementShortName">s_axis_tdest</obj_property>
-         <obj_property name="ObjectShortName">s_axis_tdest</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/s_axis_config_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_config_tdata[55:0]</obj_property>
@@ -85,14 +82,88 @@
          <obj_property name="ElementShortName">m_axis_tlast</obj_property>
          <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
       </wvobject>
-      <wvobject fp_name="/dsp_tb/m_axis_tdest" type="array">
-         <obj_property name="ElementShortName">m_axis_tdest[7:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdest[7:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/dsp_tb/signals" type="array">
          <obj_property name="ElementShortName">signals[5:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">signals[5:0][15:0]</obj_property>
          <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/dsp_tb/signals[5]" type="array">
+            <obj_property name="ElementShortName">[5][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/signals[4]" type="array">
+            <obj_property name="ElementShortName">[4][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/signals[3]" type="array">
+            <obj_property name="ElementShortName">[3][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/signals[2]" type="array">
+            <obj_property name="ElementShortName">[2][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/signals[1]" type="array">
+            <obj_property name="ElementShortName">[1][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/signals[0]" type="array">
+            <obj_property name="ElementShortName">[0][15:0]</obj_property>
+            <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+            <obj_property name="CellHeight">100</obj_property>
+            <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+            <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+            <obj_property name="AnalogYRangeMin">-61211.400000</obj_property>
+            <obj_property name="AnalogYRRangeMax">118810.000000</obj_property>
+            <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+            <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+            <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         </wvobject>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group68" type="group">
@@ -139,8 +210,8 @@
          <obj_property name="ObjectShortName">s_axis_config_tready</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/m_axis_tdata" type="array">
-         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ElementShortName">m_axis_tdata[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/m_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
@@ -149,10 +220,6 @@
       <wvobject fp_name="/dsp_tb/dut/m_axis_tlast" type="logic">
          <obj_property name="ElementShortName">m_axis_tlast</obj_property>
          <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/m_axis_tdest" type="array">
-         <obj_property name="ElementShortName">m_axis_tdest[7:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdest[7:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/beam_freq" type="array">
          <obj_property name="ElementShortName">beam_freq[7:0]</obj_property>
@@ -194,9 +261,17 @@
          <obj_property name="ElementShortName">m_axis_rxx_tlast</obj_property>
          <obj_property name="ObjectShortName">m_axis_rxx_tlast</obj_property>
       </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/m_axis_rxx_tuser" type="array">
-         <obj_property name="ElementShortName">m_axis_rxx_tuser[2:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_rxx_tuser[2:0]</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_rxx_rep_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_rxx_rep_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_rxx_rep_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_rxx_rep_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_rxx_rep_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_rxx_rep_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_rxx_rep_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_rxx_rep_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_rxx_rep_tready</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/m_axis_theta_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_theta_tdata[15:0]</obj_property>
@@ -227,8 +302,8 @@
          <obj_property name="ObjectShortName">m_axis_beam_vector_tlast</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/m_axis_beam_vector_tuser" type="array">
-         <obj_property name="ElementShortName">m_axis_beam_vector_tuser[16:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_beam_vector_tuser[16:0]</obj_property>
+         <obj_property name="ElementShortName">m_axis_beam_vector_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_beam_vector_tuser[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/m_axis_stheta_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_stheta_tdata[31:0]</obj_property>
@@ -249,6 +324,38 @@
       <wvobject fp_name="/dsp_tb/dut/m_axis_stheta_tuser" type="array">
          <obj_property name="ElementShortName">m_axis_stheta_tuser[16:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_stheta_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_cdp_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_cdp_tdata[64:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_cdp_tdata[64:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_cdp_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_cdp_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_cdp_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_cdp_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_cdp_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_cdp_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_combined_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_combined_tdata[64:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_combined_tdata[64:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_combined_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_combined_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_combined_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_combined_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_combined_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_combined_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/m_axis_combined_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_combined_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_combined_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/s_axis_trigger_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_trigger_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_trigger_tready</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
@@ -273,14 +380,6 @@
       <wvobject fp_name="/dsp_tb/dut/PBW_inst/s_axis_theta_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_theta_tdata[15:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_theta_tdata[15:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
-         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
-         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
-         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
-         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
-         <obj_property name="AnalogHorizLine">0.000000</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/PBW_inst/s_axis_theta_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_theta_tvalid</obj_property>
@@ -302,6 +401,10 @@
          <obj_property name="ElementShortName">m_axis_tdata[191:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_tdata[191:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[15:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[15:0]</obj_property>
+      </wvobject>
       <wvobject fp_name="/dsp_tb/dut/PBW_inst/m_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
          <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
@@ -313,6 +416,189 @@
       <wvobject fp_name="/dsp_tb/dut/PBW_inst/m_axis_tready" type="logic">
          <obj_property name="ElementShortName">m_axis_tready</obj_property>
          <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/fifo_in" type="array">
+         <obj_property name="ElementShortName">fifo_in[191:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_in[191:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/fifo_out" type="array">
+         <obj_property name="ElementShortName">fifo_out[191:0]</obj_property>
+         <obj_property name="ObjectShortName">fifo_out[191:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/beamformer_packed_data" type="array">
+         <obj_property name="ElementShortName">beamformer_packed_data[191:0]</obj_property>
+         <obj_property name="ObjectShortName">beamformer_packed_data[191:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/beamformer_ready" type="logic">
+         <obj_property name="ElementShortName">beamformer_ready</obj_property>
+         <obj_property name="ObjectShortName">beamformer_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/data_valid" type="logic">
+         <obj_property name="ElementShortName">data_valid</obj_property>
+         <obj_property name="ObjectShortName">data_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re0" type="array">
+         <obj_property name="ElementShortName">re0[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re0[16:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-58145.1</obj_property>
+         <obj_property name="AnalogYRRangeMax">66611.9</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re1" type="array">
+         <obj_property name="ElementShortName">re1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re1[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re2" type="array">
+         <obj_property name="ElementShortName">re2[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re2[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re3" type="array">
+         <obj_property name="ElementShortName">re3[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re3[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re4" type="array">
+         <obj_property name="ElementShortName">re4[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re4[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/re5" type="array">
+         <obj_property name="ElementShortName">re5[16:0]</obj_property>
+         <obj_property name="ObjectShortName">re5[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im0" type="array">
+         <obj_property name="ElementShortName">im0[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im0[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im1" type="array">
+         <obj_property name="ElementShortName">im1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im1[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im2" type="array">
+         <obj_property name="ElementShortName">im2[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im2[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im3" type="array">
+         <obj_property name="ElementShortName">im3[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im3[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im4" type="array">
+         <obj_property name="ElementShortName">im4[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im4[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/im5" type="array">
+         <obj_property name="ElementShortName">im5[16:0]</obj_property>
+         <obj_property name="ObjectShortName">im5[16:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/delayed_tlast" type="logic">
+         <obj_property name="ElementShortName">delayed_tlast</obj_property>
+         <obj_property name="ObjectShortName">delayed_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/delayed_theta" type="array">
+         <obj_property name="ElementShortName">delayed_theta[15:0]</obj_property>
+         <obj_property name="ObjectShortName">delayed_theta[15:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/PBW_inst/THETA_WIDTH" type="array">
          <obj_property name="ElementShortName">THETA_WIDTH[31:0]</obj_property>
@@ -586,7 +872,6 @@
       <wvobject fp_name="/dsp_tb/dut/fft_max_inst/max_fft_bin_inst/real_part" type="array">
          <obj_property name="ElementShortName">real_part[5:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">real_part[5:0][15:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/fft_max_inst/max_fft_bin_inst/imag_part" type="array">
          <obj_property name="ElementShortName">imag_part[5:0][15:0]</obj_property>
@@ -606,8 +891,8 @@
          <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
          <obj_property name="CellHeight">100</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-         <obj_property name="AnalogYRangeMin">7.29007e+08</obj_property>
-         <obj_property name="AnalogYRRangeMax">1.9319e+10</obj_property>
+         <obj_property name="AnalogYRangeMin">0.478723</obj_property>
+         <obj_property name="AnalogYRRangeMax">62.9787</obj_property>
          <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
          <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
          <obj_property name="AnalogHorizLine">0.000000</obj_property>
@@ -705,149 +990,10 @@
          <obj_property name="ObjectShortName">WAIT[1:0]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="group175" type="group">
-      <obj_property name="label">PTHETA</obj_property>
-      <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/reset_n" type="logic">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_rxx_tdata" type="array">
-         <obj_property name="ElementShortName">s_axis_rxx_tdata[31:0]</obj_property>
-         <obj_property name="ObjectShortName">s_axis_rxx_tdata[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_rxx_tvalid" type="logic">
-         <obj_property name="ElementShortName">s_axis_rxx_tvalid</obj_property>
-         <obj_property name="ObjectShortName">s_axis_rxx_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_rxx_tlast" type="logic">
-         <obj_property name="ElementShortName">s_axis_rxx_tlast</obj_property>
-         <obj_property name="ObjectShortName">s_axis_rxx_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_rxx_tready" type="logic">
-         <obj_property name="ElementShortName">s_axis_rxx_tready</obj_property>
-         <obj_property name="ObjectShortName">s_axis_rxx_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_stheta_tdata" type="array">
-         <obj_property name="ElementShortName">s_axis_stheta_tdata[31:0]</obj_property>
-         <obj_property name="ObjectShortName">s_axis_stheta_tdata[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_stheta_tvalid" type="logic">
-         <obj_property name="ElementShortName">s_axis_stheta_tvalid</obj_property>
-         <obj_property name="ObjectShortName">s_axis_stheta_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_stheta_tlast" type="logic">
-         <obj_property name="ElementShortName">s_axis_stheta_tlast</obj_property>
-         <obj_property name="ObjectShortName">s_axis_stheta_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_stheta_tuser" type="array">
-         <obj_property name="ElementShortName">s_axis_stheta_tuser[0:0]</obj_property>
-         <obj_property name="ObjectShortName">s_axis_stheta_tuser[0:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/s_axis_stheta_tready" type="logic">
-         <obj_property name="ElementShortName">s_axis_stheta_tready</obj_property>
-         <obj_property name="ObjectShortName">s_axis_stheta_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_product_tdata" type="array">
-         <obj_property name="ElementShortName">m_axis_product_tdata[32:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_product_tdata[32:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_product_tvalid" type="logic">
-         <obj_property name="ElementShortName">m_axis_product_tvalid</obj_property>
-         <obj_property name="ObjectShortName">m_axis_product_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_product_tuser" type="array">
-         <obj_property name="ElementShortName">m_axis_product_tuser[0:0]</obj_property>
-         <obj_property name="ObjectShortName">m_axis_product_tuser[0:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_product_tready" type="logic">
-         <obj_property name="ElementShortName">m_axis_product_tready</obj_property>
-         <obj_property name="ObjectShortName">m_axis_product_tready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_product_tlast" type="logic">
-         <obj_property name="ElementShortName">m_axis_product_tlast</obj_property>
-         <obj_property name="ObjectShortName">m_axis_product_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/r_buffer" type="array">
-         <obj_property name="ElementShortName">r_buffer[35:0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">r_buffer[35:0][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/r_index" type="array">
-         <obj_property name="ElementShortName">r_index[5:0]</obj_property>
-         <obj_property name="ObjectShortName">r_index[5:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/r_factor" type="array">
-         <obj_property name="ElementShortName">r_factor[31:0]</obj_property>
-         <obj_property name="ObjectShortName">r_factor[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/rxx_ready_timeout" type="array">
-         <obj_property name="ElementShortName">rxx_ready_timeout[7:0]</obj_property>
-         <obj_property name="ObjectShortName">rxx_ready_timeout[7:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/i" type="array">
-         <obj_property name="ElementShortName">i[31:0]</obj_property>
-         <obj_property name="ObjectShortName">i[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/mid_data" type="array">
-         <obj_property name="ElementShortName">mid_data[63:0]</obj_property>
-         <obj_property name="ObjectShortName">mid_data[63:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/mid_last" type="logic">
-         <obj_property name="ElementShortName">mid_last</obj_property>
-         <obj_property name="ObjectShortName">mid_last</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/mid_valid" type="logic">
-         <obj_property name="ElementShortName">mid_valid</obj_property>
-         <obj_property name="ObjectShortName">mid_valid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/mid_tuser" type="array">
-         <obj_property name="ElementShortName">mid_tuser[0:0]</obj_property>
-         <obj_property name="ObjectShortName">mid_tuser[0:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/accumulation" type="array">
-         <obj_property name="ElementShortName">accumulation[31:0]</obj_property>
-         <obj_property name="ObjectShortName">accumulation[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/last" type="logic">
-         <obj_property name="ElementShortName">last</obj_property>
-         <obj_property name="ObjectShortName">last</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_tdata" type="logic">
-         <obj_property name="ElementShortName">m_axis_tdata</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdata</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_tvalid" type="logic">
-         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_tlast" type="logic">
-         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/m_axis_tdest" type="logic">
-         <obj_property name="ElementShortName">m_axis_tdest</obj_property>
-         <obj_property name="ObjectShortName">m_axis_tdest</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/NUM_SIZE" type="array">
-         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
-         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/TUSER_SIZE" type="array">
-         <obj_property name="ElementShortName">TUSER_SIZE[31:0]</obj_property>
-         <obj_property name="ObjectShortName">TUSER_SIZE[31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/p_theta_inst/MATRIX_SIZE" type="array">
-         <obj_property name="ElementShortName">MATRIX_SIZE[31:0]</obj_property>
-         <obj_property name="ObjectShortName">MATRIX_SIZE[31:0]</obj_property>
-      </wvobject>
-   </wvobject>
    <wvobject fp_name="group176" type="group">
       <obj_property name="label">MAX_P</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/dsp_tb/dut/max_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -859,10 +1005,27 @@
       <wvobject fp_name="/dsp_tb/dut/max_inst/s_axis_tdata" type="array">
          <obj_property name="ElementShortName">s_axis_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_tdata[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeMin">5741030000.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">24548500000.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/max_inst/s_axis_tuser" type="array">
          <obj_property name="ElementShortName">s_axis_tuser[15:0]</obj_property>
          <obj_property name="ObjectShortName">s_axis_tuser[15:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/max_inst/s_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
@@ -871,10 +1034,6 @@
       <wvobject fp_name="/dsp_tb/dut/max_inst/s_axis_tlast" type="logic">
          <obj_property name="ElementShortName">s_axis_tlast</obj_property>
          <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
-      </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/max_inst/s_axis_tready" type="logic">
-         <obj_property name="ElementShortName">s_axis_tready</obj_property>
-         <obj_property name="ObjectShortName">s_axis_tready</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/max_inst/m_axis_max_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_max_tdata[15:0]</obj_property>
@@ -936,6 +1095,160 @@
          <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="vbus2049" type="vbus">
+         <obj_property name="label">M_AXIS_REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus2032" type="vbus">
+         <obj_property name="label">M_AXIS_IMAG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[31]" type="logic">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[30]" type="logic">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[29]" type="logic">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[28]" type="logic">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[27]" type="logic">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[26]" type="logic">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[25]" type="logic">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[24]" type="logic">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[23]" type="logic">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[22]" type="logic">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[21]" type="logic">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[20]" type="logic">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[19]" type="logic">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[18]" type="logic">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[17]" type="logic">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tdata[16]" type="logic">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
+      </wvobject>
       <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/m_axis_tvalid" type="logic">
          <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
          <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
@@ -955,6 +1268,10 @@
       <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/imag_channel" type="array">
          <obj_property name="ElementShortName">imag_channel[5:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">imag_channel[5:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/data_buffer" type="array">
+         <obj_property name="ElementShortName">data_buffer[191:0]</obj_property>
+         <obj_property name="ObjectShortName">data_buffer[191:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/base" type="array">
          <obj_property name="ElementShortName">base[5:0][31:0]</obj_property>
@@ -988,6 +1305,14 @@
          <obj_property name="ElementShortName">i[31:0]</obj_property>
          <obj_property name="ObjectShortName">i[31:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/cmpy_ready" type="logic">
+         <obj_property name="ElementShortName">cmpy_ready</obj_property>
+         <obj_property name="ObjectShortName">cmpy_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/cmpy_valid" type="logic">
+         <obj_property name="ElementShortName">cmpy_valid</obj_property>
+         <obj_property name="ObjectShortName">cmpy_valid</obj_property>
+      </wvobject>
       <wvobject fp_name="/dsp_tb/dut/signal_covariance_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
@@ -996,7 +1321,6 @@
    <wvobject fp_name="group205" type="group">
       <obj_property name="label">STHETA</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1021,10 +1345,6 @@
          <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
          <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
       </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/s_axis_tlast" type="logic">
-         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
-         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
-      </wvobject>
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/s_axis_tready" type="logic">
          <obj_property name="ElementShortName">s_axis_tready</obj_property>
          <obj_property name="ObjectShortName">s_axis_tready</obj_property>
@@ -1032,6 +1352,160 @@
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata" type="array">
          <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus8679" type="vbus">
+         <obj_property name="label">REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus8662" type="vbus">
+         <obj_property name="label">IMAG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[31]" type="logic">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[30]" type="logic">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[29]" type="logic">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[28]" type="logic">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[27]" type="logic">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[26]" type="logic">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[25]" type="logic">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[24]" type="logic">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[23]" type="logic">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[22]" type="logic">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[21]" type="logic">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[20]" type="logic">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[19]" type="logic">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[18]" type="logic">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[17]" type="logic">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tdata[16]" type="logic">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/m_axis_tuser" type="array">
          <obj_property name="ElementShortName">m_axis_tuser[16:0]</obj_property>
@@ -1056,6 +1530,14 @@
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/imag_channel" type="array">
          <obj_property name="ElementShortName">imag_channel[5:0][15:0]</obj_property>
          <obj_property name="ObjectShortName">imag_channel[5:0][15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/data_buffer" type="array">
+         <obj_property name="ElementShortName">data_buffer[191:0]</obj_property>
+         <obj_property name="ObjectShortName">data_buffer[191:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/user_buffer" type="array">
+         <obj_property name="ElementShortName">user_buffer[16:0]</obj_property>
+         <obj_property name="ObjectShortName">user_buffer[16:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/base" type="array">
          <obj_property name="ElementShortName">base[5:0][31:0]</obj_property>
@@ -1089,13 +1571,1458 @@
          <obj_property name="ElementShortName">i[31:0]</obj_property>
          <obj_property name="ObjectShortName">i[31:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/cmpy_ready" type="logic">
+         <obj_property name="ElementShortName">cmpy_ready</obj_property>
+         <obj_property name="ObjectShortName">cmpy_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/cmpy_valid" type="logic">
+         <obj_property name="ElementShortName">cmpy_valid</obj_property>
+         <obj_property name="ObjectShortName">cmpy_valid</obj_property>
+      </wvobject>
       <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/NUM_SIZE" type="array">
          <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
          <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/THETA_SIZE" type="array">
-         <obj_property name="ElementShortName">THETA_SIZE[31:0]</obj_property>
-         <obj_property name="ObjectShortName">THETA_SIZE[31:0]</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/beam_covariance_inst/TUSER_SIZE" type="array">
+         <obj_property name="ElementShortName">TUSER_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TUSER_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1180" type="group">
+      <obj_property name="label">COMP_DOT_P</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus2457" type="vbus">
+         <obj_property name="label">B_IMAG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[63]" type="logic">
+            <obj_property name="ElementShortName">[63]</obj_property>
+            <obj_property name="ObjectShortName">[63]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[62]" type="logic">
+            <obj_property name="ElementShortName">[62]</obj_property>
+            <obj_property name="ObjectShortName">[62]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[61]" type="logic">
+            <obj_property name="ElementShortName">[61]</obj_property>
+            <obj_property name="ObjectShortName">[61]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[60]" type="logic">
+            <obj_property name="ElementShortName">[60]</obj_property>
+            <obj_property name="ObjectShortName">[60]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[59]" type="logic">
+            <obj_property name="ElementShortName">[59]</obj_property>
+            <obj_property name="ObjectShortName">[59]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[58]" type="logic">
+            <obj_property name="ElementShortName">[58]</obj_property>
+            <obj_property name="ObjectShortName">[58]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[57]" type="logic">
+            <obj_property name="ElementShortName">[57]</obj_property>
+            <obj_property name="ObjectShortName">[57]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[56]" type="logic">
+            <obj_property name="ElementShortName">[56]</obj_property>
+            <obj_property name="ObjectShortName">[56]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[55]" type="logic">
+            <obj_property name="ElementShortName">[55]</obj_property>
+            <obj_property name="ObjectShortName">[55]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[54]" type="logic">
+            <obj_property name="ElementShortName">[54]</obj_property>
+            <obj_property name="ObjectShortName">[54]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[53]" type="logic">
+            <obj_property name="ElementShortName">[53]</obj_property>
+            <obj_property name="ObjectShortName">[53]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[52]" type="logic">
+            <obj_property name="ElementShortName">[52]</obj_property>
+            <obj_property name="ObjectShortName">[52]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[51]" type="logic">
+            <obj_property name="ElementShortName">[51]</obj_property>
+            <obj_property name="ObjectShortName">[51]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[50]" type="logic">
+            <obj_property name="ElementShortName">[50]</obj_property>
+            <obj_property name="ObjectShortName">[50]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[49]" type="logic">
+            <obj_property name="ElementShortName">[49]</obj_property>
+            <obj_property name="ObjectShortName">[49]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[48]" type="logic">
+            <obj_property name="ElementShortName">[48]</obj_property>
+            <obj_property name="ObjectShortName">[48]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus2458" type="vbus">
+         <obj_property name="label">B_REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[47]" type="logic">
+            <obj_property name="ElementShortName">[47]</obj_property>
+            <obj_property name="ObjectShortName">[47]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[46]" type="logic">
+            <obj_property name="ElementShortName">[46]</obj_property>
+            <obj_property name="ObjectShortName">[46]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[45]" type="logic">
+            <obj_property name="ElementShortName">[45]</obj_property>
+            <obj_property name="ObjectShortName">[45]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[44]" type="logic">
+            <obj_property name="ElementShortName">[44]</obj_property>
+            <obj_property name="ObjectShortName">[44]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[43]" type="logic">
+            <obj_property name="ElementShortName">[43]</obj_property>
+            <obj_property name="ObjectShortName">[43]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[42]" type="logic">
+            <obj_property name="ElementShortName">[42]</obj_property>
+            <obj_property name="ObjectShortName">[42]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[41]" type="logic">
+            <obj_property name="ElementShortName">[41]</obj_property>
+            <obj_property name="ObjectShortName">[41]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[40]" type="logic">
+            <obj_property name="ElementShortName">[40]</obj_property>
+            <obj_property name="ObjectShortName">[40]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[39]" type="logic">
+            <obj_property name="ElementShortName">[39]</obj_property>
+            <obj_property name="ObjectShortName">[39]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[38]" type="logic">
+            <obj_property name="ElementShortName">[38]</obj_property>
+            <obj_property name="ObjectShortName">[38]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[37]" type="logic">
+            <obj_property name="ElementShortName">[37]</obj_property>
+            <obj_property name="ObjectShortName">[37]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[36]" type="logic">
+            <obj_property name="ElementShortName">[36]</obj_property>
+            <obj_property name="ObjectShortName">[36]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[35]" type="logic">
+            <obj_property name="ElementShortName">[35]</obj_property>
+            <obj_property name="ObjectShortName">[35]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[34]" type="logic">
+            <obj_property name="ElementShortName">[34]</obj_property>
+            <obj_property name="ObjectShortName">[34]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[33]" type="logic">
+            <obj_property name="ElementShortName">[33]</obj_property>
+            <obj_property name="ObjectShortName">[33]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[32]" type="logic">
+            <obj_property name="ElementShortName">[32]</obj_property>
+            <obj_property name="ObjectShortName">[32]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus2459" type="vbus">
+         <obj_property name="label">A_IMAG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[31]" type="logic">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[30]" type="logic">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[29]" type="logic">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[28]" type="logic">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[27]" type="logic">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[26]" type="logic">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[25]" type="logic">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[24]" type="logic">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[23]" type="logic">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[22]" type="logic">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[21]" type="logic">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[20]" type="logic">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[19]" type="logic">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[18]" type="logic">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[17]" type="logic">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[16]" type="logic">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus2460" type="vbus">
+         <obj_property name="label">A_REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_AUTO</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tdata[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/s_axis_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_dout_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_dout_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_dout_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_dout_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_dout_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_dout_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_dout_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_dout_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_dout_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/m_axis_dout_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_dout_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_dout_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/TUSER_SIZE" type="array">
+         <obj_property name="ElementShortName">TUSER_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TUSER_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group1438" type="group">
+      <obj_property name="label">RXX_REPLAYER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_rxx_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_rxx_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_rxx_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_rxx_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_rxx_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_rxx_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_rxx_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_rxx_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_rxx_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_trigger_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_trigger_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_trigger_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_trigger_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_trigger_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_trigger_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/s_axis_trigger_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_trigger_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_trigger_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus3483" type="vbus">
+         <obj_property name="label">REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeMin">0.000000</obj_property>
+         <obj_property name="AnalogYRRangeMax">0.000000</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="vbus3466" type="vbus">
+         <obj_property name="label">IMAG</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="AnalogYRangeMin">-359940</obj_property>
+         <obj_property name="AnalogYRRangeMax">717363</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[31]" type="logic">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[30]" type="logic">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[29]" type="logic">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[28]" type="logic">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[27]" type="logic">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[26]" type="logic">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[25]" type="logic">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[24]" type="logic">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[23]" type="logic">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[22]" type="logic">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[21]" type="logic">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[20]" type="logic">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[19]" type="logic">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[18]" type="logic">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[17]" type="logic">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tdata[16]" type="logic">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/m_axis_tready" type="logic">
+         <obj_property name="ElementShortName">m_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/rxx_saved" type="array">
+         <obj_property name="ElementShortName">rxx_saved[35:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_saved[35:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/rxx_index" type="array">
+         <obj_property name="ElementShortName">rxx_index[5:0]</obj_property>
+         <obj_property name="ObjectShortName">rxx_index[5:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/last_trig" type="logic">
+         <obj_property name="ElementShortName">last_trig</obj_property>
+         <obj_property name="ObjectShortName">last_trig</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/rxx_rec" type="logic">
+         <obj_property name="ElementShortName">rxx_rec</obj_property>
+         <obj_property name="ObjectShortName">rxx_rec</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/trig_rec" type="logic">
+         <obj_property name="ElementShortName">trig_rec</obj_property>
+         <obj_property name="ObjectShortName">trig_rec</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/out_rec" type="logic">
+         <obj_property name="ElementShortName">out_rec</obj_property>
+         <obj_property name="ObjectShortName">out_rec</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/S_IDLE" type="array">
+         <obj_property name="ElementShortName">S_IDLE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_IDLE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/S_LOAD" type="array">
+         <obj_property name="ElementShortName">S_LOAD[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_LOAD[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/S_SEND" type="array">
+         <obj_property name="ElementShortName">S_SEND[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_SEND[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/S_WAIT" type="array">
+         <obj_property name="ElementShortName">S_WAIT[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_WAIT[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/rxx_replayer_inst/RXX_SIZE" type="array">
+         <obj_property name="ElementShortName">RXX_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RXX_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group2347" type="group">
+      <obj_property name="label">AXIS_COMBINER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_a_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_a_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_a_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_a_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_a_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_a_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_a_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_a_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_b_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_b_tdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_b_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/s_axis_b_tready" type="logic">
+         <obj_property name="ElementShortName">s_axis_b_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_b_tready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/m_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/ac_inst/TUSER_SIZE" type="array">
+         <obj_property name="ElementShortName">TUSER_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TUSER_SIZE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group8115" type="group">
+      <obj_property name="label">ACCUM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/reset_n" type="logic">
+         <obj_property name="ElementShortName">reset_n</obj_property>
+         <obj_property name="ObjectShortName">reset_n</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/s_axis_tdata" type="array">
+         <obj_property name="ElementShortName">s_axis_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/s_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/s_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/s_axis_tuser" type="array">
+         <obj_property name="ElementShortName">s_axis_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_tuser[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/m_axis_tdata" type="array">
+         <obj_property name="ElementShortName">m_axis_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/m_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/m_axis_tuser" type="array">
+         <obj_property name="ElementShortName">m_axis_tuser[16:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tuser[16:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w" type="array">
+         <obj_property name="ElementShortName">sum_w[63:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_w[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="vbus8629" type="vbus">
+         <obj_property name="label">REAL</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[31]" type="logic">
+            <obj_property name="ElementShortName">[31]</obj_property>
+            <obj_property name="ObjectShortName">[31]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[30]" type="logic">
+            <obj_property name="ElementShortName">[30]</obj_property>
+            <obj_property name="ObjectShortName">[30]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[29]" type="logic">
+            <obj_property name="ElementShortName">[29]</obj_property>
+            <obj_property name="ObjectShortName">[29]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[28]" type="logic">
+            <obj_property name="ElementShortName">[28]</obj_property>
+            <obj_property name="ObjectShortName">[28]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[27]" type="logic">
+            <obj_property name="ElementShortName">[27]</obj_property>
+            <obj_property name="ObjectShortName">[27]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[26]" type="logic">
+            <obj_property name="ElementShortName">[26]</obj_property>
+            <obj_property name="ObjectShortName">[26]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[25]" type="logic">
+            <obj_property name="ElementShortName">[25]</obj_property>
+            <obj_property name="ObjectShortName">[25]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[24]" type="logic">
+            <obj_property name="ElementShortName">[24]</obj_property>
+            <obj_property name="ObjectShortName">[24]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[23]" type="logic">
+            <obj_property name="ElementShortName">[23]</obj_property>
+            <obj_property name="ObjectShortName">[23]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[22]" type="logic">
+            <obj_property name="ElementShortName">[22]</obj_property>
+            <obj_property name="ObjectShortName">[22]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[21]" type="logic">
+            <obj_property name="ElementShortName">[21]</obj_property>
+            <obj_property name="ObjectShortName">[21]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[20]" type="logic">
+            <obj_property name="ElementShortName">[20]</obj_property>
+            <obj_property name="ObjectShortName">[20]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[19]" type="logic">
+            <obj_property name="ElementShortName">[19]</obj_property>
+            <obj_property name="ObjectShortName">[19]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[18]" type="logic">
+            <obj_property name="ElementShortName">[18]</obj_property>
+            <obj_property name="ObjectShortName">[18]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[17]" type="logic">
+            <obj_property name="ElementShortName">[17]</obj_property>
+            <obj_property name="ObjectShortName">[17]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[16]" type="logic">
+            <obj_property name="ElementShortName">[16]</obj_property>
+            <obj_property name="ObjectShortName">[16]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[15]" type="logic">
+            <obj_property name="ElementShortName">[15]</obj_property>
+            <obj_property name="ObjectShortName">[15]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[14]" type="logic">
+            <obj_property name="ElementShortName">[14]</obj_property>
+            <obj_property name="ObjectShortName">[14]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[13]" type="logic">
+            <obj_property name="ElementShortName">[13]</obj_property>
+            <obj_property name="ObjectShortName">[13]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[12]" type="logic">
+            <obj_property name="ElementShortName">[12]</obj_property>
+            <obj_property name="ObjectShortName">[12]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[11]" type="logic">
+            <obj_property name="ElementShortName">[11]</obj_property>
+            <obj_property name="ObjectShortName">[11]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[10]" type="logic">
+            <obj_property name="ElementShortName">[10]</obj_property>
+            <obj_property name="ObjectShortName">[10]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[9]" type="logic">
+            <obj_property name="ElementShortName">[9]</obj_property>
+            <obj_property name="ObjectShortName">[9]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[8]" type="logic">
+            <obj_property name="ElementShortName">[8]</obj_property>
+            <obj_property name="ObjectShortName">[8]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[7]" type="logic">
+            <obj_property name="ElementShortName">[7]</obj_property>
+            <obj_property name="ObjectShortName">[7]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[6]" type="logic">
+            <obj_property name="ElementShortName">[6]</obj_property>
+            <obj_property name="ObjectShortName">[6]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[5]" type="logic">
+            <obj_property name="ElementShortName">[5]</obj_property>
+            <obj_property name="ObjectShortName">[5]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[4]" type="logic">
+            <obj_property name="ElementShortName">[4]</obj_property>
+            <obj_property name="ObjectShortName">[4]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[3]" type="logic">
+            <obj_property name="ElementShortName">[3]</obj_property>
+            <obj_property name="ObjectShortName">[3]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[2]" type="logic">
+            <obj_property name="ElementShortName">[2]</obj_property>
+            <obj_property name="ObjectShortName">[2]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[1]" type="logic">
+            <obj_property name="ElementShortName">[1]</obj_property>
+            <obj_property name="ObjectShortName">[1]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_w[0]" type="logic">
+            <obj_property name="ElementShortName">[0]</obj_property>
+            <obj_property name="ObjectShortName">[0]</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/sum_r" type="array">
+         <obj_property name="ElementShortName">sum_r[63:0]</obj_property>
+         <obj_property name="ObjectShortName">sum_r[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/op_a" type="array">
+         <obj_property name="ElementShortName">op_a[63:0]</obj_property>
+         <obj_property name="ObjectShortName">op_a[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/op_b" type="array">
+         <obj_property name="ElementShortName">op_b[63:0]</obj_property>
+         <obj_property name="ObjectShortName">op_b[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/state" type="array">
+         <obj_property name="ElementShortName">state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/m_axis_tvalid_buf" type="logic">
+         <obj_property name="ElementShortName">m_axis_tvalid_buf</obj_property>
+         <obj_property name="ObjectShortName">m_axis_tvalid_buf</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/NUM_SIZE" type="array">
+         <obj_property name="ElementShortName">NUM_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">NUM_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/TUSER_SIZE" type="array">
+         <obj_property name="ElementShortName">TUSER_SIZE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TUSER_SIZE[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/S_IDLE" type="array">
+         <obj_property name="ElementShortName">S_IDLE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_IDLE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/S_PROC" type="array">
+         <obj_property name="ElementShortName">S_PROC[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_PROC[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/S_LAST" type="array">
+         <obj_property name="ElementShortName">S_LAST[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_LAST[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/cdp_inst/comp_accumulator_inst/S_ERR" type="array">
+         <obj_property name="ElementShortName">S_ERR[1:0]</obj_property>
+         <obj_property name="ObjectShortName">S_ERR[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group9752" type="group">
+      <obj_property name="label">PBW_DIST_1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/reset" type="logic">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/enb" type="logic">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Theta" type="array">
+         <obj_property name="ElementShortName">Theta[15:0]</obj_property>
+         <obj_property name="ObjectShortName">Theta[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/X_Position" type="array">
+         <obj_property name="ElementShortName">X_Position[16:0]</obj_property>
+         <obj_property name="ObjectShortName">X_Position[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Y_Position" type="array">
+         <obj_property name="ElementShortName">Y_Position[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Y_Position[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Distance" type="array">
+         <obj_property name="ElementShortName">Distance[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Distance[17:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+         <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+         <obj_property name="AnalogYRangeMin">-75980.6</obj_property>
+         <obj_property name="AnalogYRRangeMax">36494.4</obj_property>
+         <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+         <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+         <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Cosine_HDL_Optimized_x" type="array">
+         <obj_property name="ElementShortName">Cosine_HDL_Optimized_x[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Cosine_HDL_Optimized_x[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Cosine_HDL_Optimized_y" type="array">
+         <obj_property name="ElementShortName">Cosine_HDL_Optimized_y[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Cosine_HDL_Optimized_y[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay4_out1" type="array">
+         <obj_property name="ElementShortName">Delay4_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay4_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay4_out1_1" type="array">
+         <obj_property name="ElementShortName">Delay4_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay4_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay11_out1" type="array">
+         <obj_property name="ElementShortName">Delay11_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay11_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay11_out1_1" type="array">
+         <obj_property name="ElementShortName">Delay11_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay11_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Product5_mul_temp" type="array">
+         <obj_property name="ElementShortName">Product5_mul_temp[33:0]</obj_property>
+         <obj_property name="ObjectShortName">Product5_mul_temp[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Product5_out1" type="array">
+         <obj_property name="ElementShortName">Product5_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Product5_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Product5_out1_1" type="array">
+         <obj_property name="ElementShortName">Product5_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Product5_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/cos" type="array">
+         <obj_property name="ElementShortName">cos[16:0]</obj_property>
+         <obj_property name="ObjectShortName">cos[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/cos_1" type="array">
+         <obj_property name="ElementShortName">cos_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">cos_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay_out1" type="array">
+         <obj_property name="ElementShortName">Delay_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Delay_out1_1" type="array">
+         <obj_property name="ElementShortName">Delay_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Delay_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Product2_mul_temp" type="array">
+         <obj_property name="ElementShortName">Product2_mul_temp[33:0]</obj_property>
+         <obj_property name="ObjectShortName">Product2_mul_temp[33:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Cos_dist" type="array">
+         <obj_property name="ElementShortName">Cos_dist[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Cos_dist[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Cos_dist_1" type="array">
+         <obj_property name="ElementShortName">Cos_dist_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Cos_dist_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Add_add_cast" type="array">
+         <obj_property name="ElementShortName">Add_add_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Add_add_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Add_add_cast_1" type="array">
+         <obj_property name="ElementShortName">Add_add_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Add_add_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Distance_Finder1/Distance_1" type="array">
+         <obj_property name="ElementShortName">Distance_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Distance_1[17:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group9779" type="group">
+      <obj_property name="label">PBW_COS_1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/reset" type="logic">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/enb" type="logic">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/u" type="array">
+         <obj_property name="ElementShortName">u[15:0]</obj_property>
+         <obj_property name="ObjectShortName">u[15:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/x_re" type="array">
+         <obj_property name="ElementShortName">x_re[16:0]</obj_property>
+         <obj_property name="ObjectShortName">x_re[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/x_im" type="array">
+         <obj_property name="ElementShortName">x_im[16:0]</obj_property>
+         <obj_property name="ObjectShortName">x_im[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/insig_out1" type="array">
+         <obj_property name="ElementShortName">insig_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">insig_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Point25_out1" type="array">
+         <obj_property name="ElementShortName">Point25_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Point25_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp25_cast" type="array">
+         <obj_property name="ElementShortName">LTEp25_cast[16:0]</obj_property>
+         <obj_property name="ObjectShortName">LTEp25_cast[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp25_out1" type="logic">
+         <obj_property name="ElementShortName">LTEp25_out1</obj_property>
+         <obj_property name="ObjectShortName">LTEp25_out1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp25_out1_1" type="logic">
+         <obj_property name="ElementShortName">LTEp25_out1_1</obj_property>
+         <obj_property name="ObjectShortName">LTEp25_out1_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Point75_out1" type="array">
+         <obj_property name="ElementShortName">Point75_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Point75_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/GTEp75_cast" type="array">
+         <obj_property name="ElementShortName">GTEp75_cast[16:0]</obj_property>
+         <obj_property name="ObjectShortName">GTEp75_cast[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/GTEp75_out1" type="logic">
+         <obj_property name="ElementShortName">GTEp75_out1</obj_property>
+         <obj_property name="ObjectShortName">GTEp75_out1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/GTEp75_out1_1" type="logic">
+         <obj_property name="ElementShortName">GTEp75_out1_1</obj_property>
+         <obj_property name="ObjectShortName">GTEp75_out1_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/alpha1st_or_4th_Quad_bool" type="logic">
+         <obj_property name="ElementShortName">alpha1st_or_4th_Quad_bool</obj_property>
+         <obj_property name="ObjectShortName">alpha1st_or_4th_Quad_bool</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/alpha1st_or_4th_Quad_out1" type="array">
+         <obj_property name="ElementShortName">alpha1st_or_4th_Quad_out1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">alpha1st_or_4th_Quad_out1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/RAMDelayBalance_out1" type="array">
+         <obj_property name="ElementShortName">RAMDelayBalance_out1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">RAMDelayBalance_out1[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/pow2switch_out1" type="logic">
+         <obj_property name="ElementShortName">pow2switch_out1</obj_property>
+         <obj_property name="ObjectShortName">pow2switch_out1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Point50_out1" type="array">
+         <obj_property name="ElementShortName">Point50_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Point50_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p75mA_sub_cast" type="array">
+         <obj_property name="ElementShortName">p75mA_sub_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p75mA_sub_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p75mA_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">p75mA_sub_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p75mA_sub_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p75mA_out1" type="array">
+         <obj_property name="ElementShortName">p75mA_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p75mA_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp75_sub_cast" type="array">
+         <obj_property name="ElementShortName">Amp75_sub_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp75_sub_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp75_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">Amp75_sub_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp75_sub_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp75_out1" type="array">
+         <obj_property name="ElementShortName">Amp75_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp75_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp25_sub_cast" type="array">
+         <obj_property name="ElementShortName">Amp25_sub_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp25_sub_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp25_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">Amp25_sub_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp25_sub_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp25_out1" type="array">
+         <obj_property name="ElementShortName">Amp25_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp25_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p25mA_sub_cast" type="array">
+         <obj_property name="ElementShortName">p25mA_sub_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p25mA_sub_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p25mA_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">p25mA_sub_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p25mA_sub_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p25mA_out1" type="array">
+         <obj_property name="ElementShortName">p25mA_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">p25mA_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp50_cast" type="array">
+         <obj_property name="ElementShortName">LTEp50_cast[16:0]</obj_property>
+         <obj_property name="ObjectShortName">LTEp50_cast[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp50_out1" type="logic">
+         <obj_property name="ElementShortName">LTEp50_out1</obj_property>
+         <obj_property name="ObjectShortName">LTEp50_out1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1b_out1" type="array">
+         <obj_property name="ElementShortName">QuadHandle1b_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1b_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1b_out1_dtc" type="array">
+         <obj_property name="ElementShortName">QuadHandle1b_out1_dtc[10:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1b_out1_dtc[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1a_out1" type="array">
+         <obj_property name="ElementShortName">QuadHandle1a_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1a_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1a_out1_dtc" type="array">
+         <obj_property name="ElementShortName">QuadHandle1a_out1_dtc[10:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1a_out1_dtc[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle2_out1" type="array">
+         <obj_property name="ElementShortName">QuadHandle2_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle2_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En1_out1" type="array">
+         <obj_property name="ElementShortName">CastU16En1_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En1_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En3_out1" type="array">
+         <obj_property name="ElementShortName">CastU16En3_out1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En3_out1[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En2_out1" type="array">
+         <obj_property name="ElementShortName">CastU16En2_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En2_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/UpperLimit_out" type="array">
+         <obj_property name="ElementShortName">UpperLimit_out[10:0]</obj_property>
+         <obj_property name="ObjectShortName">UpperLimit_out[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_UpperRelOp_out" type="logic">
+         <obj_property name="ElementShortName">Sat_UpperRelOp_out</obj_property>
+         <obj_property name="ObjectShortName">Sat_UpperRelOp_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LowerLimit_out" type="array">
+         <obj_property name="ElementShortName">LowerLimit_out[10:0]</obj_property>
+         <obj_property name="ObjectShortName">LowerLimit_out[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_LowerRelOp_out" type="logic">
+         <obj_property name="ElementShortName">Sat_LowerRelOp_out</obj_property>
+         <obj_property name="ObjectShortName">Sat_LowerRelOp_out</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_LowerSwitch_out" type="array">
+         <obj_property name="ElementShortName">Sat_LowerSwitch_out[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Sat_LowerSwitch_out[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Saturation_out1" type="array">
+         <obj_property name="ElementShortName">Saturation_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Saturation_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Switch_out1" type="array">
+         <obj_property name="ElementShortName">Switch_out1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Switch_out1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/prelookup_idx" type="array">
+         <obj_property name="ElementShortName">prelookup_idx[8:0]</obj_property>
+         <obj_property name="ObjectShortName">prelookup_idx[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_1" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_1[0:511][16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_1[0:511][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_out1" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_out1_1" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_cast" type="array">
+         <obj_property name="ElementShortName">Negate_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_cast_1" type="array">
+         <obj_property name="ElementShortName">Negate_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_out1" type="array">
+         <obj_property name="ElementShortName">Negate_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_out1_1" type="array">
+         <obj_property name="ElementShortName">Negate_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Positive_out1" type="array">
+         <obj_property name="ElementShortName">Positive_out1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Positive_out1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Cosine" type="array">
+         <obj_property name="ElementShortName">Cosine[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Cosine[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/insig_out1_1" type="array">
+         <obj_property name="ElementShortName">insig_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">insig_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Point50_out1_1" type="array">
+         <obj_property name="ElementShortName">Point50_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Point50_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp501_cast" type="array">
+         <obj_property name="ElementShortName">LTEp501_cast[16:0]</obj_property>
+         <obj_property name="ObjectShortName">LTEp501_cast[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp50_out1_1" type="logic">
+         <obj_property name="ElementShortName">LTEp50_out1_1</obj_property>
+         <obj_property name="ObjectShortName">LTEp50_out1_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/rd_8_reg" type="array">
+         <obj_property name="ElementShortName">rd_8_reg[1:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_8_reg[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/RAMDelayBalance_out1_1" type="logic">
+         <obj_property name="ElementShortName">RAMDelayBalance_out1_1</obj_property>
+         <obj_property name="ObjectShortName">RAMDelayBalance_out1_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/pow2switch_out1_1" type="logic">
+         <obj_property name="ElementShortName">pow2switch_out1_1</obj_property>
+         <obj_property name="ObjectShortName">pow2switch_out1_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp50_sub_cast" type="array">
+         <obj_property name="ElementShortName">Amp50_sub_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp50_sub_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp50_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">Amp50_sub_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp50_sub_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Amp50_out1" type="array">
+         <obj_property name="ElementShortName">Amp50_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Amp50_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/insig_out1_dtc" type="array">
+         <obj_property name="ElementShortName">insig_out1_dtc[17:0]</obj_property>
+         <obj_property name="ObjectShortName">insig_out1_dtc[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1_out1" type="array">
+         <obj_property name="ElementShortName">QuadHandle1_out1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1_out1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Point25_out1_1" type="array">
+         <obj_property name="ElementShortName">Point25_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Point25_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp251_cast" type="array">
+         <obj_property name="ElementShortName">LTEp251_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">LTEp251_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LTEp25_out1_2" type="logic">
+         <obj_property name="ElementShortName">LTEp25_out1_2</obj_property>
+         <obj_property name="ObjectShortName">LTEp25_out1_2</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p50mA_sub_cast" type="array">
+         <obj_property name="ElementShortName">p50mA_sub_cast[18:0]</obj_property>
+         <obj_property name="ObjectShortName">p50mA_sub_cast[18:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p50mA_sub_cast_1" type="array">
+         <obj_property name="ElementShortName">p50mA_sub_cast_1[18:0]</obj_property>
+         <obj_property name="ObjectShortName">p50mA_sub_cast_1[18:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p50mA_out1" type="array">
+         <obj_property name="ElementShortName">p50mA_out1[18:0]</obj_property>
+         <obj_property name="ObjectShortName">p50mA_out1[18:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/p50mA_out1_dtc" type="array">
+         <obj_property name="ElementShortName">p50mA_out1_dtc[10:0]</obj_property>
+         <obj_property name="ObjectShortName">p50mA_out1_dtc[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle1_out1_dtc" type="array">
+         <obj_property name="ElementShortName">QuadHandle1_out1_dtc[10:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle1_out1_dtc[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/QuadHandle2_out1_1" type="array">
+         <obj_property name="ElementShortName">QuadHandle2_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">QuadHandle2_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En2_out1_1" type="array">
+         <obj_property name="ElementShortName">CastU16En2_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En2_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En4_out1" type="array">
+         <obj_property name="ElementShortName">CastU16En4_out1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En4_out1[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/CastU16En3_out1_1" type="array">
+         <obj_property name="ElementShortName">CastU16En3_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">CastU16En3_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/UpperLimit_out_1" type="array">
+         <obj_property name="ElementShortName">UpperLimit_out_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">UpperLimit_out_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_UpperRelOp_out_1" type="logic">
+         <obj_property name="ElementShortName">Sat_UpperRelOp_out_1</obj_property>
+         <obj_property name="ObjectShortName">Sat_UpperRelOp_out_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/LowerLimit_out_1" type="array">
+         <obj_property name="ElementShortName">LowerLimit_out_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">LowerLimit_out_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_LowerRelOp_out_1" type="logic">
+         <obj_property name="ElementShortName">Sat_LowerRelOp_out_1</obj_property>
+         <obj_property name="ObjectShortName">Sat_LowerRelOp_out_1</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sat_LowerSwitch_out_1" type="array">
+         <obj_property name="ElementShortName">Sat_LowerSwitch_out_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Sat_LowerSwitch_out_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Saturation_out1_1" type="array">
+         <obj_property name="ElementShortName">Saturation_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Saturation_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Switch_out1_1" type="array">
+         <obj_property name="ElementShortName">Switch_out1_1[10:0]</obj_property>
+         <obj_property name="ObjectShortName">Switch_out1_1[10:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/prelookup_idx_1" type="array">
+         <obj_property name="ElementShortName">prelookup_idx_1[8:0]</obj_property>
+         <obj_property name="ObjectShortName">prelookup_idx_1[8:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_3" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_3[0:511][16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_3[0:511][16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_out1_2" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_out1_2[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_out1_2[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Look_Up_Table_out1_3" type="array">
+         <obj_property name="ElementShortName">Look_Up_Table_out1_3[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Look_Up_Table_out1_3[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate1_cast" type="array">
+         <obj_property name="ElementShortName">Negate1_cast[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate1_cast[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate1_cast_1" type="array">
+         <obj_property name="ElementShortName">Negate1_cast_1[17:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate1_cast_1[17:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_out1_2" type="array">
+         <obj_property name="ElementShortName">Negate_out1_2[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_out1_2[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Negate_out1_3" type="array">
+         <obj_property name="ElementShortName">Negate_out1_3[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Negate_out1_3[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Positive_out1_1" type="array">
+         <obj_property name="ElementShortName">Positive_out1_1[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Positive_out1_1[16:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/dsp_tb/dut/PBW_inst/Parallel_Beamformer_inst/u_Cosine_HDL_Optimized/Sine" type="array">
+         <obj_property name="ElementShortName">Sine[16:0]</obj_property>
+         <obj_property name="ObjectShortName">Sine[16:0]</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>

@@ -251,9 +251,9 @@ module complex_dot_product #(
 	input s_axis_tlast, // end of vector
 	input [TUSER_SIZE-1:0] s_axis_tuser,
 	
-	output[NUM_SIZE * 2 : 0] m_axis_tdata,
-	output m_axis_tvalid,
-	output[TUSER_SIZE - 1 : 0] m_axis_tuser
+	output reg[NUM_SIZE * 2 - 1: 0] m_axis_tdata,
+	output reg m_axis_tvalid,
+	output reg[TUSER_SIZE - 1 : 0] m_axis_tuser
 	);
 	
 	
@@ -283,6 +283,10 @@ wire	m_axis_dout_tvalid;
 wire	m_axis_dout_tlast;
 wire	[TUSER_SIZE-1:0]	m_axis_dout_tuser;
 
+wire[NUM_SIZE * 2 - 1: 0] m_axis_accum_tdata;
+wire m_axis_accum_tvalid;
+wire[TUSER_SIZE - 1 : 0] m_axis_accum_tuser;
+
 complex_accumulator #(
 	.NUM_SIZE(2*NUM_SIZE),
 	.TUSER_SIZE(TUSER_SIZE)
@@ -297,9 +301,26 @@ comp_accumulator_inst (
 	.s_axis_tuser(m_axis_dout_tuser),
 	
 	
-	.m_axis_tdata(m_axis_tdata),
-	.m_axis_tvalid(m_axis_tvalid),
-	.m_axis_tuser(m_axis_tuser)
+	.m_axis_tdata(m_axis_accum_tdata), 
+	.m_axis_tvalid(m_axis_accum_tvalid),
+	.m_axis_tuser(m_axis_accum_tuser)
 	);
+	
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			m_axis_tdata<=0;
+			m_axis_tvalid<=0;
+			m_axis_tuser<=0;
+		end else begin
+			m_axis_tvalid<=m_axis_accum_tvalid;
+			m_axis_tuser<=m_axis_accum_tuser;
+			if(m_axis_accum_tvalid)begin
+				m_axis_tdata<=m_axis_accum_tdata;
+			end
+		end
+	end
+	
+
 	
 endmodule

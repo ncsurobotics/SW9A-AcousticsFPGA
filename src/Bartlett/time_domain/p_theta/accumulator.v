@@ -536,6 +536,8 @@ module complex_accumulator #(
 			op_b <= 0;
 			sum_r<=0;
 			m_axis_tvalid_buf <= 0;
+			m_axis_tvalid <= 0;
+			m_axis_tuser <= 0;
 		end else begin
 			case(state)
 				S_IDLE:begin

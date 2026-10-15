@@ -19,9 +19,10 @@ angle_error_deg = 1;
 % plot options
 plot_array_signals = true;
 plot_weight_polar = true;
-plot_weight_stem = true;
-plot_directivity = true;
-plot_fft = true;
+plot_weight_stem = false;
+plot_directivity = false;
+plot_fft = false;
+plot_rxx = true;
 plot_robot = true;
 framecount = 10e5; 
 framespeed = 0.1; % seconds per frame
@@ -185,6 +186,57 @@ if plot_weight_polar
     title(pax,'Polar beamforming');
     hold(pax,'off');
 end
+
+if plot_rxx
+    rxx_fig = figure('Name','R Real and Imaginary Parts');
+
+    ax1 = subplot(2,2,1);
+    real_rxxP = imagesc(ax1, real(R));
+    axis(ax1, 'image')
+    set(ax1, 'YDir', 'normal')
+    title(ax1, 'Real part of R')
+    xlabel(ax1, 'Matrix column')
+    ylabel(ax1, 'Matrix row')
+    colormap(ax1, parula)
+    colorbar(ax1)
+    grid(ax1, 'on')
+
+    ax2 = subplot(2,2,2);
+    imag_rxxP = imagesc(ax2, imag(R));
+    axis(ax2, 'image')
+    set(ax2, 'YDir', 'normal')
+    title(ax2, 'Imaginary part of R')
+    xlabel(ax2, 'Matrix column')
+    ylabel(ax2, 'Matrix row')
+    colormap(ax2, parula)
+    colorbar(ax2)
+    grid(ax2, 'on')
+
+    ax3 = subplot(2,2,3);
+    mag_rxxP = imagesc(ax3, imag(R));
+    axis(ax3, 'image')
+    set(ax3, 'YDir', 'normal')
+    title(ax3, 'Magnitude of R')
+    xlabel(ax3, 'Matrix column')
+    ylabel(ax3, 'Matrix row')
+    colormap(ax3, parula)
+    colorbar(ax3)
+    grid(ax3, 'on')
+
+    ax4 = subplot(2,2,4);
+    phase_rxxP = imagesc(ax4, imag(R));
+    axis(ax4, 'image')
+    set(ax4, 'YDir', 'normal')
+    title(ax4, 'Phase of R')
+    xlabel(ax4, 'Matrix column')
+    ylabel(ax4, 'Matrix row')
+    colormap(ax4, parula)
+    colorbar(ax4)
+    grid(ax4, 'on')
+end
+
+
+
 % small helper: ternary function since MATLAB anonymous can't use ?: operator
 function out = ternary(cond, a, b)
 if cond
@@ -315,8 +367,8 @@ function bdf(~, event)
             robot_pos(1:2) = robot_pos(1:2) + moveStep * right_vec;
         case "q"   % rotate left (CCW)
             ang = deg2rad(rotDeg);
-            R = [cos(ang), -sin(ang); sin(ang), cos(ang)];
-            newf = (R * f')';
+            rot = [cos(ang), -sin(ang); sin(ang), cos(ang)];
+            newf = (rot * f')';
             if ~all(isfinite(newf)) || norm(newf)==0
                 newf = f;
             end
@@ -324,8 +376,8 @@ function bdf(~, event)
             robot_facing = [newf, robot_facing(3)];
         case "e"   % rotate right (CW)
             ang = deg2rad(-rotDeg);
-            R = [cos(ang), -sin(ang); sin(ang), cos(ang)];
-            newf = (R * f')';
+            rot = [cos(ang), -sin(ang); sin(ang), cos(ang)];
+            newf = (rot * f')';
             if ~all(isfinite(newf)) || norm(newf)==0
                 newf = f;
             end
@@ -729,6 +781,15 @@ for frame=0:framecount
             fft_plot.XData = (0:size(hydro_dec_freq,2)-1) * fs / size(hydro_dec_freq,2);
             xlim(fft_fig.CurrentAxes, [0 fs/2]);
         end % end plot_fft
+                        
+        if plot_rxx
+            real_rxxP.CData = real(R);
+            imag_rxxP.CData = imag(R);
+            mag_rxxP.CData = abs(R);
+            phase_rxxP.CData = angle(R);
+        end
+
+
 
 
 

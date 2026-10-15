@@ -170,6 +170,20 @@ top  #(
 	
 endmodule
 
+
+module top_v2 (
+	input clk_12mhz,
+	input reset_n,
+	
+	
+	// UART
+	input uart_tx,
+	input uart_rx
+	);
+	
+	
+endmodule
+
 module top #(
 	parameter CLOCK_MODE = "SYNTHESIS", //valid clock modes - "SYNTHESIS":valid for synthesis/bitstream, "SIMULATION_FAST":valid for simulation, all clocks are sysclk
 	parameter DEBUG_MODE = "FALSE" // false - the spi continuously tries to read from the ADC, true - the spi only reads from 'adc' per button press.

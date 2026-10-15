@@ -139,7 +139,8 @@ endmodule
 
 
 module bartlett_datapath #(
-	parameter NUM_SIZE = 32  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16}
+	parameter NUM_SIZE = 32,  //bits per complex number.EX: NUM_SIZE = 32. num = {imag_16,real_16},
+	parameter THETA_WIDTH = 16
 	) (
     input clk,
     input reset_n,
@@ -154,13 +155,11 @@ module bartlett_datapath #(
 	input s_axis_config_tvalid,
 	output s_axis_config_tready,
 
-	output[31:0] m_axis_tdata,
-	output m_axis_tvalid, m_axis_tlast,
-	output[7:0] m_axis_tdest
+	output[THETA_WIDTH-1:0] m_axis_tdata,
+	output m_axis_tvalid, m_axis_tlast
 
     );
 	
-	localparam THETA_WIDTH = 16;
 	
 	wire[7:0]beam_freq;
 	
@@ -190,7 +189,8 @@ module bartlett_datapath #(
 		.beam_freq(beam_freq)
 		);	
 		
-wire	[`HYDROPHONE_COUNT*NUM_SIZE - 1:0]	m_axis_signal_freq_tdata;
+wire	[`HYDROPHONE_COUNT*NUM_SIZE - 1:0]	m_axis_signal_freq_tdata; // {hydrophone_6, hydrophone_5, ...}
+// e^j2pi(k)
 wire		m_axis_signal_freq_tvalid;
 wire		m_axis_signal_freq_tready;
 wire		m_axis_signal_freq_tlast;
@@ -201,7 +201,6 @@ wire	[NUM_SIZE - 1:0]	m_axis_rxx_tdata;
 wire		m_axis_rxx_tvalid;
 wire		m_axis_rxx_tready;
 wire		m_axis_rxx_tlast;
-wire	[$clog2(`HYDROPHONE_COUNT)-1:0]	m_axis_rxx_tuser;
 
 
 		    // Instantiate Rxx for the signal
@@ -222,8 +221,38 @@ wire	[$clog2(`HYDROPHONE_COUNT)-1:0]	m_axis_rxx_tuser;
         .m_axis_tready(m_axis_rxx_tready),
 		.m_axis_tlast(m_axis_rxx_tlast)
     );
-
 	
+	
+	rxx_replayer #(
+		.NUM_SIZE(NUM_SIZE)
+		) rxx_replayer_inst(
+		.clk(clk),
+		.reset_n(reset_n),
+		
+		.s_axis_rxx_tdata(m_axis_rxx_tdata),
+		.s_axis_rxx_tvalid(m_axis_rxx_tvalid),
+		.s_axis_rxx_tready(m_axis_rxx_tready),
+
+		.s_axis_trigger_tvalid(m_axis_theta_tvalid),
+		.s_axis_trigger_tready(s_axis_trigger_tready),
+		.s_axis_trigger_tlast(m_axis_theta_tlast),
+
+		.m_axis_tdata(m_axis_rxx_rep_tdata),
+		.m_axis_tvalid(m_axis_rxx_rep_tvalid),
+		.m_axis_tready(m_axis_rxx_rep_tready)
+		);
+
+
+wire	[NUM_SIZE - 1:0]	m_axis_rxx_rep_tdata;
+wire		m_axis_rxx_rep_tvalid;
+wire		m_axis_rxx_rep_tready;
+
+wire	[NUM_SIZE - 1:0]	m_axis_rxx_rep_fifo_tdata;
+wire		m_axis_rxx_rep_fifo_tvalid;
+wire		m_axis_rxx_rep_fifo_tready;
+
+
+
 	
 wire	[15:0]	m_axis_theta_tdata;
 wire		m_axis_theta_tvalid;
@@ -247,7 +276,7 @@ theta_generator_sim #(
 Parallel_Beamformer_Wrapper #(
 	.THETA_WIDTH(THETA_WIDTH),
 	.NUM_SIZE(32),
-	.LATENCY(7)
+	.LATENCY(6)
 	)
 PBW_inst(
 	.clk(clk),
@@ -262,21 +291,26 @@ PBW_inst(
 	
 	.m_axis_tdata(m_axis_beam_vector_tdata), // steering vector values
 	.m_axis_tvalid(m_axis_beam_vector_tvalid),
-	.m_axis_tlast(m_axis_beam_vector_tlast), // last value of the current vector
+	.m_axis_tlast(m_axis_beam_vector_tlast), // last vector 
 	.m_axis_tready(m_axis_beam_vector_tready),
-	.m_axis_tuser(m_axis_beam_vector_tuser) // last vector + theta value of current vector = {1'bLAST, THETA_WIDTH'THETA}
+	.m_axis_tuser(m_axis_beam_vector_tuser) // theta value of current vector = THETA_WIDTH'THETA
 	);
 
 wire	[`HYDROPHONE_COUNT*NUM_SIZE - 1:0]	m_axis_beam_vector_tdata;
 wire		m_axis_beam_vector_tvalid;
 wire		m_axis_beam_vector_tready;
 wire		m_axis_beam_vector_tlast;
-wire	[THETA_WIDTH:0]	m_axis_beam_vector_tuser;
+wire	[THETA_WIDTH-1:0]	m_axis_beam_vector_tuser;
 
 		
 wire [NUM_SIZE - 1 : 0] m_axis_stheta_tdata;
 wire m_axis_stheta_tvalid, m_axis_stheta_tlast, m_axis_stheta_tready;
-wire[THETA_WIDTH:0] m_axis_stheta_tuser; 
+wire[THETA_WIDTH:0] m_axis_stheta_tuser;
+
+
+wire [NUM_SIZE - 1 : 0] m_axis_stheta_fifo_tdata;
+wire m_axis_stheta_fifo_tvalid, m_axis_stheta_fifo_tlast, m_axis_stheta_fifo_tready;
+wire[THETA_WIDTH:0] m_axis_stheta_fifo_tuser;  
 	    // Instantiate Rxx for the beam
     beam_covariance #(
         .NUM_SIZE(NUM_SIZE),
@@ -288,9 +322,8 @@ wire[THETA_WIDTH:0] m_axis_stheta_tuser;
 
 		.s_axis_tdata(m_axis_beam_vector_tdata),
 		.s_axis_tvalid(m_axis_beam_vector_tvalid),
-		.s_axis_tlast(m_axis_beam_vector_tlast),
 		.s_axis_tready(m_axis_beam_vector_tready),
-		.s_axis_tuser(m_axis_beam_vector_tuser),
+		.s_axis_tuser({m_axis_beam_vector_tlast,m_axis_beam_vector_tuser}),
 		
 
         .m_axis_tdata(m_axis_stheta_tdata),
@@ -300,45 +333,114 @@ wire[THETA_WIDTH:0] m_axis_stheta_tuser;
 		.m_axis_tuser(m_axis_stheta_tuser)
     );
 
-assign m_axis_stheta_tready = 1;
-assign m_axis_rxx_tready = 1;
+
+wire	[NUM_SIZE * 2:0]	m_axis_cdp_tdata;
+wire		m_axis_cdp_tvalid;
+wire	[THETA_WIDTH:0]	m_axis_cdp_tuser;
+
 	
+wire	[NUM_SIZE*2:0]	m_axis_combined_tdata;
+wire		m_axis_combined_tvalid;
+wire		m_axis_combined_tlast;
+wire	[THETA_WIDTH:0]	m_axis_combined_tuser;
+
+	axis_data_fifo_0 stheta_fifo(
+	  .s_axis_aresetn(reset_n),
+      .s_axis_aclk(clk),
+	  
+      .s_axis_tvalid(m_axis_stheta_tvalid),
+      .s_axis_tready(m_axis_stheta_tready),
+      .s_axis_tdata(m_axis_stheta_tdata),
+      .s_axis_tlast(m_axis_stheta_tlast),
+	  .s_axis_tuser(m_axis_stheta_tuser),
+	  
+      .m_axis_tvalid(m_axis_stheta_fifo_tvalid),
+      .m_axis_tready(m_axis_stheta_fifo_tready),
+      .m_axis_tdata(m_axis_stheta_fifo_tdata),
+      .m_axis_tlast(m_axis_stheta_fifo_tlast),
+	  .m_axis_tuser(m_axis_stheta_fifo_tuser)
+	);
 	
+	axis_data_fifo_0 rx_fifo(
+	  .s_axis_aresetn(reset_n),
+      .s_axis_aclk(clk),
+	  
+      .s_axis_tvalid(m_axis_rxx_rep_tvalid),
+      .s_axis_tready(m_axis_rxx_rep_tready),
+      .s_axis_tdata(m_axis_rxx_rep_tdata),
+      .s_axis_tlast(0),
+	  .s_axis_tuser(0),
+	  
+      .m_axis_tvalid(m_axis_rxx_rep_fifo_tvalid),
+      .m_axis_tready(m_axis_rxx_rep_fifo_tready),
+      .m_axis_tdata(m_axis_rxx_rep_fifo_tdata)
+      //.m_axis_tlast(),
+	  //.m_axis_tuser()
+	);
+	
+
+	
+axis_combiner #(
+	.NUM_SIZE(NUM_SIZE),
+	.TUSER_SIZE(THETA_WIDTH+1)
+	) ac_inst(
+	.clk(clk),
+	.reset_n(reset_n),
+	
+	.s_axis_a_tdata(m_axis_stheta_fifo_tdata),
+	.s_axis_a_tvalid(m_axis_stheta_fifo_tvalid),
+	.s_axis_a_tready(m_axis_stheta_fifo_tready),
+	.s_axis_a_tlast(m_axis_stheta_fifo_tlast),
+	.s_axis_a_tuser(m_axis_stheta_fifo_tuser),
+
+	.s_axis_b_tdata(m_axis_rxx_rep_fifo_tdata),
+	.s_axis_b_tvalid(m_axis_rxx_rep_fifo_tvalid),
+	.s_axis_b_tready(m_axis_rxx_rep_fifo_tready),
+	
+	.m_axis_tdata(m_axis_combined_tdata),
+	.m_axis_tvalid(m_axis_combined_tvalid),
+	.m_axis_tlast(m_axis_combined_tlast),
+	.m_axis_tuser(m_axis_combined_tuser)
+
+	);
+
+
+
 	complex_dot_product #(
 		.NUM_SIZE(NUM_SIZE),
 		.TUSER_SIZE(THETA_WIDTH+1)
 		) cdp_inst (
 		.clk(clk),
 		.reset_n(reset_n),
-		.s_axis_tdata(s_axis_tdata),
-		.s_axis_tvalid(s_axis_tvalid),
-		.s_axis_tlast(s_axis_tlast),
-		.s_axis_tuser(s_axis_tuser),
+		.s_axis_tdata(m_axis_combined_tdata),
+		.s_axis_tvalid(m_axis_combined_tvalid),
+		.s_axis_tlast(m_axis_combined_tlast),
+		.s_axis_tuser(m_axis_combined_tuser),
 		
-		.m_axis_tdata(m_axis_tdata),
-		.m_axis_tvalid(m_axis_tvalid),
-		.m_axis_tuser(m_axis_tuser)
+		.m_axis_tdata(m_axis_cdp_tdata),
+		.m_axis_tvalid(m_axis_cdp_tvalid),
+		.m_axis_tuser(m_axis_cdp_tuser)
 );
 
-
 	max #(
-		.NUM_SIZE(NUM_SIZE)
+		.NUM_SIZE(NUM_SIZE),
+		.TUSER_SIZE(THETA_WIDTH)
 		) 
 	max_inst (
 		.clk(clk),
 		.reset_n(reset_n),
 		
-        .s_axis_tdata(0),
-        .s_axis_tvalid(0),
-        .s_axis_tlast(0),
-        .s_axis_tuser(0),
-        .s_axis_tready(),
+        .s_axis_tdata(m_axis_cdp_tdata[NUM_SIZE-1:0]), // only use the real part, algorithm leads to 0 imaginary
+        .s_axis_tvalid(m_axis_cdp_tvalid),
+        .s_axis_tlast(m_axis_cdp_tuser[THETA_WIDTH]),
+        .s_axis_tuser(m_axis_cdp_tuser[THETA_WIDTH-1:0]),
 		
-        .m_axis_max_tdata(),
-        .m_axis_max_tvalid(),
-        .m_axis_max_tlast()
+        .m_axis_max_tdata(m_axis_tdata),
+        .m_axis_max_tvalid(m_axis_tvalid),
+        .m_axis_max_tlast(m_axis_tlast)
 		);
 		
 	
 	
 endmodule
+

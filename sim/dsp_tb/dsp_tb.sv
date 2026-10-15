@@ -3,7 +3,7 @@
 
 `include "constants.vh"
 
-`define SAMPLE_RATE 512000.0
+`define SAMPLE_RATE 256000.0
 `define M_PI 3.141592653589793
 `define PROPAGATION_SPEED 1480
 `define SHORT_SIZE 16
@@ -84,6 +84,7 @@ class SignalGenerator;
         // Psignal = A^2 / 2
         // Pnoise  = Psignal / 10^(SNR/10)
         //
+		/*
         noise_sigma =
             amplitude /
             ($sqrt(2.0) *
@@ -91,7 +92,8 @@ class SignalGenerator;
 
         // Gaussian noise
         noise_value = gaussian_noise(noise_sigma);
-
+		*/
+		noise_value = 0;
         // Add noise
         output_value = sine_value + noise_value;
 
@@ -181,6 +183,10 @@ $display("x size = %0d", $size(x));
 		foreach(sig_gen[i])sig_gen[i].set_amplitude(new_amplitude);
 	endfunction
 	
+	function set_phase(real new_phase);
+		foreach(sig_gen[i])sig_gen[i].set_phase(new_phase);
+	endfunction
+	
 	
 	function logic[`SHORT_SIZE * `HYDROPHONE_COUNT-1:0] get_signals();
 		logic[`SHORT_SIZE * `HYDROPHONE_COUNT-1:0] result;
@@ -210,7 +216,6 @@ logic	[`SHORT_SIZE * 2 * `HYDROPHONE_COUNT - 1:0]	s_axis_tdata;
 logic	s_axis_tvalid;
 logic	s_axis_tready;
 logic	s_axis_tlast;
-logic	s_axis_tdest;
 
  // {beam_freq 8, upper frequency bound 8, lower frequency bound 8 , magnitude threshold 32}
 logic	[8 + 8 + 8 + 32 - 1 : 0]	s_axis_config_tdata;
@@ -222,7 +227,6 @@ logic	[6:0]	s_axis_config_tstrb;
 logic 	[31:0]	m_axis_tdata;
 logic 	m_axis_tvalid;
 logic 	m_axis_tlast;
-logic 	[7:0]	m_axis_tdest;
 
 HydrophoneArray harray;
 logic[`SHORT_SIZE -1:0] signals[`HYDROPHONE_COUNT-1:0];
@@ -246,9 +250,7 @@ bartlett_datapath #(
 	
 	.m_axis_tdata(m_axis_tdata),
 	.m_axis_tvalid(m_axis_tvalid),
-	.m_axis_tlast(m_axis_tlast),
-	.m_axis_tdest(m_axis_tdest)
-
+	.m_axis_tlast(m_axis_tlast)
     );
 
 
@@ -261,7 +263,6 @@ s_axis_tdata = '0;
 s_axis_tvalid = '0;
 s_axis_tready = '0;
 s_axis_tlast = '0;
-s_axis_tdest = '0;
 s_axis_config_tdata = '0;
 s_axis_config_tvalid = '0;
 s_axis_config_tready = '0;
@@ -270,7 +271,6 @@ s_axis_config_tstrb = '0;
 m_axis_tdata = '0;
 m_axis_tvalid = '0;
 m_axis_tlast = '0;
-m_axis_tdest = '0;
 repeat(10) @(posedge clk);
 reset_n = 1;
 	$display("Finished Reset");
@@ -351,11 +351,12 @@ initial begin
 	Reset();
 	InitArray();
 	harray.set_amplitude(0.5);
+	harray.set_phase(`M_PI/2);
 	s_axis_tready = 1;
 	SendSweep(
-		25000,40000,4,
+		25000,25000,1,
 		0,360,36,
-		100,100,1,
+		10,10,1,
 		256
 		);
 	$finish();

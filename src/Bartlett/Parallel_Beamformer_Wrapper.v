@@ -35,12 +35,11 @@ module Parallel_Beamformer_Wrapper #(
 	input[1:0] beam_freq,
 	
 	output[NUM_SIZE*`HYDROPHONE_COUNT-1:0] m_axis_tdata,
-	output[THETA_WIDTH -1 : 0] m_axis_tuser,
+	output[THETA_WIDTH - 1: 0] m_axis_tuser, 
 	output m_axis_tvalid, m_axis_tlast,
 	input m_axis_tready
 	
     );
-	assign m_axis_tuser = 0;
 	
 	wire [NUM_SIZE*`HYDROPHONE_COUNT-1:0] fifo_in;
     wire [NUM_SIZE*`HYDROPHONE_COUNT-1:0] fifo_out;
@@ -50,19 +49,31 @@ module Parallel_Beamformer_Wrapper #(
     wire [16:0] re0, re1, re2, re3, re4, re5;
     wire [16:0] im0, im1, im2, im3, im4, im5;
     wire delayed_tlast;
+	wire[THETA_WIDTH-1:0] delayed_theta;
+	reg[THETA_WIDTH-1:0] theta_reg;
 	
 	shift_register #(
-		.SIZE(2),
-		.STAGES(LATENCY)
+		.SIZE(2+THETA_WIDTH),
+		.STAGES(LATENCY-1)
 		) axis_sr(
 		.clk(clk),
 		.reset_n(reset_n),
 		.enable(beamformer_ready),
-		.din({s_axis_theta_tvalid && beamformer_ready, s_axis_theta_tlast && s_axis_theta_tvalid && beamformer_ready}),
-		.dout({data_valid,delayed_tlast})
+		.din({s_axis_theta_tvalid && beamformer_ready, s_axis_theta_tlast && s_axis_theta_tvalid && beamformer_ready, s_axis_theta_tdata}),
+		.dout({data_valid,delayed_tlast,delayed_theta})
 		);
 	assign s_axis_theta_tready = beamformer_ready;
 	
+	
+	always@(posedge clk or negedge reset_n)begin
+		if(!reset_n)begin
+			theta_reg <= 0;
+		end else begin
+			theta_reg <= s_axis_theta_tvalid?s_axis_theta_tdata:theta_reg;
+		end
+	end
+	
+
 	
 	axis_data_fifo_0 fifo(
 	  .s_axis_aresetn(reset_n),
@@ -71,17 +82,19 @@ module Parallel_Beamformer_Wrapper #(
       .s_axis_tready(beamformer_ready),
       .s_axis_tdata(fifo_in),
       .s_axis_tlast(delayed_tlast),
+	  .s_axis_tuser(delayed_theta),
       .m_axis_tvalid(m_axis_tvalid),
       .m_axis_tready(m_axis_tready),
       .m_axis_tdata(fifo_out),
-      .m_axis_tlast(m_axis_tlast)
+      .m_axis_tlast(m_axis_tlast),
+	  .m_axis_tuser(m_axis_tuser)
 	);
 	
 	Parallel_Beamformer Parallel_Beamformer_inst (
 		   .clk(clk),
            .reset(reset_n),
            .clk_enable(beamformer_ready),
-           .Theta(s_axis_theta_tdata),
+           .Theta(theta_reg),
            .Frequency({6'b0, beam_freq}),
            .ce_out(),
            .Array_Value_re_0(re0),

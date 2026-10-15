@@ -1,12 +1,19 @@
 `timescale 1ns / 1ps
 
 `include "constants.vh"
+
+
+
+// theta is a 16 bit value from the range of 0-2pi.
+// 1 degree = 182.0441.  182 = 16'hB6. Slight drift amounts to less than 0.1 degrees
 /*
-module theta_driver (
+module theta_driver #(
+	parameter THETA_WIDTH = 16
+	)(
 	input clk, reset_n,
-	input enable, //when high, theta values will be sent starting from 0
+	input enable, //when high the state machine will start
 	
-	output reg[4:0] m_axis_theta_tdata,
+	output reg[THETA_WIDTH - 1 :0] m_axis_theta_tdata,
 	output reg m_axis_theta_tlast, m_axis_theta_tvalid
 	);
 	
@@ -40,4 +47,4 @@ module theta_driver (
 	
 	end
 	
-endmodule*/
+endmodule */
