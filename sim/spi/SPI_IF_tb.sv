@@ -1,10 +1,10 @@
 `timescale 1ns/1ps
 
-module SPI_IF_tb ();
+module spi_if_tb ();
 
     localparam NUM_TESTS = 500;
 
-    localparam CLK_DIVIDE = 5;
+    localparam CLK_DIVIDE = 1;
     localparam DELAY_CYCLES = 10;
 
     logic clk;
@@ -140,22 +140,10 @@ module SPI_IF_tb ();
 
         fork
             begin : spi_thread
-                // fork
-                //     begin : drdy_thread
-                //         // Wait 17 ns before DRDY signal is latched to SDO_DRDY
-                //         #17 SPI_SDO_DRDY <= drdy_n;
-                //         drdy_timeout = 1; 
-                //     end
-                // join_none
                 SPI_SDO_DRDY <= drdy_n;
 
                 for (int i = SPI_frame_size-1; i >= 0; --i) begin
                     @(posedge SPI_SCLK)
-                    // if (!drdy_timeout) begin
-                    //     drdy_timeout = 1;
-                    //     $warning("[t:%0t] SCLK posedge before 17ns for SDO_DRDY pin to be driven", $time);
-                    //     disable drdy_thread;
-                    // end
                     SPI_SDO_DRDY <= send_data[i];
                     @(negedge SPI_SCLK)
                     recv_data[i] = SPI_DI;

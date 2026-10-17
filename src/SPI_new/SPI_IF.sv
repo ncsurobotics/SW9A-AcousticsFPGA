@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 
 module spi_if #(
-	parameter CLK_DIVIDE = 7, 			// how many times to divide master clk to produce half cycle SCLK
+	parameter CLK_DIVIDE = 2, 			// how many times to divide master clk to produce half cycle SCLK
 	parameter DELAY_CYCLES = 10			// absolute minimum should be 5
 )(
     // source
@@ -28,8 +28,10 @@ module spi_if #(
 );
 
 	// TODO:
-	// Have SDO/DRDY synchronized with 2 registers to avoid metastability
-	// Reset all registers in the main block or move them to another process block
+	// Have a delay between reset and starting communication
+
+	// Determine DELAY_CYCLES:
+	// - A minimum 10 × tCLK delay time is required between SPI frames when reading or writing filter coefficients.
 
 
 	logic SDO_DRDY_sync_1, SDO_DRDY_sync_2;  // 2FF synchronizer for asynchronous input

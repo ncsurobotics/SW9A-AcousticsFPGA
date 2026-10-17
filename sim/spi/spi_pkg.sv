@@ -23,10 +23,9 @@ package spi_pkg;
   endclass
 
 
-  typedef mailbox #(spi_packet) spi_mbx_t;
   class spi_driver;
     virtual adc_spi_if vif;
-    spi_mbx_t drv_mbx;
+    mailbox #(spi_packet) drv_mbx;
 
     function new(virtual adc_spi_if vif, mailbox #(spi_packet) drv_mbx);
       this.vif = vif;
