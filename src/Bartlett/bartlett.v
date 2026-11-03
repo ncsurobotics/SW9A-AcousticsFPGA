@@ -37,10 +37,25 @@ module theta_generator_sim #(
 	
 	output reg[THETA_WIDTH-1:0] m_axis_theta_tdata,
 	output reg m_axis_theta_tvalid,
-	output reg m_axis_theta_tlast
+	output reg m_axis_theta_tlast,
+	input m_axis_theta_tready,
+	
+	
+	output reg m_axis_trigger_tvalid,
+	input m_axis_trigger_tready
 	);
 	reg [31:0] pause_counter;
 	reg [31:0] theta_counter;
+	reg[31:0] startup_counter;
+	// 4096 = 2pi
+	localparam PERIOD = 4096;
+	localparam THETA_PRECISION = 16;
+	localparam MAX_THETA = $ceil(PERIOD/THETA_PRECISION);
+	localparam PAUSE_CYCLES = 4;
+	
+	wire ready = m_axis_theta_tready && m_axis_trigger_tready;
+
+	reg[31:0] trigger_tx_counter, theta_tx_counter;
 
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
@@ -49,20 +64,32 @@ module theta_generator_sim #(
 			m_axis_theta_tlast <= 0;
 			pause_counter <= 0;
 			theta_counter <= 0;
+			startup_counter <= 0;
+			theta_tx_counter <= 0;
+			trigger_tx_counter <= 0;
+			m_axis_trigger_tvalid <= 0;
 		end else begin
-			pause_counter <= pause_counter == 100 ? 0 : pause_counter + 1;
-			if(pause_counter == 0 )begin
-				theta_counter <= theta_counter + 1;
-				m_axis_theta_tdata <= theta_counter * 182;
-				m_axis_theta_tvalid <= 1;
-				if(theta_counter == 360) m_axis_theta_tlast <= 1;
-				else m_axis_theta_tlast <= 0;
-			end else begin 
-				m_axis_theta_tvalid <= 0;
-				m_axis_theta_tlast <= 0;
-				m_axis_theta_tdata <= 0;
-				
-			end	
+			if(m_axis_theta_tready && m_axis_theta_tvalid) theta_tx_counter <= theta_tx_counter + 1;
+			if(m_axis_trigger_tready && m_axis_trigger_tvalid) trigger_tx_counter <= trigger_tx_counter + 1;
+			if(startup_counter < 1200)begin
+				startup_counter <= startup_counter + 1;
+			end else begin
+			
+				pause_counter <= (!ready || pause_counter == PAUSE_CYCLES) ? 0 : pause_counter + 1;
+				if(pause_counter == 0 && ready)begin
+					theta_counter <= theta_counter == MAX_THETA ? 0 : theta_counter + 1;
+					m_axis_theta_tdata <= THETA_PRECISION*theta_counter;
+					m_axis_theta_tvalid <= 1;
+					m_axis_trigger_tvalid <= 1;
+					if(theta_counter == MAX_THETA) m_axis_theta_tlast <= 1;
+					else m_axis_theta_tlast <= 0;
+				end else begin 
+					m_axis_theta_tvalid <= 0;
+					m_axis_theta_tlast <= 0;
+					m_axis_theta_tdata <= 0;
+					m_axis_trigger_tvalid <= 0;
+				end	
+			end
 		end
 	end
 
@@ -233,8 +260,8 @@ wire		m_axis_rxx_tlast;
 		.s_axis_rxx_tvalid(m_axis_rxx_tvalid),
 		.s_axis_rxx_tready(m_axis_rxx_tready),
 
-		.s_axis_trigger_tvalid(m_axis_theta_tvalid),
-		.s_axis_trigger_tready(s_axis_trigger_tready),
+		.s_axis_trigger_tvalid(m_axis_trigger_tvalid),
+		.s_axis_trigger_tready(m_axis_trigger_tready),
 		.s_axis_trigger_tlast(m_axis_theta_tlast),
 
 		.m_axis_tdata(m_axis_rxx_rep_tdata),
@@ -257,6 +284,7 @@ wire		m_axis_rxx_rep_fifo_tready;
 wire	[15:0]	m_axis_theta_tdata;
 wire		m_axis_theta_tvalid;
 wire		m_axis_theta_tlast;
+wire 		m_axis_theta_tready;
 
 
 	
@@ -268,7 +296,12 @@ theta_generator_sim #(
 	
 	.m_axis_theta_tdata(m_axis_theta_tdata), // theta value
 	.m_axis_theta_tvalid(m_axis_theta_tvalid),
-	.m_axis_theta_tlast(m_axis_theta_tlast) // last theta value
+	.m_axis_theta_tlast(m_axis_theta_tlast), // last theta value
+	.m_axis_theta_tready(m_axis_theta_tready),
+	
+	
+	.m_axis_trigger_tready(m_axis_trigger_tready),
+	.m_axis_trigger_tvalid(m_axis_trigger_tvalid)
 	
 	);
 	
@@ -285,7 +318,7 @@ PBW_inst(
 	.s_axis_theta_tdata(m_axis_theta_tdata),
 	.s_axis_theta_tvalid(m_axis_theta_tvalid),
 	.s_axis_theta_tlast(m_axis_theta_tlast),
-	.s_axis_theta_tready(),
+	.s_axis_theta_tready(m_axis_theta_tready),
 	
 	.beam_freq(beam_freq), // 2 bit mux to select frequency value
 	
@@ -338,8 +371,12 @@ wire	[NUM_SIZE * 2:0]	m_axis_cdp_tdata;
 wire		m_axis_cdp_tvalid;
 wire	[THETA_WIDTH:0]	m_axis_cdp_tuser;
 
+wire	[NUM_SIZE * 2:0]	m_axis_mag2_tdata;
+wire		m_axis_mag2_tvalid;
+wire	[THETA_WIDTH:0]	m_axis_mag2_tuser;
+
 	
-wire	[NUM_SIZE*2:0]	m_axis_combined_tdata;
+wire	[NUM_SIZE*2-1:0]	m_axis_combined_tdata;
 wire		m_axis_combined_tvalid;
 wire		m_axis_combined_tlast;
 wire	[THETA_WIDTH:0]	m_axis_combined_tuser;
@@ -421,6 +458,23 @@ axis_combiner #(
 		.m_axis_tvalid(m_axis_cdp_tvalid),
 		.m_axis_tuser(m_axis_cdp_tuser)
 );
+
+
+	magnitude_squared #(
+		.NUM_SIZE(NUM_SIZE),
+		.TUSER_SIZE(THETA_WIDTH+1)
+		) mag_squared_inst (
+		.clk(clk),
+		.reset_n(reset_n),
+		.s_axis_tdata(m_axis_cdp_tdata),
+		.s_axis_tvalid(m_axis_cdp_tvalid),
+		.s_axis_tuser(m_axis_cdp_tuser),
+		
+		.m_axis_tdata(m_axis_mag2_tdata),
+		.m_axis_tvalid(m_axis_mag2_tvalid),
+		.m_axis_tuser(m_axis_mag2_tuser)
+);
+
 
 	max #(
 		.NUM_SIZE(NUM_SIZE),

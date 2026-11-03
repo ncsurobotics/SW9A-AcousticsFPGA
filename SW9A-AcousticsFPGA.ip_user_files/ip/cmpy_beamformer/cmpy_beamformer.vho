@@ -67,7 +67,7 @@ COMPONENT cmpy_beamformer
     m_axis_dout_tready : IN STD_LOGIC;
     m_axis_dout_tuser : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
     m_axis_dout_tlast : OUT STD_LOGIC;
-    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(63 DOWNTO 0) 
+    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------

@@ -513,8 +513,8 @@ bartlett_datapath bartlett_inst(
     // output data channel
     .m_axis_tdata(bartlett_data_in), // (out)
     .m_axis_tvalid(bartlett_valid), // (out)
-    .m_axis_tlast(bartlett_last), // (out)
-    .m_axis_tdest(bartlett_addr) // (out)
+    .m_axis_tlast(bartlett_last) // (out)
+    //.m_axis_tdest(bartlett_addr) // (out)
         
     //test
     //.debug_rxx(), // (out)

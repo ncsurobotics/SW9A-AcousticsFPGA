@@ -300,17 +300,13 @@ end
 			m_axis_max_tvalid <= 0;
 			m_axis_max_tlast <= 0;
 			timeout <= 0;
-		/*
-	UPPER_BOUND = 8'h19, // ~-25khz //248,  >40khz
-	LOWER_BOUND = 8'h07, // ~40khz //238,  <25khz
-	THRESHOLD = 32'h00001000 // arbitrary number
-	*/
+
 		end else begin
 			if(timeout == 16'd10000) state <= IDLE;
 			else begin
 				case(state)
 					IDLE: begin
-						if((s_axis_weight_tuser <= upper_bound) && (s_axis_weight_tuser >= lower_bound))
+						if(s_axis_weight_tvalid && (s_axis_weight_tuser <= upper_bound) && (s_axis_weight_tuser >= lower_bound))
 							state <= IN_RANGE;
 							
 						timeout <= 0;
@@ -327,8 +323,8 @@ end
 						timeout <= timeout+1;
 					end
 					WAIT:begin
-						if(last_sr[1])
-							state <= IDLE;
+						
+						state <= IDLE;
 							
 						timeout <= timeout+1;
 					end
@@ -339,7 +335,7 @@ end
 				else config_register[i*8+:8] <= config_register[i*8+:8];
 			end
 			valid_threshold <= maximum_magnitude > threshold; 
-			if(s_axis_weight_tvalid)begin 
+			if(state != IDLE && s_axis_weight_tvalid)begin 
 				partial_prod[1] <= imag_part[0] * imag_part[0];
 				partial_prod[0] <= real_part[0] * real_part[0];
 				partial_frequency <= s_axis_weight_tuser;
@@ -349,7 +345,7 @@ end
 				partial_frequency <= 0;
 			end
 			
-			if(valid_sr[0] && (state==IN_RANGE))begin
+			if(state != IDLE && valid_sr[0] && (state==IN_RANGE))begin
 				current_magnitude <= partial_prod[0] + partial_prod[1];
 				current_frequency <= partial_frequency;
 			end else begin
@@ -357,7 +353,7 @@ end
 				current_frequency <= 0;
 			end
 
-			if(current_magnitude > maximum_magnitude)begin
+			if(state != IDLE && current_magnitude > maximum_magnitude)begin
 				m_axis_max_tdata <= data_sr[1];
 				m_axis_max_tuser <= user_sr[1];
 				maximum_magnitude <= current_magnitude;

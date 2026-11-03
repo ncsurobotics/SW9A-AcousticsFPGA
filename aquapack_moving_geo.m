@@ -19,10 +19,10 @@ angle_error_deg = 1;
 % plot options
 plot_array_signals = true;
 plot_weight_polar = true;
-plot_weight_stem = false;
+plot_weight_stem = true;
 plot_directivity = false;
 plot_fft = false;
-plot_rxx = true;
+plot_rxx = false;
 plot_robot = true;
 framecount = 10e5; 
 framespeed = 0.1; % seconds per frame

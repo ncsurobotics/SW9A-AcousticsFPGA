@@ -1,9 +1,9 @@
 clear all; close;
 max_fs = 1e6; % constant maximum sampling frequency of xadc
-sequences = 3; % min 3. 1 sequence == 2 channels.
+sequences = 10; % min 3. 1 sequence == 2 channels. 
 transformsize = [4 8 16 32 64 128 256 512]; % power of 2
 prop = 1480; % constant propagation speed of sound in water, 1480 m/s
-fs = max_fs* (1./sequences) % sampling frequency of digital signal
+fs = max_fs/sequences % sampling frequency of digital signal
 sample_period = 1./fs
 binsize = fs./transformsize
 

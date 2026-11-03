@@ -69,7 +69,7 @@ cmpy_beamformer your_instance_name (
   .m_axis_dout_tready(m_axis_dout_tready),  // input wire m_axis_dout_tready
   .m_axis_dout_tuser(m_axis_dout_tuser),    // output wire [16 : 0] m_axis_dout_tuser
   .m_axis_dout_tlast(m_axis_dout_tlast),    // output wire m_axis_dout_tlast
-  .m_axis_dout_tdata(m_axis_dout_tdata)    // output wire [63 : 0] m_axis_dout_tdata
+  .m_axis_dout_tdata(m_axis_dout_tdata)    // output wire [31 : 0] m_axis_dout_tdata
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

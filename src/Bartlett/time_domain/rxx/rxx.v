@@ -138,29 +138,35 @@ module signal_covariance #(
 			cmpy_valid <= 0;
 		end else begin
 			if(state == 0)begin // idle
-				s_axis_tready <= 1;
 				cmpy_valid <= 0;
 				if(s_axis_tready && s_axis_tvalid)begin
 					state <= 1;
+					s_axis_tready <= 0;
 					data_buffer <= s_axis_tdata;
+				end else begin
+					s_axis_tready <= 1;
 				end
 				base_index <= 0;
 				conj_index <= 0;
 			end else begin
 				s_axis_tready <= 0;
-				cmpy_valid <= 1;
 				if(cmpy_ready && cmpy_valid)begin
 					if(base_index==(`HYDROPHONE_COUNT-1))begin
 						base_index <= 0;
 						if(conj_index==(`HYDROPHONE_COUNT-1))begin
 							conj_index <= 0;
 							state <= 0;
-						end else conj_index <= conj_index + 1;
+							cmpy_valid <= 0;
+						end else begin 
+							conj_index <= conj_index + 1;
+							cmpy_valid <= 1;
+						end
 					end else begin
 						base_index <= base_index + 1;
 						conj_index <= conj_index;
+						cmpy_valid <= 1;
 					end
-				end
+				end else cmpy_valid <= 1;
 			end
 			for(i = 0; i < `HYDROPHONE_COUNT; i = i + 1)begin
 				base[i] <= {imag_channel[i],real_channel[i]};
@@ -228,13 +234,26 @@ module beam_covariance #(
 		end
 	endgenerate
 	reg[NUM_SIZE - 1 : 0] base[`HYDROPHONE_COUNT-1:0],conj[`HYDROPHONE_COUNT-1:0];
+	reg[NUM_SIZE/2 - 1:0] base_real[`HYDROPHONE_COUNT-1:0], base_imag[`HYDROPHONE_COUNT-1:0], conj_real[`HYDROPHONE_COUNT-1:0], conj_imag[`HYDROPHONE_COUNT-1:0];
+	
+	integer i;
+	always@(*)begin
+		for(i = 0; i < `HYDROPHONE_COUNT; i = i + 1)begin
+			base_real[i] = base[i][0+:NUM_SIZE/2];
+			base_imag[i] = base[i][NUM_SIZE/2+:NUM_SIZE/2];
+			conj_real[i] = conj[i][0+:NUM_SIZE/2];
+			conj_imag[i] = conj[i][NUM_SIZE/2+:NUM_SIZE/2];
+		end
+	
+	end
+	
+	
 	reg[$clog2(`HYDROPHONE_COUNT)-1:0] base_index, conj_index;
 	reg valid;
 	reg state;
 	wire last;
 	assign last = (base_index==(`HYDROPHONE_COUNT-1) && conj_index==(`HYDROPHONE_COUNT-1)); 
 	
-	integer i;
 	always@(posedge clk or negedge reset_n)begin
 		if(!reset_n)begin
 			for(i = 0; i < `HYDROPHONE_COUNT; i = i + 1)begin
@@ -248,32 +267,39 @@ module beam_covariance #(
 			data_buffer <= 0;
 			cmpy_valid <= 0;
 			user_buffer <= 0;
+			s_axis_tready <= 0;
 		end else begin
 			if(state == 0)begin // idle
-				s_axis_tready <= 1;
 				cmpy_valid <= 0;
-				if(s_axis_tready && s_axis_tvalid)begin
+				if(s_axis_tready && s_axis_tvalid) begin
+					s_axis_tready <= 0;
 					state <= 1;
 					data_buffer <= s_axis_tdata;
 					user_buffer <= s_axis_tuser;
+				end else begin
+					s_axis_tready <= 1;
 				end
 				base_index <= 0;
 				conj_index <= 0;
 			end else begin
 				s_axis_tready <= 0;
-				cmpy_valid <= 1;
 				if(cmpy_ready && cmpy_valid)begin
 					if(base_index==(`HYDROPHONE_COUNT-1))begin
 						base_index <= 0;
 						if(conj_index==(`HYDROPHONE_COUNT-1))begin
 							conj_index <= 0;
 							state <= 0;
-						end else conj_index <= conj_index + 1;
+							cmpy_valid <= 0;
+						end else begin 
+							conj_index <= conj_index + 1;
+							cmpy_valid <= 1;
+						end
 					end else begin
+						cmpy_valid <= 1;
 						base_index <= base_index + 1;
 						conj_index <= conj_index;
 					end
-				end
+				end else cmpy_valid <= 1;
 			end
 			for(i = 0; i < `HYDROPHONE_COUNT; i = i + 1)begin
 				base[i] <= {imag_channel[i],real_channel[i]};
@@ -306,8 +332,5 @@ cmpy_beamformer cmpy_beamformer_inst (
   .m_axis_dout_tuser(m_axis_tuser)
 );
 	
-
-
-
 
 endmodule
