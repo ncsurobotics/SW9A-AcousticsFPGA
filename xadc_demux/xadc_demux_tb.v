@@ -3,11 +3,13 @@
 module xadc_demux_tb;
 
 	localparam DATA_WIDTH = 16;
-	localparam CHANNEL_COUNT = 8;
+	localparam CHANNEL_COUNT = 6;
 	localparam TID_WIDTH = 5;
 	localparam OUT_WIDTH = DATA_WIDTH*CHANNEL_COUNT*2;
 	localparam CLK_PERIOD = 10;
 	localparam NUM_RAND_ROUNDS = 5;
+
+	reg [TID_WIDTH-1:0] tid_of_slot [0:CHANNEL_COUNT-1];
 
 	reg clk;
 	reg rst_n;
@@ -24,7 +26,7 @@ module xadc_demux_tb;
 	integer errors;
 	integer checks;
 
-	// scoreboard, mirrors what the dut should be holding
+	// scoreboard, mirrors what the dut should be holding, indexed by slot (not raw tid)
 	reg [DATA_WIDTH-1:0] exp_buf [0:CHANNEL_COUNT-1];
 	reg [OUT_WIDTH-1:0] exp_word;
 
@@ -67,20 +69,24 @@ module xadc_demux_tb;
 		end
 	endtask
 
-	// drive one sample into the slave stream, blocks until the dut accepts it
-	task send_sample(input [TID_WIDTH-1:0] tid, input [DATA_WIDTH-1:0] data);
+	// drive one sample into the slave stream for exactly one cycle
+	// (s_axis_tready is tied high, so this never needs to wait)
+	task send_sample(input [TID_WIDTH-1:0] tid, input [DATA_WIDTH-1:0] data, input integer slot, input integer slot_valid);
 		begin
 			@(posedge clk);
 			#1;
 			s_axis_tid    = tid;
 			s_axis_tdata  = data;
 			s_axis_tvalid = 1;
+			if (s_axis_tready !== 1) begin
+				$display("ERROR @ %0t: s_axis_tready dropped, xadc errata violated", $time);
+				errors = errors + 1;
+			end
 			@(posedge clk);
-			while (!s_axis_tready) @(posedge clk);
 			#1;
 			s_axis_tvalid = 0;
-			if (tid < CHANNEL_COUNT)
-				exp_buf[tid] = data;
+			if (slot_valid)
+				exp_buf[slot] = data;
 		end
 	endtask
 
@@ -110,6 +116,13 @@ module xadc_demux_tb;
 	integer rand_data;
 
 	initial begin
+		tid_of_slot[0] = 5'h15; // vaux5
+		tid_of_slot[1] = 5'h1D; // vaux13
+		tid_of_slot[2] = 5'h16; // vaux6
+		tid_of_slot[3] = 5'h1E; // vaux14
+		tid_of_slot[4] = 5'h17; // vaux7
+		tid_of_slot[5] = 5'h1F; // vaux15
+
 		errors = 0;
 		checks = 0;
 		rst_n = 0;
@@ -131,102 +144,69 @@ module xadc_demux_tb;
 			errors = errors + 1;
 		end
 		if (s_axis_tready !== 1) begin
-			$display("ERROR: s_axis_tready low right after reset, nothing should be blocking yet");
+			$display("ERROR: s_axis_tready not high right after reset");
 			errors = errors + 1;
 		end
 
 		// -----------------------------------------------------------
-		// randomized rounds, alternating ascending/descending tid order
+		// randomized rounds, alternating ascending/descending slot order,
+		// driving the real xadc tid for each slot
 		// -----------------------------------------------------------
 		for (r = 0; r < NUM_RAND_ROUNDS; r = r + 1) begin
 			if (r % 2 == 0) begin
 				for (c = 0; c < CHANNEL_COUNT; c = c + 1) begin
 					rand_data = $unsigned($random) & ((1 << DATA_WIDTH) - 1);
-					send_sample(c, rand_data);
+					send_sample(tid_of_slot[c], rand_data, c, 1);
 				end
 			end else begin
 				for (c = CHANNEL_COUNT - 1; c >= 0; c = c - 1) begin
 					rand_data = $unsigned($random) & ((1 << DATA_WIDTH) - 1);
-					send_sample(c, rand_data);
+					send_sample(tid_of_slot[c], rand_data, c, 1);
 				end
 			end
 			pop_and_check;
 		end
 
-		// -----------------------------------------------------------
-		// invalid tid (>= CHANNEL_COUNT) should be accepted and ignored,
-		// never block the input or count toward a round
-		// -----------------------------------------------------------
-		send_sample(CHANNEL_COUNT, 16'hDEAD);
+		send_sample(5'h00, 16'hDEAD, 0, 0);
 		if (m_axis_tvalid !== 0) begin
-			$display("ERROR: invalid tid incorrectly completed a round");
+			$display("ERROR: unmapped tid incorrectly completed a round");
 			errors = errors + 1;
 		end
 		for (c = 0; c < CHANNEL_COUNT; c = c + 1)
-			send_sample(c, 16'h1100 + c);
+			send_sample(tid_of_slot[c], 16'h1100 + c, c, 1);
 		pop_and_check;
 
-		// -----------------------------------------------------------
-		// same channel written twice before the round flushes,
-		// the later value should win
-		// -----------------------------------------------------------
-		send_sample(3, 16'hAAAA);
-		send_sample(3, 16'hBBBB); // overwrite, exp_buf[3] should end up BBBB
+
+		send_sample(tid_of_slot[2], 16'hAAAA, 2, 1);
+		send_sample(tid_of_slot[2], 16'hBBBB, 2, 1); // overwrite, exp_buf[2] should end up BBBB
 		for (c = 0; c < CHANNEL_COUNT; c = c + 1) begin
-			if (c != 3)
-				send_sample(c, 16'h2200 + c);
+			if (c != 2)
+				send_sample(tid_of_slot[c], 16'h2200 + c, c, 1);
 		end
 		pop_and_check;
-		if (exp_buf[3] !== 16'hBBBB) begin
+		if (exp_buf[2] !== 16'hBBBB) begin
 			$display("ERROR: scoreboard itself didn't model the overwrite right");
 			errors = errors + 1;
 		end
 
 		// -----------------------------------------------------------
-		// double-buffer stall: fill round A, hold m_axis_tready low,
-		// fill 7/8 of round B (should still be accepted), then the
-		// 8th sample of round B should stall s_axis_tready since the
-		// output reg is still full with round A
+		// latest-wins: a second round completes while the first round's
+		// output word was never popped (m_axis_tready held low). the
+		// first word should just be silently overwritten by the second.
 		// -----------------------------------------------------------
 		for (c = 0; c < CHANNEL_COUNT; c = c + 1)
-			send_sample(c, 16'h3300 + c); // round A
+			send_sample(tid_of_slot[c], 16'h3300 + c, c, 1); // round A, never popped
 		if (m_axis_tvalid !== 1) begin
 			$display("ERROR: round A didn't flush to the output reg");
 			errors = errors + 1;
 		end
-		build_exp_word; // snapshot round A's expected word before we touch exp_buf again
-
-		for (c = 0; c < CHANNEL_COUNT - 1; c = c + 1)
-			send_sample(c, 16'h4400 + c); // 7/8 of round B, output reg still full of round A
-
-		// try the last sample of round B, should NOT be accepted yet
-		@(posedge clk);
-		#1;
-		s_axis_tid    = CHANNEL_COUNT - 1;
-		s_axis_tdata  = 16'h4400 + (CHANNEL_COUNT - 1);
-		s_axis_tvalid = 1;
-		@(posedge clk);
-		#1;
-		if (s_axis_tready !== 0) begin
-			$display("ERROR: s_axis_tready should have stalled, output reg still holds round A");
+		for (c = 0; c < CHANNEL_COUNT; c = c + 1)
+			send_sample(tid_of_slot[c], 16'h4400 + c, c, 1); // round B, should overwrite round A
+		if (s_axis_tready !== 1) begin
+			$display("ERROR: input stalled during round B, tready must never drop");
 			errors = errors + 1;
 		end
-
-		// now drain round A, the stalled round B sample should go through right after
-		if (m_axis_tdata !== exp_word) begin
-			$display("ERROR @ %0t: round A word = %h, expected %h", $time, m_axis_tdata, exp_word);
-			errors = errors + 1;
-		end else begin
-			checks = checks + 1;
-		end
-		m_axis_tready = 1;
-		@(posedge clk);
-		#1;
-		m_axis_tready = 0;
-		s_axis_tvalid = 0;
-
-		exp_buf[CHANNEL_COUNT-1] = 16'h4400 + (CHANNEL_COUNT - 1);
-		pop_and_check; // round B
+		pop_and_check; // should see round B's data, round A was silently dropped
 
 		$display("------------------------------------------------");
 		if (errors == 0)
