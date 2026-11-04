@@ -23,7 +23,7 @@ module ADC_SPI_BATCH #(
 	
 	// input channel
 	input[15:0] s_axis_tdata, 
-	input[CHANNEL_COUNT-1:0] s_axis_tdest, // one hot encoding to select an ADC. multi/broadcast only work on write
+	input[CHANNEL_COUNT-1:0] s_axis_tuser, // one hot encoding to select an ADC. multi/broadcast only work on write
 	input s_axis_tvalid,
 	output s_axis_tready,
 	
@@ -45,7 +45,7 @@ module ADC_SPI_BATCH #(
 	reg[$clog2(CONVERSION_FRAME_SIZE)-1:0] counter;
 	reg[CHANNEL_COUNT-1:0] last_dest;
 	reg[7:0] reg_values[CHANNEL_COUNT - 1 : 0]; // buffered values for regmap
-	reg[1:0] reg_values_valid [CHANNEL_COUNT - 1 : 0]; // [0] == tdest, [1] == valid
+	reg[1:0] reg_values_valid [CHANNEL_COUNT - 1 : 0]; // [0] == tuser, [1] == valid
 	wire[CHANNEL_COUNT-1:0] xor_rvv;
 	reg[7:0] reg_values_index; // index for output
 	reg[1:0] reg_state; // 0 idle, 1 waiting, 2 responding
@@ -84,14 +84,14 @@ module ADC_SPI_BATCH #(
 					internal_select <= SPI_select_buffer; // commits select value
 				end // otherwise keep sending conversion data
 			end else begin // in reg mode, we dont go back to conversion unless reg mode is done
-				last_dest <= s_axis_tvalid ? s_axis_tdest : last_dest;
+				last_dest <= s_axis_tvalid ? s_axis_tuser : last_dest;
 				case(reg_state)
 					2'b00:begin // start command
 						if(s_axis_tvalid && s_axis_tdata[14])begin
 							reg_state <= 2'b01;
 							for(j = 0; j < CHANNEL_COUNT; j = j + 1)begin
 								reg_values[j] <= 0;
-								reg_values_valid[j][1] <= s_axis_tdest[j];
+								reg_values_valid[j][1] <= s_axis_tuser[j];
 								reg_values_valid[j][0] <= 0;
 							end
 						end
@@ -143,7 +143,7 @@ module ADC_SPI_BATCH #(
 	generate
 		for(i = 0; i < CHANNEL_COUNT; i = i + 1)begin
 			assign s_axis_tdata_i[i] = internal_select 	? s_axis_tdata	:	16'h0000;
-			assign s_axis_tvalid_i[i] = internal_select 	? (s_axis_tvalid && s_axis_tdest[i])	:	1;
+			assign s_axis_tvalid_i[i] = internal_select 	? (s_axis_tvalid && s_axis_tuser[i])	:	1;
 			assign xor_rvv[i] = ^reg_values_valid[i];
 			ADC_SPI_ADS127L21 u1(
 				.clk(clk),

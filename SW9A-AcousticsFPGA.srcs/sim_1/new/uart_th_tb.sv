@@ -1,347 +1,403 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 04/21/2026 03:02:16 PM
-// Design Name: 
-// Module Name: uart_th_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 module uart_th_tb();
 
+    logic clk;
+    logic reset_n;
 
-logic[7:0] s_axis_uart_tdata;
-logic s_axis_uart_tvalid;
-logic clk, reset_n;
+    always #5 clk = ~clk;
 
-// Regmap logic
-logic[31:0] fake_regmap[255:0];
-logic[31:0] regmap_dout, regmap_din;
-logic regmap_wea;
-logic[7:0] regmap_addr;
+    logic [7:0] rx_data;
+    logic       rx_ready;
+    
+    logic       uart_tx_ready;
+    wire [7:0]  Word_To_Send;
+    wire        Word_To_Send_en;
 
-always@(posedge clk)begin
-	if(regmap_wea) fake_regmap[regmap_addr] = regmap_din;
-	regmap_dout = fake_regmap[regmap_addr];
-end
+    logic [31:0] max_angle;
 
-logic[15:0] axis_u2s_tdata;
-logic[5:0] axis_u2s_tdest;
-logic axis_u2s_tvalid;
-logic axis_u2s_tready;
-logic[7:0] axis_s2u_tdata;
-logic axis_s2u_tvalid;
-logic axis_s2u_tready;
-logic axis_s2u_tlast;
+    wire [31:0] m_axi_awaddr;
+    wire        m_axi_awvalid;
+    logic       m_axi_awready;
 
-logic[5:0] SPI_SCLK;
-logic[5:0] SPI_CS_N;
-logic[5:0] SPI_DI;
-logic[5:0] SPI_SDO_DRDY;
-// add dummy adc spi logic
+    wire [31:0] m_axi_wdata;
+    wire [3:0]  m_axi_wstrb;
+    wire        m_axi_wvalid;
+    logic       m_axi_wready;
 
-logic SPI_mode; // 0 == drdy, 1 == data
+    logic [1:0] m_axi_bresp;
+    logic       m_axi_bvalid;
+    wire        m_axi_bready;
 
-always@(*)begin
-	if(!SPI_CS_N && SPI_SCLK) SPI_mode = 1;
-	if(SPI_CS_N) SPI_mode = 0;
-	foreach(SPI_SDO_DRDY[i])begin
-		if(!SPI_CS_N)begin
-			if(SPI_mode) SPI_SDO_DRDY[i]= spi_hash[i];
-			else SPI_SDO_DRDY[i] = 1;
-		end else begin
-			SPI_SDO_DRDY[i]=0;
-		end
-	end
-end
-	
-logic[3:0] spi_counter[5:0];
-logic spi_hash[5:0];
+    wire [31:0] m_axi_araddr;
+    wire        m_axi_arvalid;
+    logic       m_axi_arready;
 
-initial begin
-foreach(spi_counter[i]) spi_counter[i] = i;
-foreach(spi_hash[i])spi_hash[i] = 0;
-end
+    logic [31:0] m_axi_rdata;
+    logic [1:0]  m_axi_rresp;
+    logic        m_axi_rvalid;
+    wire         m_axi_rready;
 
-always@(posedge clk)begin
-	foreach(spi_counter[i]) spi_counter[i] =spi_counter[i]+1;
-	foreach(spi_hash[i]) spi_hash[i] = ^spi_counter[i];
-end	
+    UART_TRANSACTION_HANDLER dut (
+        .clk(clk),
+        .reset_n(reset_n),
 
-ADC_SPI_BATCH #(
-	.CHANNEL_COUNT(6), // number of hydrophones/channels
-	.CONVERSION_FRAME_SIZE(256) // fft frame size
-	) ADC_SPI_BATCH_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	
-	.SPI_clk(clk),
-	.SPI_reset_n(reset_n),
-	
-	// From regmap
-	.SPI_select(1),
-	
-	// To and From ADC (off chip)
-	.SPI_SCLK(SPI_SCLK),
-	.SPI_CS_N(SPI_CS_N),
-	.SPI_DI(SPI_DI),
-	.SPI_SDO_DRDY(SPI_SDO_DRDY),
-	.SPI_START(SPI_START),
-	
-	// From UART
-	.s_axis_tdata(axis_u2s_tdata),
-	.s_axis_tdest(axis_u2s_tdest),
-	.s_axis_tvalid(axis_u2s_tvalid),
-	.s_axis_tready(axis_u2s_tready),
-	
-	// To UART
-	.m_axis_reg_tdata(axis_s2u_tdata),
-	.m_axis_reg_tvalid(axis_s2u_tvalid),
-	.m_axis_reg_tready(axis_s2u_tready),
-	.m_axis_reg_tlast(axis_s2u_tlast),
-	
-	// To DSP
-	//.m_axis_conversion_tdata(m_axis_conversion_tdata),
-	//.m_axis_conversion_tlast(m_axis_conversion_tlast),
-	//.m_axis_conversion_tvalid(m_axis_conversion_tvalid),
-	.m_axis_conversion_tready(6'b111111)
-	);
+        .rx_data(rx_data),
+        .rx_ready(rx_ready),
 
-logic[7:0] s_axis_spaced_tdata;
-logic s_axis_spaced_tvalid;
-logic s_axis_spaced_tready;
+        .uart_tx_ready(uart_tx_ready),
+        .Word_To_Send(Word_To_Send),
+        .Word_To_Send_en(Word_To_Send_en),
 
-axis_spacer #(
-	.DATA_WIDTH(8)
-	) axis_spacer_inst(
-	.clk(clk),
-	.reset_n(reset_n),
-	.s_axis_tdata(s_axis_uart_tdata),
-	.s_axis_tvalid(s_axis_uart_tvalid),
-	.s_axis_tready(s_axis_uart_tready),
-	.m_axis_tdata(s_axis_spaced_tdata),
-	.m_axis_tvalid(s_axis_spaced_tvalid),
-	.m_axis_tready(s_axis_spaced_tready)
-	);
+        .max_angle(max_angle),
 
+        .m_axi_awaddr(m_axi_awaddr),
+        .m_axi_awvalid(m_axi_awvalid),
+        .m_axi_awready(m_axi_awready),
 
-UART_TRANSACTION_HANDLER_v2 UART_TRANSACTION_HANDLER_v2_inst(
-	.s_axis_clk(clk),
-	.s_axis_aresetn(reset_n),
-	
-	.s_axis_uart_tdata(s_axis_spaced_tdata),
-	.s_axis_uart_tvalid(s_axis_spaced_tvalid),
-	.s_axis_uart_tready(s_axis_spaced_tready),
-	
-	.m_axis_uart_tdata(),
-	.m_axis_uart_tvalid(),
-	.m_axis_uart_tready(1),
-	
-	.regmap_addr(regmap_addr),
-	.regmap_din(regmap_din),
-	.regmap_dout(regmap_dout),
-	.regmap_wea(regmap_wea),
-	
-	.m_axis_spi_tdata(axis_u2s_tdata),
-	.m_axis_spi_tdest(axis_u2s_tdest),
-	.m_axis_spi_tvalid(axis_u2s_tvalid),
-	.m_axis_spi_tready(axis_u2s_tready),
-	
-	.s_axis_spi_tdata(axis_s2u_tdata),
-	.s_axis_spi_tvalid(axis_s2u_tvalid),
-	.s_axis_spi_tlast(axis_s2u_tlast),
-	.s_axis_spi_tready(axis_s2u_tready),
-	
-	.mem_addr(),
-	.mem_din(),
-	.mem_dout(),
-	.mem_wea(),
-	
-	.max_angle({28'hABCDEF0,spi_counter[0]})
-	);
-	
-	
-always#5 clk = ~clk;
+        .m_axi_wdata(m_axi_wdata),
+        .m_axi_wstrb(m_axi_wstrb),
+        .m_axi_wvalid(m_axi_wvalid),
+        .m_axi_wready(m_axi_wready),
 
-localparam COMMAND_LENGTH = 6;
-localparam OP_GET = 8'h00;
-localparam OP_R = 8'h40;
-localparam OP_RS = 8'h50;
-localparam OP_RM = 8'h60;
-localparam OP_RX = 8'h70;
-localparam OP_W = 8'h80;
-localparam OP_WS = 8'h90;
-localparam OP_WM = 8'hA0;
-localparam OP_WX = 8'hB0;
-			
-	// Message format:
-	// 	1 byte		[1 byte]  	[4 bytes]
-	// 	Opcode		address		data
-	
-	// Opcodes:
-	//	0x00	- 	Get Angle 								- 0 bytes
-	// 	0x40	-	Read									- 1 bytes	- 8 bit address
-	//	0x50	-	Read all SPI 							- 1 bytes	- 8 bit address
-	//	0x60	-	Read Memory (separate from regmap)		- 2 bytes 	- 16 bit address
-	// 	0x70	- 	Read ???								- 0 bytes 	- reserved for future implementation
-	//	0x80	-	Write									- 5 bytes	- 8 bit address + 32 bit data
-	//	0x90	-	Write all SPI							- 2 bytes	- 8 bit address + 8 bit data
-	//	0xA0	-	Write Memory (separate from regmap)		- 6 bytes 	- 16 bit address + 32 bit data
-	// 	0xB0	-	Write ???								- 0 bytes 	- reserved for future implementation
-	
+        .m_axi_bresp(m_axi_bresp),
+        .m_axi_bvalid(m_axi_bvalid),
+        .m_axi_bready(m_axi_bready),
 
-integer i;
+        .m_axi_araddr(m_axi_araddr),
+        .m_axi_arvalid(m_axi_arvalid),
+        .m_axi_arready(m_axi_arready),
 
-task SendCommand(
-    input [47:0] command,
-    input [5:0]  valid
-);
-begin
-@(posedge clk);
-    $display("Sending command: %x, valid bits: %b",
-             command, valid);
+        .m_axi_rdata(m_axi_rdata),
+        .m_axi_rresp(m_axi_rresp),
+        .m_axi_rvalid(m_axi_rvalid),
+        .m_axi_rready(m_axi_rready)
+    );
 
-    for(i = 5; i >= 0; i = i - 1) begin
-		
-        if(valid[i]) begin
-			$display("Starting word %d",i);
-            s_axis_uart_tdata  = command[i*8 +: 8];
-            s_axis_uart_tvalid = 1;
-			$display(s_axis_uart_tdata);
-			$display(s_axis_uart_tvalid);
-            // Wait for handshake
-            while(!s_axis_uart_tready)begin
-                @(posedge clk);
-				$display("Waiting for tready");
-			end
-            // Handshake occurs here
-            @(posedge clk);
+    logic [31:0] axi_memory [0:63];
 
-            s_axis_uart_tvalid = 0;	
+    integer i;
+
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            m_axi_arready <= 1'b1;
+            m_axi_rvalid  <= 1'b0;
+            m_axi_rdata   <= 32'b0;
+            m_axi_rresp   <= 2'b00;
+        end
+        else begin
+
+            if (m_axi_arvalid && m_axi_arready && !m_axi_rvalid) begin
+                m_axi_rdata  <= axi_memory[m_axi_araddr[5:0]];
+                m_axi_rresp  <= 2'b00;
+                m_axi_rvalid <= 1'b1;
+            end
+
+            else if (m_axi_rvalid && m_axi_rready) begin
+                m_axi_rvalid <= 1'b0;
+            end
+
         end
     end
-end
-endtask
 
 
+    // -------------------------
+    // AXI Write
+    // -------------------------
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            m_axi_awready <= 1'b1;
+            m_axi_wready  <= 1'b1;
 
-task GetAngle();
-$display("Getting angle");
-	SendCommand({OP_GET,42'h000000000000},6'b100000);
-	
-endtask
+            m_axi_bvalid  <= 1'b0;
+            m_axi_bresp   <= 2'b00;
+        end
+        else begin
 
-task Read(input [7:0] addr);
-$display("Reading regmap address: %x",addr);
-	SendCommand({OP_R,addr,32'h000000000000},6'b110000);
-endtask
+            if (!m_axi_bvalid &&
+                m_axi_awvalid && m_axi_awready &&
+                m_axi_wvalid  && m_axi_wready) begin
 
-task ReadSPI(input [7:0] addr);
-$display("Reading all SPI: %x",addr);
-	SendCommand({OP_RS,addr,32'h00000000},6'b110000);
-endtask
+                if (m_axi_wstrb[0])
+                    axi_memory[m_axi_awaddr[5:0]][7:0]
+                        <= m_axi_wdata[7:0];
 
-task Write(input [7:0] addr,input[31:0] data);
-$display("Writing regmap addr: %x with %x",addr,data);
-	SendCommand({OP_W,addr,data},6'b111111);
-endtask
+                if (m_axi_wstrb[1])
+                    axi_memory[m_axi_awaddr[5:0]][15:8]
+                        <= m_axi_wdata[15:8];
 
-task WriteSPI(input [7:0] addr, input [7:0] data);
-$display("Writing all SPI: %x with %x",addr,data);
-	SendCommand({OP_WS,addr,data,24'h000000},6'b111000);
-endtask
+                if (m_axi_wstrb[2])
+                    axi_memory[m_axi_awaddr[5:0]][23:16]
+                        <= m_axi_wdata[23:16];
 
-task TestRead();
-	// Valid
-	for(j = 0; j < REGMAP_MAX_ADDRESS; j++)begin
-		#10 Read(j); // read sends the opcode to regmap addr and addr to regmap din
-	end
-	wait(s_axis_uart_tready);
-	#500 $stop();
-endtask
+                if (m_axi_wstrb[3])
+                    axi_memory[m_axi_awaddr[5:0]][31:24]
+                        <= m_axi_wdata[31:24];
 
-task TestSPIRead();
-	// Valid
-	for(j = 0; j < SPI_MAX_ADDRESS; j++)begin
-		#10 ReadSPI(j);
-	end
-	wait(s_axis_uart_tready);
-	#500 $stop();
-	
-endtask
+                m_axi_bresp  <= 2'b00;
+                m_axi_bvalid <= 1'b1;
+            end
 
-task TestWrite();
-	// Valid
-	for(j = 0; j < REGMAP_MAX_ADDRESS; j++)begin
-		#10 Write(j,{32'hABCDEF98});
-	end	
-	wait(s_axis_uart_tready);
-	#500 $stop();
-endtask
+            else if (m_axi_bvalid && m_axi_bready) begin
+                m_axi_bvalid <= 1'b0;
+            end
 
-task TestSPIWrite();
-	// Valid
-	for(j = 0; j < SPI_MAX_ADDRESS; j++)begin
-		#10 WriteSPI(j,{8'h37});
-	end	
-	wait(s_axis_uart_tready);
-	#500 $stop();
-endtask
+        end
+    end
 
-task TestGetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#50 GetAngle();
-	#500 $stop();
-endtask
+    localparam [1:0] OP_READ      = 2'b00;
+    localparam [1:0] OP_WRITE     = 2'b01;
+    localparam [1:0] OP_GET_ANGLE = 2'b10;
 
 
-logic[7:0] j;
+    // =========================================================
+    // Send one UART byte
+    // =========================================================
 
-localparam REGMAP_MAX_ADDRESS = 16;
-localparam SPI_MAX_ADDRESS = 16;
+    task automatic SendByte(
+        input [7:0] data
+    );
+    begin
 
-initial begin
-	clk = 1;
-	s_axis_uart_tvalid = 0;
-	s_axis_uart_tdata = 0;
-	reset_n = 0;
-	j = 0;i = 0;
-	foreach(fake_regmap[i])begin
-		fake_regmap[i] = {24'hFEDCAB,i[7:0]};
-	end
-	
-	#100 reset_n = 1;
-	
-	TestGetAngle();
-	TestRead();
-	TestSPIRead();
-	TestWrite();
-	TestSPIWrite();
+        @(negedge clk);
+
+        rx_data  = data;
+        rx_ready = 1'b1;
+
+        @(negedge clk);
+
+        rx_ready = 1'b0;
+
+    end
+    endtask
 
 
-end	
-	
-	
+    // =========================================================
+    // GET_ANGLE
+    //
+    // Format:
+    // [7:6] = 10
+    // [5:0] = unused
+    // =========================================================
+
+    task automatic GetAngle();
+    begin
+        $display("GET_ANGLE");
+
+        SendByte({OP_GET_ANGLE, 6'h00});
+    end
+    endtask
+
+
+    // =========================================================
+    // AXI Read
+    //
+    // One UART byte:
+    // [7:6] = READ
+    // [5:0] = address
+    // =========================================================
+
+    task automatic Read(
+        input [5:0] addr
+    );
+    begin
+        $display("READ address: 0x%02h", addr);
+
+        SendByte({OP_READ, addr});
+    end
+    endtask
+
+
+    // =========================================================
+    // AXI Write
+    //
+    // Byte 0 = operation + address
+    // Byte 1 = data[31:24]
+    // Byte 2 = data[23:16]
+    // Byte 3 = data[15:8]
+    // Byte 4 = data[7:0]
+    // =========================================================
+
+    task automatic Write(
+        input [5:0] addr,
+        input [31:0] data
+    );
+    begin
+
+        $display(
+            "WRITE address: 0x%02h data: 0x%08h",
+            addr,
+            data
+        );
+
+        SendByte({OP_WRITE, addr});
+
+        SendByte(data[31:24]);
+        SendByte(data[23:16]);
+        SendByte(data[15:8]);
+        SendByte(data[7:0]);
+
+    end
+    endtask
+
+
+    // =========================================================
+    // Receive a 32-bit UART response
+    // =========================================================
+
+    task automatic ReceiveWord(
+        output [31:0] data
+    );
+
+        integer n;
+
+    begin
+
+        data = 32'b0;
+
+        for (n = 0; n < 4; n = n + 1) begin
+
+            do begin
+                @(negedge clk);
+            end while (!Word_To_Send_en);
+
+            data = {
+                data[23:0],
+                Word_To_Send
+            };
+
+        end
+
+        $display(
+            "UART received: 0x%08h",
+            data
+        );
+
+    end
+    endtask
+
+
+    // =========================================================
+    // Test
+    // =========================================================
+
+    logic [31:0] received_data;
+
+
+    initial begin
+
+        clk = 1'b0;
+        reset_n = 1'b0;
+
+        rx_data  = 8'b0;
+        rx_ready = 1'b0;
+
+        uart_tx_ready = 1'b1;
+
+        max_angle = 32'hABCDEF01;
+
+
+        // Initialize fake AXI memory
+        for (i = 0; i < 64; i = i + 1)
+            axi_memory[i] = 32'b0;
+
+        axi_memory[6'h05] = 32'h12345678;
+
+        repeat (5)
+            @(posedge clk);
+
+        reset_n = 1'b1;
+
+        repeat (3)
+            @(posedge clk);
+
+
+        // =====================================================
+        // Test 1: GET_ANGLE
+        // =====================================================
+
+        GetAngle();
+
+        ReceiveWord(received_data);
+
+        if (received_data == max_angle)
+            $display("GET_ANGLE PASS");
+        else
+            $error("GET_ANGLE FAIL");
+
+
+        repeat (5)
+            @(posedge clk);
+
+
+        // =====================================================
+        // Test 2: AXI Read
+        // =====================================================
+
+        Read(6'h05);
+
+        ReceiveWord(received_data);
+
+        if (received_data == 32'h12345678)
+            $display("AXI READ PASS");
+        else
+            $error("AXI READ FAIL");
+
+
+        repeat (5)
+            @(posedge clk);
+
+
+        // =====================================================
+        // Test 3: AXI Write
+        // =====================================================
+
+        Write(
+            6'h09,
+            32'hDEADBEEF
+        );
+
+        wait (
+            m_axi_bvalid &&
+            m_axi_bready
+        );
+
+        @(posedge clk);
+
+        if (axi_memory[6'h09] == 32'hDEADBEEF)
+            $display("AXI WRITE PASS");
+        else
+            $error("AXI WRITE FAIL");
+
+
+        repeat (5)
+            @(posedge clk);
+
+        // =====================================================
+        // Test 4: Read back written data
+        // =====================================================
+
+        Read(6'h09);
+
+        ReceiveWord(received_data);
+
+        if (received_data == 32'hDEADBEEF)
+            $display("AXI WRITE/READBACK PASS");
+        else
+            $error("AXI WRITE/READBACK FAIL");
+
+
+        repeat (10)
+            @(posedge clk);
+
+
+        $display("-----------------------------");
+        $display("TESTBENCH COMPLETE");
+        $display("-----------------------------");
+
+        $finish;
+
+    end
+
 
 endmodule
