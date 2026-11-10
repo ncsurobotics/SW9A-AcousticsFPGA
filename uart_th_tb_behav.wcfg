@@ -3,38 +3,26 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="uart_th_tb_behav.wdb" id="1">
+      <db_ref path="uart_dsm_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="uart_th_tb" />
+            <top_module name="uart_dsm_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="775.000 ns"></ZoomEndTime>
-      <Cursor1Time time="775.000 ns"></Cursor1Time>
+      <ZoomEndTime time="2,036.137 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="242"></NameColumnWidth>
+      <NameColumnWidth column_width="237"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="38" />
+   <WVObjectSize size="11" />
    <wvobject fp_name="group604" type="group">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/uart_th_tb/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/uart_th_tb/reset_n" type="logic">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
-      </wvobject>
-      <wvobject fp_name="/uart_th_tb/i" type="array">
-         <obj_property name="ElementShortName">i[31:0]</obj_property>
-         <obj_property name="ObjectShortName">i[31:0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="group603" type="group">
       <obj_property name="label">DUT</obj_property>
@@ -89,128 +77,20 @@
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
    </wvobject>
-   <wvobject fp_name="/uart_th_tb/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <wvobject fp_name="/uart_dsm_tb/s_axis_dsm_tdata" type="array">
+      <obj_property name="ElementShortName">s_axis_dsm_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_dsm_tdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/uart_th_tb/reset_n" type="logic">
-      <obj_property name="ElementShortName">reset_n</obj_property>
-      <obj_property name="ObjectShortName">reset_n</obj_property>
+   <wvobject fp_name="/uart_dsm_tb/s_axis_dsm_tvalid" type="logic">
+      <obj_property name="ElementShortName">s_axis_dsm_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_dsm_tvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/uart_th_tb/rx_data" type="array">
-      <obj_property name="ElementShortName">rx_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">rx_data[7:0]</obj_property>
+   <wvobject fp_name="/uart_dsm_tb/s_axis_dsm_tready" type="logic">
+      <obj_property name="ElementShortName">s_axis_dsm_tready</obj_property>
+      <obj_property name="ObjectShortName">s_axis_dsm_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/uart_th_tb/rx_ready" type="logic">
-      <obj_property name="ElementShortName">rx_ready</obj_property>
-      <obj_property name="ObjectShortName">rx_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/uart_tx_ready" type="logic">
-      <obj_property name="ElementShortName">uart_tx_ready</obj_property>
-      <obj_property name="ObjectShortName">uart_tx_ready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/Word_To_Send" type="array">
-      <obj_property name="ElementShortName">Word_To_Send[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Word_To_Send[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/Word_To_Send_en" type="logic">
-      <obj_property name="ElementShortName">Word_To_Send_en</obj_property>
-      <obj_property name="ObjectShortName">Word_To_Send_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/max_angle" type="array">
-      <obj_property name="ElementShortName">max_angle[31:0]</obj_property>
-      <obj_property name="ObjectShortName">max_angle[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_awaddr" type="array">
-      <obj_property name="ElementShortName">m_axi_awaddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_awaddr[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_awvalid" type="logic">
-      <obj_property name="ElementShortName">m_axi_awvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axi_awvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_awready" type="logic">
-      <obj_property name="ElementShortName">m_axi_awready</obj_property>
-      <obj_property name="ObjectShortName">m_axi_awready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_wdata" type="array">
-      <obj_property name="ElementShortName">m_axi_wdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_wdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_wstrb" type="array">
-      <obj_property name="ElementShortName">m_axi_wstrb[3:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_wstrb[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_wvalid" type="logic">
-      <obj_property name="ElementShortName">m_axi_wvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axi_wvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_wready" type="logic">
-      <obj_property name="ElementShortName">m_axi_wready</obj_property>
-      <obj_property name="ObjectShortName">m_axi_wready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_bresp" type="array">
-      <obj_property name="ElementShortName">m_axi_bresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_bresp[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_bvalid" type="logic">
-      <obj_property name="ElementShortName">m_axi_bvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axi_bvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_bready" type="logic">
-      <obj_property name="ElementShortName">m_axi_bready</obj_property>
-      <obj_property name="ObjectShortName">m_axi_bready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_araddr" type="array">
-      <obj_property name="ElementShortName">m_axi_araddr[31:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_araddr[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_arvalid" type="logic">
-      <obj_property name="ElementShortName">m_axi_arvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axi_arvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_arready" type="logic">
-      <obj_property name="ElementShortName">m_axi_arready</obj_property>
-      <obj_property name="ObjectShortName">m_axi_arready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_rdata" type="array">
-      <obj_property name="ElementShortName">m_axi_rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_rdata[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_rresp" type="array">
-      <obj_property name="ElementShortName">m_axi_rresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axi_rresp[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_rvalid" type="logic">
-      <obj_property name="ElementShortName">m_axi_rvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axi_rvalid</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/m_axi_rready" type="logic">
-      <obj_property name="ElementShortName">m_axi_rready</obj_property>
-      <obj_property name="ObjectShortName">m_axi_rready</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/axi_memory" type="array">
-      <obj_property name="ElementShortName">axi_memory[0:63][31:0]</obj_property>
-      <obj_property name="ObjectShortName">axi_memory[0:63][31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/received_data" type="array">
-      <obj_property name="ElementShortName">received_data[31:0]</obj_property>
-      <obj_property name="ObjectShortName">received_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/OP_READ" type="array">
-      <obj_property name="ElementShortName">OP_READ[1:0]</obj_property>
-      <obj_property name="ObjectShortName">OP_READ[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/OP_WRITE" type="array">
-      <obj_property name="ElementShortName">OP_WRITE[1:0]</obj_property>
-      <obj_property name="ObjectShortName">OP_WRITE[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/uart_th_tb/OP_GET_ANGLE" type="array">
-      <obj_property name="ElementShortName">OP_GET_ANGLE[1:0]</obj_property>
-      <obj_property name="ObjectShortName">OP_GET_ANGLE[1:0]</obj_property>
+   <wvobject fp_name="/uart_dsm_tb/s_axis_dsm_tlast" type="logic">
+      <obj_property name="ElementShortName">s_axis_dsm_tlast</obj_property>
+      <obj_property name="ObjectShortName">s_axis_dsm_tlast</obj_property>
    </wvobject>
 </wave_config>

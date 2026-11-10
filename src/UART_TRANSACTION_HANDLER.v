@@ -35,7 +35,8 @@
 
 module UART_TRANSACTION_HANDLER #(
     parameter AXI_ADDR_WIDTH = 32,
-    parameter AXI_DATA_WIDTH = 32
+    parameter AXI_DATA_WIDTH = 32,
+    parameter DSM_TDATA_WIDTH = 32
 )(
     input clk,
     input reset_n,
@@ -69,7 +70,12 @@ module UART_TRANSACTION_HANDLER #(
     input  [AXI_DATA_WIDTH-1:0]     m_axi_rdata,
     input  [1:0]                    m_axi_rresp,
     input                           m_axi_rvalid,
-    output reg                      m_axi_rready
+    output reg                      m_axi_rready,
+    
+    input  wire [DSM_TDATA_WIDTH-1:0] s_axis_dsm_tdata,
+    input  wire                       s_axis_dsm_tvalid,
+    output wire                       s_axis_dsm_tready,
+    input  wire                       s_axis_dsm_tlast
 );
 
     wire [3:0] byte_counter;
@@ -103,7 +109,78 @@ module UART_TRANSACTION_HANDLER #(
     reg [2:0] state;
     localparam [2:0] IDLE = 3'd0, AXI_READ_ADDR = 3'd1, AXI_READ_DATA = 3'd2, AXI_WRITE = 3'd3, AXI_WRITE_RESP = 3'd4, UART_SEND = 3'd5, UART_WAIT = 3'd6;
     localparam [1:0] OP_READ = 2'b00, OP_WRITE = 2'b01, OP_GET_ANGLE = 2'b10;
+     
+    localparam integer DSM_BYTES = DSM_TDATA_WIDTH / 8;
+    
+    localparam integer DSM_COUNT_WIDTH = (DSM_BYTES <= 1) ? 1 : $clog2(DSM_BYTES);
+    
+    reg [DSM_TDATA_WIDTH-1:0] dsm_shift_reg;
+    reg [DSM_COUNT_WIDTH-1:0] dsm_byte_count;
+    
+    reg dsm_beat_valid;
+    reg dsm_packet_active;
+    reg dsm_last_reg;
+    
+    wire [7:0] normal_word_to_send;
+    wire       normal_word_to_send_en;
+
+    wire [7:0] dsm_word_to_send;
+    wire       dsm_word_to_send_en;
+    
+    assign s_axis_dsm_tready = (state == IDLE) && !dsm_beat_valid;
+    
+    assign dsm_word_to_send = dsm_shift_reg[DSM_TDATA_WIDTH-1 -: 8];
+    
+    assign dsm_word_to_send_en = dsm_beat_valid && uart_tx_ready;
+    
+    assign Word_To_Send = dsm_packet_active ? dsm_word_to_send : normal_word_to_send;
+    
+    assign Word_To_Send_en = dsm_packet_active ? dsm_word_to_send_en : normal_word_to_send_en;
        
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            dsm_shift_reg    <= 0;
+            dsm_byte_count   <= 0;
+            dsm_beat_valid   <= 1'b0;
+            dsm_packet_active <= 1'b0;
+            dsm_last_reg     <= 1'b0;
+        end
+        else begin
+   
+            if (s_axis_dsm_tvalid && s_axis_dsm_tready) begin
+    
+                dsm_shift_reg     <= s_axis_dsm_tdata;
+                dsm_byte_count    <= 0;
+                dsm_beat_valid    <= 1'b1;
+                dsm_last_reg      <= s_axis_dsm_tlast;
+    
+                dsm_packet_active <= 1'b1;
+            end
+    
+            else if (dsm_word_to_send_en) begin
+    
+                if (dsm_byte_count == DSM_BYTES - 1) begin
+    
+                    dsm_beat_valid <= 1'b0;
+                    dsm_byte_count <= 0;
+    
+                    if (dsm_last_reg) begin
+                        dsm_packet_active <= 1'b0;
+                        dsm_last_reg      <= 1'b0;
+                    end
+                end
+    
+                else begin
+    
+                    dsm_shift_reg <= dsm_shift_reg << 8;
+    
+                    dsm_byte_count <=
+                        dsm_byte_count + 1'b1;
+                end
+            end
+        end
+    end   
+    
     always @(posedge clk or negedge reset_n) begin
         if (!reset_n) begin
             state <= IDLE;
@@ -127,25 +204,42 @@ module UART_TRANSACTION_HANDLER #(
             case(state)
                 IDLE: begin
                         tx_start <= 1'b0;
-                        if (command_valid) begin
-                            uart_addr_reg <= {{(AXI_ADDR_WIDTH-6){1'b0}}, uart_addr};
-                            uart_data_reg <= uart_data_in;                            
-                            
+                    
+                        if (dsm_packet_active ||
+                            (s_axis_dsm_tvalid && s_axis_dsm_tready)) begin
+                    
+                            state <= IDLE;
+                        end
+                    
+                        else if (command_valid) begin
+                    
+                            uart_addr_reg <=
+                                {{(AXI_ADDR_WIDTH-6){1'b0}}, uart_addr};
+                    
+                            uart_data_reg <= uart_data_in;
+                    
                             case (op)
-                                OP_READ:      state <= AXI_READ_ADDR;
+                    
+                                OP_READ:
+                                    state <= AXI_READ_ADDR;
+                    
                                 OP_WRITE: begin
                                     aw_done <= 1'b0;
                                     w_done  <= 1'b0;
-                                    state <= AXI_WRITE;
+                                    state   <= AXI_WRITE;
                                 end
+                    
                                 OP_GET_ANGLE: begin
                                     tx_data_in <= max_angle;
                                     state <= UART_SEND;
                                 end
-                                default:      state <= IDLE;
+                    
+                                default:
+                                    state <= IDLE;
+                    
                             endcase
                         end
-                      end
+                    end
                 AXI_READ_ADDR: begin
                         m_axi_araddr <= uart_addr_reg;
                         m_axi_arvalid <= 1'b1;
@@ -158,7 +252,7 @@ module UART_TRANSACTION_HANDLER #(
                 AXI_READ_DATA: begin
                         if (m_axi_rvalid && m_axi_rready) begin
                             if (m_axi_rresp == 2'b00) tx_data_in <= m_axi_rdata;
-                            else tx_data_in <= 32'hDEAD0001; // example error code
+                            else tx_data_in <= 32'hDEAD0001; 
                                 
                             m_axi_rready <= 1'b0;
                             state <= UART_SEND;
@@ -221,8 +315,8 @@ module UART_TRANSACTION_HANDLER #(
         .tx_start(tx_start),
         .data_in(tx_data_in),
         .uart_tx_ready(uart_tx_ready),
-        .Word_To_Send(Word_To_Send),
-        .Word_To_Send_en(Word_To_Send_en),
+        .Word_To_Send(normal_word_to_send),
+        .Word_To_Send_en(normal_word_to_send_en),
         .tx_done(tx_done)
     );
     
