@@ -8,10 +8,12 @@ else
     out = b;
 end
 end
-test_index = 37;
+test_index = 31;
 
-signals_filename = sprintf("sim\\dsp_tb\\sim_%d_signal.csv",test_index);
-config_filename = sprintf("sim\\dsp_tb\\sim_%d_config.csv",test_index);
+%signals_filename = sprintf("sim\\dsp_tb\\sim_%d_signal.csv",test_index);
+%config_filename = sprintf("sim\\dsp_tb\\sim_%d_config.csv",test_index);
+signals_filename = "sim\\dsp_tb\\sim_236_40000.000_70.000_256_0.500_signal.csv"
+config_filename = "sim\\dsp_tb\\sim_236_40000.000_70.000_256_0.500_config.csv"
 H = 6;   % number of hydrophones
 
 opts = detectImportOptions(signals_filename);
@@ -81,14 +83,16 @@ k = frequency * pi * 2/1480;
 % Create array manifold (for each angle in theta, there is a 4x1 steering vector s(theta))
 for i=1:length(theta)
     distance = cos(theta(i))*hydrophone_array(:,1) + sin(theta(i))*hydrophone_array(:,2); % get vertical and horizontal distance
-    array_factor(:,i) = exp(-1j*k*distance) * 65536/4; % s(theta) = e^j * (distance * radians/meter)
+    array_factor(:,i) = exp(1j*k*distance) * 65536/4; % s(theta) = e^j * (distance * radians/meter)
 end
 af_theta = zeros(H, H, numel(theta));
 for i = 1:numel(theta)
     af_theta(:, :, i) = array_factor(:, i) * array_factor(:, i)';
 end
 
+% fixed point scaling
 af_theta = af_theta * 1/(65536*2);
+R = R/2.1472e+09;
 
 ptheta = squeeze(sum(af_theta .* R, [1 2]));
 
@@ -297,4 +301,10 @@ drawnow;
 end
 
 figure('Name','PTheta');
-plot(theta,abs(ptheta));
+theta_deg = rad2deg(theta);
+plot(theta_deg,abs(ptheta));
+xlabel('Direction of Arrival (degrees)');
+ylabel('Beamformer Response Magnitude');
+title('Array Response versus Direction of Arrival');
+grid on;
+xlim([theta_deg(1), theta_deg(end)]);

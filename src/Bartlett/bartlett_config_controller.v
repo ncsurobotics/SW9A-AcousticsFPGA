@@ -34,7 +34,7 @@ module bartlett_config_controller(
     );
 	
 	
-	assign m_axis_config_tdata = {beam_freq,max_frequency_reg,min_frequency_reg,threshold_reg};
+	assign m_axis_config_tdata = {beam_freq_reg,max_frequency_reg,min_frequency_reg,threshold_reg};
 	assign m_axis_config_tvalid = |m_axis_config_tstrb; // if anything is different, then write
 	
 	reg[31:0] threshold_reg;

@@ -112,12 +112,12 @@ module Parallel_Beamformer_Wrapper #(
 		   );
 
     assign beamformer_packed_data = {
-        -im5[16:1], re5[16:1],
-        -im4[16:1], re4[16:1],
-        -im3[16:1], re3[16:1],
-        -im2[16:1], re2[16:1],
-        -im1[16:1], re1[16:1],
-        -im0[16:1], re0[16:1]
+        im5[16:1], re5[16:1],
+        im4[16:1], re4[16:1],
+        im3[16:1], re3[16:1],
+        im2[16:1], re2[16:1],
+        im1[16:1], re1[16:1],
+        im0[16:1], re0[16:1]
     };
     
     assign fifo_in = beamformer_packed_data;

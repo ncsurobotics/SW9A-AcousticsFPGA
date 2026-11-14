@@ -57,7 +57,7 @@
     <Option Name="IPUserFilesDir" Val="$PIPUSERFILESDIR"/>
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="1300"/>
+    <Option Name="WTXSimLaunchSim" Val="1349"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -1068,7 +1068,7 @@
         <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/dsp_tb_behav.wcfg"/>
-        <Option Name="xsim.simulate.runtime" Val="10ns"/>
+        <Option Name="xsim.simulate.runtime" Val=""/>
       </Config>
     </FileSet>
     <FileSet Name="cmpy_beamformer" Type="BlockSrcs" RelSrcDir="$PSRCDIR/cmpy_beamformer" RelGenDir="$PGENDIR/cmpy_beamformer">
@@ -1142,6 +1142,30 @@
         <Option Name="TopModule" Val="xadc_wiz_0"/>
         <Option Name="dataflowViewerSettings" Val="min_width=16"/>
         <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="beam_cov" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/beam_cov" RelGenDir="$PGENDIR/beam_cov">
+      <Filter Type="Srcs"/>
+      <File Path="$PPRDIR/sim/beam_covariance/beam_covariance_tb.sv">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="DesignMode" Val="RTL"/>
+        <Option Name="TopModule" Val="beam_covariance_tb"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
+        <Option Name="TransportPathDelay" Val="0"/>
+        <Option Name="TransportIntDelay" Val="0"/>
+        <Option Name="SelectedSimModel" Val="rtl"/>
+        <Option Name="PamDesignTestbench" Val=""/>
+        <Option Name="PamDutBypassFile" Val="xil_dut_bypass"/>
+        <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
+        <Option Name="PamPseudoTop" Val="pseudo_tb"/>
+        <Option Name="SrcSet" Val="sources_1"/>
+        <Option Name="xsim.simulate.runtime" Val="10ns"/>
       </Config>
     </FileSet>
   </FileSets>
@@ -1306,11 +1330,12 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="cmpy_beamformer_synth_1" Type="Ft3:Synth" SrcSet="cmpy_beamformer" Part="xc7a35tcpg236-1" ConstrsSet="cmpy_beamformer" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1">
+    <Run Id="cmpy_beamformer_synth_1" Type="Ft3:Synth" SrcSet="cmpy_beamformer" Part="xc7a35tcpg236-1" ConstrsSet="cmpy_beamformer" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/cmpy_beamformer_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/cmpy_beamformer_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2022"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>

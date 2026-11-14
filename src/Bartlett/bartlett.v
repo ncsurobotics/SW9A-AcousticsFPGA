@@ -266,13 +266,15 @@ wire		m_axis_rxx_tlast;
 
 		.m_axis_tdata(m_axis_rxx_rep_tdata),
 		.m_axis_tvalid(m_axis_rxx_rep_tvalid),
-		.m_axis_tready(m_axis_rxx_rep_tready)
+		.m_axis_tready(m_axis_rxx_rep_tready),
+		.m_axis_tlast(m_axis_rxx_rep_tlast)
 		);
 
 
 wire	[NUM_SIZE - 1:0]	m_axis_rxx_rep_tdata;
 wire		m_axis_rxx_rep_tvalid;
 wire		m_axis_rxx_rep_tready;
+wire		m_axis_rxx_rep_tlast;
 
 wire	[NUM_SIZE - 1:0]	m_axis_rxx_rep_fifo_tdata;
 wire		m_axis_rxx_rep_fifo_tvalid;
@@ -367,7 +369,7 @@ wire[THETA_WIDTH:0] m_axis_stheta_fifo_tuser;
     );
 
 
-wire	[NUM_SIZE * 2:0]	m_axis_cdp_tdata;
+wire	[NUM_SIZE * 2 - 1:0]	m_axis_cdp_tdata;
 wire		m_axis_cdp_tvalid;
 wire	[THETA_WIDTH:0]	m_axis_cdp_tuser;
 
@@ -405,7 +407,7 @@ wire	[THETA_WIDTH:0]	m_axis_combined_tuser;
       .s_axis_tvalid(m_axis_rxx_rep_tvalid),
       .s_axis_tready(m_axis_rxx_rep_tready),
       .s_axis_tdata(m_axis_rxx_rep_tdata),
-      .s_axis_tlast(0),
+      .s_axis_tlast(m_axis_rxx_rep_tlast),
 	  .s_axis_tuser(0),
 	  
       .m_axis_tvalid(m_axis_rxx_rep_fifo_tvalid),
@@ -459,7 +461,7 @@ axis_combiner #(
 		.m_axis_tuser(m_axis_cdp_tuser)
 );
 
-
+/*
 	magnitude_squared #(
 		.NUM_SIZE(NUM_SIZE),
 		.TUSER_SIZE(THETA_WIDTH+1)
@@ -474,6 +476,7 @@ axis_combiner #(
 		.m_axis_tvalid(m_axis_mag2_tvalid),
 		.m_axis_tuser(m_axis_mag2_tuser)
 );
+*/
 
 
 	max #(

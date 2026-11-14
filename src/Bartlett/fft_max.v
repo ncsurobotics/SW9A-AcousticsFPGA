@@ -30,7 +30,7 @@ module fft_max #(
     input s_axis_tlast,
     output s_axis_tready,
 	
-	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {beam_freq,upper,lower,threshold}
 	input[6:0] s_axis_config_tstrb,
 	input s_axis_config_tvalid,
 	output s_axis_config_tready,
@@ -186,7 +186,7 @@ module max_fft_bin #(
 	input[$clog2(INDEX_COUNT)  - 1: 0] s_axis_weight_tuser, // index
 	output reg s_axis_weight_tready,
 	
-	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {upper,lower,threshold}
+	input[8 + 8 + 8 + 32 - 1 : 0] s_axis_config_tdata, // {beam_freq,upper,lower,threshold}
 	input[6:0] s_axis_config_tstrb,
 	input s_axis_config_tvalid,
 	output reg s_axis_config_tready,

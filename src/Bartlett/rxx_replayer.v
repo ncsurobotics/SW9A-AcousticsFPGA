@@ -47,6 +47,7 @@ module rxx_replayer #(
     // Replayed matrix output stream
     output reg  [NUM_SIZE-1:0] m_axis_tdata,
     output reg  m_axis_tvalid,
+	output reg m_axis_tlast,
     input  wire m_axis_tready
 );
 
@@ -84,6 +85,7 @@ module rxx_replayer #(
         s_axis_trigger_tready = 1'b0;
         m_axis_tvalid         = 1'b0;
         m_axis_tdata          = {NUM_SIZE{1'b0}};
+		m_axis_tlast = 0;
 
         case (state)
             S_IDLE: begin
@@ -105,6 +107,7 @@ module rxx_replayer #(
                 // Hold the current element until accepted
                 m_axis_tvalid = 1'b1;
                 m_axis_tdata  = rxx_saved[rxx_index];
+				m_axis_tlast = rxx_index == RXX_SIZE-1;
             end
 
             default: begin

@@ -319,8 +319,8 @@ comp_accumulator_inst (
 			m_axis_tuser<=0;
 		end else begin
 			m_axis_tvalid<=m_axis_accum_tvalid;
-			m_axis_tuser<=m_axis_accum_tuser;
 			if(m_axis_accum_tvalid)begin
+				m_axis_tuser<=m_axis_accum_tuser;
 				m_axis_tdata<=m_axis_accum_tdata;
 			end
 		end

@@ -548,6 +548,10 @@ for frame=0:framecount
         amp = (r0 ./ signal_distance) .* (1 - alpha .* (signal_distance - r0)); 
         amp(signal_distance<=r0) = 1;             % clamp near reference
         amp(:) = 1; %override to remove attenuation
+        amp(2) = 0;
+        amp(3) = 0;
+        amp(4) = 0;
+       
         
         % generate hydrophone signals (fractional delays by time-shift in argument)
         for h = 1:H

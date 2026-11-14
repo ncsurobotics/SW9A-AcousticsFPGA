@@ -7,9 +7,9 @@
 `define M_PI 3.141592653589793
 `define PROPAGATION_SPEED 1480
 `define SHORT_SIZE 16
-`define SIGNAL_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb"
-`define CONFIG_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb"
-`define RESULTS_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb"
+`define SIGNAL_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sweep_3"
+`define CONFIG_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sweep_3"
+`define RESULTS_PATH "C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sweep_3"
 `define DO_FILE_WRITE 0
 
 // Testbench to verify the functionality of the bartlett algorithm
@@ -260,6 +260,22 @@ bartlett_datapath #(
     );
 
 
+logic[31:0] threshold;
+logic[7:0] min_frequency, max_frequency, beam_freq;
+// Controller for bartlett config	
+bartlett_config_controller bartlett_config_controller_inst(
+	.clk(clk),
+	.reset_n(reset_n),
+	.max_frequency(max_frequency),
+	.min_frequency(min_frequency),
+	.threshold(threshold),
+	.m_axis_config_tdata(s_axis_config_tdata),
+	.m_axis_config_tstrb(s_axis_config_tstrb),
+	.m_axis_config_tvalid(s_axis_config_tvalid),
+	.m_axis_config_tready(s_axis_config_tready)
+);
+
+
 task Reset();
 	$display("Beginning Reset");
 
@@ -277,6 +293,10 @@ s_axis_config_tstrb = '0;
 m_axis_tdata = '0;
 m_axis_tvalid = '0;
 m_axis_tlast = '0;
+beam_freq = '0;
+min_frequency = '0;
+max_frequency = '0;
+threshold = '0;
 repeat(10) @(posedge clk);
 @(negedge clk);
 reset_n = 1;
@@ -360,13 +380,19 @@ task automatic SendBatch(input real freq, input real theta, input int count, inp
     sent_count.push_back(count);
     sent_snr.push_back(snr);
 	$display("Beginning Send Batch with frequency: %f, theta: %f, count: %0d, snr: %f",freq,theta,count,snr);
-	config_filename = $sformatf("%s\\sim_%0d_config.csv",`CONFIG_PATH,batch_index);
+	config_filename = $sformatf(
+		"%s\\sim_%0d_%0.3f_%0.3f_%0d_%0.3f_config.csv",
+		`CONFIG_PATH, batch_index, freq, theta, count, snr
+		);
 	if(`DO_FILE_WRITE) config_file = $fopen(config_filename,"w");
     if(`DO_FILE_WRITE) if (!config_file) $fatal(1, "Cannot open %s", config_filename);
 	if(`DO_FILE_WRITE) $fwrite(config_file,"frequency,theta,count,snr,samplerate\n");
 	if(`DO_FILE_WRITE) $fwrite(config_file,"%f,%f,%0d,%f,%f\n",freq,theta,count,snr,`SAMPLE_RATE);
 	if(`DO_FILE_WRITE) $fclose(config_file);
-	signal_filename = $sformatf("%s\\sim_%0d_signal.csv",`SIGNAL_PATH,batch_index);
+	signal_filename = $sformatf(
+		"%s\\sim_%0d_%0.3f_%0.3f_%0d_%0.3f_signal.csv",
+		`SIGNAL_PATH, batch_index, freq, theta, count, snr
+		);	
 	if(`DO_FILE_WRITE) signals_file = $fopen(signal_filename,"w");
     if(`DO_FILE_WRITE) if (!signals_file) $fatal(1, "Cannot open %s", signal_filename);
 	sent_start_time.push_back($time());
@@ -388,6 +414,12 @@ task automatic SendSweep(
 	theta_step_size = theta_steps==1 ? 0 : (end_theta-start_theta)/(theta_steps-1);
 	snr_step_size = snr_steps==1 ? 0 : (end_snr-start_snr)/(snr_steps-1);
 	for(int f = 0; f < freq_steps; f = f + 1)begin
+		if((f*freq_step_size+start_freq - 25000) <= 2500) beam_freq = 0;
+		else if((f*freq_step_size+start_freq - 30000) <= 2500) beam_freq = 1;
+		else if((f*freq_step_size+start_freq - 35000) <= 2500) beam_freq = 2;
+		else if((f*freq_step_size+start_freq - 40000) <= 2500) beam_freq = 3;
+		else beam_freq = 0;
+		#10;
 		for(int t = 0; t < theta_steps; t = t + 1)begin
 			for(int s = 0; s < snr_steps; s = s + 1)begin
 				SendBatch(
@@ -423,27 +455,29 @@ endtask
 
 task automatic SaveResults();
     results_filename = $sformatf("%s\\sim_results.csv", `RESULTS_PATH);
-    results_file = $fopen(results_filename, "w");
-    if (!results_file) $fatal(1, "Cannot open %s", results_filename);
-    $fwrite(results_file, "Send_Start_time,Send_End_time,Elapsed_Send_time,Receive_time,Latency,Frequency,Count,SNR,Fixed Point Real Angle, Normalized Real Angle, Fixed Point Estimated Angle, Normalized Estimated Angle\n");
-	
-    foreach (sent_frequency[i]) begin
-        $fwrite(results_file, "%0d,%0d,%0d,%0d,%0d,%f,%0d,%f,%f,%f,%0d,%f\n",
-                sent_start_time.size() > i ? sent_start_time[i] : 0, 
-				sent_end_time.size() > i ? sent_end_time[i] : 0,
-				sent_end_time[i]-sent_start_time[i],
-				received_time.size() > i ? received_time[i] : 0, 
-				received_time[i]-sent_end_time[i],
-				sent_frequency.size() > i ? sent_frequency[i] : 0, 
-				sent_count.size() > i ? sent_count[i] : 0, 
-				sent_snr.size() > i ? sent_snr[i] : 0, 
-				sent_angle[i] *4096/180,
-				sent_angle.size() > i ? sent_angle[i] : 0,
-                received_results.size() > i ? received_results[i] : 0,
-				180*received_results[i]/4096
-				);
-    end
-    $fclose(results_file);
+	if(`DO_FILE_WRITE)begin
+		results_file = $fopen(results_filename, "w");
+		if (!results_file) $fatal(1, "Cannot open %s", results_filename);
+		$fwrite(results_file, "Send_Start_time,Send_End_time,Elapsed_Send_time,Receive_time,Latency,Frequency,Count,SNR,Fixed Point Real Angle, Normalized Real Angle, Fixed Point Estimated Angle, Normalized Estimated Angle\n");
+		
+		foreach (sent_frequency[i]) begin
+			$fwrite(results_file, "%0d,%0d,%0d,%0d,%0d,%f,%0d,%f,%f,%f,%0d,%f\n",
+					sent_start_time.size() > i ? sent_start_time[i] : 0, 
+					sent_end_time.size() > i ? sent_end_time[i] : 0,
+					sent_end_time[i]-sent_start_time[i],
+					received_time.size() > i ? received_time[i] : 0, 
+					received_time[i]-sent_end_time[i],
+					sent_frequency.size() > i ? sent_frequency[i] : 0, 
+					sent_count.size() > i ? sent_count[i] : 0, 
+					sent_snr.size() > i ? sent_snr[i] : 0, 
+					sent_angle[i] *4096/180,
+					sent_angle.size() > i ? sent_angle[i] : 0,
+					received_results.size() > i ? received_results[i] : 0,
+					180*received_results[i]/4096
+					);
+		end
+		$fclose(results_file);
+	end
 endtask
 
 
@@ -552,6 +586,8 @@ task automatic SendFile(
     $display("Finished Send File");
 endtask
 
+
+
 always@(posedge clk)begin
 	if(reset_n && m_axis_tvalid)begin
 		received_results.push_back(m_axis_tdata);
@@ -567,26 +603,57 @@ initial begin
 	harray.set_amplitude(0.5);
 	harray.set_phase(0);
 	
-	//SendBatch(25000,0,256,50);
-	
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_0_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_37_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_38_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_39_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_40_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_179_signal.csv");
-	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_180_signal.csv");
+	min_frequency = 0; // first positive bin
+	max_frequency = 128; // last positive bin
+	threshold = 10000; // arbitrary number
+	beam_freq = 3; // 40k
+	#10; // wait for config to write
+
+	//SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_295_40000.000_360.000_256_2.000_signal.csv");
+	//#10 beam_freq = 0;
+	//#50;
+	//SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_0_25000.000_0.000_256_0.500_signal.csv");
 	/*
+	
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_222_40000.000_0.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_224_40000.000_10.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_226_40000.000_20.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_228_40000.000_30.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_230_40000.000_40.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_232_40000.000_50.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_234_40000.000_60.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_236_40000.000_70.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_238_40000.000_80.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_240_40000.000_90.000_256_0.500_signal.csv");
+
+	SendFile("C:\\Users\\Aweso\\Verilog\\Aquapack\\sw9-jan\\sim\\dsp_tb\\sim_242_40000.000_100.000_256_0.500_signal.csv");
+
 	SendSweep(
-		25000,40000,1,
-		0,360,361,
-		2,2,1,
+		25000,40000,4,
+		0,360,37,
+		0.5,2,2,
 		256
-		);*/
-		
+		);
+	*/	
+	
+	SendSweep(
+		40000,40000,1,
+		0,360,73,
+		1,1,1,
+		256
+		);
 	
 	WaitForResults();
-	//SaveResults();
+	SaveResults();
 		
 	$finish();
 	
