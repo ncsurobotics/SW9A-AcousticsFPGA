@@ -7,10 +7,10 @@
     "gen_directory": "../../../../SW9A-AcousticsFPGA.gen/sources_1/ip/axis_combiner_0",
     "parameters": {
       "component_parameters": {
-        "TDATA_NUM_BYTES": [ { "value": "4", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "TDATA_NUM_BYTES": [ { "value": "4", "value_src": "auto", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "TID_WIDTH": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "TDEST_WIDTH": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "TUSER_WIDTH": [ { "value": "17", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "TUSER_WIDTH": [ { "value": "17", "value_src": "auto", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "NUM_SI": [ { "value": "2", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HAS_TSTRB": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HAS_TKEEP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -32,7 +32,7 @@
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "artix7" } ],
-        "BASE_BOARD_PART": [ { "value": "" } ],
+        "BASE_BOARD_PART": [ { "value": "digilentinc.com:cmod_a7-35t:part0:1.2" } ],
         "BOARD_CONNECTIONS": [ { "value": "" } ],
         "DEVICE": [ { "value": "xc7a35t" } ],
         "PACKAGE": [ { "value": "cpg236" } ],
