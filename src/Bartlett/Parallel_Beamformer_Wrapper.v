@@ -75,7 +75,7 @@ module Parallel_Beamformer_Wrapper #(
 	
 
 	
-	axis_data_fifo_0 fifo(
+	axis_data_fifo_192 fifo(
 	  .s_axis_aresetn(reset_n),
       .s_axis_aclk(clk),
       .s_axis_tvalid(data_valid),

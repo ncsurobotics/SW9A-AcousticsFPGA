@@ -523,6 +523,7 @@ module complex_accumulator #(
 	reg[NUM_SIZE-1:0] op_a, op_b;
 	reg [1:0] state;
 	reg m_axis_tvalid_buf;
+	reg [TUSER_SIZE-1:0] tuser_buf;
 	localparam S_IDLE = 2'b00;
 	localparam S_PROC = 2'b01;
 	localparam S_LAST = 2'b10;
@@ -538,6 +539,7 @@ module complex_accumulator #(
 			m_axis_tvalid_buf <= 0;
 			m_axis_tvalid <= 0;
 			m_axis_tuser <= 0;
+			tuser_buf <= 0;
 		end else begin
 			case(state)
 				S_IDLE:begin
@@ -573,7 +575,8 @@ module complex_accumulator #(
 			endcase
 			m_axis_tvalid_buf <= s_axis_tlast&s_axis_tvalid;
 			m_axis_tvalid <= m_axis_tvalid_buf;
-			m_axis_tuser <= s_axis_tuser;
+			tuser_buf <= s_axis_tuser;
+			m_axis_tuser <= tuser_buf;
 			sum_r <= sum_w;
 			m_axis_tdata <= sum_w;
 			
@@ -594,3 +597,65 @@ module complex_accumulator #(
 	
 	
 endmodule
+
+module magnitude_squared #(
+	parameter NUM_SIZE = 32,
+	parameter TUSER_SIZE = 17
+	)(
+	input clk,
+	input reset_n,
+	
+	input	[NUM_SIZE-1:0]	s_axis_tdata, // accumulates this data {imag,real}
+	input	s_axis_tvalid,
+	input	[TUSER_SIZE-1:0]	s_axis_tuser,
+	
+	output reg[NUM_SIZE-1:0]	m_axis_tdata, 
+	output reg m_axis_tvalid,
+	output reg[TUSER_SIZE-1:0]	m_axis_tuser
+	);
+	
+	
+	
+    localparam COMPONENT_SIZE = NUM_SIZE / 2;
+
+    wire signed [COMPONENT_SIZE-1:0] real_part;
+    wire signed [COMPONENT_SIZE-1:0] imag_part;
+
+    assign imag_part = s_axis_tdata[NUM_SIZE-1:COMPONENT_SIZE];
+    assign real_part = s_axis_tdata[COMPONENT_SIZE-1:0];
+
+    // Full-width signed squares.
+    wire signed [2*COMPONENT_SIZE-1:0] real_squared;
+    wire signed [2*COMPONENT_SIZE-1:0] imag_squared;
+
+    assign real_squared = real_part * real_part;
+    assign imag_squared = imag_part * imag_part;
+
+    // The sum requires one extra bit to avoid overflow.
+    wire [2*COMPONENT_SIZE:0] magnitude_squared_value;
+
+    assign magnitude_squared_value =
+        {1'b0, $unsigned(real_squared)} +
+        {1'b0, $unsigned(imag_squared)};
+
+    always @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            m_axis_tdata  <= {NUM_SIZE{1'b0}};
+            m_axis_tvalid <= 1'b0;
+            m_axis_tuser  <= {TUSER_SIZE{1'b0}};
+        end else begin
+            m_axis_tvalid <= s_axis_tvalid;
+
+            if (s_axis_tvalid) begin
+                m_axis_tdata <= magnitude_squared_value[NUM_SIZE:1];
+                m_axis_tuser <= s_axis_tuser;
+            end
+        end
+    end
+	
+	
+	
+	
+	
+endmodule
+	

@@ -256,7 +256,12 @@ module complex_dot_product #(
 	output reg[TUSER_SIZE - 1 : 0] m_axis_tuser
 	);
 	
+	wire[NUM_SIZE/2 -1 :0] a_real, a_imag, b_real, b_imag;
 	
+	assign a_real = s_axis_tdata[0+:NUM_SIZE/2];
+	assign a_imag = s_axis_tdata[1 * NUM_SIZE/2+:NUM_SIZE/2];
+	assign b_real = s_axis_tdata[2 * NUM_SIZE/2+:NUM_SIZE/2];
+	assign b_imag = s_axis_tdata[3 * NUM_SIZE/2+:NUM_SIZE/2];
 	
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 cmpy_dot_product your_instance_name (
@@ -314,13 +319,14 @@ comp_accumulator_inst (
 			m_axis_tuser<=0;
 		end else begin
 			m_axis_tvalid<=m_axis_accum_tvalid;
-			m_axis_tuser<=m_axis_accum_tuser;
 			if(m_axis_accum_tvalid)begin
+				m_axis_tuser<=m_axis_accum_tuser;
 				m_axis_tdata<=m_axis_accum_tdata;
 			end
 		end
 	end
 	
+		
 
 	
 endmodule

@@ -19,10 +19,10 @@ angle_error_deg = 1;
 % plot options
 plot_array_signals = true;
 plot_weight_polar = true;
-plot_weight_stem = false;
+plot_weight_stem = true;
 plot_directivity = false;
 plot_fft = false;
-plot_rxx = true;
+plot_rxx = false;
 plot_robot = true;
 framecount = 10e5; 
 framespeed = 0.1; % seconds per frame
@@ -548,6 +548,10 @@ for frame=0:framecount
         amp = (r0 ./ signal_distance) .* (1 - alpha .* (signal_distance - r0)); 
         amp(signal_distance<=r0) = 1;             % clamp near reference
         amp(:) = 1; %override to remove attenuation
+        amp(2) = 0;
+        amp(3) = 0;
+        amp(4) = 0;
+       
         
         % generate hydrophone signals (fractional delays by time-shift in argument)
         for h = 1:H
