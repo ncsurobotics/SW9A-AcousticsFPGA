@@ -7,7 +7,8 @@ module angle_track #(
 	parameter angle_max = 180,
 	parameter window = 5,
 	parameter step_local = 1,
-	parameter step_global = 10
+	parameter step_global = 10,
+	parameter bram_lat = 2 // THERE IS A 2 CYCLE LATENCY WITH THE BRAM
 )(
 	input wire clk,
 	input wire rst_n,
@@ -23,13 +24,29 @@ module angle_track #(
 	output reg m_axis_tlast
 );
 
+	localparam ST_IDLE = 2'd0; // waiting for a trigger
+	localparam ST_WAIT = 2'd1; // address is out, waiting on the bram
+	localparam ST_SEND = 2'd2; // holding a beat until the sink takes it
+
+	reg [1:0] state;
+	reg [2:0] wait_cnt; // cycles left before douta is good
+	reg [31:0] cur_ang; // angle we are looking up right now in deg
 	reg [31:0] end_ang; // last angle of the sweep
 	reg [31:0] step_sz; // how far to jump each beat
-	reg in_sweep; // sweep is running, don't take a new trigger
+
+	// 16 width by 360 depth
+	reg [8:0] bram_addr;
+	wire [15:0] bram_dout;
+
+	blk_mem_gen_0 bram_inst (
+		.clka(clk),
+		.ena(1'b1),
+		.addra(bram_addr),
+		.douta(bram_dout)
+	);
 
 	// next angle and is it the last one
-	wire [31:0] next_ang = m_axis_tdata + step_sz;
-	wire next_last = (next_ang + step_sz > end_ang);
+	wire [31:0] next_ang = cur_ang + step_sz;
 
 	// clamp the window around prev_angle so it stays in range
 	wire [31:0] lo_raw = (s_axis_tdata > window) ? s_axis_tdata - window : 0;
@@ -37,8 +54,14 @@ module angle_track #(
 	wire [31:0] win_lo = (lo_raw < angle_min) ? angle_min : lo_raw;
 	wire [31:0] win_hi = (hi_raw > angle_max) ? angle_max : hi_raw;
 
+	// small window around the last angle, otherwise sweep everything
+	wire confident = (s_axis_tuser >= threshold);
+	wire [31:0] start_ang = confident ? win_lo : angle_min;
+	wire [31:0] stop_ang = confident ? win_hi : angle_max;
+	wire [31:0] stp_ang = confident ? step_local : step_global;
+
 	// only take a new trigger when no sweep is running
-	assign s_axis_tready = !in_sweep;
+	assign s_axis_tready = (state == ST_IDLE);
 	wire got_trig = s_axis_tvalid && s_axis_tready;
 
 	always @(posedge clk or negedge rst_n) begin
@@ -46,40 +69,59 @@ module angle_track #(
 			m_axis_tdata <= 0;
 			m_axis_tvalid <= 0;
 			m_axis_tlast <= 0;
+			cur_ang <= 0;
 			end_ang <= 0;
 			step_sz <= 0;
-			in_sweep <= 0;
+			bram_addr <= 0;
+			wait_cnt <= 0;
+			state <= ST_IDLE;
 		end else begin
-			// new trigger, pick local window or global sweep based on confidence
-			if (got_trig) begin
-				if (s_axis_tuser >= threshold) begin
-					// confident, search a small window around the last angle
-					m_axis_tdata <= win_lo[THETA_WIDTH-1:0];
-					end_ang <= win_hi;
-					step_sz <= step_local;
-					m_axis_tlast <= ((win_lo + step_local) > win_hi);
-				end else begin
-					// not confident, sweep the whole range
-					m_axis_tdata <= angle_min;
-					end_ang <= angle_max;
-					step_sz <= step_global;
-					m_axis_tlast <= ((angle_min + step_global) > angle_max);
-				end
-				m_axis_tvalid <= 1;
-				in_sweep <= 1;
+			case (state)
 
-			// move to the next angle or finish the sweep
-			end else if (m_axis_tvalid && m_axis_tready) begin
-				if (m_axis_tlast) begin
-					// that was the last angle, drop valid and free up for the next trigger
-					m_axis_tvalid <= 0;
-					m_axis_tlast <= 0;
-					in_sweep <= 0;
-				end else begin
-					m_axis_tdata <= next_ang[THETA_WIDTH-1:0];
-					m_axis_tlast <= next_last;
+			// start read
+			ST_IDLE: begin
+				m_axis_tvalid <= 0;
+				m_axis_tlast <= 0;
+				if (got_trig) begin
+					cur_ang <= start_ang;
+					end_ang <= stop_ang;
+					step_sz <= stp_ang;
+					bram_addr <= start_ang[8:0];
+					wait_cnt <= bram_lat;
+					state <= ST_WAIT;
 				end
 			end
+
+			// wait for latency and pick up the douta
+			ST_WAIT: begin
+				if (wait_cnt != 0) begin
+					wait_cnt <= wait_cnt - 1;
+				end else begin
+					m_axis_tdata <= bram_dout;
+					m_axis_tlast <= (next_ang > end_ang);
+					m_axis_tvalid <= 1;
+					state <= ST_SEND;
+				end
+			end
+
+			// wait for sink to take
+			ST_SEND: begin
+				if (m_axis_tready) begin
+					m_axis_tvalid <= 0;
+					if (m_axis_tlast) begin
+						// get ready for next
+						m_axis_tlast <= 0;
+						state <= ST_IDLE;
+					end else begin
+						cur_ang <= next_ang;
+						bram_addr <= next_ang[8:0];
+						wait_cnt <= bram_lat;
+						state <= ST_WAIT;
+					end
+				end
+			end
+			default: state <= ST_IDLE;
+			endcase
 		end
 	end
 endmodule

@@ -15,7 +15,7 @@ module angle_track_tb;
 	integer err_cnt; // total errors seen so far
 	integer exp_cnt; // how many angles this sweep should send
 	integer got_cnt; // how many angles we actually got
-	integer exp_val [0:255]; // expected angle for each beat
+	integer exp_val [0:255]; // expected theta for each beat
 	integer wait_cyc; // cycles spent waiting for a sweep to finish
 	reg hold_pend; // last cycle was valid but not accepted
 	reg [THETA_WIDTH-1:0] hold_data; // data we saw on that stalled beat
@@ -84,11 +84,12 @@ module angle_track_tb;
 			s_axis_tdata = prev;
 			s_axis_tuser = conf;
 
-			// build the list of angles we expect
+			// build the list of angles we expect, as the theta the bram holds
+			// 65536 = 4096 * 16 (q12.4), +180 so it rounds the same way the coe does
 			exp_cnt = 0;
 			got_cnt = 0;
 			for (ang = lo; ang <= hi; ang = ang + stp) begin
-				exp_val[exp_cnt] = ang;
+				exp_val[exp_cnt] = (ang * 65536 + 180) / 360;
 				exp_cnt = exp_cnt + 1;
 			end
 
