@@ -5,7 +5,6 @@
 *.gen/
 *.runs/
 *.ip_user_files/
-*.srcs/sources_1/bd/
 *.srcs/constrs_1/tmp/
 .Xil
 
@@ -16,5 +15,20 @@
 *.tmp
 *.rpt
 *.bin
-*.xml
 *.html
+
+# Some of the unnecessary part of block design...?
+*/*/bd/*/*.xdc
+*/*/*/bd/*/*.xdc
+
+*/*/bd/*/ip/*/*.xdc
+*/*/*/bd/*/ip/*/*.xdc
+
+*/*/bd/*/ip/*/*/
+*/*/*/bd/*/ip/*/*/
+
+*/*/bd/*/ip/*/*.vhd
+*/*/*/bd/*/ip/*/*.vhd
+
+*/*/bd/*/ip/*/*.xml
+*/*/*/bd/*/ip/*/*.xml
