@@ -69,7 +69,7 @@ module cmod_a7_board(
 	input uart_txd_in,
 	output uart_rxd_out
 	
-	//Crypto 1 Wire interface - NOT USED
+	// Crypto 1 Wire interface - NOT USED
 	//input crypto_sda, 
 
 	// Cellular RAM - 512kb of off chip on board SRAM - NOT USED
@@ -105,6 +105,10 @@ module cmod_a7_board(
 	wire [2:0] debug;		// Debug pins on acoustics board
 	wire acoustics_led;		// LED on acoustics board, active high
 
+	localparam S_MCU_UART = 1'b0, S_USB_UART = 1'b1;
+	reg uart_state = S_MCU_UART;
+	wire uart_btn_pulse;
+
 	
 	assign reset_n = ~btn[0];
 	
@@ -129,14 +133,14 @@ module cmod_a7_board(
 	assign pio26 = acoustics_led;
 	assign debug[2:0] = {pio27, pio28, pio29};
 
-	assign uart_rxd_out = 1'b0;
+	// assign uart_rxd_out = 1'b0;
 
 
-	assign led[0] = ~reset_n & sysclk;	// Glows at half-brightness during reset
-	assign led[1] = 1'b0;	// Turned off
-	assign led0_b = 1'b1;	// Turned off
-	assign led0_g = 1'b1;	// Turned off
-	assign led0_r = 1'b1;	// Turned off
+	assign led[0] = ~reset_n & sysclk;				// Glows at half-brightness during reset
+	assign led[1] = 1'b0;							// Turned off
+	assign led0_b = ~(uart_status_led & sysclk);	// State of UART MUX, OFF=MCU and On=USB 
+	assign led0_g = 1'b1;							// Turned off
+	assign led0_r = 1'b1;							// Turned off
 	assign acoustics_led = 1'b0;
 
 
@@ -156,8 +160,12 @@ module cmod_a7_board(
         .AD15_v_n(AD15N),
         .AD15_v_p(AD15P),
 		.PGA_G(PGA_G),
-		.uart_tx(mcu_uart_tx),
-		.uart_rx(mcu_uart_rx)
+		.mcu_uart_tx(mcu_uart_tx),
+		.mcu_uart_rx(mcu_uart_rx),
+		.usb_uart_tx(uart_rxd_out),
+		.usb_uart_rx(uart_txd_in),
+		.uart_status_led(uart_status_led),
+		.button(btn[1])
 	);
 
 

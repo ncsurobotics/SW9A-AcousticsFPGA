@@ -182,8 +182,12 @@ module bartlett_datapath #(
 	input s_axis_config_tvalid,
 	output s_axis_config_tready,
 
-	output[THETA_WIDTH-1:0] m_axis_tdata,
-	output m_axis_tvalid, m_axis_tlast
+	// output[THETA_WIDTH-1:0] m_axis_tdata,
+	// output m_axis_tvalid, m_axis_tlast
+	output	[NUM_SIZE-1:0] 	m_axis_tdata,
+	output  				m_axis_tvalid,
+	input					m_axis_tready,
+	output	[THETA_WIDTH:0]	m_axis_tuser
 
     );
 	
@@ -479,23 +483,23 @@ axis_combiner #(
 */
 
 
-	max #(
-		.NUM_SIZE(NUM_SIZE),
-		.TUSER_SIZE(THETA_WIDTH)
-		) 
-	max_inst (
-		.clk(clk),
-		.reset_n(reset_n),
+	// max #(
+	// 	.NUM_SIZE(NUM_SIZE),
+	// 	.TUSER_SIZE(THETA_WIDTH)
+	// 	) 
+	// max_inst (
+	// 	.clk(clk),
+	// 	.reset_n(reset_n),
 		
-        .s_axis_tdata(m_axis_cdp_tdata[NUM_SIZE-1:0]), // only use the real part, algorithm leads to 0 imaginary
-        .s_axis_tvalid(m_axis_cdp_tvalid),
-        .s_axis_tlast(m_axis_cdp_tuser[THETA_WIDTH]),
-        .s_axis_tuser(m_axis_cdp_tuser[THETA_WIDTH-1:0]),
+    //     .s_axis_tdata(m_axis_cdp_tdata[NUM_SIZE-1:0]), // only use the real part, algorithm leads to 0 imaginary
+    //     .s_axis_tvalid(m_axis_cdp_tvalid),
+    //     .s_axis_tlast(m_axis_cdp_tuser[THETA_WIDTH]),
+    //     .s_axis_tuser(m_axis_cdp_tuser[THETA_WIDTH-1:0]),
 		
-        .m_axis_max_tdata(m_axis_tdata),
-        .m_axis_max_tvalid(m_axis_tvalid),
-        .m_axis_max_tlast(m_axis_tlast)
-		);
+    //     .m_axis_max_tdata(m_axis_tdata),
+    //     .m_axis_max_tvalid(m_axis_tvalid),
+    //     .m_axis_max_tlast(m_axis_tlast)
+	// 	);
 		
 	
 	
