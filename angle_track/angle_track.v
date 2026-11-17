@@ -34,7 +34,7 @@ module angle_track #(
 	reg [31:0] end_ang; // last angle of the sweep
 	reg [31:0] step_sz; // how far to jump each beat
 
-	// 16 width by 360 depth
+	// 16 width by 360 depth, the bram turns the degree into q4.12 radians
 	reg [8:0] bram_addr;
 	wire [15:0] bram_dout;
 

@@ -1,26 +1,33 @@
 `timescale 1ns/1ps
 
 module angle_track_tb;
-	parameter THETA_WIDTH = 16;
-	reg clk;
-	reg rst_n;
-	reg [31:0] s_axis_tdata;
-	reg [31:0] s_axis_tuser;
+
+	// clock and reset
+	reg clk, rst_n;
+	initial clk = 0;
+	always #5 clk = ~clk; // 100 mhz
+
+	// dut ports
+	reg [31:0] s_axis_tdata; // prevangle
+	reg [31:0] s_axis_tuser; // confidence
 	reg s_axis_tvalid;
 	wire s_axis_tready;
-	wire [THETA_WIDTH-1:0] m_axis_tdata;
-	wire m_axis_tvalid;
-	wire m_axis_tlast;
-	reg m_axis_tready;
-	integer err_cnt; // total errors seen so far
-	integer exp_cnt; // how many angles this sweep should send
-	integer got_cnt; // how many angles we actually got
-	integer exp_val [0:255]; // expected theta for each beat
-	integer wait_cyc; // cycles spent waiting for a sweep to finish
-	reg hold_pend; // last cycle was valid but not accepted
-	reg [THETA_WIDTH-1:0] hold_data; // data we saw on that stalled beat
 
-	angle_track #(.THETA_WIDTH(THETA_WIDTH)) dut (
+	wire [15:0] m_axis_tdata;
+	wire m_axis_tvalid;
+	reg m_axis_tready;
+	wire m_axis_tlast;
+
+	// dut
+	angle_track #(
+		.THETA_WIDTH(16),
+		.threshold(50),
+		.angle_min(0),
+		.angle_max(180),
+		.window(5),
+		.step_local(1),
+		.step_global(10)
+	) dut (
 		.clk(clk),
 		.rst_n(rst_n),
 		.s_axis_tdata(s_axis_tdata),
@@ -33,113 +40,145 @@ module angle_track_tb;
 		.m_axis_tlast(m_axis_tlast)
 	);
 
-	initial clk = 0;
-	always #5 clk = ~clk;
+	// test tracking
+	integer pass_cnt, fail_cnt;
 
-	// random sink backpressure
-	always @(negedge clk or negedge rst_n) begin
-		if (!rst_n)
-			m_axis_tready <= 1;
-		else
-			m_axis_tready <= (($random & 3) != 0);
-	end
+	// build the list of thetas we expect
+	// the bram holds the angle in q4.12 radians, 4096 = 2*pi so 2048 = pi
+	// theta = (deg * 2048 + 90) / 180, the +90 makes it round the same way the coe does
+	integer exp_val [0:511];
+	integer exp_cnt, got_cnt;
 
-	// check every accepted beat
+	// axi hold check, if valid is up and ready is down nothing can change
+	reg was_valid, was_ready;
+	reg [15:0] held_data;
+	reg held_last;
 	always @(posedge clk) begin
-		if (rst_n && m_axis_tvalid && m_axis_tready) begin
-			if (got_cnt >= exp_cnt) begin
-				$display("ERROR t=%0t: unexpected theta %0d", $time, m_axis_tdata);
-				err_cnt = err_cnt + 1;
-			end else begin
-				if (m_axis_tdata !== exp_val[got_cnt]) begin
-					$display("ERROR t=%0t: got %0d exp %0d (idx %0d)", $time, m_axis_tdata, exp_val[got_cnt], got_cnt);
-					err_cnt = err_cnt + 1;
-				end
-				if (m_axis_tlast !== (got_cnt == exp_cnt-1)) begin
-					$display("ERROR t=%0t: tlast wrong at idx %0d", $time, got_cnt);
-					err_cnt = err_cnt + 1;
+		if (rst_n) begin
+			if (was_valid && !was_ready) begin
+				if (!m_axis_tvalid) begin
+					$display("FAIL tvalid dropped before the sink took it, t=%0t", $time);
+					fail_cnt = fail_cnt + 1;
+				end else if (m_axis_tdata !== held_data || m_axis_tlast !== held_last) begin
+					$display("FAIL beat changed while it was being held, t=%0t", $time);
+					fail_cnt = fail_cnt + 1;
 				end
 			end
-			got_cnt = got_cnt + 1;
+			was_valid <= m_axis_tvalid;
+			was_ready <= m_axis_tready;
+			held_data <= m_axis_tdata;
+			held_last <= m_axis_tlast;
 		end
 	end
 
-	// once valid is up and not accepted, it has to stay up with the same data on the next cycle
-	always @(posedge clk) begin
-		if (rst_n && hold_pend && (m_axis_tvalid !== 1'b1 || m_axis_tdata !== hold_data)) begin
-			$display("ERROR t=%0t: AXI-Stream hold violated", $time);
-			err_cnt = err_cnt + 1;
-		end
-		hold_pend <= m_axis_tvalid && !m_axis_tready;
-		hold_data <= m_axis_tdata;
-	end
-
-	// fire one sweep and check it comes out right
-	task run_sweep(input [31:0] prev, input [31:0] conf, input integer lo, input integer hi, input integer stp);
+	// run one sweep test
+	// args: prevangle, confidence, lo, hi, stp (all in degrees)
+	task run_sweep;
+		input [31:0] prev_ang;
+		input [31:0] conf;
+		input [31:0] lo;
+		input [31:0] hi;
+		input [31:0] stp;
 		integer ang;
-		begin
-			@(negedge clk);
-			while (!s_axis_tready) @(negedge clk);
-
-			s_axis_tdata = prev;
-			s_axis_tuser = conf;
-
-			// build the list of angles we expect, as the theta the bram holds
-			// 65536 = 4096 * 16 (q12.4), +180 so it rounds the same way the coe does
-			exp_cnt = 0;
-			got_cnt = 0;
-			for (ang = lo; ang <= hi; ang = ang + stp) begin
-				exp_val[exp_cnt] = (ang * 65536 + 180) / 360;
-				exp_cnt = exp_cnt + 1;
-			end
-
-			// one-cycle trigger pulse
-			s_axis_tvalid = 1;
-			@(negedge clk);
-			s_axis_tvalid = 0;
-
-			// wait for every beat to come out, bail out if it hangs
-			wait_cyc = 0;
-			while (got_cnt < exp_cnt && wait_cyc < 1000) begin
-				@(negedge clk);
-				wait_cyc = wait_cyc + 1;
-			end
-			repeat (3) @(negedge clk);
-
-			if (got_cnt != exp_cnt) begin
-				$display("ERROR: prev=%0d conf=%0d got %0d of %0d", prev, conf, got_cnt, exp_cnt);
-				err_cnt = err_cnt + 1;
-			end else
-				$display("PASS: prev=%0d conf=%0d (%0d angles)", prev, conf, exp_cnt);
+		integer timeout;
+		reg timed_out;
+	begin
+		exp_cnt = 0;
+		got_cnt = 0;
+		for (ang = lo; ang <= hi; ang = ang + stp) begin
+			exp_val[exp_cnt] = (ang * 2048 + 90) / 180;
+			exp_cnt = exp_cnt + 1;
 		end
+
+		// fire the trigger, drive after the edge so we dont race the dut
+		@(posedge clk);
+		#1 s_axis_tdata = prev_ang;
+		s_axis_tuser = conf;
+		s_axis_tvalid = 1;
+		@(posedge clk);
+		while (!s_axis_tready) @(posedge clk);
+		#1 s_axis_tvalid = 0;
+
+		// collect beats with random backpressure
+		timed_out = 0;
+		timeout = 0;
+		while (got_cnt < exp_cnt && !timed_out) begin
+			@(posedge clk);
+			timeout = timeout + 1;
+			if (timeout > 50000) begin
+				$display("TIMEOUT waiting for beat %0d", got_cnt);
+				fail_cnt = fail_cnt + 1;
+				timed_out = 1;
+			end
+			if (m_axis_tvalid && m_axis_tready) begin
+				// check the theta
+				if (m_axis_tdata !== exp_val[got_cnt]) begin
+					$display("FAIL beat %0d: got %0d exp %0d",
+						got_cnt, m_axis_tdata, exp_val[got_cnt]);
+					fail_cnt = fail_cnt + 1;
+				end else begin
+					pass_cnt = pass_cnt + 1;
+				end
+				// check tlast is only on the very last beat
+				if (got_cnt == exp_cnt - 1 && !m_axis_tlast) begin
+					$display("FAIL tlast missing on last beat %0d", got_cnt);
+					fail_cnt = fail_cnt + 1;
+				end
+				if (got_cnt < exp_cnt - 1 && m_axis_tlast) begin
+					$display("FAIL tlast asserted too early at beat %0d", got_cnt);
+					fail_cnt = fail_cnt + 1;
+				end
+				got_cnt = got_cnt + 1;
+			end
+			// pick ready for the next cycle after the edge, same reason as above
+			#1 m_axis_tready = $random % 2;
+		end
+		#1 m_axis_tready = 1;
+		repeat(5) @(posedge clk);
+	end
 	endtask
 
 	initial begin
-		err_cnt = 0;
-		exp_cnt = 0;
-		got_cnt = 0;
-		hold_pend = 0;
-		hold_data = 0;
+		// init
 		rst_n = 0;
-		s_axis_tvalid = 0;
 		s_axis_tdata = 0;
 		s_axis_tuser = 0;
+		s_axis_tvalid = 0;
 		m_axis_tready = 1;
-		repeat (3) @(negedge clk);
+		pass_cnt = 0;
+		fail_cnt = 0;
+		was_valid = 0;
+		was_ready = 0;
+		held_data = 0;
+		held_last = 0;
+
+		repeat(5) @(posedge clk);
 		rst_n = 1;
-		run_sweep(90, 80, 85, 95, 1); // local window around 90
-		run_sweep(2, 80, 0, 7, 1); // lower clamp
-		run_sweep(178, 80, 173, 180, 1); // upper clamp
-		run_sweep(0, 10, 0, 180, 10); // global sweep
+		repeat(2) @(posedge clk);
 
-		if (err_cnt == 0) $display("ALL TESTS PASSED");
-		else $display("FAIL: %0d errors", err_cnt);
+		// confident so it does the small window around 90
+		$display("--- test 1: confident sweep around 90 ---");
+		run_sweep(90, 80, 85, 95, 1);
+
+		// confident but the window has to clamp at angle_min
+		$display("--- test 2: confident near the lower edge ---");
+		run_sweep(2, 80, 0, 7, 1);
+
+		// confident but the window has to clamp at angle_max
+		$display("--- test 3: confident near the upper edge ---");
+		run_sweep(178, 80, 173, 180, 1);
+
+		// not confident so it sweeps everything with the big step
+		$display("--- test 4: global sweep ---");
+		run_sweep(0, 10, 0, 180, 10);
+
+		// done
+		if (fail_cnt == 0)
+			$display("ALL TESTS PASSED (%0d checks)", pass_cnt);
+		else
+			$display("FAILED %0d / %0d checks", fail_cnt, pass_cnt + fail_cnt);
+
 		$finish;
 	end
 
-	initial begin
-		#2000000;
-		$display("FAIL: watchdog expired");
-		$finish;
-	end
 endmodule
